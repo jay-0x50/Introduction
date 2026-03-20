@@ -4,113 +4,430 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>박재영 — Game Developer</title>
+    <title>박재영 — Game Developer Portfolio</title>
     <link rel="stylesheet" href="portfolio.css">
+    <script defer src="portfolio-animation.js"></script>
 </head>
 
 <body>
 
-    <!-- HEADER -->
-    <header>
-        <div class="header-label">Game Play Developer / 박재영</div>
-        <h1>JAY<br><span>PARK</span></h1>
-        <p class="header-desc">
-            코드로 세계를 설계합니다.<br>
-            게임 로직·물리·렌더링까지 직접 구현하는 게임 플레이 개발자입니다.
-        </p>
-        <div class="header-meta">
-            <div class="meta-item">
-                <strong>School</strong>
-                미림마이스터고 뉴미디어소프트웨어과
-            </div>
-            <div class="meta-item">
-                <strong>Contact</strong>
-                s2444@e-mirim.hs.kr
-            </div>
-            <div class="meta-item">
-                <strong>GitHub</strong>
-                github.com/jay-p08
-            </div>
-        </div>
-    </header>
+    <div class="pages">
 
-    <!-- PROJECTS -->
-    <section id="projects">
-        <div class="section-header">
-            <h2 class="section-title">Projects</h2>
-            <span class="section-count">08 works</span>
+        <!-- ═══════════════════════════════════════════════════════════════
+             PAGE 1: TITLE
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="page page-title">
+            <div class="page-label">/ PROFILE</div>
+            <div class="page-name">JAY<br><span>PARK</span></div>
+            <p class="page-desc">
+                코드로 세계를 설계합니다.<br>
+                게임 로직·물리·렌더링까지 직접 구현하는<br>
+                게임 플레이 개발자입니다.
+            </p>
+            <div class="page-meta">
+                <div class="meta-item">
+                    <strong>Role</strong>
+                    Game Play Developer
+                </div>
+                <div class="meta-item">
+                    <strong>School</strong>
+                    미림마이스터고 뉴미디어소프트웨어과
+                </div>
+            </div>
+            <div class="page-number">— 01</div>
         </div>
 
-        <div class="project-grid">
+        <!-- ═══════════════════════════════════════════════════════════════
+             PAGE 2: ABOUT ME & SKILLS
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="page page-skills">
+            <div class="page-label">/ ABOUT ME</div>
+            
+            <!-- LEFT SECTION: PROFILE -->
+            <div class="skills-container">
+                <div class="profile-section">
+                    <div class="profile-avatar"></div>
+                    <h3 class="profile-name">박재영</h3>
+                    <p class="profile-title">Gameplay Programmer</p>
+                    
+                    <div class="profile-info">
+                        <div class="info-item">
+                            <strong>School</strong>
+                            미림마이스터고<br>뉴 미디어 소프트웨어 과
+                        </div>
+                        <div class="info-item">
+                            <strong>Level</strong>
+                            <span class="level-badge">19</span>
+                        </div>
+                    </div>
 
-            <div class="project-card" data-index="01">
-                <div class="card-tech">Python · Pygame</div>
-                <h3>Python<br>리듬 게임</h3>
-                <p>건반을 타이밍에 맞춰 누르는 리듬 게임. 노트 낙하 알고리즘과 키 입력 판정 로직을 직접 설계·구현했습니다.</p>
-                <a href="https://github.com/jay-p08/PyMax" class="card-link" target="_blank">GitHub 보기</a>
+                    <div class="profile-tags">
+                        <span class="tag">#MultiLanguage</span>
+                        <span class="tag">#UnityUnreal</span>
+                    </div>
+
+                </div>
+
+                <!-- RIGHT SECTION: SKILLS -->
+                <div class="skills-section">
+                    <h2 class="skills-heading">Technical Stack</h2>
+
+                    <div class="profile-contact moved-right">
+                        <a href="mailto:s2444@e-mirim.hs.kr">s2444@e-mirim.hs.kr</a>
+                        <a href="https://github.com/jay-p08" target="_blank">GitHub</a>
+                        <a href="tel:010-3484-0767">010-3484-0767</a>
+                        <a href="resume.pdf">이력서</a>
+                    </div>
+                    
+                    <div class="stack-grid">
+                        <div class="stack-block">
+                            <div class="stack-title">Game Engines</div>
+                            <div class="stack-list">Unreal Engine 5 (Blueprint), Unity (C#), Godot</div>
+                        </div>
+
+                        <div class="stack-block">
+                            <div class="stack-title">Core Language</div>
+                            <div class="stack-list">C++, Java, Python, C#, JavaScript</div>
+                        </div>
+
+                        <div class="stack-block">
+                            <div class="stack-title">Graphics & Rendering</div>
+                            <div class="stack-list">DirectX 11/12, OpenGL, HLSL, Shader Programming</div>
+                        </div>
+
+                        <div class="stack-block">
+                            <div class="stack-title">Game Dev Tools</div>
+                            <div class="stack-list">Physics Engine (Bullet, PhysX), AI Pathfinding, Collision Detection</div>
+                        </div>
+
+                        <div class="stack-block">
+                            <div class="stack-title">Specialized Domains</div>
+                            <div class="stack-list">Thread Synchronization, Algorithm Design, Cryptography</div>
+                        </div>
+
+                        <div class="stack-block">
+                            <div class="stack-title">Other Skills</div>
+                            <div class="stack-list">Web Speech API, DOM Manipulation, Git/GitHub, Problem Solving</div>
+                        </div>
+                    </div>
+
+                    <p class="page-hint">다양한 게임 장르와 기술 스택을 경험했습니다.</p>
+                </div>
             </div>
 
-            <div class="project-card" data-index="02">
-                <div class="card-tech">Java · Thread</div>
-                <h3>Java<br>리듬 게임</h3>
-                <p>OOP 원칙을 적용해 재구현. 스레드로 BGM과 노트 애니메이션을 동기화했습니다.</p>
-                <a href="#" class="card-link">GitHub 보기</a>
-            </div>
-
-            <div class="project-card" data-index="03">
-                <div class="card-tech">Python · Cryptography</div>
-                <h3>모의<br>랜섬웨어</h3>
-                <p>파일 암호화 원리 학습 목적으로 제작. 샌드박스 환경에서 테스트 완료.</p>
-                <a href="#" class="card-link">자세히 보기</a>
-            </div>
-
-            <div class="project-card" data-index="04">
-                <div class="card-tech">C++ · DirectX</div>
-                <h3>DirectX<br>렌더링 엔진</h3>
-                <p>렌더링 파이프라인을 학습하며 C++과 DirectX로 구현한 그래픽스 프로젝트.</p>
-                <a href="#" class="card-link">자세히 보기</a>
-            </div>
-
-            <div class="project-card" data-index="05">
-                <div class="card-tech">Java · Collision</div>
-                <h3>버블보블<br>클론</h3>
-                <p>고전 아케이드 게임 재현. 몬스터 AI 패턴과 충돌 처리 로직 구현.</p>
-                <a href="#" class="card-link">자세히 보기</a>
-            </div>
-
-            <div class="project-card" data-index="06">
-                <div class="card-tech">Java · Algorithm</div>
-                <h3>Java<br>테트리스</h3>
-                <p>2차원 배열과 테트로미노 블록 회전 알고리즘으로 구현한 클래식 테트리스. 줄 삭제 및 점수 계산 로직 포함.</p>
-                <a href="#" class="card-link">자세히 보기</a>
-            </div>
-
-            <div class="project-card" data-index="07">
-                <div class="card-tech">JavaScript · Web Speech API</div>
-                <h3>드큥도큥즈큥바큥<br>러블리 마법소녀</h3>
-                <p>마이크로 '마법 주문' 음성을 입력받아 스킬을 사용하는 웹 기반 인터랙티브 게임. 음성 인식 + DOM 조작.</p>
-                <a href="#" class="card-link">플레이 영상 보기</a>
-            </div>
-
-            <div class="project-card" data-index="08">
-                <div class="card-tech">Unreal Engine · Blueprint</div>
-                <h3>Unreal FPS 프로토타입</h3>
-                <p>언리얼 엔진으로 제작한 1인칭 슈팅 게임 연습용 프로젝트. 캐릭터 이동·시점 변환·무기 발사·피격 시스템 구현.</p>
-                <a href="#" class="card-link">자세히 보기</a>
-            </div>
-
+            <div class="page-number">— 02</div>
         </div>
-    </section>
 
-    <!-- FOOTER -->
-    <footer>
-        <div class="footer-name">박재영 / Jay Park</div>
-        <div class="footer-contact">
-            <a href="mailto:s2444@e-mirim.hs.kr">s2444@e-mirim.hs.kr</a>
-            <a href="https://github.com/jay-p08" target="_blank">GitHub</a>
-            <span>010-3484-0767</span>
+        <!-- ═══════════════════════════════════════════════════════════════
+             PAGE 3-4: PROJECT 01 - Python 리듬 게임
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="page page-project">
+            <div class="page-label">/ PROJECT 01</div>
+            <h2 class="page-heading">Python Rhythm Game</h2>
+            <div class="project-page-info">
+                <div class="project-meta-compact">
+                    <div><strong>기술:</strong> Python, Pygame</div>
+                    <div><strong>개발:</strong> 개인 프로젝트</div>
+                    <div><strong>규모:</strong> 약 2,000줄</div>
+                </div>
+                <div class="project-overview">
+                    <h3>프로젝트 개요</h3>
+                    <p>건반을 올바른 타이밍에 누르는 리듬 게임입니다. 노트 낙하 알고리즘, 판정 시스템, 점수 계산 로직을 직접 설계·구현했습니다.</p>
+                </div>
+            </div>
+            <a href="https://github.com/jay-p08/PyMax" class="card-link" target="_blank">GitHub Repository →</a>
+            <div class="page-number">— 03</div>
         </div>
-    </footer>
+
+        <div class="page page-project-detail">
+            <div class="page-label">/ PROJECT 01 · DETAIL</div>
+            <h2 class="page-heading">구현 내용</h2>
+
+            <div class="detail-section">
+                <h4>핵심 시스템</h4>
+                <ul class="detail-list">
+                    <li><strong>노트 낙하 시스템:</strong> 일정한 속도로 화면 상단에서 하단으로 원형 판정 영역까지 낙하하는 애니메이션</li>
+                    <li><strong>판정 로직:</strong> 4단계 판정 (Perfect/Good/Bad/Miss) - 노트 도착 시각과 키 입력 시각의 오차 범위로 계산</li>
+                    <li><strong>점수 계산:</strong> 판정 레벨별로 다른 가중치 적용, 콤보 시스템</li>
+                    <li><strong>키 입력 처리:</strong> 이벤트 큐 방식으로 빠른 입력 감지, 데드존 관리</li>
+                </ul>
+            </div>
+
+            <div class="detail-section">
+                <h4>기술적 학습</h4>
+                <ul class="detail-list">
+                    <li>게임 루프와 델타 타이밍 (deltaTime을 이용한 프레임 독립적 이동)</li>
+                    <li>상태 머신 패턴 (메뉴 → 게임 중 → 리절트)</li>
+                    <li>사운드 동기화 (BGM 재생 시간과 노트 타이밍 맞추기)</li>
+                </ul>
+            </div>
+
+            <div class="page-number">— 04</div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             PAGE 5-6: PROJECT 02 - Java 리듬 게임
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="page page-project">
+            <div class="page-label">/ PROJECT 02</div>
+            <h2 class="page-heading">Java Rhythm Game (OOP)</h2>
+            <div class="project-page-info">
+                <div class="project-meta-compact">
+                    <div><strong>기술:</strong> Java, Multi-Threading</div>
+                    <div><strong>개발:</strong> 개인 프로젝트</div>
+                    <div><strong>규모:</strong> 약 3,500줄</div>
+                </div>
+                <div class="project-overview">
+                    <h3>프로젝트 개요</h3>
+                    <p>Python 프로젝트를 OOP 원칙을 철저히 적용해 Java로 재구현했습니다. 멀티스레드를 활용해 BGM 재생과 노트 애니메이션을 동기화했습니다.</p>
+                </div>
+            </div>
+            <div class="page-number">— 05</div>
+        </div>
+
+        <div class="page page-project-detail">
+            <div class="page-label">/ PROJECT 02 · DETAIL</div>
+            <h2 class="page-heading">구현 내용</h2>
+
+            <div class="detail-section">
+                <h4>OOP 설계</h4>
+                <ul class="detail-list">
+                    <li><strong>클래스 구조:</strong> Note, GameController, UIManager, SoundManager 등으로 책임 분리</li>
+                    <li><strong>인터페이스:</strong> Renderable, Updateable 인터페이스로 확장성 확보</li>
+                    <li><strong>다형성:</strong> 판정 로직을 추상 클래스로 만들어 다양한 판정 방식 구현 가능</li>
+                </ul>
+            </div>
+
+            <div class="detail-section">
+                <h4>멀티스레드 처리</h4>
+                <ul class="detail-list">
+                    <li><strong>BGM 스레드:</strong> 음악 재생 담당, 동기화된 타이밍 제공</li>
+                    <li><strong>렌더링 스레드:</strong> UI와 노트 애니메이션 업데이트</li>
+                    <li><strong>동기화:</strong> volatile, synchronized를 사용한 스레드 안전성 확보</li>
+                </ul>
+            </div>
+
+            <div class="page-number">— 06</div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             PAGE 7: PROJECT 03 - 모의 랜섬웨어
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="page page-project">
+            <div class="page-label">/ PROJECT 03</div>
+            <h2 class="page-heading">Educational Ransomware</h2>
+            <div class="project-page-info">
+                <div class="project-meta-compact">
+                    <div><strong>기술:</strong> Python, Cryptography (AES)</div>
+                    <div><strong>개발:</strong> 개인 학습 프로젝트</div>
+                    <div><strong>규모:</strong> 약 800줄</div>
+                </div>
+                <div class="project-overview">
+                    <h3>프로젝트 개요</h3>
+                    <p>파일 암호화 원리와 보안의 중요성을 학습하기 위해 제작했습니다. 샌드박스 환경에서만 테스트하며, 실제 악용 없이 교육 목적으로만 사용합니다.</p>
+                </div>
+            </div>
+
+            <div class="detail-section">
+                <h4>핵심 기능</h4>
+                <ul class="detail-list">
+                    <li><strong>AES-256 암호화:</strong> 표준 암호화 알고리즘으로 파일 보호</li>
+                    <li><strong>파일 탐색:</strong> 재귀적으로 디렉토리를 순회하며 특정 확장자 파일 대상</li>
+                    <li><strong>키 관리:</strong> 마스터 키와 파일별 iv(초기화 벡터) 생성 및 저장</li>
+                </ul>
+            </div>
+
+            <div class="page-number">— 07</div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             PAGE 8: PROJECT 04 - DirectX 렌더링 엔진
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="page page-project">
+            <div class="page-label">/ PROJECT 04</div>
+            <h2 class="page-heading">DirectX Rendering Engine</h2>
+            <div class="project-page-info">
+                <div class="project-meta-compact">
+                    <div><strong>기술:</strong> C++, DirectX 11, HLSL</div>
+                    <div><strong>개발:</strong> 개인 프로젝트</div>
+                    <div><strong>규모:</strong> 약 5,000줄</div>
+                </div>
+                <div class="project-overview">
+                    <h3>프로젝트 개요</h3>
+                    <p>렌더링 파이프라인의 기초부터 심화 내용까지 학습하며 구현한 그래픽스 엔진입니다. 셰이더 프로그래밍과 3D 변환을 이해하는 데 도움이 되었습니다.</p>
+                </div>
+            </div>
+
+            <div class="detail-section">
+                <h4>주요 구성 요소</h4>
+                <ul class="detail-list">
+                    <li><strong>렌더링 파이프라인:</strong> 정점 셰이더 → 레스터라이제이션 → 픽셀 셰이더</li>
+                    <li><strong>행렬 변환:</strong> 월드, 뷰, 프로젝션 행렬을 이용한 3D 변환</li>
+                    <li><strong>조명 모델:</strong> Phong, Blinn-Phong 셰이딩 구현</li>
+                    <li><strong>텍스처 매핑:</strong> Diffuse, Normal, Specular 맵 지원</li>
+                </ul>
+            </div>
+
+            <div class="page-number">— 08</div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             PAGE 9: PROJECT 05 - 버블보블 클론
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="page page-project">
+            <div class="page-label">/ PROJECT 05</div>
+            <h2 class="page-heading">Bubble Bobble Clone</h2>
+            <div class="project-page-info">
+                <div class="project-meta-compact">
+                    <div><strong>기술:</strong> Java, Collision Detection</div>
+                    <div><strong>개발:</strong> 개인 프로젝트</div>
+                    <div><strong>규모:</strong> 약 3,000줄</div>
+                </div>
+                <div class="project-overview">
+                    <h3>프로젝트 개요</h3>
+                    <p>클래식 아케이드 게임을 현대적으로 재현했습니다. 몬스터 AI 패턴, 충돌 처리, 게임 상태 관리 등 2D 게임의 필수 요소들을 구현했습니다.</p>
+                </div>
+            </div>
+
+            <div class="detail-section">
+                <h4>핵심 시스템</h4>
+                <ul class="detail-list">
+                    <li><strong>몬스터 AI:</strong> 상태 머신 기반 AI (배, 추격, 도망)</li>
+                    <li><strong>충돌 처리:</strong> AABB 물리 기반 충돌, 벽과의 충돌</li>
+                    <li><strong>풍선 시스템:</strong> 플레이어 공격 → 풍선 생성 → 타이머 → 폭발</li>
+                </ul>
+            </div>
+
+            <div class="page-number">— 09</div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             PAGE 10: PROJECT 06 - 테트리스
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="page page-project">
+            <div class="page-label">/ PROJECT 06</div>
+            <h2 class="page-heading">Java Tetris Implementation</h2>
+            <div class="project-page-info">
+                <div class="project-meta-compact">
+                    <div><strong>기술:</strong> Java, Algorithm Design</div>
+                    <div><strong>개발:</strong> 개인 학습 프로젝트</div>
+                    <div><strong>규모:</strong> 약 2,200줄</div>
+                </div>
+                <div class="project-overview">
+                    <h3>프로젝트 개요</h3>
+                    <p>2차원 배열과 알고리즘을 활용한 클래식 테트리스입니다. 테트로미노 블록의 회전, 낙하, 라인 삭제 등 핵심 게임 로직을 완전히 구현했습니다.</p>
+                </div>
+            </div>
+
+            <div class="detail-section">
+                <h4>알고리즘 구현</h4>
+                <ul class="detail-list">
+                    <li><strong>블록 회전:</strong> 4방향 회전 상태를 관리, 회전 시 벽 충돌 체크</li>
+                    <li><strong>라인 삭제:</strong> 완전히 찬 줄을 감지하고 삭제, 상단 블록 낙하</li>
+                    <li><strong>점수 계산:</strong> 동시 삭제 줄 수에 따른 보너스 점수 부여</li>
+                </ul>
+            </div>
+
+            <div class="page-number">— 10</div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             PAGE 11: PROJECT 07 - 음성 인식 게임
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="page page-project">
+            <div class="page-label">/ PROJECT 07</div>
+            <h2 class="page-heading">Voice-Controlled Web Game</h2>
+            <div class="project-page-info">
+                <div class="project-meta-compact">
+                    <div><strong>기술:</strong> JavaScript, Web Speech API</div>
+                    <div><strong>개발:</strong> 개인 프로젝트</div>
+                    <div><strong>규모:</strong> HTML/CSS/JS 약 1,500줄</div>
+                </div>
+                <div class="project-overview">
+                    <h3>프로젝트 개요</h3>
+                    <p>마이크로 입력받은 음성 명령으로 게임을 조작합니다. "마법 주문" 음성 인식을 통해 캐릭터의 스킬을 발동하는 재미있는 웹 기반 인터랙티브 게임입니다.</p>
+                </div>
+            </div>
+
+            <div class="detail-section">
+                <h4>기술 특징</h4>
+                <ul class="detail-list">
+                    <li><strong>Web Speech API:</strong> 브라우저 내장 음성 인식 기능 활용</li>
+                    <li><strong>DOM 조작:</strong> 음성 명령에 따른 CSS 애니메이션과 클래스 변경</li>
+                    <li><strong>실시간 처리:</strong> 음성 인식 결과를 즉시 게임 상태에 반영</li>
+                </ul>
+            </div>
+
+            <div class="page-number">— 11</div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             PAGE 12: PROJECT 08 - Unreal FPS
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="page page-project">
+            <div class="page-label">/ PROJECT 08</div>
+            <h2 class="page-heading">Unreal Engine FPS Prototype</h2>
+            <div class="project-page-info">
+                <div class="project-meta-compact">
+                    <div><strong>기술:</strong> Unreal Engine 5, Blueprint, C++</div>
+                    <div><strong>개발:</strong> 개인 학습 프로젝트</div>
+                    <div><strong>규모:</strong> Blueprint + C++ 혼합</div>
+                </div>
+                <div class="project-overview">
+                    <h3>프로젝트 개요</h3>
+                    <p>언리얼 엔진의 상용 엔진 기능을 학습하며 제작한 1인칭 슈팅 게임 프로토타입입니다. 캐릭터 이동, 카메라 조작, 무기 발사, 적 AI까지 구현했습니다.</p>
+                </div>
+            </div>
+
+            <div class="detail-section">
+                <h4>구현 시스템</h4>
+                <ul class="detail-list">
+                    <li><strong>캐릭터 컨트롤:</strong> Enhanced Input System으로 WASD 이동과 마우스 시점 조작</li>
+                    <li><strong>무기 시스템:</strong> 총기 발사, 총알 생성, 데미지 적용</li>
+                    <li><strong>적 AI:</strong> Behavior Tree를 이용한 추격, 사격, 회피 패턴</li>
+                    <li><strong>UI/HUD:</strong> 탄약량, 체력, 점수 실시간 표시</li>
+                </ul>
+            </div>
+
+            <div class="page-number">— 12</div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             PAGE 13: CONTACT
+             ═══════════════════════════════════════════════════════════════ -->
+        <div class="page page-contact">
+            <div class="page-label">/ CONTACT</div>
+            <h2 class="page-heading">Let's Work Together</h2>
+
+            <div class="contact-section">
+                <div class="contact-item">
+                    <strong>Email</strong>
+                    <a href="mailto:s2444@e-mirim.hs.kr">s2444@e-mirim.hs.kr</a>
+                </div>
+                <div class="contact-item">
+                    <strong>Phone</strong>
+                    <span>010-3484-0767</span>
+                </div>
+                <div class="contact-item">
+                    <strong>GitHub</strong>
+                    <a href="https://github.com/jay-p08" target="_blank">github.com/jay-p08</a>
+                </div>
+                <div class="contact-item">
+                    <strong>School</strong>
+                    <span>미림마이스터고 뉴미디어소프트웨어과</span>
+                </div>
+            </div>
+
+            <p class="page-hint" style="margin-top: 48px; max-width: 600px;">
+                게임 개발의 모든 영역에서 성장하고 있습니다.<br>
+                새로운 기술 학습과 창의적인 문제 해결을 즐기는 개발자입니다.<br>
+                함께할 프로젝트나 협업 기회가 있다면 언제든지 연락 부탁드립니다.
+            </p>
+
+            <div class="page-number">— 13</div>
+        </div>
+
+    </div>
 
 </body>
 
