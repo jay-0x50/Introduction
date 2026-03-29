@@ -33,8 +33,8 @@ body {
     padding: 70px 72px;
     border-radius: 12px;
     box-shadow:
-        0 1px 2px rgba(0,0,0,0.04),
-        0 8px 32px rgba(0,0,0,0.09);
+        0 1px 2px rgba(0, 0, 0, 0.04),
+        0 8px 32px rgba(0, 0, 0, 0.09);
     position: relative;
     overflow: hidden;
     border: 1px solid var(--rule-soft);
@@ -61,12 +61,31 @@ body {
 /* ── HEADER ── */
 header {
     margin-bottom: 40px;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 4px 20px;
-    align-items: start;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
     padding-bottom: 28px;
     border-bottom: 1px solid var(--rule);
+}
+
+.header-left {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.header-photo {
+    flex-shrink: 0;
+    margin-left: 32px;
+}
+
+.header-photo img {
+    width: 130px;
+    height: 160px;
+    object-fit: cover;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    display: block;
 }
 
 h1 {
@@ -343,7 +362,12 @@ h2::after {
     }
 
     header {
-        grid-template-columns: 1fr;
+        flex-direction: column-reverse;
+        gap: 20px;
+    }
+
+    .header-photo {
+        margin-left: 0;
     }
 
     h1 {
