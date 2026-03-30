@@ -62,15 +62,16 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 2px;
+            gap: 24px;
             background: var(--border);
-            padding-bottom: 2px;
+            padding-bottom: 24px;
         }
 
-        /* ── BASE PAGE ── */
+        /* ── BASE PAGE (16:9 적용) ── */
         .page {
             width: 100%;
-            max-width: 1400px;
+            max-width: 1920px;
+            aspect-ratio: 16 / 9;
             background: var(--bg);
             position: relative;
             overflow: hidden;
@@ -78,7 +79,6 @@
             break-after: page;
         }
 
-        /* Grid overlay */
         .page::before {
             content: '';
             position: absolute;
@@ -95,7 +95,7 @@
            PAGE 1: TITLE
         ══════════════════════════════════════ */
         .page-title {
-            min-height: 100vh;
+            height: 100%;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
@@ -188,27 +188,33 @@
         }
 
         /* ══════════════════════════════════════
-           PAGE 2: ABOUT / SKILLS
+           PAGE 2: ABOUT / SKILLS (내용 추가됨)
         ══════════════════════════════════════ */
         .page-skills {
-            min-height: 100vh;
-            padding: 64px 72px;
+            height: 100%;
+            padding: 56px 72px;
             border-bottom: 1px solid var(--border);
         }
 
         .page-skills .label {
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
 
         .skills-grid {
             display: grid;
-            grid-template-columns: 260px 1fr;
-            gap: 48px;
+            grid-template-columns: 280px 1fr;
+            gap: 56px;
             position: relative;
             z-index: 1;
         }
 
-        /* Profile card */
+        /* Left Panel */
+        .left-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
         .profile-card {
             display: flex;
             flex-direction: column;
@@ -291,22 +297,6 @@
             font-size: 0.82rem;
         }
 
-        .profile-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            width: 100%;
-        }
-
-        .tag {
-            font-family: 'Inconsolata', monospace;
-            font-size: 0.62rem;
-            letter-spacing: 0.08em;
-            color: var(--neon);
-            border: 1px solid var(--neon-border);
-            padding: 3px 10px;
-        }
-
         .profile-links {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -335,11 +325,43 @@
             text-decoration: none;
         }
 
+        /* Philosophy & Focus Text Blocks (새로 추가된 내용) */
+        .text-block {
+            background: rgba(24, 24, 29, 0.6);
+            border: 1px solid var(--border);
+            padding: 20px;
+        }
+
+        .text-block-title {
+            font-family: 'Inconsolata', monospace;
+            font-size: 0.68rem;
+            letter-spacing: 0.18em;
+            color: var(--neon);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .text-block-title::before {
+            content: '// ';
+            opacity: 0.5;
+        }
+
+        .text-block p {
+            font-size: 0.82rem;
+            color: var(--text-mid);
+            line-height: 1.7;
+        }
+
+        .text-block p strong {
+            color: var(--text);
+            font-weight: 500;
+        }
+
         /* Stack grid */
         .stack-right {
             display: flex;
             flex-direction: column;
-            gap: 24px;
+            gap: 20px;
         }
 
         .stack-heading {
@@ -348,18 +370,17 @@
             letter-spacing: 0.06em;
             color: var(--text);
             border-bottom: 1px solid var(--border);
-            padding-bottom: 16px;
+            padding-bottom: 12px;
         }
 
         .stack-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            flex: 1;
+            gap: 16px;
         }
 
         .stack-block {
-            padding: 16px 18px;
+            padding: 18px 20px;
             border: 1px solid var(--neon-border);
             background: var(--neon-dim);
             border-left: 3px solid var(--neon);
@@ -373,7 +394,7 @@
 
         .stack-title {
             font-family: 'Inconsolata', monospace;
-            font-size: 0.62rem;
+            font-size: 0.68rem;
             letter-spacing: 0.16em;
             color: var(--neon);
             text-transform: uppercase;
@@ -381,8 +402,17 @@
         }
 
         .stack-list {
-            font-size: 0.82rem;
-            color: var(--text-mid);
+            font-size: 0.88rem;
+            color: var(--text);
+            font-weight: 500;
+            line-height: 1.4;
+            margin-bottom: 6px;
+        }
+
+        /* 스택 세부 설명 (글로 공간을 채우기 위해 추가) */
+        .stack-desc {
+            font-size: 0.78rem;
+            color: var(--text-dim);
             line-height: 1.5;
         }
 
@@ -390,7 +420,7 @@
            PROJECT PAGES (MAIN)
         ══════════════════════════════════════ */
         .page-project {
-            min-height: 100vh;
+            height: 100%;
             padding: 56px 72px;
             border-bottom: 1px solid var(--border);
             display: flex;
@@ -430,7 +460,6 @@
             margin-bottom: 32px;
         }
 
-        /* Two-column layout */
         .proj-body {
             display: grid;
             grid-template-columns: 1fr 420px;
@@ -447,7 +476,6 @@
             gap: 20px;
         }
 
-        /* Section block */
         .sec-block {
             display: flex;
             flex-direction: column;
@@ -503,7 +531,6 @@
             margin-right: 4px;
         }
 
-        /* Meta table */
         .meta-table {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -539,7 +566,6 @@
             color: var(--text-mid);
         }
 
-        /* Links row */
         .proj-links {
             display: flex;
             gap: 12px;
@@ -569,7 +595,6 @@
             content: ' →';
         }
 
-        /* Right: screenshots */
         .proj-right {
             display: flex;
             flex-direction: column;
@@ -613,11 +638,11 @@
 
             0%,
             100% {
-                opacity: 0.18
+                opacity: 0.18;
             }
 
             50% {
-                opacity: 0.45
+                opacity: 0.45;
             }
         }
 
@@ -632,7 +657,7 @@
            CODE REVIEW PAGES
         ══════════════════════════════════════ */
         .page-code {
-            min-height: 100vh;
+            height: 100%;
             padding: 56px 72px;
             border-bottom: 1px solid var(--border);
             display: flex;
@@ -655,6 +680,7 @@
             gap: 20px;
             position: relative;
             z-index: 1;
+            flex: 1;
         }
 
         .code-wrap {
@@ -747,7 +773,7 @@
            CONTACT PAGE
         ══════════════════════════════════════ */
         .page-contact {
-            min-height: 60vh;
+            height: 100%;
             padding: 72px 72px;
             display: flex;
             flex-direction: column;
@@ -802,9 +828,9 @@
         }
 
         /* ══════════════════════════════════════
-           RESPONSIVE
+           RESPONSIVE & PRINT (화면에서만 적용)
         ══════════════════════════════════════ */
-        @media (max-width: 1024px) {
+        @media screen and (max-width: 1024px) {
 
             .page-title,
             .page-skills,
@@ -819,12 +845,12 @@
             }
 
             .skills-grid {
-                grid-template-columns: 220px 1fr;
+                grid-template-columns: 240px 1fr;
                 gap: 32px;
             }
         }
 
-        @media (max-width: 768px) {
+        @media screen and (max-width: 768px) {
 
             .page-title,
             .page-skills,
@@ -861,6 +887,11 @@
         }
 
         @media print {
+            @page {
+                size: 16in 9in;
+                margin: 0;
+            }
+
             body {
                 background: #0f0f12 !important;
                 -webkit-print-color-adjust: exact;
@@ -870,6 +901,8 @@
             .page {
                 page-break-after: always;
                 break-after: page;
+                height: 100vh;
+                max-width: none;
             }
         }
     </style>
@@ -879,7 +912,6 @@
 
     <div class="pages">
 
-        <!-- ── PAGE 1: TITLE ── -->
         <div class="page page-title">
             <div class="page-title-inner">
                 <div class="label">PROFILE</div>
@@ -903,37 +935,46 @@
             <div class="page-num">— 01</div>
         </div>
 
-        <!-- ── PAGE 2: ABOUT / SKILLS ── -->
         <div class="page page-skills">
             <div class="label">ABOUT ME</div>
-            <div class="skills-grid" style="position:relative;z-index:1;">
+            <div class="skills-grid">
 
-                <div class="profile-card">
-                    <div class="avatar">
-                        <img src="../photo.jpg" alt="박재영" onerror="this.parentNode.innerHTML='🎮'">
-                    </div>
-                    <div class="profile-name">박재영</div>
-                    <div class="profile-role">Gameplay Programmer</div>
-                    <div class="profile-info-table">
-                        <div class="row">
-                            <strong>School</strong>
-                            <span style="font-size:0.75rem;text-align:right;">미림마이스터고<br>뉴미디어SW과</span>
+                <div class="left-panel">
+                    <div class="profile-card">
+                        <div class="avatar">
+                            <img src="../photo.jpg" alt="박재영" onerror="this.parentNode.innerHTML='🎮'">
                         </div>
-                        <div class="row">
-                            <strong>Level</strong>
-                            <span class="level-badge">19</span>
+                        <div class="profile-name">박재영</div>
+                        <div class="profile-role">Gameplay Programmer</div>
+                        <div class="profile-info-table">
+                            <div class="row">
+                                <strong>School</strong>
+                                <span style="font-size:0.75rem;text-align:right;">미림마이스터고<br>뉴미디어SW과</span>
+                            </div>
+                            <div class="row">
+                                <strong>Level</strong>
+                                <span class="level-badge">19</span>
+                            </div>
+                        </div>
+                        <div class="profile-links">
+                            <a href="mailto:s2444@e-mirim.hs.kr">Email</a>
+                            <a href="https://github.com/jay-p08" target="_blank">GitHub</a>
+                            <a href="../Introduction/introduction.html" target="_blank">자기소개서</a>
+                            <a href="../index.html" target="_blank">이력서</a>
                         </div>
                     </div>
-                    <div class="profile-tags">
-                        <span class="tag">#MultiLanguage</span>
-                        <span class="tag">#UnityUnreal</span>
-                        <span class="tag">#GameplayDev</span>
+
+                    <div class="text-block">
+                        <div class="text-block-title">Core Philosophy</div>
+                        <p>단순히 동작하는 코드를 넘어, <strong>성능과 유지보수</strong>를 고려한 아키텍처 설계를 지향합니다. 게임 루프의 생명주기를 완벽히 이해하고, 프레임 드랍
+                            없는 쾌적한 플레이 경험을 만드는 것을 최우선으로 생각합니다.</p>
                     </div>
-                    <div class="profile-links">
-                        <a href="mailto:s2444@e-mirim.hs.kr">Email</a>
-                        <a href="https://github.com/jay-p08" target="_blank">GitHub</a>
-                        <a href="../Introduction/introduction.html" target="_blank">자기소개서</a>
-                        <a href="../index.html" target="_blank">이력서</a>
+
+                    <div class="text-block"
+                        style="background: rgba(57, 255, 154, 0.03); border-color: rgba(57, 255, 154, 0.2);">
+                        <div class="text-block-title">Current Focus</div>
+                        <p>최근에는 <strong>Unreal Engine 5</strong>의 C++ 프레임워크와 멀티스레딩 최적화, 그리고 디자인 패턴을 활용하여 확장성 있고 견고한 시스템을
+                            설계하는 데 깊이 파고들고 있습니다.</p>
                     </div>
                 </div>
 
@@ -942,28 +983,34 @@
                     <div class="stack-grid">
                         <div class="stack-block">
                             <div class="stack-title">Game Engines</div>
-                            <div class="stack-list">Unreal Engine 5 (Blueprint), Unity (C#), Godot</div>
+                            <div class="stack-list">Unreal Engine 5, Unity 3D, Godot</div>
+                            <div class="stack-desc">각 엔진의 코어 라이프사이클을 이해하고, 특성에 맞는 최적화된 로직과 블루프린트/C# 스크립트를 작성합니다.</div>
                         </div>
                         <div class="stack-block">
                             <div class="stack-title">Core Language</div>
-                            <div class="stack-list">C++, Java, Python, C#, JavaScript</div>
+                            <div class="stack-list">C++, C#, Java, Python, JavaScript</div>
+                            <div class="stack-desc">객체지향 프로그래밍(OOP) 원칙과 메모리 구조를 바탕으로 재사용성 높고 안전한 코드를 설계합니다.</div>
                         </div>
                         <div class="stack-block">
                             <div class="stack-title">Graphics & Rendering</div>
-                            <div class="stack-list">DirectX 11/12, OpenGL, HLSL, Shader Programming</div>
+                            <div class="stack-list">DirectX 11/12, OpenGL, HLSL, Shaders</div>
+                            <div class="stack-desc">렌더링 파이프라인의 원리를 깊이 이해하고 있으며, 커스텀 셰이더 작성으로 시각적 효과를 구현합니다.</div>
                         </div>
                         <div class="stack-block">
                             <div class="stack-title">Game Dev Tools</div>
-                            <div class="stack-list">Physics Engine (Bullet, PhysX), AI Pathfinding, Collision Detection
+                            <div class="stack-list">Physics Engine, AI Pathfinding, Collision</div>
+                            <div class="stack-desc">AABB/OBB 충돌 처리, A* 알고리즘 등 물리 연산과 수학적 기초 지식을 게임 시스템에 적용할 수 있습니다.
                             </div>
                         </div>
                         <div class="stack-block">
                             <div class="stack-title">Specialized Domains</div>
-                            <div class="stack-list">Thread Synchronization, Algorithm Design, Cryptography</div>
+                            <div class="stack-list">Thread Synchronization, Cryptography</div>
+                            <div class="stack-desc">멀티스레드 환경의 동기화 이슈 해결과 데이터 암호화 등 백엔드/보안 지식을 확장해 나가고 있습니다.</div>
                         </div>
                         <div class="stack-block">
                             <div class="stack-title">Other Skills</div>
-                            <div class="stack-list">Web Speech API, DOM Manipulation, Git/GitHub, Problem Solving</div>
+                            <div class="stack-list">Git/GitHub, Problem Solving, Web API</div>
+                            <div class="stack-desc">버전 관리를 통한 체계적인 협업이 가능하며, 낯선 API나 문제를 마주해도 주도적으로 해결책을 찾습니다.</div>
                         </div>
                     </div>
                 </div>
@@ -972,9 +1019,6 @@
             <div class="page-num">— 02</div>
         </div>
 
-        <!-- ══════════════════════════════════════
-         PROJECT 01
-    ══════════════════════════════════════ -->
         <div class="page page-project">
             <div class="proj-header">
                 <div class="proj-num">// PROJECT 01</div>
@@ -1048,7 +1092,6 @@
             <div class="page-num">— 03</div>
         </div>
 
-        <!-- PROJECT 01 CODE REVIEW -->
         <div class="page page-code">
             <div class="label" style="position:relative;z-index:1;">PROJECT 01 · CODE REVIEW</div>
             <div class="code-heading">코드 리뷰</div>
@@ -1102,83 +1145,6 @@ note_cache = {}
             <div class="page-num">— 04</div>
         </div>
 
-        <!-- ══════════════════════════════════════
-         PROJECT 02 (미완성 — 추후 추가 예정)
-    ══════════════════════════════════════ -->
-        <!--
-    <div class="page page-project">
-        <div class="proj-header">
-            <div class="proj-num">// PROJECT 02</div>
-            <div class="proj-title">Java Rhythm Game (OOP)</div>
-            <div class="proj-tagline">Python 프로젝트를 OOP 원칙으로 Java에 재구현</div>
-        </div>
-        <div class="proj-body">
-            <div class="proj-left">
-                <div class="meta-table">
-                    <div class="meta-cell"><div class="meta-cell-label">기술</div><div class="meta-cell-val">Java, Multi-Threading</div></div>
-                    <div class="meta-cell"><div class="meta-cell-label">개발 형태</div><div class="meta-cell-val">개인 프로젝트</div></div>
-                    <div class="meta-cell"><div class="meta-cell-label">규모</div><div class="meta-cell-val">약 3,500줄</div></div>
-                    <div class="meta-cell"><div class="meta-cell-label">핵심 기술</div><div class="meta-cell-val">volatile, synchronized</div></div>
-                </div>
-                <div class="sec-block">
-                    <div class="sec-title">OOP 설계</div>
-                    <div class="feat-list">
-                        <div class="feat-row"><strong>클래스 구조</strong> — Note, GameController, UIManager, SoundManager로 책임 분리</div>
-                        <div class="feat-row"><strong>인터페이스</strong> — Renderable, Updateable로 확장성 확보</div>
-                        <div class="feat-row"><strong>다형성</strong> — 판정 로직을 추상 클래스로 분리해 다양한 판정 방식 구현 가능</div>
-                    </div>
-                </div>
-                <div class="sec-block">
-                    <div class="sec-title">멀티스레드 처리</div>
-                    <div class="feat-list">
-                        <div class="feat-row"><strong>BGM 스레드</strong> — 음악 재생 담당, 동기화된 타이밍 제공</div>
-                        <div class="feat-row"><strong>렌더링 스레드</strong> — UI와 노트 애니메이션 업데이트</div>
-                        <div class="feat-row"><strong>동기화</strong> — volatile, synchronized로 스레드 안전성 확보</div>
-                    </div>
-                </div>
-            </div>
-            <div class="proj-right">
-                <div class="shot-slot"><div class="shot-placeholder"><div class="shot-icon">⬡</div><div class="shot-label">screenshot_01.png</div></div></div>
-                <div class="shot-slot"><div class="shot-placeholder"><div class="shot-icon">⬡</div><div class="shot-label">screenshot_02.png</div></div></div>
-            </div>
-        </div>
-        <div class="page-num">- 05</div>
-    </div>
-
-    <div class="page page-code">
-        <div class="label" style="position:relative;z-index:1;">PROJECT 02 · CODE REVIEW</div>
-        <div class="code-heading">코드 리뷰</div>
-        <div class="code-review-block">
-            <div class="code-wrap">
-                <div class="code-label">핵심 코드 — 스레드 동기화</div>
-                <pre class="code-block"><code>private volatile boolean running = true;
-private final Object lock = new Object();
-
-public void syncTick(long bgmTime) {
-    synchronized(lock) {
-        currentTick = bgmTime;
-        lock.notifyAll();
-    }
-}</code></pre>
-            </div>
-            <div class="learned-panel">
-                <div class="learned-item">
-                    <div class="learned-title">▸ 설계 의도</div>
-                    <p>BGM 스레드가 notifyAll로 렌더링 스레드를 깨워 음악 재생 시간 기준으로 노트 위치를 계산합니다. volatile로 가시성을 보장합니다.</p>
-                </div>
-                <div class="learned-item">
-                    <div class="learned-title">▸ 배운 점</div>
-                    <p>멀티스레드 환경에서 타이밍 오차 누적 시 판정 불일치가 발생합니다. synchronized 블록 범위를 최소화해야 성능 저하 없이 안전성을 확보할 수 있음을 배웠습니다.</p>
-                </div>
-            </div>
-        </div>
-        <div class="page-num">- 06</div>
-    </div>
-    -->
-
-        <!-- ══════════════════════════════════════
-         PROJECT 03
-    ══════════════════════════════════════ -->
         <div class="page page-project">
             <div class="proj-header">
                 <div class="proj-num">// PROJECT 03</div>
@@ -1238,7 +1204,6 @@ public void syncTick(long bgmTime) {
             <div class="page-num">— 07</div>
         </div>
 
-        <!-- PROJECT 03 CODE REVIEW -->
         <div class="page page-code">
             <div class="label" style="position:relative;z-index:1;">PROJECT 03 · CODE REVIEW</div>
             <div class="code-heading">코드 리뷰</div>
@@ -1270,9 +1235,6 @@ public void syncTick(long bgmTime) {
             <div class="page-num">— 08</div>
         </div>
 
-        <!-- ══════════════════════════════════════
-         PROJECT 04
-    ══════════════════════════════════════ -->
         <div class="page page-project">
             <div class="proj-header">
                 <div class="proj-num">// PROJECT 04</div>
@@ -1336,7 +1298,6 @@ public void syncTick(long bgmTime) {
             <div class="page-num">— 09</div>
         </div>
 
-        <!-- PROJECT 04 CODE REVIEW -->
         <div class="page page-code">
             <div class="label" style="position:relative;z-index:1;">PROJECT 04 · CODE REVIEW</div>
             <div class="code-heading">코드 리뷰</div>
@@ -1400,40 +1361,6 @@ public void syncTick(long bgmTime) {
             <div class="page-num">— 10</div>
         </div>
 
-        <!-- PROJECT 04 CODE REVIEW -->
-        <div class="page page-code">
-            <div class="label" style="position:relative;z-index:1;">PROJECT 04 · CODE REVIEW</div>
-            <div class="code-heading">코드 리뷰</div>
-            <div class="code-review-block">
-                <div class="code-wrap">
-                    <div class="code-label">핵심 코드 — Blinn-Phong 픽셀 셰이더 (HLSL)</div>
-                    <pre class="code-block"><code><span class="kw">float3</span> <span class="fn">BlinnPhong</span>(<span class="kw">float3</span> N, <span class="kw">float3</span> L,
-                  <span class="kw">float3</span> V, <span class="kw">float3</span> diff,
-                  <span class="kw">float</span>  shininess) {
-    <span class="kw">float3</span> H     = normalize(L + V);
-    <span class="kw">float</span>  NdotL = max(dot(N, L), <span class="nm">0.0</span>);
-    <span class="kw">float</span>  NdotH = max(dot(N, H), <span class="nm">0.0</span>);
-    <span class="kw">float3</span> spec  = pow(NdotH, shininess);
-    <span class="kw">return</span> diff * NdotL + spec;
-}</code></pre>
-                </div>
-                <div class="learned-panel">
-                    <div class="learned-item">
-                        <div class="learned-title">▸ 설계 의도</div>
-                        <p>Phong 대비 하프벡터(H)를 사용해 계산 비용을 줄이면서 비슷한 시각 품질을 냅니다. shininess 값이 클수록 하이라이트가 날카로워집니다.</p>
-                    </div>
-                    <div class="learned-item">
-                        <div class="learned-title">▸ 배운 점</div>
-                        <p>max(dot, 0)으로 음수를 막지 않으면 빛이 반대쪽에서 새어나오는 버그가 발생함을 직접 확인했습니다.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="page-num">— 10</div>
-        </div>
-
-        <!-- ══════════════════════════════════════
-         PROJECT 05
-    ══════════════════════════════════════ -->
         <div class="page page-project">
             <div class="proj-header">
                 <div class="proj-num">// PROJECT 05</div>
@@ -1494,7 +1421,6 @@ public void syncTick(long bgmTime) {
             <div class="page-num">— 11</div>
         </div>
 
-        <!-- PROJECT 05 CODE REVIEW -->
         <div class="page page-code">
             <div class="label" style="position:relative;z-index:1;">PROJECT 05 · CODE REVIEW</div>
             <div class="code-heading">코드 리뷰</div>
@@ -1529,9 +1455,6 @@ public void syncTick(long bgmTime) {
             <div class="page-num">— 12</div>
         </div>
 
-        <!-- ══════════════════════════════════════
-         PROJECT 06
-    ══════════════════════════════════════ -->
         <div class="page page-project">
             <div class="proj-header">
                 <div class="proj-num">// PROJECT 06</div>
@@ -1593,7 +1516,6 @@ public void syncTick(long bgmTime) {
             <div class="page-num">— 13</div>
         </div>
 
-        <!-- PROJECT 06 CODE REVIEW -->
         <div class="page page-code">
             <div class="label" style="position:relative;z-index:1;">PROJECT 06 · CODE REVIEW</div>
             <div class="code-heading">코드 리뷰</div>
@@ -1623,105 +1545,6 @@ public void syncTick(long bgmTime) {
             <div class="page-num">— 14</div>
         </div>
 
-        <!-- ══════════════════════════════════════
-         PROJECT 07
-    ══════════════════════════════════════ -->
-        <div class="page page-project">
-            <div class="proj-header">
-                <div class="proj-num">// PROJECT 07</div>
-                <div class="proj-title">Voice-Controlled Web Game</div>
-                <div class="proj-tagline">마이크 음성 명령으로 캐릭터 스킬을 발동하는 웹 게임</div>
-            </div>
-            <div class="proj-body">
-                <div class="proj-left">
-                    <div class="meta-table">
-                        <div class="meta-cell">
-                            <div class="meta-cell-label">기술</div>
-                            <div class="meta-cell-val">JavaScript, Web Speech API</div>
-                        </div>
-                        <div class="meta-cell">
-                            <div class="meta-cell-label">개발 형태</div>
-                            <div class="meta-cell-val">팀 프로젝트</div>
-                        </div>
-                        <div class="meta-cell">
-                            <div class="meta-cell-label">규모</div>
-                            <div class="meta-cell-val">HTML/CSS/JS 약 3,500줄</div>
-                        </div>
-                        <div class="meta-cell">
-                            <div class="meta-cell-label">입력 방식</div>
-                            <div class="meta-cell-val">실시간 음성 인식</div>
-                        </div>
-                    </div>
-                    <div class="sec-block">
-                        <div class="sec-title">주요 구현</div>
-                        <div class="feat-list">
-                            <div class="feat-row">브라우저 내장 Web Speech API로 실시간 음성 인식</div>
-                            <div class="feat-row">음성 명령에 따른 CSS 애니메이션 및 DOM 조작</div>
-                            <div class="feat-row">인식 결과를 즉시 게임 상태에 반영하는 실시간 처리</div>
-                            <div class="feat-row">명령어-함수 객체 맵핑으로 if-else 체인 제거</div>
-                        </div>
-                    </div>
-                    <div class="sec-block">
-                        <div class="sec-title">배운 점</div>
-                        <div class="feat-list">
-                            <div class="feat-row">Web Speech API는 인식 결과를 확률순으로 반환 — 소음 환경 오인식 대응 필요</div>
-                            <div class="feat-row">trim()과 유사도 매칭을 병행해야 안정적인 명령 처리 가능</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="proj-right">
-                    <div class="shot-slot">
-                        <div class="shot-placeholder">
-                            <img src="img/magic_01.png" alt="screenshot_01.png"
-                                onerror="this.style.display='none';this.parentNode.querySelector('.shot-placeholder').style.display='flex'">
-                        </div>
-                    </div>
-                    <div class="shot-slot">
-                        <div class="shot-placeholder">
-                            <img src="img/magic_02.png" alt="screenshot_02.png"
-                                onerror="this.style.display='none';this.parentNode.querySelector('.shot-placeholder').style.display='flex'">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="page-num">— 15</div>
-        </div>
-
-        <!-- PROJECT 07 CODE REVIEW -->
-        <div class="page page-code">
-            <div class="label" style="position:relative;z-index:1;">PROJECT 07 · CODE REVIEW</div>
-            <div class="code-heading">코드 리뷰</div>
-            <div class="code-review-block">
-                <div class="code-wrap">
-                    <div class="code-label">핵심 코드 — 음성 명령 매핑</div>
-                    <pre class="code-block"><code><span class="kw">const</span> spells = {
-  <span class="st">"파이어볼"</span>:  () =&gt; castFireball(),
-  <span class="st">"아이스"</span>:    () =&gt; castIce(),
-  <span class="st">"번개"</span>:      () =&gt; castLightning(),
-};
-recognition.onresult = (e) =&gt; {
-  <span class="kw">const</span> cmd = e.results[<span class="nm">0</span>][<span class="nm">0</span>].transcript.trim();
-  <span class="kw">const</span> fn  = spells[cmd];
-  <span class="kw">if</span> (fn) fn();
-};</code></pre>
-                </div>
-                <div class="learned-panel">
-                    <div class="learned-item">
-                        <div class="learned-title">▸ 설계 의도</div>
-                        <p>명령어-함수 매핑을 객체 리터럴로 관리해 if-else 체인을 없앴습니다. 새 주문 추가 시 객체에 한 줄만 추가하면 됩니다.</p>
-                    </div>
-                    <div class="learned-item">
-                        <div class="learned-title">▸ 배운 점</div>
-                        <p>Web Speech API는 인식 결과를 확률순으로 반환합니다. 소음 환경에서 오인식이 잦아 trim()과 유사도 매칭을 병행해야 안정적임을 배웠습니다.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="page-num">— 16</div>
-        </div>
-
-        <!-- ══════════════════════════════════════
-         PROJECT 08
-    ══════════════════════════════════════ -->
         <div class="page page-project">
             <div class="proj-header">
                 <div class="proj-num">// PROJECT 08</div>
@@ -1768,22 +1591,21 @@ recognition.onresult = (e) =&gt; {
                 <div class="proj-right">
                     <div class="shot-slot">
                         <div class="shot-placeholder">
-                            <div class="shot-icon">⬡</div>
-                            <div class="shot-label">screenshot_01.png</div>
+                            <img src="img/FPS_01.png" alt="screenshot_01.png"
+                                onerror="this.style.display='none';this.parentNode.querySelector('.shot-placeholder').style.display='flex'">
                         </div>
                     </div>
                     <div class="shot-slot">
                         <div class="shot-placeholder">
-                            <div class="shot-icon">⬡</div>
-                            <div class="shot-label">screenshot_02.png</div>
+                            <img src="img/FPS_02.png" alt="screenshot_02.png"
+                                onerror="this.style.display='none';this.parentNode.querySelector('.shot-placeholder').style.display='flex'">
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="page-num">— 17</div>
+            <div class="page-num">— 15</div>
         </div>
 
-        <!-- PROJECT 08 CODE REVIEW -->
         <div class="page page-code">
             <div class="label" style="position:relative;z-index:1;">PROJECT 08 · CODE REVIEW</div>
             <div class="code-heading">코드 리뷰</div>
@@ -1813,10 +1635,9 @@ recognition.onresult = (e) =&gt; {
                     </div>
                 </div>
             </div>
-            <div class="page-num">— 18</div>
+            <div class="page-num">— 16</div>
         </div>
 
-        <!-- ── CONTACT ── -->
         <div class="page page-contact">
             <div class="label" style="position:relative;z-index:1;">CONTACT</div>
             <div class="big-name"
@@ -1849,7 +1670,7 @@ recognition.onresult = (e) =&gt; {
                 함께할 프로젝트나 협업 기회가 있다면 언제든지 연락 부탁드립니다.
             </p>
 
-            <div class="page-num">— 19</div>
+            <div class="page-num">— 17</div>
         </div>
 
     </div>
