@@ -7,22 +7,28 @@
     <title>박재영 — Game Developer Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link
-        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inconsolata:wght@300;400;500;600&family=Noto+Sans+KR:wght@300;400;500;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap"
         rel="stylesheet">
     <style>
+        /* ── THEME: Warm Charcoal ── */
         :root {
-            --bg: #eef2f7;
-            --surface: #e4eaf3;
-            --surface2: #d8e2ef;
-            --border: #c2cfe0;
-            --border-hi: #9aaec8;
-            --text: #0d1a2e;
-            --text-dim: #5a7090;
-            --text-mid: #2c4060;
-            --neon: #18c96a;
-            --neon-dim: rgba(24, 201, 106, 0.10);
-            --neon-border: rgba(24, 201, 106, 0.30);
+            --bg: #1c1917;
+            --surface: #292524;
+            --surface2: #302c2a;
+            --border: #3f3a38;
+            --border-hi: #57534e;
+            --text: #fafaf9;
+            --text-dim: #78716c;
+            --text-mid: #d6d3d1;
 
+            /* Point Colors */
+            --teal: #5eead4;
+            --teal-dim: rgba(94, 234, 212, 0.10);
+            --teal-border: rgba(94, 234, 212, 0.30);
+            --gold: #e8a045;
+            --gold-dim: rgba(232, 160, 69, 0.10);
+
+            /* Viewport-based Typography */
             --f-xs: 0.73vw;
             --f-sm: 0.83vw;
             --f-md: 0.94vw;
@@ -50,27 +56,53 @@
         }
 
         body {
-            background: var(--border);
+            background: #000;
             font-family: 'Noto Sans KR', sans-serif;
-            cursor: crosshair;
+            color: var(--text);
+            line-height: 1.6;
         }
 
         a {
-            color: var(--neon);
+            color: var(--teal);
             text-decoration: none;
-            cursor: crosshair;
+            transition: color 0.2s;
         }
 
         a:hover {
-            text-decoration: underline;
+            color: var(--gold);
         }
 
+        /* ── ANIMATIONS ── */
+        .smooth-appear {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .smooth-appear.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-1 {
+            transition-delay: 0.1s;
+        }
+
+        .delay-2 {
+            transition-delay: 0.2s;
+        }
+
+        .delay-3 {
+            transition-delay: 0.3s;
+        }
+
+        /* ── LAYOUT ── */
         .pages {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 1.25vw;
-            padding: 1.25vw 0;
+            gap: 2vw;
+            padding: 2vw 0;
         }
 
         .page {
@@ -80,15 +112,18 @@
             background: var(--bg);
             position: relative;
             overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            border-radius: 4px;
         }
 
+        /* 미세한 그리드 배경 */
         .page::before {
             content: '';
             position: absolute;
             inset: 0;
             background-image:
-                linear-gradient(rgba(24, 201, 106, 0.04) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(24, 201, 106, 0.04) 1px, transparent 1px);
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
             background-size: 3.33vw 3.33vw;
             pointer-events: none;
             z-index: 0;
@@ -98,33 +133,26 @@
             position: absolute;
             right: 1.67vw;
             bottom: 1.25vw;
-            font-family: 'Inconsolata', monospace;
+            font-family: 'JetBrains Mono', monospace;
             font-size: var(--f-xs);
-            color: var(--border-hi);
+            color: var(--text-dim);
             letter-spacing: 0.16em;
             z-index: 10;
         }
 
         .label {
-            font-family: 'Inconsolata', monospace;
+            font-family: 'JetBrains Mono', monospace;
             font-size: var(--f-xs);
             letter-spacing: 0.26em;
-            color: var(--neon);
+            color: var(--gold);
             margin-bottom: 1.04vw;
             display: block;
+            text-transform: uppercase;
         }
 
         .label::before {
             content: '// ';
-            opacity: 0.5;
-        }
-
-        .matrix-canvas {
-            position: absolute;
-            inset: 0;
-            z-index: 0;
-            opacity: 0.18;
-            pointer-events: none;
+            color: var(--teal);
         }
 
         /* PAGE 01 */
@@ -144,16 +172,17 @@
         }
 
         .big-name {
-            font-family: 'Bebas Neue', sans-serif;
+            font-family: 'Syne', sans-serif;
             font-size: var(--f-5xl);
-            line-height: 0.86;
-            letter-spacing: 0.02em;
+            line-height: 0.9;
+            font-weight: 800;
+            letter-spacing: -0.02em;
             color: var(--text);
             margin-bottom: 1.56vw;
         }
 
         .big-name span {
-            color: var(--neon);
+            color: var(--teal);
         }
 
         .title-desc {
@@ -161,6 +190,7 @@
             color: var(--text-mid);
             line-height: 1.85;
             margin-bottom: 2.08vw;
+            word-break: keep-all;
         }
 
         .title-meta {
@@ -177,10 +207,10 @@
         }
 
         .meta-item strong {
-            font-family: 'Inconsolata', monospace;
+            font-family: 'JetBrains Mono', monospace;
             font-size: var(--f-xs);
-            letter-spacing: 0.2em;
-            color: var(--neon);
+            letter-spacing: 0.1em;
+            color: var(--teal);
             text-transform: uppercase;
         }
 
@@ -197,7 +227,6 @@
             gap: 1.56vw;
             position: relative;
             z-index: 1;
-            overflow: hidden;
         }
 
         .stat-row {
@@ -208,54 +237,40 @@
 
         .stat-card {
             background: var(--surface);
-            border: 1px solid var(--neon-border);
+            border: 1px solid var(--border);
             padding: 1.04vw 1.25vw;
-            position: relative;
-            overflow: hidden;
-            transition: transform 0.25s;
-        }
-
-        .stat-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: var(--neon);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.4s;
-        }
-
-        .stat-card:hover::before {
-            transform: scaleX(1);
+            border-radius: 6px;
+            transition: all 0.3s;
         }
 
         .stat-card:hover {
-            transform: translateY(-2px);
+            border-color: var(--teal);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
 
         .stat-num {
-            font-family: 'Bebas Neue', sans-serif;
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
             font-size: var(--f-2xl);
-            color: var(--neon);
+            color: var(--teal);
             line-height: 1;
             margin-bottom: 0.26vw;
         }
 
         .stat-label {
-            font-family: 'Inconsolata', monospace;
+            font-family: 'JetBrains Mono', monospace;
             font-size: var(--f-xs);
-            letter-spacing: 0.18em;
-            color: var(--text-dim);
-            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-mid);
         }
 
         .stat-desc {
             font-size: var(--f-xs);
-            color: var(--text-mid);
+            color: var(--text-dim);
             margin-top: 0.3vw;
+            line-height: 1.5;
+            word-break: keep-all;
         }
 
         .tech-tags {
@@ -265,82 +280,19 @@
         }
 
         .tech-tag {
-            font-family: 'Inconsolata', monospace;
+            font-family: 'JetBrains Mono', monospace;
             font-size: var(--f-xs);
-            letter-spacing: 0.1em;
             color: var(--text-mid);
             border: 1px solid var(--border);
             padding: 0.26vw 0.63vw;
+            border-radius: 4px;
             background: var(--surface);
-            transition: all 0.2s;
         }
 
-        .tech-tag:hover,
-        .tech-tag.neon {
-            border-color: var(--neon);
-            color: var(--neon);
-            background: var(--neon-dim);
-        }
-
-        .timeline-strip {
-            border: 1px solid var(--border);
-            background: var(--surface);
-            padding: 0.83vw 1.04vw;
-        }
-
-        .timeline-strip-title {
-            font-family: 'Inconsolata', monospace;
-            font-size: var(--f-xs);
-            letter-spacing: 0.18em;
-            color: var(--neon);
-            text-transform: uppercase;
-            margin-bottom: 0.63vw;
-        }
-
-        .timeline-dots {
-            display: flex;
-            align-items: flex-start;
-            gap: 0;
-        }
-
-        .tl-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.31vw;
-            flex: 1;
-        }
-
-        .tl-dot {
-            width: 0.52vw;
-            height: 0.52vw;
-            border-radius: 50%;
-            background: var(--border);
-            border: 2px solid var(--border);
-            position: relative;
-            z-index: 1;
-            transition: all 0.3s;
-        }
-
-        .tl-dot.active {
-            background: var(--neon);
-            border-color: var(--neon);
-            box-shadow: 0 0 0.42vw rgba(24, 201, 106, 0.5);
-        }
-
-        .tl-line {
-            flex: 1;
-            height: 1px;
-            background: var(--border);
-            margin-top: -0.83vw;
-        }
-
-        .tl-label {
-            font-family: 'Inconsolata', monospace;
-            font-size: var(--f-xs);
-            color: var(--text-dim);
-            text-align: center;
-            line-height: 1.3;
+        .tech-tag.highlight {
+            border-color: var(--gold-dim);
+            color: var(--gold);
+            background: rgba(232, 160, 69, 0.1);
         }
 
         /* PAGE 02 */
@@ -350,57 +302,50 @@
             align-items: center;
             gap: 1.04vw;
             padding: 1.67vw 1.25vw;
-            border: 1px solid var(--neon-border);
-            background: var(--neon-dim);
+            border: 1px solid var(--border);
+            background: var(--surface);
+            border-radius: 8px;
         }
 
         .avatar {
             width: 5.63vw;
             height: 5.63vw;
             border-radius: 50%;
-            border: 2px solid var(--neon);
+            border: 2px solid var(--teal);
             overflow: hidden;
             flex-shrink: 0;
-            background: var(--surface);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5vw;
         }
 
         .avatar img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center top;
         }
 
         .profile-name {
-            font-family: 'Bebas Neue', sans-serif;
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
             font-size: var(--f-xl);
-            letter-spacing: 0.1em;
             color: var(--text);
         }
 
         .profile-role {
-            font-family: 'Inconsolata', monospace;
+            font-family: 'JetBrains Mono', monospace;
             font-size: var(--f-xs);
-            letter-spacing: 0.16em;
-            color: var(--neon);
-            text-transform: uppercase;
+            color: var(--gold);
         }
 
         .profile-info-table {
             width: 100%;
             border: 1px solid var(--border);
-            background: rgba(238, 242, 247, 0.8);
+            background: var(--surface2);
+            border-radius: 4px;
         }
 
         .profile-info-table .row {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            padding: 0.42vw 0.63vw;
+            padding: 0.5vw;
             border-bottom: 1px solid var(--border);
             font-size: var(--f-sm);
         }
@@ -409,26 +354,10 @@
             border-bottom: none;
         }
 
-        .profile-info-table .row strong {
-            font-family: 'Inconsolata', monospace;
-            font-size: var(--f-xs);
-            color: var(--neon);
-            letter-spacing: 0.1em;
-        }
-
-        .level-badge {
-            background: var(--neon-dim);
-            border: 1px solid var(--neon);
-            color: var(--neon);
-            font-weight: 700;
-            padding: 0.1vw 0.52vw;
-            font-size: var(--f-sm);
-        }
-
         .profile-links {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 0.31vw;
+            gap: 0.4vw;
             width: 100%;
         }
 
@@ -436,148 +365,102 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 0.42vw;
-            border: 1px solid var(--neon-border);
+            padding: 0.5vw;
+            border-radius: 4px;
+            border: 1px solid var(--border);
             color: var(--text-mid);
-            font-family: 'Inconsolata', monospace;
+            font-family: 'JetBrains Mono', monospace;
             font-size: var(--f-xs);
-            letter-spacing: 0.06em;
-            transition: all 0.2s;
         }
 
         .profile-links a:hover {
-            background: var(--neon-dim);
-            color: var(--neon);
-            border-color: var(--neon);
-            text-decoration: none;
-        }
-
-        .text-block {
-            background: rgba(228, 234, 243, 0.7);
-            border: 1px solid var(--border);
-            padding: 1.04vw;
-        }
-
-        .text-block-title {
-            font-family: 'Inconsolata', monospace;
-            font-size: var(--f-xs);
-            letter-spacing: 0.18em;
-            color: var(--neon);
-            margin-bottom: 0.52vw;
-            text-transform: uppercase;
-        }
-
-        .text-block-title::before {
-            content: '// ';
-            opacity: 0.5;
-        }
-
-        .text-block p {
-            font-size: var(--f-sm);
-            color: var(--text-mid);
-            line-height: 1.7;
-        }
-
-        .text-block p strong {
-            color: var(--text);
-            font-weight: 500;
+            background: var(--teal-dim);
+            color: var(--teal);
+            border-color: var(--teal-border);
         }
 
         .p02-right {
             display: flex;
             flex-direction: column;
             gap: 1.04vw;
-            position: relative;
             z-index: 1;
-        }
-
-        .stack-heading {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: var(--f-2xl);
-            letter-spacing: 0.06em;
-            color: var(--text);
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 0.63vw;
         }
 
         .stack-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 0.63vw;
+            gap: 0.8vw;
         }
 
         .stack-block {
-            padding: 0.83vw 1.04vw;
-            border: 1px solid var(--neon-border);
-            background: var(--neon-dim);
-            border-left: 3px solid var(--neon);
-            transition: background 0.2s, transform 0.2s;
+            padding: 1.2vw;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            border-radius: 6px;
+            border-top: 3px solid var(--border-hi);
+            transition: transform 0.2s;
+            display: flex;
+            flex-direction: column;
         }
 
         .stack-block:hover {
-            background: rgba(24, 201, 106, 0.12);
+            border-top-color: var(--teal);
             transform: translateY(-2px);
         }
 
         .stack-title {
-            font-family: 'Inconsolata', monospace;
+            font-family: 'JetBrains Mono', monospace;
             font-size: var(--f-xs);
-            letter-spacing: 0.16em;
-            color: var(--neon);
+            color: var(--teal);
+            margin-bottom: 0.6vw;
+            font-weight: 700;
             text-transform: uppercase;
-            margin-bottom: 0.42vw;
         }
 
         .stack-list {
             font-size: var(--f-sm);
             color: var(--text);
             font-weight: 500;
+            margin-bottom: 0.6vw;
             line-height: 1.4;
-            margin-bottom: 0.26vw;
         }
 
         .stack-desc {
             font-size: var(--f-xs);
-            color: var(--text-dim);
-            line-height: 1.5;
+            color: var(--text-mid);
+            line-height: 1.7;
+            word-break: keep-all;
+            flex: 1;
         }
 
         .skill-meters {
             display: flex;
             flex-direction: column;
-            gap: 0.52vw;
-            padding: 0.83vw 1.04vw;
+            gap: 0.6vw;
+            padding: 1.2vw;
             border: 1px solid var(--border);
             background: var(--surface);
-        }
-
-        .skill-meter-title {
-            font-family: 'Inconsolata', monospace;
-            font-size: var(--f-xs);
-            letter-spacing: 0.16em;
-            color: var(--neon);
-            text-transform: uppercase;
-            margin-bottom: 0.31vw;
+            border-radius: 6px;
         }
 
         .skill-row {
             display: flex;
             align-items: center;
-            gap: 0.63vw;
+            gap: 0.8vw;
         }
 
         .skill-name {
-            font-family: 'Inconsolata', monospace;
+            font-family: 'JetBrains Mono', monospace;
             font-size: var(--f-xs);
             color: var(--text-mid);
-            width: 5.21vw;
-            flex-shrink: 0;
+            width: 6vw;
         }
 
         .skill-bar-bg {
             flex: 1;
-            height: 0.26vw;
-            background: var(--border);
+            height: 0.4vw;
+            background: var(--surface2);
+            border-radius: 2px;
             position: relative;
             overflow: hidden;
         }
@@ -587,18 +470,17 @@
             left: 0;
             top: 0;
             bottom: 0;
-            background: var(--neon);
+            background: linear-gradient(90deg, var(--teal), var(--gold));
             width: 0;
             transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .skill-pct {
-            font-family: 'Inconsolata', monospace;
+            font-family: 'JetBrains Mono', monospace;
             font-size: var(--f-xs);
-            color: var(--neon);
-            width: 2.08vw;
+            color: var(--teal);
+            width: 2.5vw;
             text-align: right;
-            flex-shrink: 0;
         }
 
         /* PROJECT PAGES */
@@ -606,256 +488,130 @@
             display: flex;
             flex-direction: column;
             padding: 2.6vw var(--pad-page) 2.08vw;
-            height: 100%;
         }
 
         .proj-num {
-            font-family: 'Inconsolata', monospace;
+            font-family: 'JetBrains Mono', monospace;
             font-size: var(--f-xs);
-            letter-spacing: 0.22em;
-            color: var(--neon);
-            margin-bottom: 0.26vw;
-            position: relative;
-            z-index: 1;
+            color: var(--gold);
+            margin-bottom: 0.4vw;
         }
 
         .proj-title {
-            font-family: 'Bebas Neue', sans-serif;
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
             font-size: var(--f-3xl);
-            letter-spacing: 0.04em;
             color: var(--text);
             line-height: 1;
-            margin-bottom: 0.52vw;
-            position: relative;
-            z-index: 1;
+            margin-bottom: 0.6vw;
         }
 
         .proj-tagline {
             font-size: var(--f-sm);
-            color: var(--text-dim);
-            font-family: 'Inconsolata', monospace;
-            letter-spacing: 0.04em;
-            border-left: 2px solid var(--neon);
+            color: var(--text-mid);
+            font-family: 'JetBrains Mono', monospace;
+            border-left: 2px solid var(--teal);
             padding-left: 0.63vw;
-            margin-bottom: 1.25vw;
-            position: relative;
-            z-index: 1;
+            margin-bottom: 1.5vw;
         }
 
         .proj-body {
             display: grid;
             grid-template-columns: 1fr 20.83vw;
-            gap: 1.67vw;
+            gap: 2.5vw;
             flex: 1;
             min-height: 0;
-            position: relative;
-            z-index: 1;
         }
 
         .proj-left {
             display: flex;
             flex-direction: column;
-            gap: 0.83vw;
-            min-height: 0;
-        }
-
-        .sec-block {
-            display: flex;
-            flex-direction: column;
-            gap: 0.42vw;
+            gap: 1.5vw;
         }
 
         .sec-title {
-            font-family: 'Inconsolata', monospace;
+            font-family: 'JetBrains Mono', monospace;
             font-size: var(--f-xs);
-            letter-spacing: 0.2em;
-            color: var(--neon);
+            color: var(--teal);
+            padding-bottom: 0.4vw;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 0.5vw;
             text-transform: uppercase;
-            padding-bottom: 0.31vw;
-            border-bottom: 1px solid var(--neon-border);
         }
 
         .feat-list {
             display: flex;
             flex-direction: column;
-            gap: 0.15vw;
+            gap: 0.6vw;
         }
 
         .feat-row {
             display: flex;
-            gap: 0.52vw;
+            gap: 0.6vw;
             font-size: var(--f-sm);
             color: var(--text-mid);
-            line-height: 1.55;
+            line-height: 1.6;
+            word-break: keep-all;
         }
 
         .feat-row::before {
             content: '▸';
-            color: var(--neon);
-            flex-shrink: 0;
-            font-size: var(--f-xs);
-            margin-top: 0.15vw;
+            color: var(--gold);
         }
 
         .feat-row strong {
             color: var(--text);
             font-weight: 500;
-            margin-right: 0.2vw;
         }
 
         .meta-table {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 0;
             border: 1px solid var(--border);
+            border-radius: 6px;
+            overflow: hidden;
         }
 
         .meta-cell {
-            padding: 0.52vw 0.73vw;
+            padding: 0.8vw 1vw;
             border-right: 1px solid var(--border);
             border-bottom: 1px solid var(--border);
             background: var(--surface);
         }
 
-        .meta-cell:nth-child(2n) {
-            border-right: none;
-        }
-
-        .meta-cell:nth-last-child(-n+2) {
-            border-bottom: none;
-        }
-
         .meta-cell-label {
-            font-family: 'Inconsolata', monospace;
+            font-family: 'JetBrains Mono', monospace;
             font-size: var(--f-xs);
-            letter-spacing: 0.14em;
-            color: var(--neon);
+            color: var(--teal);
+            margin-bottom: 0.3vw;
             text-transform: uppercase;
-            margin-bottom: 0.16vw;
         }
 
         .meta-cell-val {
             font-size: var(--f-sm);
             color: var(--text-mid);
-        }
-
-        .contrib-bar {
-            display: flex;
-            flex-direction: column;
-            gap: 0.31vw;
-            padding: 0.73vw 0.83vw;
-            border: 1px solid var(--border);
-            background: var(--surface);
-        }
-
-        .contrib-title {
-            font-family: 'Inconsolata', monospace;
-            font-size: var(--f-xs);
-            letter-spacing: 0.16em;
-            color: var(--neon);
-            text-transform: uppercase;
-        }
-
-        .contrib-stack {
-            display: flex;
-            height: 0.42vw;
-            gap: 0.1vw;
-            overflow: hidden;
-        }
-
-        .contrib-seg {
-            height: 100%;
-        }
-
-        .contrib-legend {
-            display: flex;
-            gap: 0.73vw;
-            flex-wrap: wrap;
-        }
-
-        .legend-item {
-            display: flex;
-            align-items: center;
-            gap: 0.26vw;
-            font-family: 'Inconsolata', monospace;
-            font-size: var(--f-xs);
-            color: var(--text-dim);
-        }
-
-        .legend-dot {
-            width: 0.36vw;
-            height: 0.36vw;
-            border-radius: 1px;
-            flex-shrink: 0;
-        }
-
-        .proj-links {
-            display: flex;
-            gap: 0.63vw;
-            flex-wrap: wrap;
-            margin-top: auto;
-        }
-
-        .proj-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.31vw;
-            font-family: 'Inconsolata', monospace;
-            font-size: var(--f-xs);
-            letter-spacing: 0.1em;
-            color: var(--neon);
-            border-bottom: 1px solid var(--neon-border);
-            padding-bottom: 0.1vw;
-            text-transform: uppercase;
-            transition: opacity 0.2s;
-        }
-
-        .proj-link:hover {
-            opacity: 0.7;
-            text-decoration: none;
-        }
-
-        .proj-link::after {
-            content: ' →';
-        }
-
-        .proj-right {
-            display: flex;
-            flex-direction: column;
-            gap: 0.63vw;
-            min-height: 0;
+            font-weight: 500;
         }
 
         .shot-slot {
             flex: 1;
-            border: 1px solid var(--neon-border);
-            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background: var(--surface);
             position: relative;
             overflow: hidden;
-            min-height: 0;
         }
 
         .shot-slot img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: top;
-            display: block;
+            opacity: 0.85;
+            transition: opacity 0.3s;
         }
 
-        .shot-bg-code {
-            position: absolute;
-            inset: 0;
-            overflow: hidden;
-            opacity: 0.09;
-            pointer-events: none;
-            font-family: 'Inconsolata', monospace;
-            font-size: var(--f-xs);
-            color: var(--neon);
-            line-height: 1.6;
-            padding: 0.52vw;
-            word-break: break-all;
-            white-space: pre-wrap;
+        .shot-slot:hover img {
+            opacity: 1;
         }
 
         .shot-label {
@@ -863,13 +619,24 @@
             bottom: 0;
             left: 0;
             right: 0;
-            font-family: 'Inconsolata', monospace;
+            font-family: 'JetBrains Mono', monospace;
             font-size: var(--f-xs);
-            letter-spacing: 0.14em;
-            color: var(--text-dim);
+            color: var(--text);
+            background: rgba(0, 0, 0, 0.8);
+            padding: 0.4vw 0.6vw;
             text-transform: uppercase;
-            background: rgba(228, 234, 243, 0.85);
-            padding: 0.26vw 0.52vw;
+            z-index: 2;
+        }
+
+        .shot-bg-code {
+            position: absolute;
+            inset: 0;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.6vw;
+            color: rgba(94, 234, 212, 0.15);
+            padding: 1vw;
+            white-space: pre-wrap;
+            pointer-events: none;
             z-index: 1;
         }
 
@@ -878,394 +645,209 @@
             display: flex;
             flex-direction: column;
             padding: 2.6vw var(--pad-page) 2.08vw;
-            gap: 0.83vw;
-            height: 100%;
+            gap: 1.5vw;
         }
 
         .code-heading {
-            font-family: 'Bebas Neue', sans-serif;
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
             font-size: var(--f-2xl);
-            letter-spacing: 0.06em;
             color: var(--text);
-            position: relative;
-            z-index: 1;
         }
 
         .insight-strip {
             display: flex;
-            gap: 0;
             border: 1px solid var(--border);
-            position: relative;
-            z-index: 1;
-            flex-shrink: 0;
+            border-radius: 6px;
+            overflow: hidden;
         }
 
         .insight-cell {
             flex: 1;
-            padding: 0.52vw 0.83vw;
+            padding: 0.8vw 1vw;
             border-right: 1px solid var(--border);
             background: var(--surface);
         }
 
-        .insight-cell:last-child {
-            border-right: none;
-        }
-
         .insight-cell-label {
-            font-family: 'Inconsolata', monospace;
+            font-family: 'JetBrains Mono', monospace;
             font-size: var(--f-xs);
-            letter-spacing: 0.14em;
-            color: var(--neon);
+            color: var(--teal);
+            margin-bottom: 0.3vw;
             text-transform: uppercase;
-            margin-bottom: 0.21vw;
         }
 
         .insight-cell-val {
             font-size: var(--f-sm);
             color: var(--text-mid);
-            font-family: 'Inconsolata', monospace;
+            font-family: 'JetBrains Mono', monospace;
         }
 
         .code-review-block {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 0.83vw;
-            position: relative;
-            z-index: 1;
+            gap: 1.5vw;
             flex: 1;
-            min-height: 0;
         }
 
         .code-wrap {
             display: flex;
             flex-direction: column;
-            min-height: 0;
         }
 
         .code-label {
-            font-family: 'Inconsolata', monospace;
+            font-family: 'JetBrains Mono', monospace;
             font-size: var(--f-xs);
-            letter-spacing: 0.16em;
-            color: var(--neon);
-            text-transform: uppercase;
-            padding: 0.31vw 0.73vw;
-            background: rgba(24, 201, 106, 0.08);
-            border: 1px solid var(--neon-border);
+            color: var(--teal);
+            padding: 0.6vw 1vw;
+            background: var(--surface);
+            border: 1px solid var(--border);
             border-bottom: none;
-            flex-shrink: 0;
+            border-radius: 6px 6px 0 0;
+            font-weight: 700;
+            text-transform: uppercase;
         }
 
         pre.code-block {
             margin: 0;
-            padding: 0.73vw 0.83vw;
-            background: var(--surface2);
-            border: 1px solid var(--neon-border);
-            border-left: 3px solid var(--neon);
-            overflow: hidden;
-            font-family: 'Inconsolata', monospace;
+            padding: 1.2vw;
+            background: #000;
+            border: 1px solid var(--border);
+            border-radius: 0 0 6px 6px;
+            font-family: 'JetBrains Mono', monospace;
             font-size: var(--f-xs);
-            line-height: 1.7;
+            line-height: 1.8;
             color: var(--text-mid);
-            flex: 1;
-            white-space: pre-wrap;
-            word-break: break-word;
+            overflow: auto;
+            height: 100%;
         }
 
-        pre.code-block code {
-            display: block;
-            white-space: pre;
-        }
-
+        /* Syntax Highlighting */
         .kw {
-            color: #1a4d8f;
+            color: #c678dd;
         }
 
         .fn {
-            color: #0f9a52;
+            color: #61afef;
         }
 
         .st {
-            color: #b03030;
+            color: #98c379;
         }
 
         .nm {
-            color: #c05820;
+            color: #d19a66;
         }
 
         .cm {
-            color: #7a95b0;
+            color: #5c6370;
             font-style: italic;
         }
 
         .learned-panel {
             display: flex;
             flex-direction: column;
-            gap: 0.52vw;
+            gap: 0.8vw;
         }
 
         .learned-item {
             flex: 1;
-            padding: 0.63vw 0.83vw;
+            padding: 1.2vw;
             border: 1px solid var(--border);
             background: var(--surface);
-            border-left: 3px solid rgba(24, 201, 106, 0.35);
+            border-left: 3px solid var(--teal);
+            border-radius: 4px;
+            display: flex;
+            flex-direction: column;
         }
 
         .learned-title {
-            font-family: 'Inconsolata', monospace;
-            font-size: var(--f-xs);
-            color: var(--neon);
-            letter-spacing: 0.1em;
-            margin-bottom: 0.26vw;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: var(--f-sm);
+            color: var(--gold);
+            margin-bottom: 0.6vw;
+            font-weight: 700;
         }
 
         .learned-item p {
             font-size: var(--f-sm);
             color: var(--text-mid);
-            line-height: 1.7;
+            line-height: 1.8;
+            word-break: keep-all;
+            flex: 1;
         }
 
-        /* CONTACT */
+        /* CONTACT & LAST PAGE */
         .page-contact {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            height: 100%;
         }
 
         .contact-left {
             padding: var(--pad-v) var(--pad-page);
+            border-right: 1px solid var(--border);
             display: flex;
             flex-direction: column;
-            gap: 1.67vw;
-            position: relative;
-            z-index: 1;
-            border-right: 1px solid var(--border);
+            justify-content: center;
         }
 
         .contact-big {
-            font-family: 'Bebas Neue', sans-serif;
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
             font-size: var(--f-4xl);
-            line-height: 0.9;
+            line-height: 1;
             color: var(--text);
+            margin-bottom: 2vw;
         }
 
         .contact-big span {
-            color: var(--neon);
+            color: var(--teal);
         }
 
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.25vw 2.5vw;
+            grid-template-columns: 1fr 1fr;
+            gap: 2vw;
+            margin-bottom: 2vw;
         }
 
-        .contact-item {
+        .page-final {
             display: flex;
             flex-direction: column;
-            gap: 0.31vw;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 1.5vw;
         }
 
-        .contact-label {
-            font-family: 'Inconsolata', monospace;
-            font-size: var(--f-xs);
+        .final-quote {
+            font-family: 'Syne', sans-serif;
+            font-size: var(--f-4xl);
+            font-weight: 800;
+            color: var(--text);
+        }
+
+        .final-sub {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: var(--f-md);
+            color: var(--gold);
             letter-spacing: 0.2em;
-            color: var(--neon);
-            text-transform: uppercase;
         }
 
-        .contact-val {
-            font-size: var(--f-md);
-            color: var(--text);
-        }
-
-        .contact-val a {
-            color: var(--text);
-            transition: color 0.2s;
-        }
-
-        .contact-val a:hover {
-            color: var(--neon);
-            text-decoration: none;
-        }
-
-        .contact-footer-text {
-            font-size: var(--f-sm);
-            color: var(--text-dim);
-            line-height: 1.9;
-        }
-
-        .contact-right {
-            padding: var(--pad-v) var(--pad-page);
+        .final-tags {
             display: flex;
-            flex-direction: column;
+            gap: 1vw;
+            margin-top: 1vw;
             justify-content: center;
-            gap: 1.04vw;
-            position: relative;
-            z-index: 1;
-            overflow: hidden;
         }
 
-        .avail-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.42vw;
-            font-family: 'Inconsolata', monospace;
+        .final-tags span {
+            font-family: 'JetBrains Mono', monospace;
             font-size: var(--f-xs);
-            letter-spacing: 0.14em;
-            color: var(--neon);
-            border: 1px solid var(--neon-border);
-            padding: 0.42vw 0.83vw;
-            background: var(--neon-dim);
-            width: fit-content;
-        }
-
-        .avail-dot {
-            width: 0.36vw;
-            height: 0.36vw;
-            border-radius: 50%;
-            background: var(--neon);
-            animation: blink 1.4s ease-in-out infinite;
-            flex-shrink: 0;
-        }
-
-        @keyframes blink {
-
-            0%,
-            100% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0.2;
-            }
-        }
-
-        .contact-stat-list {
-            display: flex;
-            flex-direction: column;
-            gap: 0.52vw;
-        }
-
-        .contact-stat-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.63vw 0.83vw;
-            border: 1px solid var(--border);
-            background: var(--surface);
-        }
-
-        .contact-stat-item-label {
-            font-family: 'Inconsolata', monospace;
-            font-size: var(--f-xs);
-            letter-spacing: 0.12em;
             color: var(--text-dim);
         }
 
-        .contact-stat-item-val {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: var(--f-xl);
-            color: var(--neon);
-            letter-spacing: 0.05em;
-        }
-
-        /* MATRIX PAGE */
-        .page-matrix {
-            background: #0a0f1a;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .page-matrix::before {
-            background-image: none;
-        }
-
-        .matrix-overlay-text {
-            position: absolute;
-            inset: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            gap: 1.56vw;
-            z-index: 2;
-            pointer-events: none;
-        }
-
-        .matrix-overlay-text .big-quote {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: var(--f-3xl);
-            color: var(--neon);
-            letter-spacing: 0.06em;
-            text-align: center;
-            text-shadow: 0 0 2vw rgba(24, 201, 106, 0.5);
-            opacity: 0.9;
-        }
-
-        .matrix-overlay-text .sub-quote {
-            font-family: 'Inconsolata', monospace;
-            font-size: var(--f-md);
-            color: rgba(24, 201, 106, 0.6);
-            letter-spacing: 0.24em;
-            text-align: center;
-            text-transform: uppercase;
-        }
-
-        @keyframes glitch-clip {
-
-            0%,
-            100% {
-                clip-path: inset(0 0 95% 0);
-                transform: translateX(0);
-            }
-
-            10% {
-                clip-path: inset(30% 0 50% 0);
-                transform: translateX(-3px);
-            }
-
-            30% {
-                clip-path: inset(60% 0 30% 0);
-                transform: translateX(3px);
-            }
-
-            60% {
-                clip-path: inset(80% 0 5% 0);
-                transform: translateX(-2px);
-            }
-        }
-
-        .glitch-wrap {
-            position: relative;
-            display: inline-block;
-        }
-
-        .glitch-wrap::before,
-        .glitch-wrap::after {
-            content: attr(data-text);
-            position: absolute;
-            inset: 0;
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: inherit;
-            line-height: inherit;
-            letter-spacing: inherit;
-        }
-
-        .glitch-wrap::before {
-            color: #18c96a;
-            left: 2px;
-            animation: glitch-clip 6s infinite steps(1);
-            opacity: 0.6;
-        }
-
-        .glitch-wrap::after {
-            color: #1a4d8f;
-            left: -2px;
-            animation: glitch-clip 6s infinite steps(1) reverse;
-            opacity: 0.4;
-        }
-
+        /* ── PRINT CSS (인쇄 및 PDF 최적화) ── */
         @media print {
             @page {
                 size: 1920px 1080px;
@@ -1273,9 +855,9 @@
             }
 
             body {
-                background: #eef2f7 !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
+                background: var(--bg) !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
                 margin: 0;
                 padding: 0;
             }
@@ -1284,11 +866,12 @@
                 display: block !important;
                 padding: 0 !important;
                 margin: 0 !important;
+                gap: 0 !important;
             }
 
             .page {
-                width: 100vw !important;
-                height: 100vh !important;
+                width: 1920px !important;
+                height: 1080px !important;
                 max-width: none !important;
                 aspect-ratio: auto !important;
                 page-break-after: always !important;
@@ -1298,6 +881,14 @@
                 margin: 0 !important;
                 position: relative;
                 overflow: hidden !important;
+                box-shadow: none !important;
+                border-radius: 0 !important;
+            }
+
+            .smooth-appear {
+                opacity: 1 !important;
+                transform: none !important;
+                transition: none !important;
             }
         }
     </style>
@@ -1306,24 +897,23 @@
 <body>
     <div class="pages">
 
-        <!-- PAGE 01 — TITLE -->
         <div class="page p01">
-            <canvas class="matrix-canvas" id="mc-title" style="opacity:0.06;"></canvas>
-            <div class="p01-left">
+            <div class="p01-left smooth-appear">
                 <div class="label">PROFILE</div>
                 <div class="big-name">
-                    <span class="glitch-wrap" data-text="JAY">JAY</span><br>
-                    <span class="glitch-wrap" style="color:var(--neon);" data-text="PARK">PARK</span>
+                    JAY<br><span>PARK</span>
                 </div>
                 <p class="title-desc">
-                    코드로 세계를 설계합니다.<br>
-                    게임 로직·물리·렌더링까지 직접 구현하는<br>
-                    게임 플레이 개발자입니다.
+                    단순히 기능이 동작하는 코드를 넘어 엔진과 하드웨어의 기저를 탐구합니다.<br>
+                    게임 루프의 생명주기, 메모리 파편화 방지, 물리 충돌의 수학적 원리, 렌더링 파이프라인의 하드웨어적 처리 과정을 집요하게 파고들며, 상용 프레임워크가 추상화한 이면의 구조를 직접
+                    설계하고 통제하는 것을 즐깁니다.<br><br>
+                    시각적인 화려함보다는 시스템의 견고함과 아키텍처의 확장성을 치열하게 고민합니다. 단 1ms의 렌더링 지연과 1바이트의 메모리 누수도 허용하지 않는 집요함으로 무장한 게임 플레이 및
+                    엔진 개발자입니다.
                 </p>
                 <div class="title-meta">
                     <div class="meta-item">
                         <strong>Role</strong>
-                        <span>Game Play Developer</span>
+                        <span>Game Play / Engine Developer</span>
                     </div>
                     <div class="meta-item">
                         <strong>School</strong>
@@ -1331,91 +921,57 @@
                     </div>
                 </div>
             </div>
-            <div class="p01-right">
-                <div style="position:relative;z-index:2;">
-                    <div class="label" style="margin-bottom:0.73vw;">STATS</div>
+            <div class="p01-right smooth-appear delay-1">
+                <div>
+                    <div class="label" style="margin-bottom:0.7vw;">STATS</div>
                     <div class="stat-row">
                         <div class="stat-card">
-                            <div class="stat-num" data-count="8">0+</div>
+                            <div class="stat-num" data-count="9">0+</div>
                             <div class="stat-label">Projects</div>
-                            <div class="stat-desc">다양한 장르·기술의 개인 프로젝트</div>
+                            <div class="stat-desc">엔진 아키텍처, 네트워크, 보안/암호화를 아우르는 다수의 심도 있는 코어 개발 경험</div>
                         </div>
                         <div class="stat-card">
                             <div class="stat-num" data-count="5">0+</div>
                             <div class="stat-label">Languages</div>
-                            <div class="stat-desc">C++, C#, Java, Python, JS</div>
+                            <div class="stat-desc">C++, C#, Java, Python 등 메모리 구조부터 모던 객체지향 설계까지 완벽한 이해</div>
                         </div>
                         <div class="stat-card">
                             <div class="stat-num" data-count="3">0+</div>
                             <div class="stat-label">Engines</div>
-                            <div class="stat-desc">UE5, Unity, Godot</div>
+                            <div class="stat-desc">Unreal Engine 5, Unity 3D의 코어 아키텍처 분석 및 상용 레벨의 최적화 패턴 적용</div>
                         </div>
                         <div class="stat-card">
-                            <div class="stat-num" data-count="11700">0+</div>
+                            <div class="stat-num" data-count="12000">0+</div>
                             <div class="stat-label">Lines of Code</div>
-                            <div class="stat-desc">작성한 총 코드 라인 수 (추정)</div>
+                            <div class="stat-desc">가독성과 유지보수성을 최우선으로 고려하여 직접 설계하고 작성한 순수 로직의 코드 규모</div>
                         </div>
                     </div>
                 </div>
-                <div style="position:relative;z-index:2;">
-                    <div class="label" style="margin-bottom:0.52vw;">TECHNOLOGIES</div>
+                <div style="margin-top: 1.5vw;">
+                    <div class="label" style="margin-bottom:0.7vw;">TECHNOLOGIES</div>
                     <div class="tech-tags">
-                        <span class="tech-tag neon">C++</span>
-                        <span class="tech-tag neon">DirectX 11</span>
-                        <span class="tech-tag neon">Unreal Engine 5</span>
+                        <span class="tech-tag highlight">C++</span>
+                        <span class="tech-tag highlight">DirectX 11</span>
+                        <span class="tech-tag highlight">Unreal Engine 5</span>
                         <span class="tech-tag">C#</span>
-                        <span class="tech-tag">Unity</span>
                         <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Pygame</span>
                         <span class="tech-tag">Java</span>
-                        <span class="tech-tag">HLSL</span>
+                        <span class="tech-tag">HLSL Shaders</span>
                         <span class="tech-tag">AES Cryptography</span>
                         <span class="tech-tag">AABB Physics</span>
-                        <span class="tech-tag">Object Pooling</span>
-                        <span class="tech-tag">Behavior Tree</span>
+                        <span class="tech-tag">Memory Pooling</span>
+                        <span class="tech-tag">Network Sync</span>
                         <span class="tech-tag">Git / GitHub</span>
-                    </div>
-                </div>
-                <div style="position:relative;z-index:2;">
-                    <div class="timeline-strip">
-                        <div class="timeline-strip-title">// DEVELOPMENT JOURNEY</div>
-                        <div class="timeline-dots">
-                            <div class="tl-item">
-                                <div class="tl-dot active"></div>
-                                <div class="tl-label">Python<br>Pygame</div>
-                            </div>
-                            <div class="tl-line"></div>
-                            <div class="tl-item">
-                                <div class="tl-dot active"></div>
-                                <div class="tl-label">Java<br>Games</div>
-                            </div>
-                            <div class="tl-line"></div>
-                            <div class="tl-item">
-                                <div class="tl-dot active"></div>
-                                <div class="tl-label">Security<br>Python</div>
-                            </div>
-                            <div class="tl-line"></div>
-                            <div class="tl-item">
-                                <div class="tl-dot active"></div>
-                                <div class="tl-label">DirectX<br>C++</div>
-                            </div>
-                            <div class="tl-line"></div>
-                            <div class="tl-item">
-                                <div class="tl-dot active"></div>
-                                <div class="tl-label">Unreal<br>Engine 5</div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
             <div class="page-num">— 01</div>
         </div>
 
-        <!-- PAGE 02 — ABOUT ME -->
         <div class="page"
-            style="display:grid;grid-template-columns:14.58vw 1fr;gap:2.08vw;padding:2.6vw var(--pad-page);align-content:start;">
-            <div style="grid-column:1/-1;"><span class="label">ABOUT ME</span></div>
-            <div style="display:flex;flex-direction:column;gap:0.83vw;position:relative;z-index:1;">
+            style="display:grid;grid-template-columns:15vw 1fr;gap:3vw;padding:3.5vw var(--pad-page);align-content:start;">
+            <div style="grid-column:1/-1;" class="smooth-appear"><span class="label">ABOUT ME & SKILLS</span></div>
+            <div style="display:flex;flex-direction:column;gap:1.5vw;" class="smooth-appear delay-1">
                 <div class="profile-card">
                     <div class="avatar">
                         <img src="../photo.jpg" alt="박재영" onerror="this.parentNode.innerHTML='🎮'">
@@ -1428,112 +984,92 @@
                             <span style="font-size:var(--f-xs);text-align:right;">미림마이스터고<br>뉴미디어SW과</span>
                         </div>
                         <div class="row">
-                            <strong>Level</strong>
-                            <span class="level-badge">19</span>
+                            <strong>Graduation</strong>
+                            <span>2026. 02 예정</span>
                         </div>
                     </div>
                     <div class="profile-links">
                         <a href="mailto:s2444@e-mirim.hs.kr">Email</a>
                         <a href="https://github.com/jay-p08" target="_blank">GitHub</a>
-                        <a href="../Introduction/introduction.html" target="_blank">자기소개서</a>
-                        <a href="../index.html" target="_blank">이력서</a>
                     </div>
                 </div>
             </div>
-            <div class="p02-right">
-                <div class="stack-heading">Technical Stack</div>
+            <div class="p02-right smooth-appear delay-2">
                 <div class="stack-grid">
                     <div class="stack-block">
                         <div class="stack-title">Game Engines</div>
-                        <div class="stack-list">Unreal Engine 5, Unity 3D, Godot</div>
-                        <div class="stack-desc">각 엔진의 코어 라이프사이클을 이해하고, 특성에 맞는 최적화된 로직과 블루프린트/C# 스크립트를 작성합니다.</div>
+                        <div class="stack-list">Unreal Engine 5, Unity 3D</div>
+                        <div class="stack-desc">언리얼의 UObject 생명주기와 가비지 컬렉션(GC) 구조, 유니티의 MonoBehaviour 라이프사이클을 명확히 분별합니다.
+                            단순한 에디터 사용을 넘어 엔진 내부의 리소스 비동기 로딩 방식(FStreamableManager)과 서브시스템(Subsystem) 아키텍처를 프로젝트에 적용하여
+                            성능 한계를 끌어올립니다. 블루프린트와 C++의 상호작용 오버헤드를 최소화하는 네이티브 설계에 강점이 있습니다.</div>
                     </div>
                     <div class="stack-block">
-                        <div class="stack-title">Core Language</div>
-                        <div class="stack-list">C++, C#, Java, Python, JavaScript</div>
-                        <div class="stack-desc">객체지향 프로그래밍(OOP) 원칙과 메모리 구조를 바탕으로 재사용성 높고 안전한 코드를 설계합니다.</div>
+                        <div class="stack-title">Core Languages</div>
+                        <div class="stack-list">C++, C#, Java, Python</div>
+                        <div class="stack-desc">C++의 스마트 포인터, 이동 의미론(Move Semantics) 등 모던 C++ 기능을 숙달하여 힙/스택 메모리를 효율적으로
+                            통제하고 누수를 원천 차단합니다. 객체지향 설계(OOP)의 SOLID 원칙과 의존성 역전(DIP) 패턴을 적용해 스파게티 코드를 방지하며, 데이터 지향 설계(DOD)
+                            관점에서 메모리 캐시 지역성(Cache Locality)을 고려한 자료구조를 우선적으로 선택합니다.</div>
                     </div>
                     <div class="stack-block">
-                        <div class="stack-title">Graphics &amp; Rendering</div>
-                        <div class="stack-list">DirectX 11/12, OpenGL, HLSL, Shaders</div>
-                        <div class="stack-desc">렌더링 파이프라인의 원리를 깊이 이해하고 있으며, 커스텀 셰이더 작성으로 시각적 효과를 구현합니다.</div>
-                    </div>
-                    <div class="stack-block">
-                        <div class="stack-title">Game Dev Tools</div>
-                        <div class="stack-list">Physics Engine, AI Pathfinding, Collision</div>
-                        <div class="stack-desc">AABB/OBB 충돌 처리, A* 알고리즘 등 물리 연산과 수학적 기초 지식을 게임 시스템에 적용할 수 있습니다.</div>
-                    </div>
-                    <div class="stack-block">
-                        <div class="stack-title">Specialized Domains</div>
-                        <div class="stack-list">Thread Synchronization, Cryptography</div>
-                        <div class="stack-desc">멀티스레드 환경의 동기화 이슈 해결과 데이터 암호화 등 백엔드/보안 지식을 확장해 나가고 있습니다.</div>
-                    </div>
-                    <div class="stack-block">
-                        <div class="stack-title">Other Skills</div>
-                        <div class="stack-list">Git/GitHub, Problem Solving, Web API</div>
-                        <div class="stack-desc">버전 관리를 통한 체계적인 협업이 가능하며, 낯선 API나 문제를 마주해도 주도적으로 해결책을 찾습니다.</div>
+                        <div class="stack-title">Graphics & Security</div>
+                        <div class="stack-list">DirectX 11, HLSL, AES-256</div>
+                        <div class="stack-desc">정점 데이터가 픽셀로 변환되는 렌더링 파이프라인의 전 과정을 C++와 DirectX API로 바닥부터 구현해 보았습니다. 이와
+                            더불어 멀티플레이 및 서버 환경을 대비하여 AES 블록 암호화, 패딩(Padding), IV 관리 등 시스템 수준의 데이터 암복호화와 악성코드 모의 방어/탐지 등
+                            보안(Security)에 대한 폭넓은 이해도를 갖추고 있습니다.</div>
                     </div>
                 </div>
-                <div class="skill-meters">
+
+                <div class="skill-meters" style="margin-top: 0.5vw;">
                     <div class="skill-meter-title">// PROFICIENCY</div>
                     <div class="skill-row">
                         <div class="skill-name">C++ / DX11</div>
+                        <div class="skill-bar-bg">
+                            <div class="skill-bar-fill" data-pct="85"></div>
+                        </div>
+                        <div class="skill-pct">85%</div>
+                    </div>
+                    <div class="skill-row">
+                        <div class="skill-name">Unreal 5</div>
+                        <div class="skill-bar-bg">
+                            <div class="skill-bar-fill" data-pct="80"></div>
+                        </div>
+                        <div class="skill-pct">80%</div>
+                    </div>
+                    <div class="skill-row">
+                        <div class="skill-name">Python/Java</div>
                         <div class="skill-bar-bg">
                             <div class="skill-bar-fill" data-pct="82"></div>
                         </div>
                         <div class="skill-pct">82%</div>
                     </div>
-                    <div class="skill-row">
-                        <div class="skill-name">Unreal 5</div>
-                        <div class="skill-bar-bg">
-                            <div class="skill-bar-fill" data-pct="74"></div>
-                        </div>
-                        <div class="skill-pct">74%</div>
-                    </div>
-                    <div class="skill-row">
-                        <div class="skill-name">Python</div>
-                        <div class="skill-bar-bg">
-                            <div class="skill-bar-fill" data-pct="78"></div>
-                        </div>
-                        <div class="skill-pct">78%</div>
-                    </div>
-                    <div class="skill-row">
-                        <div class="skill-name">Java</div>
-                        <div class="skill-bar-bg">
-                            <div class="skill-bar-fill" data-pct="70"></div>
-                        </div>
-                        <div class="skill-pct">70%</div>
-                    </div>
-                    <div class="skill-row">
-                        <div class="skill-name">HLSL</div>
-                        <div class="skill-bar-bg">
-                            <div class="skill-bar-fill" data-pct="60"></div>
-                        </div>
-                        <div class="skill-pct">60%</div>
-                    </div>
                 </div>
-                <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.63vw;">
-                    <div class="text-block">
-                        <div class="text-block-title">Core Philosophy</div>
-                        <p>단순히 동작하는 코드를 넘어, <strong>성능과 유지보수</strong>를 고려한 아키텍처 설계를 지향합니다. 게임 루프의 생명주기를 완벽히 이해하고, 프레임 드랍
-                            없는 쾌적한 플레이 경험을 만드는 것을 최우선으로 생각합니다.</p>
+
+                <div style="display:flex; gap:1.5vw; margin-top: 0.5vw;">
+                    <div class="stack-block" style="flex:1;">
+                        <div class="stack-title">Core Philosophy</div>
+                        <p style="font-size: var(--f-sm); color: var(--text-mid); line-height: 1.7;">단순히 '돌아가는 코드'를 짜는 데
+                            만족하지 않습니다. 매 프레임 발생하는 연산의 <strong>시간 복잡도와 공간 복잡도를 수학적으로 분석</strong>하고, 프로파일러로 실증적인 성능 병목을
+                            찾아내는 과정을 즐깁니다. 불필요한 동적 할당으로 인한 메모리 파편화를 경계하며, 확장성과 유지보수성이 뛰어난 모듈형 시스템 설계를 최우선 가치로 삼고 있습니다.
+                        </p>
                     </div>
-                    <div class="text-block" style="border-color:rgba(24,201,106,0.2);">
-                        <div class="text-block-title">Current Focus</div>
-                        <p>최근에는 <strong>Unreal Engine 5</strong>의 C++ 프레임워크와 멀티스레딩 최적화, 그리고 디자인 패턴을 활용하여 확장성 있고 견고한 시스템을
-                            설계하는 데 깊이 파고들고 있습니다.</p>
+                    <div class="stack-block" style="flex:1;">
+                        <div class="stack-title">Current Focus</div>
+                        <p style="font-size: var(--f-sm); color: var(--text-mid); line-height: 1.7;">현재는 클라이언트 아키텍처 고도화와
+                            더불어 <strong>데이터 보안 및 멀티플레이 동기화 구조</strong>로 시야를 넓히고 있습니다. 언리얼 엔진의 리플리케이션(Replication), 소켓
+                            통신의 비동기 I/O 모델, 그리고 클라이언트 예측(Client Prediction)을 통한 네트워크 레이턴시 최적화에 큰 흥미를 느끼고 연구하고 있습니다.</p>
                     </div>
                 </div>
             </div>
             <div class="page-num">— 02</div>
         </div>
 
-        <!-- PAGE 03 — PROJECT 01: RHYTHM GAME -->
         <div class="page page-project">
-            <div class="proj-num">// PROJECT 01</div>
-            <div class="proj-title">Python Rhythm Game</div>
-            <div class="proj-tagline">Pygame으로 구현한 4키 리듬 게임</div>
-            <div class="proj-body">
+            <div class="smooth-appear">
+                <div class="proj-num">// PROJECT 01</div>
+                <div class="proj-title">Python Rhythm Game 'PyMax'</div>
+                <div class="proj-tagline">객체 생명주기 통제와 메모리-연산 트레이드오프를 통한 드로우콜 최적화 4키 리듬 게임</div>
+            </div>
+            <div class="proj-body smooth-appear delay-1">
                 <div class="proj-left">
                     <div class="meta-table">
                         <div class="meta-cell">
@@ -1542,1186 +1078,537 @@
                         </div>
                         <div class="meta-cell">
                             <div class="meta-cell-label">개발 형태</div>
-                            <div class="meta-cell-val">개인 프로젝트</div>
+                            <div class="meta-cell-val">1인 개인 프로젝트</div>
                         </div>
                         <div class="meta-cell">
                             <div class="meta-cell-label">규모</div>
-                            <div class="meta-cell-val">약 1,000줄</div>
+                            <div class="meta-cell-val">약 1,500 Lines</div>
                         </div>
                         <div class="meta-cell">
-                            <div class="meta-cell-label">판정</div>
-                            <div class="meta-cell-val">Perfect / Good / Bad</div>
+                            <div class="meta-cell-label">핵심 기술</div>
+                            <div class="meta-cell-val">DeltaTime, Dict Cache</div>
                         </div>
                     </div>
                     <div class="sec-block">
-                        <div class="sec-title">주요 기능</div>
+                        <div class="sec-title">주요 구현 및 아키텍처</div>
                         <div class="feat-list">
-                            <div class="feat-row">건반을 올바른 타이밍에 누르는 4키 리듬 게임</div>
-                            <div class="feat-row">노트 생성·이동 로직 및 4단계 판정 시스템 구현</div>
-                            <div class="feat-row">smoothscale 캐싱으로 드로우콜 최소화, FPS 안정화</div>
-                            <div class="feat-row">객체 상태(생성/판정/소멸) 기반 OOP 구조 설계</div>
+                            <div class="feat-row"><strong>프레임 독립적 로직 설계:</strong> 기기 성능(FPS)에 영향받지 않도록 DeltaTime(ms)을
+                                기반으로 노트 하강 속도를 동기화하여 공정한 리듬 판정 환경 구축</div>
+                            <div class="feat-row"><strong>객체 상태 머신(FSM) 도입:</strong> 노트를 '대기 → 하강 → 판정 대기 → 파괴/미스'의
+                                상태(State)로 엄격히 분리하여, 예기치 않은 타이밍 버그를 방지하는 OOP 구조 확립</div>
+                            <div class="feat-row"><strong>렌더링 병목 최적화:</strong> 매 프레임 수십 개의 이미지를 리사이징할 때 발생하는 CPU 과부하를 막기
+                                위해, 사이즈를 키(Key)로 하는 해시맵 기반 Dictionary 캐싱 시스템 구축</div>
+                            <div class="feat-row"><strong>사운드 동기화 시스템:</strong> BGM의 현재 재생 시간(Position)과 노트의 Hit Time을 매
+                                프레임 정밀하게 대조하는 오프셋(Offset) 보정 알고리즘 적용</div>
                         </div>
                     </div>
-                    <div class="sec-block">
-                        <div class="sec-title">기술적 학습</div>
-                        <div class="feat-list">
-                            <div class="feat-row"><strong>게임 루프 &amp; 델타 타이밍</strong> — deltaTime 기반 프레임 독립적 이동</div>
-                            <div class="feat-row"><strong>상태 머신 패턴</strong> — 메뉴 → 게임 중 → 리절트 전환</div>
-                            <div class="feat-row"><strong>사운드 동기화</strong> — BGM 재생 시간과 노트 타이밍 정합</div>
-                            <div class="feat-row"><strong>렌더링 최적화</strong> — 딕셔너리 캐시로 드로우콜 최소화</div>
-                        </div>
-                    </div>
-                    <div class="contrib-bar">
-                        <div class="contrib-title">// 기술 구성비</div>
-                        <div class="contrib-stack">
-                            <div class="contrib-seg" style="flex:60;background:#0f9a52;"></div>
-                            <div class="contrib-seg" style="flex:30;background:#1a4d8f;"></div>
-                            <div class="contrib-seg" style="flex:10;background:#c05820;"></div>
-                        </div>
-                        <div class="contrib-legend">
-                            <div class="legend-item">
-                                <div class="legend-dot" style="background:#0f9a52;"></div>Game Logic 60%
-                            </div>
-                            <div class="legend-item">
-                                <div class="legend-dot" style="background:#1a4d8f;"></div>Rendering 30%
-                            </div>
-                            <div class="legend-item">
-                                <div class="legend-dot" style="background:#c05820;"></div>Audio 10%
-                            </div>
-                        </div>
-                    </div>
-                    <div class="proj-links"><a class="proj-link" href="https://github.com/jay-p08/PyMax"
-                            target="_blank">GitHub</a></div>
                 </div>
                 <div class="proj-right">
                     <div class="shot-slot">
-                        <div class="shot-bg-code">def judge_note(note_time, input_time):
-                            diff = abs(note_time - input_time)
-                            if diff &lt; 40: return "PERFECT"
-                            elif diff &lt; 80: return "GOOD"
-                            elif diff &lt; 120: return "BAD"</div>
-                        <img src="img/pymax_01.png" alt=""
-                            style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"
-                            onerror="this.style.display='none'">
-                        <div class="shot-label">SCREENSHOT · 01</div>
+                        <div class="shot-bg-code">def get_note_image(size):
+                            if size not in note_cache:
+                            note_cache[size] = pygame.transform.smoothscale(NOTE_IMG, (size, size))
+                            return note_cache[size]</div>
+                        <img src="img/pymax_01.png" alt="" onerror="this.style.display='none'">
+                        <div class="shot-label">Gameplay Screenshot 1</div>
                     </div>
                     <div class="shot-slot">
-                        <div class="shot-bg-code">class GameState(Enum):
-                            MENU = "menu"
-                            PLAYING = "playing"
-                            RESULT = "result"</div>
-                        <img src="img/pymax_02.png" alt=""
-                            style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"
-                            onerror="this.style.display='none'">
-                        <div class="shot-label">SCREENSHOT · 02</div>
+                        <div class="shot-bg-code">diff = abs(note_time - current_audio_time)
+                            if diff < PERFECT_WINDOW: return "PERFECT" elif diff < GOOD_WINDOW: return "GOOD" </div>
+                                <img src="img/pymax_02.png" alt="" onerror="this.style.display='none'">
+                                <div class="shot-label">Gameplay Screenshot 2</div>
+                        </div>
                     </div>
                 </div>
+                <div class="page-num">— 03</div>
             </div>
-            <div class="page-num">— 03</div>
-        </div>
 
-        <!-- PAGE 04 — CODE REVIEW 01 -->
-        <div class="page page-code">
-            <span class="label" style="margin-bottom:0;">PROJECT 01 · CODE REVIEW</span>
-            <div class="code-heading">코드 리뷰</div>
-            <div class="insight-strip">
-                <div class="insight-cell">
-                    <div class="insight-cell-label">핵심 패턴</div>
-                    <div class="insight-cell-val">State Machine + Dict Cache</div>
+            <div class="page page-code">
+                <div class="smooth-appear">
+                    <div class="label" style="margin-bottom:0;">PROJECT 01 · CODE REVIEW</div>
+                    <div class="code-heading" style="margin-bottom: 1vw;">렌더링 성능 최적화와 글로벌 캐싱 전략</div>
                 </div>
-                <div class="insight-cell">
-                    <div class="insight-cell-label">최적화</div>
-                    <div class="insight-cell-val">smoothscale Dictionary Cache</div>
-                </div>
-                <div class="insight-cell">
-                    <div class="insight-cell-label">판정 범위</div>
-                    <div class="insight-cell-val">±40ms / ±80ms / ±120ms</div>
-                </div>
-                <div class="insight-cell">
-                    <div class="insight-cell-label">코드 규모</div>
-                    <div class="insight-cell-val">약 1,000 Lines</div>
-                </div>
-            </div>
-            <div class="code-review-block">
-                <div class="code-wrap">
-                    <div class="code-label">핵심 코드 — 판정 로직</div>
-                    <pre
-                        class="code-block"><code><span class="cm"># 노트 판정 함수</span>
-<span class="kw">def</span> <span class="fn">judge_note</span>(note_time, input_time):
-    diff = abs(note_time - input_time)
-    <span class="kw">if</span>   diff &lt; <span class="nm">40</span>:  <span class="kw">return</span> <span class="st">"PERFECT"</span>
-    <span class="kw">elif</span> diff &lt; <span class="nm">80</span>:  <span class="kw">return</span> <span class="st">"GOOD"</span>
-    <span class="kw">elif</span> diff &lt; <span class="nm">120</span>: <span class="kw">return</span> <span class="st">"BAD"</span></code></pre>
-                </div>
-                <div class="learned-panel">
-                    <div class="learned-item">
-                        <div class="learned-title">▸ 설계 의도</div>
-                        <p>노트 도달 시각과 키 입력 시각의 절댓값 차이(ms 단위)로 판정 등급을 결정합니다. ±40 / ±80 / ±120ms 세 임계값을 상수로 분리해, 숫자 하나만 바꿔도
-                            전체 난이도 곡선이 조정되도록 설계했습니다. 이 구조 덕분에 난이도 모드 추가 시 판정 함수 자체를 건드리지 않아도 됩니다.</p>
-                    </div>
-                    <div class="learned-item">
-                        <div class="learned-title">▸ 배운 점</div>
-                        <p>실제 테스트에서 ±40ms와 ±50ms의 차이가 플레이어 체감에 뚜렷하게 나타났습니다. 수치는 코드 안에 있지만 결과는 UX에 직결된다는 사실, 즉 '숫자와 경험은
-                            분리되지 않는다'는 점을 직접 실험으로 깨달았습니다. 이후 매직 넘버를 상수로 분리하는 습관을 갖게 된 계기가 됐습니다.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="code-review-block">
-                <div class="code-wrap">
-                    <div class="code-label">최적화 — smoothscale 캐싱</div>
-                    <pre class="code-block"><code><span class="cm"># 매 프레임 리사이즈 → 캐싱으로 개선</span>
+                <div class="code-review-block smooth-appear delay-1">
+                    <div class="code-wrap">
+                        <div class="code-label">Dictionary Caching Logic</div>
+                        <pre class="code-block"><code><span class="cm"># 매 프레임 이미지 리사이즈 방지 (CPU 부하 및 드로우콜 최소화)</span>
+<span class="cm"># 전역 캐시 딕셔너리를 활용한 메모리-연산 속도 교환 패턴</span>
 note_cache = {}
+
 <span class="kw">def</span> <span class="fn">get_note_image</span>(size):
+    <span class="cm"># 캐시에 해당 사이즈의 이미지가 없다면 최초 1회만 연산 수행</span>
     <span class="kw">if</span> size <span class="kw">not in</span> note_cache:
+        <span class="cm"># smoothscale은 안티앨리어싱 픽셀 보간이 포함되어 매우 무거운 연산</span>
         note_cache[size] = pygame.transform\
             .smoothscale(NOTE_IMG, (size, size))
+            
+    <span class="cm"># 이후 프레임부터는 메모리에 적재된 이미지를 즉시 반환 (Time Complexity: O(1))</span>
     <span class="kw">return</span> note_cache[size]</code></pre>
-                </div>
-                <div class="learned-panel">
-                    <div class="learned-item">
-                        <div class="learned-title">▸ 문제 상황</div>
-                        <p>노트가 20개 이상 쌓이면 매 프레임 smoothscale이 노트 수만큼 반복 호출되어 FPS가 60에서 20대까지 급락했습니다. 특히 빠른 BPM 구간에서 노트
-                            밀도가 높아질수록 드랍이 심해져 판정 정확도까지 영향을 받았습니다.</p>
                     </div>
-                    <div class="learned-item">
-                        <div class="learned-title">▸ 배운 점</div>
-                        <p>딕셔너리를 size 키로 인덱싱해 동일 크기 이미지를 재사용하자 CPU 사용량이 즉시 절반 이하로 감소했습니다. 캐시는 메모리를 더 쓰는 대신 연산 비용을 줄이는
-                            전형적인 트레이드오프로, 렌더링 최적화의 핵심은 '무엇을 계산하지 않을지' 결정하는 것임을 배웠습니다.</p>
+                    <div class="learned-panel">
+                        <div class="learned-item">
+                            <div class="learned-title">▸ 발생한 문제와 프로파일링 분석</div>
+                            <p>초기 개발 버전에서는 화면에 20개 이상의 롱 노트와 일반 노트가 쏟아지는 하이라이트 구간에서 FPS가 60에서 20 미만으로 급락하는 치명적인 프레임 스파이크
+                                현상이 발생했습니다. 프로파일러를 통한 분석 결과, 매 프레임마다 렌더링 루프 내부에서
+                                <code>pygame.transform.smoothscale</code> 함수가 호출되며 픽셀 보간을 위한 무거운 수학 연산에 엄청난 CPU 사이클이
+                                낭비되고 있음을 확인했습니다.</p>
+                        </div>
+                        <div class="learned-item">
+                            <div class="learned-title">▸ 엔진 레벨의 통찰 및 문제 해결</div>
+                            <p>이 병목을 제거하기 위해 타겟 이미지의 <code>size</code>를 Key로, 변환된 Image 객체를 Value로 갖는 해시맵 기반의 글로벌 캐싱
+                                시스템을 도입했습니다. O(N)으로 증가하던 리사이징 연산 비용을 O(1)의 메모리 참조로 전환한 결과, 프레임 드랍을 완벽히 방어할 수 있었습니다. 이를
+                                통해 알고리즘의 시간 복잡도를 공간 복잡도로 교환하는 <strong>'메모리-연산 트레이드오프(Space-Time Tradeoff)'</strong>의 실무적
+                                가치를 깊이 체감했습니다.</p>
+                        </div>
                     </div>
                 </div>
+                <div class="page-num">— 04</div>
             </div>
-            <div class="page-num">— 04</div>
-        </div>
 
-        <!-- PAGE 05 — PROJECT 03: RANSOMWARE -->
-        <div class="page page-project">
-            <div class="proj-num">// PROJECT 03</div>
-            <div class="proj-title">Educational Ransomware</div>
-            <div class="proj-tagline">파일 암호화 원리와 보안 학습 목적 프로젝트</div>
-            <div class="proj-body">
-                <div class="proj-left">
-                    <div class="meta-table">
-                        <div class="meta-cell">
-                            <div class="meta-cell-label">기술</div>
-                            <div class="meta-cell-val">Python, Cryptography (AES)</div>
-                        </div>
-                        <div class="meta-cell">
-                            <div class="meta-cell-label">개발 형태</div>
-                            <div class="meta-cell-val">개인 학습 프로젝트</div>
-                        </div>
-                        <div class="meta-cell">
-                            <div class="meta-cell-label">규모</div>
-                            <div class="meta-cell-val">약 500줄</div>
-                        </div>
-                        <div class="meta-cell">
-                            <div class="meta-cell-label">암호화</div>
-                            <div class="meta-cell-val">AES-256 CBC Mode</div>
-                        </div>
-                    </div>
-                    <div class="sec-block">
-                        <div class="sec-title">주요 구현</div>
-                        <div class="feat-list">
-                            <div class="feat-row">파일 암호화 원리와 보안의 중요성 학습 목적으로 제작</div>
-                            <div class="feat-row">AES-256으로 파일 암호화, 샌드박스 환경에서만 테스트</div>
-                            <div class="feat-row">재귀 디렉토리 탐색으로 특정 확장자 파일 대상 처리</div>
-                            <div class="feat-row">마스터 키와 파일별 IV(초기화 벡터) 생성 및 저장</div>
-                        </div>
-                    </div>
-                    <div class="sec-block">
-                        <div class="sec-title">배운 점</div>
-                        <div class="feat-list">
-                            <div class="feat-row">CBC 모드에서 패딩 필요성 — 블록 크기 불일치 시 오류 발생</div>
-                            <div class="feat-row">암호화의 핵심은 알고리즘보다 키/IV 관리 방식임을 체득</div>
-                        </div>
-                    </div>
-                    <div class="contrib-bar">
-                        <div class="contrib-title">// 기술 구성비</div>
-                        <div class="contrib-stack">
-                            <div class="contrib-seg" style="flex:50;background:#b03030;"></div>
-                            <div class="contrib-seg" style="flex:30;background:#0f9a52;"></div>
-                            <div class="contrib-seg" style="flex:20;background:#1a4d8f;"></div>
-                        </div>
-                        <div class="contrib-legend">
-                            <div class="legend-item">
-                                <div class="legend-dot" style="background:#b03030;"></div>Cryptography 50%
+            <div class="page page-project">
+                <div class="smooth-appear">
+                    <div class="proj-num">// PROJECT 02</div>
+                    <div class="proj-title">DirectX 11 2D Shooter</div>
+                    <div class="proj-tagline">상용 엔진 없이 바닥부터 설계한 렌더링 프레임워크와 데이터 지향 메모리 최적화</div>
+                </div>
+                <div class="proj-body smooth-appear delay-1">
+                    <div class="proj-left">
+                        <div class="meta-table">
+                            <div class="meta-cell">
+                                <div class="meta-cell-label">기술</div>
+                                <div class="meta-cell-val">C++, DirectX 11, HLSL</div>
                             </div>
-                            <div class="legend-item">
-                                <div class="legend-dot" style="background:#0f9a52;"></div>File I/O 30%
+                            <div class="meta-cell">
+                                <div class="meta-cell-label">규모</div>
+                                <div class="meta-cell-val">약 5,000 Lines</div>
                             </div>
-                            <div class="legend-item">
-                                <div class="legend-dot" style="background:#1a4d8f;"></div>Key Mgmt 20%
+                            <div class="meta-cell">
+                                <div class="meta-cell-label">아키텍처</div>
+                                <div class="meta-cell-val">Object Pooling Pattern</div>
+                            </div>
+                            <div class="meta-cell">
+                                <div class="meta-cell-label">물리 연산</div>
+                                <div class="meta-cell-val">Custom AABB Physics</div>
+                            </div>
+                        </div>
+                        <div class="sec-block">
+                            <div class="sec-title">주요 구현 및 아키텍처</div>
+                            <div class="feat-list">
+                                <div class="feat-row"><strong>커스텀 렌더링 파이프라인:</strong> DirectX 11 API를 직접 제어하여
+                                    Vertex/Pixel 셰이더 설정 및 Constant 버퍼 바인딩을 통한 렌더 루프 전체 과정 구현</div>
+                                <div class="feat-row"><strong>메모리 파편화 방지 설계:</strong> 초당 수백 개의 총알이 생성/소멸되는 장르 특성을 고려하여,
+                                    동적 할당(new/delete)을 완전히 배제하고 고정 크기 배열을 사용하는 Object Pool 시스템 도입</div>
+                                <div class="feat-row"><strong>자체 물리 충돌 엔진:</strong> 게임 루프 내에서 자체적인 Axis-Aligned Bounding
+                                    Box (AABB) 충돌 검사 로직을 수학적으로 작성하여 수백 개 유닛 간의 피격 판정을 고속 처리</div>
+                                <div class="feat-row"><strong>HLSL 셰이더 최적화:</strong> 알파 블렌딩 오버헤드를 줄이기 위해 Pixel 셰이더 단계에서
+                                    <code>clip()</code> 함수를 활용한 투명도 컷아웃 및 피격 시 색상 곱 연산(Color Multiply) 고속 처리</div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="proj-right">
-                    <div class="shot-slot">
-                        <div class="shot-bg-code">from Crypto.Cipher import AES
-                            import os
-                            def encrypt_file(path, key):
-                            iv = os.urandom(16)
-                            cipher = AES.new(key, AES.MODE_CBC, iv)
-                            with open(path, 'rb') as f:
-                            data = f.read()
-                            encrypted = cipher.encrypt(pad(data, 16))
-                            return iv + encrypted</div>
-                        <img src="img/Ransomware_01.png" alt=""
-                            style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"
-                            onerror="this.style.display='none'">
-                        <div class="shot-label">SCREENSHOT · 01</div>
-                    </div>
-                    <div class="shot-slot">
-                        <div class="shot-bg-code">AES-256 CBC MODE
-                            KEY_SIZE = 256 bits / BLOCK = 128 bits
-                            IV = os.urandom(16) / PADDING = PKCS7
-                            ENCRYPT: plaintext → pad → AES_CBC → iv+ciphertext
-                            DECRYPT: iv+ciphertext → split → AES_CBC → unpad</div>
-                        <img src="img/Ransomware_02.png" alt=""
-                            style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"
-                            onerror="this.style.display='none'">
-                        <div class="shot-label">SCREENSHOT · 02</div>
+                    <div class="proj-right">
+                        <div class="shot-slot">
+                            <div class="shot-bg-code">Bullet* Acquire() {
+                                for (auto& b : pool) if (!b.active) { b.active=true; return &b; }
+                                return nullptr;
+                                }</div>
+                            <img src="img/SpaceOut_01.png" alt="" onerror="this.style.display='none'">
+                            <div class="shot-label">In-Game Engine View</div>
+                        </div>
+                        <div class="shot-slot">
+                            <div class="shot-bg-code">float4 PS_Sprite(VS_OUTPUT input) : SV_Target {
+                                float4 color = spriteTexture.Sample(samplerState, input.texCoord);
+                                clip(color.a - 0.01f); return color * input.color;
+                                }</div>
+                            <img src="img/SpaceOut_02.png" alt="" onerror="this.style.display='none'">
+                            <div class="shot-label">Custom Shader Rendering</div>
+                        </div>
                     </div>
                 </div>
+                <div class="page-num">— 05</div>
             </div>
-            <div class="page-num">— 07</div>
-        </div>
 
-        <!-- PAGE 06 — CODE REVIEW 03 -->
-        <div class="page page-code">
-            <span class="label" style="margin-bottom:0;">PROJECT 03 · CODE REVIEW</span>
-            <div class="code-heading">코드 리뷰</div>
-            <div class="insight-strip">
-                <div class="insight-cell">
-                    <div class="insight-cell-label">암호화 알고리즘</div>
-                    <div class="insight-cell-val">AES-256 CBC</div>
+            <div class="page page-code">
+                <div class="smooth-appear">
+                    <div class="label" style="margin-bottom:0;">PROJECT 02 · CODE REVIEW</div>
+                    <div class="code-heading" style="margin-bottom: 1vw;">데이터 지향(DOD) 기반의 메모리 구조 설계와 캐시 지역성</div>
                 </div>
-                <div class="insight-cell">
-                    <div class="insight-cell-label">IV 생성</div>
-                    <div class="insight-cell-val">os.urandom(16) — 파일마다 고유</div>
-                </div>
-                <div class="insight-cell">
-                    <div class="insight-cell-label">패딩 방식</div>
-                    <div class="insight-cell-val">PKCS7 (16바이트 블록)</div>
-                </div>
-                <div class="insight-cell">
-                    <div class="insight-cell-label">테스트 환경</div>
-                    <div class="insight-cell-val">샌드박스 격리 환경</div>
-                </div>
-            </div>
-            <div class="code-review-block">
-                <div class="code-wrap">
-                    <div class="code-label">핵심 코드 — AES 파일 암호화</div>
-                    <pre class="code-block"><code><span class="kw">from</span> Crypto.Cipher <span class="kw">import</span> AES
-<span class="kw">import</span> os
+                <div class="code-review-block smooth-appear delay-1">
+                    <div class="code-wrap">
+                        <div class="code-label">Object Pooling System (C++)</div>
+                        <pre class="code-block"><code><span class="kw">class</span> <span class="fn">BulletPool</span> {
+    <span class="cm">// 연속된 메모리 공간 확보를 통해 CPU 캐시 지역성(Cache Locality) 극대화</span>
+    std::vector&lt;Bullet&gt; pool;
+    
+<span class="kw">public</span>:
+    <span class="cm">// 풀 초기화 시 resize()를 통해 런타임 중 힙 메모리 재할당 방지</span>
+    BulletPool(<span class="kw">int</span> size) { pool.resize(size); }
 
-<span class="kw">def</span> <span class="fn">encrypt_file</span>(path, key):
-    iv = os.urandom(<span class="nm">16</span>)
-    cipher = AES.new(key, AES.MODE_CBC, iv)
-    <span class="kw">with</span> open(path, <span class="st">'rb'</span>) <span class="kw">as</span> f:
-        data = f.read()
-    encrypted = cipher.encrypt(pad(data, <span class="nm">16</span>))
-    <span class="kw">return</span> iv + encrypted</code></pre>
-                </div>
-                <div class="learned-panel">
-                    <div class="learned-item">
-                        <div class="learned-title">▸ 설계 의도</div>
-                        <p>파일마다 os.urandom(16)으로 고유한 IV를 생성해, 동일한 키로 같은 내용을 암호화해도 매번 다른 암호문이 만들어지도록 설계했습니다. IV는 암호문 앞
-                            16바이트에 붙여 저장하므로 복호화 시 키만 있으면 IV를 자동으로 분리·복원할 수 있습니다. 이 방식으로 패턴 분석 공격에 대한 기본 방어를 구현했습니다.</p>
+    Bullet* <span class="fn">Acquire</span>() {
+        <span class="cm">// 배열을 순회하며 비활성 객체를 선형 탐색 (Cache Hit 보장)</span>
+        <span class="kw">for</span> (<span class="kw">auto</span>&amp; b : pool) {
+            <span class="kw">if</span> (!b.active) {
+                b.active = <span class="kw">true</span>;
+                <span class="kw">return</span> &amp;b; <span class="cm">// 시스템 콜(OS 할당) 없이 포인터만 대여</span>
+            }
+        }
+        <span class="kw">return nullptr</span>; <span class="cm">// 풀 오버플로우 시 런타임 에러를 막는 방어적 반환</span>
+    }
+    
+    <span class="cm">// 객체 메모리를 파괴하지 않고 논리적 비활성화 플래그만 변경</span>
+    <span class="kw">void</span> <span class="fn">Release</span>(Bullet* b) { b-&gt;active = <span class="kw">false</span>; }
+};</code></pre>
                     </div>
-                    <div class="learned-item">
-                        <div class="learned-title">▸ 배운 점</div>
-                        <p>CBC 모드에서 패딩 없이 실행하면 블록 크기(16바이트)와 데이터 크기가 맞지 않을 때 즉시 오류가 발생합니다. PKCS7 패딩을 추가하고 나서야 임의 크기 파일을
-                            안정적으로 처리할 수 있었습니다. 아무리 강력한 알고리즘을 써도 키와 IV 관리가 허술하면 무의미하다는 것, 보안의 핵심은 키 라이프사이클 관리임을 실감했습니다.
+                    <div class="learned-panel">
+                        <div class="learned-item">
+                            <div class="learned-title">▸ 객체 생성 비용의 한계와 힙 파편화(Fragmentation) 극복</div>
+                            <p>탄막 슈팅 게임의 특성상 초당 수백 번의 <code>new</code> 연산과 <code>delete</code> 연산을 수행하면, 매번 운영체제에 메모리를
+                                요청하는 시스템 콜(System Call) 오버헤드가 발생합니다. 동적 할당과 해제가 반복되면 힙 메모리 공간이 조각나는 파편화 현상이 누적되어, 가비지
+                                컬렉터가 없는 순수 C++ 환경에서는 결국 치명적인 성능 저하와 렉을 유발합니다. 이를 원천 차단하기 위해 게임 시작 전 로딩 단계에서
+                                <code>std::vector</code>에 최대 총알 개수만큼 메모리를 일괄 할당(Pre-allocation)해두고, 상태 플래그만 토글하는 오브젝트
+                                풀(Object Pool) 시스템을 설계했습니다.</p>
+                        </div>
+                        <div class="learned-item">
+                            <div class="learned-title">▸ CPU 캐시 지역성(Cache Locality)의 절대적 우위 확인</div>
+                            <p>Linked List가 아닌 연속된 메모리 블록인 Vector 배열 구조를 채택한 핵심 이유는 하드웨어의 CPU 캐시 지역성 때문입니다. 물리적인 메모리 주소가
+                                조밀하게 연속되어 있어, CPU가 메모리에서 데이터를 가져올 때 주변 데이터까지 한 번에 L1/L2 캐시 라인으로 프리패치(Prefetch)하여 Cache
+                                Hit 율을 극대화할 수 있었습니다. 이를 통해 데이터 지향 설계(DOD)가 퍼포먼스에 미치는 영향을 직접 체감했습니다.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="page-num">— 06</div>
+            </div>
+
+            <div class="page page-project">
+                <div class="smooth-appear">
+                    <div class="proj-num">// PROJECT 03</div>
+                    <div class="proj-title">Unreal Engine 5 Core Architecture</div>
+                    <div class="proj-tagline">C++ 네이티브 레벨의 메모리 관리 및 서브시스템 아키텍처 재설계 프로토타입</div>
+                </div>
+                <div class="proj-body smooth-appear delay-1">
+                    <div class="proj-left">
+                        <div class="meta-table">
+                            <div class="meta-cell">
+                                <div class="meta-cell-label">기술</div>
+                                <div class="meta-cell-val">UE5, C++ Native</div>
+                            </div>
+                            <div class="meta-cell">
+                                <div class="meta-cell-label">아키텍처</div>
+                                <div class="meta-cell-val">USubsystem, Component</div>
+                            </div>
+                            <div class="meta-cell">
+                                <div class="meta-cell-label">최적화</div>
+                                <div class="meta-cell-val">Actor Pooling, Async Load</div>
+                            </div>
+                            <div class="meta-cell">
+                                <div class="meta-cell-label">패턴</div>
+                                <div class="meta-cell-val">Dependency Inversion</div>
+                            </div>
+                        </div>
+                        <div class="sec-block">
+                            <div class="sec-title">주요 구현 및 아키텍처</div>
+                            <div class="feat-list">
+                                <div class="feat-row"><strong>Subsystem 기반 글로벌 매니저 설계:</strong> 기존 Singleton 패턴의 라이프사이클
+                                    문제를 해결하기 위해 언리얼의 <code>UGameInstanceSubsystem</code>을 상속받아, 엔진 생명주기와 완벽히 동기화되는 매니저
+                                    클래스 구축</div>
+                                <div class="feat-row"><strong>가비지 컬렉션(GC) 스파이크 억제:</strong> 런타임 중 빈번하게 생성/파괴되는 투사체와 파티클
+                                    액터들에 대하여 <code>TArray</code> 기반의 C++ 네이티브 Actor Pool을 설계하여 GC 부하를 원천 차단</div>
+                                <div class="feat-row"><strong>비동기 애셋 로딩(Async Loading):</strong> 맵 이동 시 하드 레퍼런싱(Hard
+                                    Referencing)으로 인한 로딩 프리징을 막기 위해 <code>FStreamableManager</code>와 소프트 포인터(Soft Object
+                                    Pointer)를 활용한 백그라운드 심리스 로딩 구현</div>
+                                <div class="feat-row"><strong>의존성 역전(DIP)을 통한 모듈화:</strong> 무기와 타격 대상 간의 클래스 결합도를 끊기 위해
+                                    <code>UInterface</code>를 도입하여, 코어 시스템 수정 없이도 새로운 적 객체를 무한히 확장할 수 있는 OCP 설계 달성</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="proj-right">
+                        <div class="shot-slot">
+                            <div class="shot-bg-code">UCLASS()
+                                class UMyGameInstanceSubsystem : public UGameInstanceSubsystem {
+                                GENERATED_BODY()
+                                public:
+                                virtual void Initialize(FSubsystemCollectionBase& Collection) override;
+                                };</div>
+                            <img src="img/FPS_01.png" alt="" onerror="this.style.display='none'">
+                            <div class="shot-label">Engine Subsystem Initialization</div>
+                        </div>
+                        <div class="shot-slot">
+                            <div class="shot-bg-code">void AWeapon::Fire() {
+                                FHitResult Hit;
+                                if (GetWorld()->LineTraceSingleByChannel(Hit, Start, End, ECC_Visibility)) {
+                                if (Hit.GetActor()->Implements<UDamageable>())
+                                    IDamageable::Execute_TakeDamage(Hit.GetActor(), Damage);
+                                    }
+                                    }</div>
+                            <img src="img/FPS_02.png" alt="" onerror="this.style.display='none'">
+                            <div class="shot-label">Hitscan & Interface Polymorphism</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="page-num">— 07</div>
+            </div>
+
+            <div class="page page-code">
+                <div class="smooth-appear">
+                    <div class="label" style="margin-bottom:0;">PROJECT 03 · CODE REVIEW</div>
+                    <div class="code-heading" style="margin-bottom: 1vw;">의존성 역전(DIP)과 서브시스템 생명주기 관리</div>
+                </div>
+                <div class="code-review-block smooth-appear delay-1">
+                    <div class="code-wrap">
+                        <div class="code-label">Interface & Event-Driven Architecture (C++)</div>
+                        <pre class="code-block"><code><span class="cm">// 데미지 처리 인터페이스 적용 (개방-폐쇄 원칙 OCP 달성)</span>
+<span class="kw">void</span> AMyWeapon::<span class="fn">ProcessHit</span>(<span class="kw">const</span> FHitResult&amp; Hit) {
+    <span class="cm">// 하드 캐스팅(Cast&lt;T&gt;)을 피하고 인터페이스 구현 여부만 검사</span>
+    <span class="kw">if</span> (Hit.GetActor() &amp;&amp; Hit.GetActor()-&gt;<span class="fn">Implements</span>&lt;UDamageableInterface&gt;()) {
+        <span class="cm">// 무기 액터는 피격 대상의 구체적인 클래스(Boss, Grunt 등)를 몰라도 됨</span>
+        IDamageableInterface::<span class="fn">Execute_TakeDamage</span>(Hit.GetActor(), DamageInfo);
+    }
+}
+
+<span class="cm">// 캐릭터 컴포넌트 내부: 상태 변경 시 델리게이트(Delegate) 브로드캐스트</span>
+<span class="kw">void</span> UHealthComponent::<span class="fn">ApplyDamage</span>(<span class="kw">float</span> Damage) {
+    CurrentHealth = FMath::<span class="fn">Clamp</span>(CurrentHealth - Damage, 0.0f, MaxHealth);
+    
+    <span class="cm">// UI나 다른 시스템과 강하게 결합하지 않고 이벤트만 송출 (Event-Driven)</span>
+    OnHealthChanged.<span class="fn">Broadcast</span>(CurrentHealth, MaxHealth);
+}</code></pre>
+                    </div>
+                    <div class="learned-panel">
+                        <div class="learned-item">
+                            <div class="learned-title">▸ 인터페이스를 통한 완벽한 디커플링 (Decoupling)</div>
+                            <p>무기 객체가 타격 대상(일반 몹, 보스, 폭발물 등)의 구체적인 클래스 타입(Concrete Class)을 헤더 파일에 Include하지 않도록
+                                <code>UDamageableInterface</code>를 도입했습니다. 무기는 오직 '데미지를 가한다'는 다형성 메시지만 전송하며, 타격받는 액터가
+                                각자의 체력, 방어력, 무적 상태 로직에 따라 자율적으로 데미지를 연산합니다. 새로운 형태의 적이나 파괴 가능한 환경 오브젝트를 백 개 이상 추가하더라도 무기
+                                코드를 단 한 줄도 수정할 필요가 없는 완벽한 의존성 역전 구조를 구현했습니다.</p>
+                        </div>
+                        <div class="learned-item">
+                            <div class="learned-title">▸ 하드 레퍼런싱 방지와 메모리 연쇄 로드 차단</div>
+                            <p>초기 버전에서는 체력 UI를 갱신하기 위해 캐릭터 클래스가 UMG UI 클래스를 직접 캐스팅(Cast)하여 참조했습니다. 이러한 강한 결합(Hard
+                                Reference)은 언리얼 엔진이 캐릭터를 메모리에 스폰할 때, 의존성 트리에 묶인 불필요한 UI 텍스처와 사운드 애셋들까지 연쇄적으로 강제 로드하게 만드는
+                                치명적인 원인이 됩니다. 이를 해결하고자 언리얼의 멀티캐스트 델리게이트(Multicast Delegate)를 활용한 이벤트 주도 아키텍처로 전면
+                                리팩토링했습니다. 뷰(UI)는 모델(Character)의 이벤트를 수동적으로 구독만 하게 되어, 메모리 풋프린트를 크게 줄이고 레벨 로딩 속도를
+                                최적화했습니다.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="page-num">— 08</div>
+            </div>
+
+            <div class="page page-project">
+                <div class="smooth-appear">
+                    <div class="proj-num">// PROJECT 04</div>
+                    <div class="proj-title">Educational Ransomware 'CryptLocker'</div>
+                    <div class="proj-tagline">파일 시스템 제어 및 AES-256 블록 암호화 기반의 악성코드 모의 검증 프로젝트</div>
+                </div>
+                <div class="proj-body smooth-appear delay-1">
+                    <div class="proj-left">
+                        <div class="meta-table">
+                            <div class="meta-cell">
+                                <div class="meta-cell-label">기술</div>
+                                <div class="meta-cell-val">Python, PyCryptodome</div>
+                            </div>
+                            <div class="meta-cell">
+                                <div class="meta-cell-label">개발 형태</div>
+                                <div class="meta-cell-val">개인 보안 학습 프로젝트</div>
+                            </div>
+                            <div class="meta-cell">
+                                <div class="meta-cell-label">암호화 알고리즘</div>
+                                <div class="meta-cell-val">AES-256 CBC Mode</div>
+                            </div>
+                            <div class="meta-cell">
+                                <div class="meta-cell-label">주요 모듈</div>
+                                <div class="meta-cell-val">OS, Cryptography, Hash</div>
+                            </div>
+                        </div>
+                        <div class="sec-block">
+                            <div class="sec-title">주요 구현 및 아키텍처</div>
+                            <div class="feat-list">
+                                <div class="feat-row"><strong>보안 시스템 구조 이해:</strong> 악성 프로그램의 동작 원리를 역설계하여, 멀티플레이 서버나
+                                    클라이언트 환경에서 발생할 수 있는 데이터 위변조 공격의 위험성을 학습하기 위한 샌드박스(Sandbox) 모의 프로젝트</div>
+                                <div class="feat-row"><strong>고급 암호화 표준 적용:</strong> 현존하는 가장 강력한 대칭키 알고리즘인 AES-256을
+                                    적용하였으며, 패턴 분석 공격을 막기 위해 CBC(Cipher Block Chaining) 모드와 PKCS7 블록 패딩(Padding)을 직접 구현
+                                </div>
+                                <div class="feat-row"><strong>초기화 벡터(IV) 라이프사이클:</strong> 동일한 평문이더라도 암호화 시마다 완전히 다른 암호문이
+                                    생성되도록 파일별로 고유한 16바이트 난수 IV를 생성하고, 이를 암호문 헤더에 안전하게 은닉 및 복원하는 로직 작성</div>
+                                <div class="feat-row"><strong>재귀적 파일 시스템 제어:</strong> Python의 <code>os.walk</code> 시스템
+                                    라이브러리를 활용하여 타겟 디렉토리 하위의 특정 확장자(.txt, .png 등)를 지닌 파일들을 재귀적으로 추적하고 I/O 스트림으로 덮어쓰는 엔진
+                                    구현</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="proj-right">
+                        <div class="shot-slot">
+                            <div class="shot-bg-code">def encrypt_file(file_path, key):
+                                iv = get_random_bytes(AES.block_size)
+                                cipher = AES.new(key, AES.MODE_CBC, iv)
+                                with open(file_path, 'rb') as f:
+                                plaintext = f.read()
+                                ciphertext = cipher.encrypt(pad(plaintext, AES.block_size))
+                                # Write IV + Ciphertext</div>
+                            <img src="img/Ransomware_01.png" alt="" onerror="this.style.display='none'">
+                            <div class="shot-label">AES Encryption Logic</div>
+                        </div>
+                        <div class="shot-slot">
+                            <div class="shot-bg-code">Target Extensions: [.txt, .jpg, .docx]
+                                Traversing Directory: /sandbox/test_env/
+                                [ENCRYPTED] /sandbox/test_env/data.txt
+                                [ENCRYPTED] /sandbox/test_env/img/photo.jpg
+                                Process Complete. Files Locked.</div>
+                            <img src="img/Ransomware_02.png" alt="" onerror="this.style.display='none'">
+                            <div class="shot-label">File System Traversal Log</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="page-num">— 09</div>
+            </div>
+
+            <div class="page page-code">
+                <div class="smooth-appear">
+                    <div class="label" style="margin-bottom:0;">PROJECT 04 · CODE REVIEW</div>
+                    <div class="code-heading" style="margin-bottom: 1vw;">블록 암호화 패딩 및 IV 생명주기 관리</div>
+                </div>
+                <div class="code-review-block smooth-appear delay-1">
+                    <div class="code-wrap">
+                        <div class="code-label">AES-256 Encryption & Padding (Python)</div>
+                        <pre class="code-block"><code><span class="kw">from</span> Crypto.Cipher <span class="kw">import</span> AES
+<span class="kw">from</span> Crypto.Util.Padding <span class="kw">import</span> pad, unpad
+<span class="kw">from</span> Crypto.Random <span class="kw">import</span> get_random_bytes
+
+<span class="kw">def</span> <span class="fn">encrypt_file</span>(file_path, key):
+    <span class="cm"># 1. 파일마다 고유한 16바이트 초기화 벡터(IV) 난수 생성</span>
+    iv = <span class="fn">get_random_bytes</span>(AES.block_size)
+    cipher = AES.<span class="fn">new</span>(key, AES.MODE_CBC, iv)
+    
+    <span class="kw">with</span> open(file_path, <span class="st">'rb'</span>) <span class="kw">as</span> f:
+        plaintext = f.<span class="fn">read</span>()
+        
+    <span class="cm"># 2. PKCS7 패딩: 데이터 크기를 16바이트 배수로 정확히 맞춤</span>
+    padded_data = <span class="fn">pad</span>(plaintext, AES.block_size)
+    ciphertext = cipher.<span class="fn">encrypt</span>(padded_data)
+    
+    <span class="kw">with</span> open(file_path, <span class="st">'wb'</span>) <span class="kw">as</span> f:
+        <span class="cm"># 3. 복호화를 위해 암호문 맨 앞에 IV를 결합하여 저장</span>
+        f.<span class="fn">write</span>(iv + ciphertext)</code></pre>
+                    </div>
+                    <div class="learned-panel">
+                        <div class="learned-item">
+                            <div class="learned-title">▸ 대칭키 암호화 알고리즘의 한계와 블록 패딩(Padding)의 필수성</div>
+                            <p>AES 알고리즘은 데이터를 16바이트(128비트) 블록 단위로 쪼개어 연산하는 블록 암호입니다. 만약 원본 파일의 크기가 16바이트로 나누어 떨어지지 않으면
+                                암호화 과정에서 즉시 알고리즘 오류가 발생합니다. 이를 방지하기 위해 데이터의 남은 공간을 특정한 바이트 값으로 채우는 PKCS7 패딩 기법을 적용했습니다.
+                                이 과정에서 메모리 버퍼 상의 데이터 구조를 정확하게 맞추지 않으면 파일이 영구적으로 파손된다는 점을 경험하며, 로우 레벨 데이터 바이트 스트림 조작의
+                                중요성을 체감했습니다.</p>
+                        </div>
+                        <div class="learned-item">
+                            <div class="learned-title">▸ CBC 모드의 보안 취약점 극복과 IV 은닉 기법</div>
+                            <p>단순한 ECB 모드로 암호화를 진행하면 동일한 평문 블록이 항상 동일한 암호문 블록으로 변환되어 패턴 공격에 극히 취약해집니다. 이를 막기 위해 앞 블록의
+                                암호문이 다음 블록 연산에 영향을 주는 CBC(Cipher Block Chaining) 모드를 적용했습니다. 이때 연산의 시작점이 되는 IV(초기화 벡터)를
+                                고정된 값으로 사용하면 보안이 무너지므로, 파일마다 <code>get_random_bytes</code>를 통해 고유한 난수 IV를 생성했습니다. 생성된
+                                IV는 암호문 맨 앞 16바이트에 헤더처럼 부착하여 저장함으로써, 복호화 시 키만 있다면 IV를 분리하여 원본 데이터를 안전하게 복구해내는 데이터
+                                직렬화/역직렬화 구조를 성공적으로 설계했습니다.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="page-num">— 10</div>
+            </div>
+
+            <div class="page page-contact">
+                <div class="contact-left smooth-appear">
+                    <span class="label">CONTACT</span>
+                    <div class="contact-big">LET'S<br>BUILD<br><span>THE CORE</span></div>
+                    <div class="contact-grid">
+                        <div class="contact-item">
+                            <div class="contact-label">Email</div>
+                            <div class="contact-val"><a href="mailto:s2444@e-mirim.hs.kr">s2444@e-mirim.hs.kr</a></div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-label">Phone</div>
+                            <div class="contact-val">010-3484-0767</div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-label">GitHub</div>
+                            <div class="contact-val"><a href="https://github.com/jay-p08"
+                                    target="_blank">github.com/jay-p08</a></div>
+                        </div>
+                    </div>
+                    <p class="contact-footer-text" style="margin-top: 2vw; font-size: 0.9vw; line-height: 1.8;">
+                        플레이어가 느끼는 찰나의 쾌감을 위해 백그라운드에서 수백만 번의 연산을 최적화합니다.<br>
+                        표면적인 기능 구현에 안주하지 않고, 코드로 설계된 견고한 뼈대와 압도적인 성능 지표로 증명하겠습니다.<br>
+                        함께 위대한 세계의 기반(Core)을 다질 아키텍처 설계와 최적화 기회를 기다리고 있습니다.
+                    </p>
+                </div>
+                <div class="contact-right smooth-appear delay-1">
+                    <div class="avail-badge" style="margin-bottom: 2vw;">
+                        <div class="avail-dot"></div>2026 GRADUATE · AVAILABLE FOR HIRE
+                    </div>
+                    <div class="stack-block">
+                        <div class="stack-title" style="font-size: var(--f-md); margin-bottom: 1vw;">Next Milestone:
+                            Beyond the Client Architecture</div>
+                        <p
+                            style="font-size: var(--f-sm); color: var(--text-mid); line-height: 1.8; text-align: justify;">
+                            로컬 클라이언트 엔진의 메모리 최적화 한계를 넘어, 대규모 트래픽을 오차 없이 처리하는 서버 구조와 네트워크 동기화 모델로 시야를 넓히고 있습니다. <br><br>
+                            현재는 Unreal Engine의 데디케이티드 서버(Dedicated Server) 아키텍처와 소켓 통신의 비동기 I/O 모델을 연구하며, 클라이언트의 행동
+                            예측(Client Prediction)과 서버의 상태 롤백/검증(Reconciliation) 알고리즘을 구현해보고 있습니다. 단순한 게임 플레이 로직 작성자를 넘어,
+                            멀티플레이어 환경의 물리적 네트워크 레이턴시를 엔진 프레임워크의 힘으로 매끄럽게 숨기고 보안 위협으로부터 데이터를 완벽히 보호할 수 있는 <strong>구조적
+                                통찰력을 갖춘 코어 엔지니어</strong>로 거듭나는 것이 저의 궁극적인 목표입니다.
                         </p>
                     </div>
                 </div>
+                <div class="page-num">— 11</div>
             </div>
-            <div class="page-num">— 08</div>
+
+            <div class="page page-final">
+                <div class="smooth-appear">
+                    <div class="final-sub">// END OF DOCUMENT</div>
+                    <div class="final-quote" style="margin: 1.5vw 0;">THE CODE IS THE WORLD</div>
+                    <div class="final-tags">
+                        <span>ENGINE DEVELOPER</span>
+                        <span style="color:var(--teal)">·</span>
+                        <span>JAY PARK</span>
+                    </div>
+                </div>
+                <div class="page-num">— 12</div>
+            </div>
+
         </div>
-
-        <!-- PAGE 07 — PROJECT 04: DIRECTX SHOOTER -->
-        <div class="page page-project">
-            <div class="proj-num">// PROJECT 04</div>
-            <div class="proj-title">DirectX 2D Shooting Game</div>
-            <div class="proj-tagline">DirectX 11로 직접 구현한 2D 종스크롤 슈팅 게임</div>
-            <div class="proj-body">
-                <div class="proj-left">
-                    <div class="meta-table">
-                        <div class="meta-cell">
-                            <div class="meta-cell-label">기술</div>
-                            <div class="meta-cell-val">C++, DirectX 11, HLSL</div>
-                        </div>
-                        <div class="meta-cell">
-                            <div class="meta-cell-label">개발 형태</div>
-                            <div class="meta-cell-val">개인 프로젝트</div>
-                        </div>
-                        <div class="meta-cell">
-                            <div class="meta-cell-label">규모</div>
-                            <div class="meta-cell-val">약 5,000줄</div>
-                        </div>
-                        <div class="meta-cell">
-                            <div class="meta-cell-label">장르</div>
-                            <div class="meta-cell-val">2D 종스크롤 슈팅</div>
-                        </div>
-                    </div>
-                    <div class="sec-block">
-                        <div class="sec-title">주요 구현</div>
-                        <div class="feat-list">
-                            <div class="feat-row"><strong>렌더링 파이프라인</strong> — 정점 셰이더 → 래스터라이제이션 → 픽셀 셰이더 직접 구현</div>
-                            <div class="feat-row"><strong>스프라이트 시스템</strong> — 텍스처 아틀라스 기반 2D 스프라이트 렌더링 및 애니메이션</div>
-                            <div class="feat-row"><strong>적 패턴 AI</strong> — 다양한 이동·사격 패턴을 가진 적 오브젝트 설계</div>
-                            <div class="feat-row"><strong>충돌 처리</strong> — 총알·적·플레이어 간 AABB 충돌 감지 및 피격 판정</div>
-                            <div class="feat-row"><strong>배경 스크롤</strong> — 멀티 레이어 패럴랙스 스크롤로 원근감 표현</div>
-                            <div class="feat-row"><strong>HUD</strong> — 점수·생명·스테이지 실시간 렌더링</div>
-                        </div>
-                    </div>
-                    <div class="contrib-bar">
-                        <div class="contrib-title">// 기술 구성비</div>
-                        <div class="contrib-stack">
-                            <div class="contrib-seg" style="flex:40;background:#1a4d8f;"></div>
-                            <div class="contrib-seg" style="flex:30;background:#0f9a52;"></div>
-                            <div class="contrib-seg" style="flex:20;background:#c05820;"></div>
-                            <div class="contrib-seg" style="flex:10;background:#7a95b0;"></div>
-                        </div>
-                        <div class="contrib-legend">
-                            <div class="legend-item">
-                                <div class="legend-dot" style="background:#1a4d8f;"></div>Graphics 40%
-                            </div>
-                            <div class="legend-item">
-                                <div class="legend-dot" style="background:#0f9a52;"></div>Game Logic 30%
-                            </div>
-                            <div class="legend-item">
-                                <div class="legend-dot" style="background:#c05820;"></div>Physics 20%
-                            </div>
-                            <div class="legend-item">
-                                <div class="legend-dot" style="background:#7a95b0;"></div>AI 10%
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="proj-right">
-                    <div class="shot-slot">
-                        <div class="shot-bg-code">class BulletPool {
-                            std::vector&lt;Bullet&gt; pool;
-                            public:
-                            Bullet* Acquire() {
-                            for (auto& b : pool)
-                            if (!b.active) { b.active=true; return &b; }
-                            return nullptr;
-                            }
-                            void Release(Bullet* b) { b->active = false; }
-                            };</div>
-                        <img src="img/SpaceOut_01.png" alt=""
-                            style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"
-                            onerror="this.style.display='none'">
-                        <div class="shot-label">SCREENSHOT · 01</div>
-                    </div>
-                    <div class="shot-slot">
-                        <div class="shot-bg-code">float4 PS_Sprite(VS_OUTPUT input) : SV_Target {
-                            float4 color = spriteTexture.Sample(
-                            samplerState, input.texCoord);
-                            clip(color.a - 0.01f);
-                            return color * input.color;
-                            }</div>
-                        <img src="img/SpaceOut_02.png" alt=""
-                            style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"
-                            onerror="this.style.display='none'">
-                        <div class="shot-label">SCREENSHOT · 02</div>
-                    </div>
-                </div>
-            </div>
-            <div class="page-num">— 09</div>
-        </div>
-
-        <!-- PAGE 08 — CODE REVIEW 04 -->
-        <div class="page page-code">
-            <span class="label" style="margin-bottom:0;">PROJECT 04 · CODE REVIEW</span>
-            <div class="code-heading">코드 리뷰</div>
-            <div class="insight-strip">
-                <div class="insight-cell">
-                    <div class="insight-cell-label">핵심 패턴</div>
-                    <div class="insight-cell-val">Object Pooling</div>
-                </div>
-                <div class="insight-cell">
-                    <div class="insight-cell-label">셰이더 언어</div>
-                    <div class="insight-cell-val">HLSL (DirectX 11)</div>
-                </div>
-                <div class="insight-cell">
-                    <div class="insight-cell-label">렌더링 효과</div>
-                    <div class="insight-cell-val">Alpha Clip + Color Multiply</div>
-                </div>
-                <div class="insight-cell">
-                    <div class="insight-cell-label">코드 규모</div>
-                    <div class="insight-cell-val">약 5,000 Lines</div>
-                </div>
-            </div>
-            <div class="code-review-block">
-                <div class="code-wrap">
-                    <div class="code-label">핵심 코드 — 오브젝트 풀링 (총알 관리)</div>
-                    <pre class="code-block"><code><span class="kw">class</span> <span class="fn">BulletPool</span> {
-    std::vector&lt;Bullet&gt; pool;
-    <span class="kw">int</span> maxSize;
-<span class="kw">public</span>:
-    Bullet* <span class="fn">Acquire</span>() {
-        <span class="kw">for</span> (<span class="kw">auto</span>&amp; b : pool)
-            <span class="kw">if</span> (!b.active) {
-                b.active = <span class="kw">true</span>;
-                <span class="kw">return</span> &amp;b;
-            }
-        <span class="kw">return nullptr</span>; <span class="cm">// 풀 소진</span>
-    }
-    <span class="kw">void</span> <span class="fn">Release</span>(Bullet* b){ b-&gt;active=<span class="kw">false</span>; }
-};</code></pre>
-                </div>
-                <div class="learned-panel">
-                    <div class="learned-item">
-                        <div class="learned-title">▸ 설계 의도</div>
-                        <p>총알을 발사할 때마다 new/delete를 호출하면 메모리 단편화와 힙 할당 비용이 프레임마다 누적됩니다. 게임 시작 시 최대 총알 수만큼 풀에 미리 할당해두고,
-                            active 플래그로 사용 여부를 관리해 동적 할당을 완전히 제거했습니다. 결과적으로 초당 수십 발 발사 시에도 메모리 사용량이 일정하게 유지됩니다.</p>
-                    </div>
-                    <div class="learned-item">
-                        <div class="learned-title">▸ 배운 점</div>
-                        <p>슈팅 게임처럼 오브젝트 생성·소멸이 초당 수십 회 반복되는 장르에서 풀링은 선택이 아닌 필수입니다. 풀 크기를 초과하면 nullptr을 반환하므로 호출부에서 반드시
-                            null 체크가 필요하며, 풀 크기는 게임 설계 단계에서 충분히 산정해야 함을 배웠습니다. 이 패턴은 이후 UE5 프로젝트에도 동일하게 적용했습니다.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="code-review-block">
-                <div class="code-wrap">
-                    <div class="code-label">핵심 코드 — 스프라이트 렌더링 (HLSL)</div>
-                    <pre class="code-block"><code><span class="cm">// 픽셀 셰이더 — 스프라이트 알파 블렌딩</span>
-<span class="kw">float4</span> <span class="fn">PS_Sprite</span>(VS_OUTPUT input) : SV_Target {
-    <span class="kw">float4</span> color = spriteTexture.<span class="fn">Sample</span>(
-        samplerState, input.texCoord);
-    <span class="cm">// 알파 0이면 완전 투명 처리</span>
-    <span class="kw">clip</span>(color.a - <span class="nm">0.01f</span>);
-    <span class="kw">return</span> color * input.color;
-}</code></pre>
-                </div>
-                <div class="learned-panel">
-                    <div class="learned-item">
-                        <div class="learned-title">▸ 설계 의도</div>
-                        <p>2D 스프라이트의 배경을 투명하게 처리하기 위해 알파 채널을 샘플링한 뒤 clip()으로 임계값 미만 픽셀을 파이프라인에서 완전히 제거합니다. input.color를
-                            최종 컬러에 곱하는 구조 덕분에 C++ 코드에서 색상값만 전달하면 피격 시 붉은 플래시, 무적 시 반투명 깜빡임 등 다양한 시각 효과를 셰이더 수정 없이 적용할 수
-                            있습니다.</p>
-                    </div>
-                    <div class="learned-item">
-                        <div class="learned-title">▸ 배운 점</div>
-                        <p>clip()은 픽셀을 파이프라인에서 완전히 폐기하므로 알파 블렌딩보다 GPU 비용이 낮습니다. 단, 반투명 표현이 필요한 경우엔 clip() 대신
-                            D3D11_BLEND_SRC_ALPHA 블렌드 스테이트를 별도로 설정해야 합니다. 시행착오를 통해 셰이더 하나로 여러 시각 효과를 처리하는 범용 설계의 가치를
-                            배웠습니다.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="page-num">— 10</div>
-        </div>
-
-        <!-- PAGE 09 — PROJECT 05: BUBBLE BOBBLE -->
-        <div class="page page-project">
-            <div class="proj-num">// PROJECT 05</div>
-            <div class="proj-title">Bubble Bobble</div>
-            <div class="proj-tagline">클래식 아케이드 게임 현대적 재현 — 상태 머신 기반 AI</div>
-            <div class="proj-body">
-                <div class="proj-left">
-                    <div class="meta-table">
-                        <div class="meta-cell">
-                            <div class="meta-cell-label">기술</div>
-                            <div class="meta-cell-val">Java, Collision Detection</div>
-                        </div>
-                        <div class="meta-cell">
-                            <div class="meta-cell-label">개발 형태</div>
-                            <div class="meta-cell-val">개인 프로젝트</div>
-                        </div>
-                        <div class="meta-cell">
-                            <div class="meta-cell-label">규모</div>
-                            <div class="meta-cell-val">약 3,000줄</div>
-                        </div>
-                        <div class="meta-cell">
-                            <div class="meta-cell-label">충돌 처리</div>
-                            <div class="meta-cell-val">AABB Physics</div>
-                        </div>
-                    </div>
-                    <div class="sec-block">
-                        <div class="sec-title">주요 구현</div>
-                        <div class="feat-list">
-                            <div class="feat-row"><strong>몬스터 AI</strong> — 상태 머신 기반 배회·추격·도망 패턴</div>
-                            <div class="feat-row"><strong>물리 충돌</strong> — AABB 물리 기반 충돌 및 벽 충돌 처리</div>
-                            <div class="feat-row"><strong>풍선 시스템</strong> — 생성 → 타이머 → 폭발 사이클 구현</div>
-                        </div>
-                    </div>
-                    <div class="sec-block">
-                        <div class="sec-title">배운 점</div>
-                        <div class="feat-list">
-                            <div class="feat-row">속도가 빠른 오브젝트의 터널링 문제 인식 → CCD 필요성 체감</div>
-                            <div class="feat-row">겹침 거리(overlap) 측정 후 최단 축으로 밀어내는 해결 방식 구현</div>
-                        </div>
-                    </div>
-                    <div class="contrib-bar">
-                        <div class="contrib-title">// 기술 구성비</div>
-                        <div class="contrib-stack">
-                            <div class="contrib-seg" style="flex:40;background:#0f9a52;"></div>
-                            <div class="contrib-seg" style="flex:35;background:#1a4d8f;"></div>
-                            <div class="contrib-seg" style="flex:25;background:#c05820;"></div>
-                        </div>
-                        <div class="contrib-legend">
-                            <div class="legend-item">
-                                <div class="legend-dot" style="background:#0f9a52;"></div>Physics 40%
-                            </div>
-                            <div class="legend-item">
-                                <div class="legend-dot" style="background:#1a4d8f;"></div>AI StateMachine 35%
-                            </div>
-                            <div class="legend-item">
-                                <div class="legend-dot" style="background:#c05820;"></div>Game Logic 25%
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="proj-right">
-                    <div class="shot-slot">
-                        <div class="shot-bg-code">enum MonsterState { ROAM, CHASE, FLEE }
-                            class Monster {
-                            MonsterState state = ROAM;
-                            float detectRadius = 120f;
-                            void update(Player p) {
-                            float dist = distance(pos, p.pos);
-                            if (hp &lt; 30) state = FLEE;
-                            else if (dist &lt; detectRadius) state = CHASE;
-                            else state = ROAM;
-                            }
-                            }</div>
-                        <img src="img/Bubble_01.png" alt=""
-                            style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"
-                            onerror="this.style.display='none'">
-                        <div class="shot-label">SCREENSHOT · 01</div>
-                    </div>
-                    <div class="shot-slot">
-                        <div class="shot-bg-code">boolean checkAABB(Rect a, Rect b) {
-                            return a.x &lt; b.x+b.w && a.x+a.w &gt; b.x
-                            && a.y &lt; b.y+b.h && a.y+a.h &gt; b.y;
-                            }
-                            void resolveCollision(Entity e, Tile t) {
-                            float overlapX = Math.min(
-                            e.right()-t.left(), t.right()-e.left());
-                            e.x += (e.centerX()&lt;t.centerX())?-overlapX:overlapX;
-                            }</div>
-                        <img src="img/Bubble_02.png" alt=""
-                            style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"
-                            onerror="this.style.display='none'">
-                        <div class="shot-label">SCREENSHOT · 02</div>
-                    </div>
-                </div>
-            </div>
-            <div class="page-num">— 11</div>
-        </div>
-
-        <!-- PAGE 10 — CODE REVIEW 05 -->
-        <div class="page page-code">
-            <span class="label" style="margin-bottom:0;">PROJECT 05 · CODE REVIEW</span>
-            <div class="code-heading">코드 리뷰</div>
-            <div class="insight-strip">
-                <div class="insight-cell">
-                    <div class="insight-cell-label">충돌 알고리즘</div>
-                    <div class="insight-cell-val">AABB (Axis-Aligned Bounding Box)</div>
-                </div>
-                <div class="insight-cell">
-                    <div class="insight-cell-label">AI 패턴 수</div>
-                    <div class="insight-cell-val">3종 (배회 / 추격 / 도망)</div>
-                </div>
-                <div class="insight-cell">
-                    <div class="insight-cell-label">알게 된 한계</div>
-                    <div class="insight-cell-val">터널링 → CCD 필요성</div>
-                </div>
-                <div class="insight-cell">
-                    <div class="insight-cell-label">코드 규모</div>
-                    <div class="insight-cell-val">약 3,000 Lines</div>
-                </div>
-            </div>
-            <div class="code-review-block">
-                <div class="code-wrap">
-                    <div class="code-label">핵심 코드 — AABB 충돌 처리</div>
-                    <pre class="code-block"><code><span class="kw">boolean</span> <span class="fn">checkAABB</span>(Rect a, Rect b) {
-    <span class="kw">return</span> a.x &lt; b.x + b.w
-        &amp;&amp; a.x + a.w &gt; b.x
-        &amp;&amp; a.y &lt; b.y + b.h
-        &amp;&amp; a.y + a.h &gt; b.y;
-}
-<span class="kw">void</span> <span class="fn">resolveCollision</span>(Entity e, Tile t) {
-    <span class="kw">float</span> overlapX = Math.min(
-        e.right() - t.left(),
-        t.right() - e.left());
-    e.x += (e.centerX() &lt; t.centerX())
-        ? -overlapX : overlapX;
-}</code></pre>
-                </div>
-                <div class="learned-panel">
-                    <div class="learned-item">
-                        <div class="learned-title">▸ 설계 의도</div>
-                        <p>축 분리 이론(SAT)의 2D 간소화 버전으로, 두 사각형의 각 축 투영이 겹치는지 4개의 조건으로 판별합니다. 단순한 불리언 판정에 그치지 않고 겹침
-                            거리(overlap)를 계산해 가장 짧은 축 방향으로 엔티티를 밀어냄으로써, 물체가 타일을 통과하지 않고 자연스럽게 막히도록 충돌 해소까지 함께 구현했습니다.</p>
-                    </div>
-                    <div class="learned-item">
-                        <div class="learned-title">▸ 배운 점</div>
-                        <p>속도가 빠른 오브젝트는 한 프레임 사이에 충돌체를 완전히 통과해버리는 터널링 현상이 발생할 수 있음을 이 프로젝트에서 처음 직접 확인했습니다. 이를 해결하려면
-                            이산(Discrete) 방식이 아닌 연속 충돌 감지(CCD)가 필요하다는 것을 인식했고, 이후 물리 구현 시 오브젝트 속도와 충돌 감지 방식을 함께 고려하는 습관을
-                            갖게 됐습니다.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="page-num">— 12</div>
-        </div>
-
-        <!-- PAGE 11 — PROJECT 06: TETRIS -->
-        <div class="page page-project">
-            <div class="proj-num">// PROJECT 06</div>
-            <div class="proj-title">Java Tetris Implementation</div>
-            <div class="proj-tagline">2차원 배열과 알고리즘으로 구현한 클래식 테트리스</div>
-            <div class="proj-body">
-                <div class="proj-left">
-                    <div class="meta-table">
-                        <div class="meta-cell">
-                            <div class="meta-cell-label">기술</div>
-                            <div class="meta-cell-val">Java, Algorithm Design</div>
-                        </div>
-                        <div class="meta-cell">
-                            <div class="meta-cell-label">개발 형태</div>
-                            <div class="meta-cell-val">개인 프로젝트</div>
-                        </div>
-                        <div class="meta-cell">
-                            <div class="meta-cell-label">규모</div>
-                            <div class="meta-cell-val">약 2,200줄</div>
-                        </div>
-                        <div class="meta-cell">
-                            <div class="meta-cell-label">회전 방식</div>
-                            <div class="meta-cell-val">행렬 변환 (SRS)</div>
-                        </div>
-                    </div>
-                    <div class="sec-block">
-                        <div class="sec-title">주요 구현</div>
-                        <div class="feat-list">
-                            <div class="feat-row">4방향 블록 회전 상태 관리 및 벽 충돌 체크</div>
-                            <div class="feat-row">완전히 찬 줄 감지·삭제 및 상단 블록 낙하 처리</div>
-                            <div class="feat-row">동시 삭제 줄 수에 따른 보너스 점수 부여</div>
-                            <div class="feat-row">블록 회전에 따른 추가 점수 및 설정 기능 추가</div>
-                        </div>
-                    </div>
-                    <div class="sec-block">
-                        <div class="sec-title">배운 점</div>
-                        <div class="feat-list">
-                            <div class="feat-row">선형 대수의 행렬 변환이 실제 게임 로직에 그대로 쓰임을 체감</div>
-                            <div class="feat-row">회전 후 벽 충돌 체크를 반드시 병행해야 자연스러운 SRS 회전이 됨</div>
-                        </div>
-                    </div>
-                    <div class="contrib-bar">
-                        <div class="contrib-title">// 기술 구성비</div>
-                        <div class="contrib-stack">
-                            <div class="contrib-seg" style="flex:45;background:#0f9a52;"></div>
-                            <div class="contrib-seg" style="flex:35;background:#1a4d8f;"></div>
-                            <div class="contrib-seg" style="flex:20;background:#c05820;"></div>
-                        </div>
-                        <div class="contrib-legend">
-                            <div class="legend-item">
-                                <div class="legend-dot" style="background:#0f9a52;"></div>Algorithm 45%
-                            </div>
-                            <div class="legend-item">
-                                <div class="legend-dot" style="background:#1a4d8f;"></div>Rendering 35%
-                            </div>
-                            <div class="legend-item">
-                                <div class="legend-dot" style="background:#c05820;"></div>Score System 20%
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="proj-right">
-                    <div class="shot-slot">
-                        <div class="shot-bg-code">int[][] rotate(int[][] shape) {
-                            int n = shape.length;
-                            int[][] rotated = new int[n][n];
-                            for (int r = 0; r &lt; n; r++)
-                            for (int c = 0; c &lt; n; c++)
-                            rotated[c][n-1-r] = shape[r][c];
-                            return rotated;
-                            } // Transpose + Col Reverse = 90° CW</div>
-                        <img src="img/Tetris_01.png" alt=""
-                            style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"
-                            onerror="this.style.display='none'">
-                        <div class="shot-label">SCREENSHOT · 01</div>
-                    </div>
-                    <div class="shot-slot">
-                        <div class="shot-bg-code">void clearLines(int[][] board) {
-                            for (int r = board.length-1; r >= 0; r--) {
-                            boolean full = true;
-                            for (int cell : board[r])
-                            if (cell == 0) { full=false; break; }
-                            if (full) {
-                            for (int rr=r; rr>0; rr--)
-                            board[rr]=board[rr-1].clone();
-                            board[0] = new int[COLS]; r++;
-                            }
-                            }
-                            }</div>
-                        <img src="img/Tetris_02.png" alt=""
-                            style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"
-                            onerror="this.style.display='none'">
-                        <div class="shot-label">SCREENSHOT · 02</div>
-                    </div>
-                </div>
-            </div>
-            <div class="page-num">— 13</div>
-        </div>
-
-        <!-- PAGE 12 — CODE REVIEW 06 -->
-        <div class="page page-code">
-            <span class="label" style="margin-bottom:0;">PROJECT 06 · CODE REVIEW</span>
-            <div class="code-heading">코드 리뷰</div>
-            <div class="insight-strip">
-                <div class="insight-cell">
-                    <div class="insight-cell-label">핵심 알고리즘</div>
-                    <div class="insight-cell-val">Matrix Transpose + Column Reverse</div>
-                </div>
-                <div class="insight-cell">
-                    <div class="insight-cell-label">회전 시스템</div>
-                    <div class="insight-cell-val">SRS (Super Rotation System)</div>
-                </div>
-                <div class="insight-cell">
-                    <div class="insight-cell-label">라인 클리어</div>
-                    <div class="insight-cell-val">Bottom-Up Scan + Cascade Drop</div>
-                </div>
-                <div class="insight-cell">
-                    <div class="insight-cell-label">코드 규모</div>
-                    <div class="insight-cell-val">약 2,200 Lines</div>
-                </div>
-            </div>
-            <div class="code-review-block">
-                <div class="code-wrap">
-                    <div class="code-label">핵심 코드 — 블록 회전 행렬</div>
-                    <pre class="code-block"><code><span class="kw">int</span>[][] <span class="fn">rotate</span>(<span class="kw">int</span>[][] shape) {
-    <span class="kw">int</span> n = shape.length;
-    <span class="kw">int</span>[][] rotated = <span class="kw">new int</span>[n][n];
-    <span class="kw">for</span> (<span class="kw">int</span> r = <span class="nm">0</span>; r &lt; n; r++)
-        <span class="kw">for</span> (<span class="kw">int</span> c = <span class="nm">0</span>; c &lt; n; c++)
-            rotated[c][n-<span class="nm">1</span>-r] = shape[r][c];
-    <span class="kw">return</span> rotated;
-}</code></pre>
-                </div>
-                <div class="learned-panel">
-                    <div class="learned-item">
-                        <div class="learned-title">▸ 설계 의도</div>
-                        <p>2D 배열의 전치(transpose) + 열 반전으로 시계 방향 90도 회전을 구현합니다. 4방향 회전 상태를 별도 배열로 저장하지 않고 수식 하나로 매번 계산하므로,
-                            7종 블록 모두 동일한 함수 하나로 처리됩니다. 코드 중복 없이 확장 가능한 구조입니다.</p>
-                    </div>
-                    <div class="learned-item">
-                        <div class="learned-title">▸ 배운 점</div>
-                        <p>선형 대수에서 배운 행렬 전치와 열 반전이 게임 로직에 그대로 적용된다는 것을 처음 체감했습니다. 또한 회전 후에는 반드시 벽·바닥·다른 블록과의 충돌을 검사하고,
-                            충돌 시 SRS 킥 테이블을 적용해야 자연스러운 회전감이 만들어진다는 것도 직접 구현하며 배웠습니다.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="code-review-block">
-                <div class="code-wrap">
-                    <div class="code-label">핵심 코드 — 라인 클리어 (Bottom-Up)</div>
-                    <pre class="code-block"><code><span class="kw">void</span> <span class="fn">clearLines</span>(<span class="kw">int</span>[][] board) {
-    <span class="kw">for</span> (<span class="kw">int</span> r = board.length-<span class="nm">1</span>; r &gt;= <span class="nm">0</span>; r--) {
-        <span class="kw">boolean</span> full = <span class="kw">true</span>;
-        <span class="kw">for</span> (<span class="kw">int</span> cell : board[r])
-            <span class="kw">if</span> (cell == <span class="nm">0</span>) { full=<span class="kw">false</span>; <span class="kw">break</span>; }
-        <span class="kw">if</span> (full) {
-            <span class="kw">for</span> (<span class="kw">int</span> rr=r; rr&gt;<span class="nm">0</span>; rr--)
-                board[rr]=board[rr-<span class="nm">1</span>].clone();
-            board[<span class="nm">0</span>] = <span class="kw">new int</span>[COLS]; r++;
-        }
-    }
-}</code></pre>
-                </div>
-                <div class="learned-panel">
-                    <div class="learned-item">
-                        <div class="learned-title">▸ 설계 의도</div>
-                        <p>보드를 아래에서 위로 스캔해 완전히 찬 줄을 감지하면, 그 위의 모든 줄을 한 칸씩 복사해 내립니다. r++로 같은 인덱스를 다시 검사해 연속 클리어(테트리스)도
-                            정확하게 처리됩니다. 복잡한 자료구조 없이 2차원 배열 하나로 전체 보드 상태를 관리합니다.</p>
-                    </div>
-                    <div class="learned-item">
-                        <div class="learned-title">▸ 배운 점</div>
-                        <p>클리어 후 r++를 하지 않으면 같은 위치에 내려온 새 줄을 검사하지 못해 연속 클리어가 누락됩니다. 작은 인덱스 실수 하나가 게임 전체 로직에 영향을 준다는 사실을
-                            체험했고, 알고리즘의 경계 조건(edge case)을 꼼꼼히 검토하는 습관을 갖게 됐습니다.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="page-num">— 14</div>
-        </div>
-
-        <!-- PAGE 13 — PROJECT 08: UE5 FPS -->
-        <div class="page page-project">
-            <div class="proj-num">// PROJECT 08</div>
-            <div class="proj-title">Unreal Engine FPS Prototype</div>
-            <div class="proj-tagline">언리얼 엔진 5로 제작한 1인칭 슈팅 게임 프로토타입</div>
-            <div class="proj-body">
-                <div class="proj-left">
-                    <div class="meta-table">
-                        <div class="meta-cell">
-                            <div class="meta-cell-label">기술</div>
-                            <div class="meta-cell-val">Unreal Engine 5, Blueprint, C++</div>
-                        </div>
-                        <div class="meta-cell">
-                            <div class="meta-cell-label">개발 형태</div>
-                            <div class="meta-cell-val">개인 학습 프로젝트</div>
-                        </div>
-                        <div class="meta-cell">
-                            <div class="meta-cell-label">규모</div>
-                            <div class="meta-cell-val">Blueprint + C++ 혼합</div>
-                        </div>
-                        <div class="meta-cell">
-                            <div class="meta-cell-label">AI 방식</div>
-                            <div class="meta-cell-val">Behavior Tree</div>
-                        </div>
-                    </div>
-                    <div class="sec-block">
-                        <div class="sec-title">주요 구현</div>
-                        <div class="feat-list">
-                            <div class="feat-row"><strong>Enhanced Input System</strong> — WASD 이동 및 마우스 시점 조작</div>
-                            <div class="feat-row"><strong>적 AI</strong> — Behavior Tree 기반 추격·사격·회피 패턴</div>
-                            <div class="feat-row"><strong>히트스캔</strong> — LineTrace로 즉각적인 명중 판정 구현</div>
-                            <div class="feat-row"><strong>HUD</strong> — 탄약량·체력·점수 실시간 표시 UI 구현</div>
-                        </div>
-                    </div>
-                    <div class="sec-block">
-                        <div class="sec-title">배운 점</div>
-                        <div class="feat-list">
-                            <div class="feat-row">Unreal Actor-Component 관계를 직접 다루며 컴포넌트 기반 구조 체감</div>
-                            <div class="feat-row">TakeDamage 인터페이스로 적 종류 무관하게 데미지 적용하는 다형성 설계</div>
-                        </div>
-                    </div>
-                    <div class="contrib-bar">
-                        <div class="contrib-title">// 기술 구성비</div>
-                        <div class="contrib-stack">
-                            <div class="contrib-seg" style="flex:35;background:#0f9a52;"></div>
-                            <div class="contrib-seg" style="flex:30;background:#1a4d8f;"></div>
-                            <div class="contrib-seg" style="flex:20;background:#c05820;"></div>
-                            <div class="contrib-seg" style="flex:15;background:#7a95b0;"></div>
-                        </div>
-                        <div class="contrib-legend">
-                            <div class="legend-item">
-                                <div class="legend-dot" style="background:#0f9a52;"></div>Blueprint 35%
-                            </div>
-                            <div class="legend-item">
-                                <div class="legend-dot" style="background:#1a4d8f;"></div>C++ 30%
-                            </div>
-                            <div class="legend-item">
-                                <div class="legend-dot" style="background:#c05820;"></div>AI/BT 20%
-                            </div>
-                            <div class="legend-item">
-                                <div class="legend-dot" style="background:#7a95b0;"></div>UI/HUD 15%
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="proj-right">
-                    <div class="shot-slot">
-                        <div class="shot-bg-code">void AMyWeapon::Fire() {
-                            FVector Start = Camera->GetComponentLocation();
-                            FVector End = Start + Camera->GetForwardVector()*Range;
-                            FHitResult Hit;
-                            bool bHit = GetWorld()->LineTraceSingleByChannel(
-                            Hit, Start, End, ECC_Visibility);
-                            if (bHit && Hit.GetActor())
-                            Hit.GetActor()->TakeDamage(Damage, ...);
-                            }</div>
-                        <img src="img/FPS_01.png" alt=""
-                            style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"
-                            onerror="this.style.display='none'">
-                        <div class="shot-label">SCREENSHOT · 01</div>
-                    </div>
-                    <div class="shot-slot">
-                        <div class="shot-bg-code">// AMyCharacter
-                            // ├─ UCameraComponent
-                            // ├─ USkeletalMeshComponent
-                            // ├─ UCharacterMovementComponent
-                            // └─ UHealthComponent
-                            // IDamageable: AEnemy_Grunt / Elite / Boss
-                            // → TakeDamage() uniform interface</div>
-                        <img src="img/FPS_02.png" alt=""
-                            style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"
-                            onerror="this.style.display='none'">
-                        <div class="shot-label">SCREENSHOT · 02</div>
-                    </div>
-                </div>
-            </div>
-            <div class="page-num">— 15</div>
-        </div>
-
-        <!-- PAGE 14 — CODE REVIEW 08 -->
-        <div class="page page-code">
-            <span class="label" style="margin-bottom:0;">PROJECT 08 · CODE REVIEW</span>
-            <div class="code-heading">코드 리뷰</div>
-            <div class="insight-strip">
-                <div class="insight-cell">
-                    <div class="insight-cell-label">사격 방식</div>
-                    <div class="insight-cell-val">Hitscan (LineTrace)</div>
-                </div>
-                <div class="insight-cell">
-                    <div class="insight-cell-label">AI 시스템</div>
-                    <div class="insight-cell-val">Behavior Tree + Blackboard</div>
-                </div>
-                <div class="insight-cell">
-                    <div class="insight-cell-label">데미지 시스템</div>
-                    <div class="insight-cell-val">TakeDamage Interface (다형성)</div>
-                </div>
-                <div class="insight-cell">
-                    <div class="insight-cell-label">구조</div>
-                    <div class="insight-cell-val">Actor-Component Pattern</div>
-                </div>
-            </div>
-            <div class="code-review-block">
-                <div class="code-wrap">
-                    <div class="code-label">핵심 코드 — Line Trace 히트스캔</div>
-                    <pre class="code-block"><code><span class="kw">void</span> AMyWeapon::<span class="fn">Fire</span>() {
-  FVector Start = Camera-&gt;GetComponentLocation();
-  FVector End   = Start +
-    Camera-&gt;GetForwardVector() * Range;
-  FHitResult Hit;
-  <span class="kw">bool</span> bHit = GetWorld()-&gt;<span class="fn">LineTraceSingleByChannel</span>(
-    Hit, Start, End, ECC_Visibility);
-  <span class="kw">if</span> (bHit &amp;&amp; Hit.GetActor())
-    Hit.GetActor()-&gt;<span class="fn">TakeDamage</span>(Damage, ...);
-}</code></pre>
-                </div>
-                <div class="learned-panel">
-                    <div class="learned-item">
-                        <div class="learned-title">▸ 설계 의도</div>
-                        <p>물리 투사체(Projectile) 대신 LineTrace로 즉각적인 명중 판정을 구현해 고속 탄환의 지연 없는 피격감을 만들었습니다. 카메라 위치에서 전방 벡터
-                            방향으로 레이를 발사해 첫 번째 가시 충돌 액터를 감지하고, TakeDamage 인터페이스로 데미지를 전달해 적 클래스 종류에 무관하게 동일한 로직이 동작하도록
-                            다형성을 활용했습니다.</p>
-                    </div>
-                    <div class="learned-item">
-                        <div class="learned-title">▸ 배운 점</div>
-                        <p>Unreal의 Actor-Component 구조를 직접 다루며 기능을 컴포넌트 단위로 분리하는 설계의 강점을 체감했습니다. TakeDamage 인터페이스 하나로
-                            Grunt·Elite·Boss 등 모든 적 타입에 동일한 데미지 로직을 적용할 수 있어, 새로운 적 유형 추가 시 무기 코드를 전혀 수정하지 않아도 됩니다.
-                            개방-폐쇄 원칙(OCP)의 실용적 가치를 배웠습니다.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="code-review-block">
-                <div class="code-wrap">
-                    <div class="code-label">아키텍처 — Actor-Component 구조</div>
-                    <pre class="code-block"><code><span class="cm">// AMyCharacter 컴포넌트 계층</span>
-<span class="cm">// ├─ UCameraComponent        (시점)</span>
-<span class="cm">// ├─ USkeletalMeshComponent  (메시)</span>
-<span class="cm">// ├─ UCharacterMovement      (이동)</span>
-<span class="cm">// └─ UHealthComponent        (체력)</span>
-
-<span class="cm">// 다형성 데미지 인터페이스</span>
-<span class="cm">// AEnemy_Grunt → TakeDamage()</span>
-<span class="cm">// AEnemy_Elite → TakeDamage()</span>
-<span class="cm">// AEnemy_Boss  → TakeDamage()</span>
-<span class="cm">// → 무기 코드 수정 없이 확장 가능</span></code></pre>
-                </div>
-                <div class="learned-panel">
-                    <div class="learned-item">
-                        <div class="learned-title">▸ 설계 의도</div>
-                        <p>체력·이동·카메라를 각각 독립 컴포넌트로 분리해, 기능 추가·수정 시 다른 컴포넌트에 영향을 주지 않도록 설계했습니다. TakeDamage 인터페이스를 통해 어떤 적
-                            타입이든 동일한 방식으로 데미지를 처리할 수 있어, 보스 추가나 새로운 적 종류 확장이 무기 코드 수정 없이 가능합니다.</p>
-                    </div>
-                    <div class="learned-item">
-                        <div class="learned-title">▸ 배운 점</div>
-                        <p>Unreal의 컴포넌트 기반 아키텍처를 직접 구성하면서 게임 오브젝트를 기능 단위로 쪼개는 설계 철학을 몸으로 익혔습니다. Behavior Tree와
-                            Blackboard의 조합으로 AI 상태와 로직을 분리하면, 새로운 행동 패턴 추가 시 기존 트리를 최소한으로 수정해도 된다는 확장성의 이점을 실감했습니다.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="page-num">— 16</div>
-        </div>
-
-        <!-- PAGE 15 — CONTACT -->
-        <div class="page page-contact">
-            <canvas class="matrix-canvas" id="mc-contact" style="opacity:0.06;"></canvas>
-            <div class="contact-left">
-                <span class="label">CONTACT</span>
-                <div class="contact-big">LET'S<br>WORK<br><span>TOGETHER</span></div>
-                <div class="contact-grid">
-                    <div class="contact-item">
-                        <div class="contact-label">Email</div>
-                        <div class="contact-val"><a href="mailto:s2444@e-mirim.hs.kr">s2444@e-mirim.hs.kr</a></div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-label">Phone</div>
-                        <div class="contact-val">010-3484-0767</div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-label">GitHub</div>
-                        <div class="contact-val"><a href="https://github.com/jay-p08"
-                                target="_blank">github.com/jay-p08</a></div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-label">School</div>
-                        <div class="contact-val">미림마이스터고 뉴미디어소프트웨어과</div>
-                    </div>
-                </div>
-                <p class="contact-footer-text">
-                    게임 개발의 모든 영역에서 성장하고 있습니다.<br>
-                    새로운 기술 학습과 창의적인 문제 해결을 즐기는 개발자입니다.<br>
-                    함께할 프로젝트나 협업 기회가 있다면 언제든지 연락 부탁드립니다.
-                </p>
-            </div>
-            <div class="contact-right">
-                <div class="avail-badge">
-                    <div class="avail-dot"></div>AVAILABLE FOR OPPORTUNITIES
-                </div>
-                <span class="label" style="margin-bottom:0.52vw;">SUMMARY STATS</span>
-                <div class="contact-stat-list">
-                    <div class="contact-stat-item">
-                        <div class="contact-stat-item-label">총 프로젝트 수</div>
-                        <div class="contact-stat-item-val">8+</div>
-                    </div>
-                    <div class="contact-stat-item">
-                        <div class="contact-stat-item-label">사용 엔진</div>
-                        <div class="contact-stat-item-val">UE5 · Unity · Godot</div>
-                    </div>
-                    <div class="contact-stat-item">
-                        <div class="contact-stat-item-label">핵심 언어</div>
-                        <div class="contact-stat-item-val">C++ · C# · Java · Python</div>
-                    </div>
-                    <div class="contact-stat-item">
-                        <div class="contact-stat-item-label">총 코드량 (추정)</div>
-                        <div class="contact-stat-item-val">11,700+ Lines</div>
-                    </div>
-                    <div class="contact-stat-item">
-                        <div class="contact-stat-item-label">관심 분야</div>
-                        <div class="contact-stat-item-val">Graphics · Physics · AI</div>
-                    </div>
-                </div>
-                <div class="text-block" style="border-color:rgba(24,201,106,0.2);">
-                    <div class="text-block-title">Next Goal</div>
-                    <p>Unreal Engine 5 멀티플레이어 네트워킹과 GAS(Gameplay Ability System) 심화 학습을 통해 AAA급 게임 시스템 아키텍처를 이해하고 구현하는
-                        것을 목표로 하고 있습니다.</p>
-                </div>
-            </div>
-            <div class="page-num">— 17</div>
-        </div>
-
-        <!-- PAGE 16 — MATRIX FILLER -->
-        <div class="page page-matrix">
-            <canvas id="mc-matrix-full" style="position:absolute;inset:0;width:100%;height:100%;z-index:1;"></canvas>
-            <div class="matrix-overlay-text">
-                <div class="big-quote" style="font-size:var(--f-2xl);color:rgba(24,201,106,0.4);letter-spacing:0.3em;">
-                    // THE JOURNEY CONTINUES</div>
-                <div class="big-quote">코드는 곧 세계다</div>
-                <div class="sub-quote">GAME PLAY DEVELOPER · 박재영 · JAY PARK</div>
-                <div style="display:flex;gap:1.56vw;flex-wrap:wrap;justify-content:center;margin-top:0.52vw;">
-                    <span
-                        style="font-family:'Inconsolata',monospace;font-size:var(--f-xs);color:rgba(24,201,106,0.5);letter-spacing:0.2em;">C++</span>
-                    <span
-                        style="font-family:'Inconsolata',monospace;font-size:var(--f-xs);color:rgba(24,201,106,0.5);letter-spacing:0.2em;">DIRECTX
-                        11</span>
-                    <span
-                        style="font-family:'Inconsolata',monospace;font-size:var(--f-xs);color:rgba(24,201,106,0.5);letter-spacing:0.2em;">UNREAL
-                        ENGINE 5</span>
-                    <span
-                        style="font-family:'Inconsolata',monospace;font-size:var(--f-xs);color:rgba(24,201,106,0.5);letter-spacing:0.2em;">PYTHON</span>
-                    <span
-                        style="font-family:'Inconsolata',monospace;font-size:var(--f-xs);color:rgba(24,201,106,0.5);letter-spacing:0.2em;">JAVA</span>
-                    <span
-                        style="font-family:'Inconsolata',monospace;font-size:var(--f-xs);color:rgba(24,201,106,0.5);letter-spacing:0.2em;">HLSL</span>
-                </div>
-            </div>
-            <div class="page-num" style="color:rgba(24,201,106,0.4);">— 18</div>
-        </div>
-
-    </div><!-- /pages -->
-
-    <script>
-        function MatrixRain(canvas, opts = {}) {
-            const dark = opts.dark || false;
-            const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン ABCDEFGHIJKLMNOPQRSTUVWXYZif for while return class void int float';
-            let W, H, cols, drops;
-            function resize() {
-                const rect = canvas.parentElement.getBoundingClientRect();
-                W = canvas.width = rect.width;
-                H = canvas.height = rect.height;
-                const fs = Math.max(10, W * 0.008);
-                cols = Math.floor(W / fs);
-                drops = Array(cols).fill(1).map(() => Math.random() * -50);
-                canvas._fs = fs;
-            }
-            function draw() {
-                const ctx = canvas.getContext('2d');
-                const fs = canvas._fs || 14;
-                ctx.fillStyle = dark ? 'rgba(10,15,26,0.08)' : 'rgba(238,242,247,0.08)';
-                ctx.fillRect(0, 0, W, H);
-                ctx.font = `${fs}px Inconsolata, monospace`;
-                for (let i = 0; i < drops.length; i++) {
-                    const char = chars[Math.floor(Math.random() * chars.length)];
-                    ctx.fillStyle = dark ? '#18c96a' : 'rgba(24,201,106,0.9)';
-                    ctx.fillText(char, i * fs, drops[i] * fs);
-                    ctx.fillStyle = dark ? 'rgba(24,201,106,0.35)' : 'rgba(24,120,80,0.25)';
-                    ctx.fillText(chars[Math.floor(Math.random() * chars.length)], i * fs, (drops[i] - 1) * fs);
-                    if (drops[i] * fs > H && Math.random() > 0.975) drops[i] = 0;
-                    drops[i]++;
+        <script>
+            // 숫자 카운트 애니메이션
+            function animateCount(el, target, duration) {
+                const start = performance.now();
+                function step(now) {
+                    const p = Math.min((now - start) / duration, 1);
+                    const eased = 1 - Math.pow(1 - p, 3);
+                    const val = Math.round(eased * target);
+                    el.textContent = target >= 1000 ? val.toLocaleString() + '+' : val + '+';
+                    if (p < 1) requestAnimationFrame(step);
                 }
+                requestAnimationFrame(step);
             }
-            resize();
-            window.addEventListener('resize', resize);
-            return setInterval(draw, 50);
-        }
-        (function () { const c = document.getElementById('mc-title'); if (c) MatrixRain(c, { dark: false }); })();
-        (function () { const c = document.getElementById('mc-contact'); if (c) MatrixRain(c, { dark: false }); })();
-        (function () {
-            const c = document.getElementById('mc-matrix-full');
-            if (!c) return;
-            function resize() { const rect = c.parentElement.getBoundingClientRect(); c.width = rect.width; c.height = rect.height; }
-            resize();
-            window.addEventListener('resize', resize);
-            const chars = '01アイウエオカキクケコif for while return class void int float bool PERFECT GOOD BAD AABB CCD FPS deltaTime ObjectPool BehaviorTree LineTrace TakeDamage AES256 CBC HLSL DirectX UE5';
-            let drops = [];
-            function init() { const fs = Math.max(11, c.width * 0.009); c._fs = fs; const cols = Math.floor(c.width / fs); drops = Array(cols).fill(0).map(() => Math.random() * -100); }
-            init();
-            window.addEventListener('resize', init);
-            setInterval(function () {
-                const ctx = c.getContext('2d');
-                const fs = c._fs || 14;
-                ctx.fillStyle = 'rgba(10,15,26,0.05)';
-                ctx.fillRect(0, 0, c.width, c.height);
-                ctx.font = `${fs}px Inconsolata, monospace`;
-                for (let i = 0; i < drops.length; i++) {
-                    const char = chars.split('').concat(chars.split(' '))[Math.floor(Math.random() * (chars.length + chars.split(' ').length))];
-                    ctx.fillStyle = '#ffffff';
-                    ctx.fillText(typeof char === 'string' ? char[0] || '0' : '0', i * fs, drops[i] * fs);
-                    const intensity = Math.random();
-                    if (intensity > 0.7) { ctx.fillStyle = '#18c96a'; }
-                    else if (intensity > 0.4) { ctx.fillStyle = 'rgba(24,201,106,0.6)'; }
-                    else { ctx.fillStyle = 'rgba(24,201,106,0.2)'; }
-                    const word = chars.split(' ')[Math.floor(Math.random() * chars.split(' ').length)];
-                    ctx.fillText(word ? word[0] : '0', i * fs, (drops[i] - 1) * fs);
-                    if (drops[i] * fs > c.height && Math.random() > 0.97) drops[i] = 0;
-                    drops[i] += 0.5 + Math.random() * 0.5;
-                }
-            }, 33);
-        })();
 
-        function animateCount(el, target, duration) {
-            const start = performance.now();
-            function step(now) {
-                const p = Math.min((now - start) / duration, 1);
-                const eased = 1 - Math.pow(1 - p, 3);
-                const val = Math.round(eased * target);
-                el.textContent = target >= 1000 ? val.toLocaleString() + '+' : val + '+';
-                if (p < 1) requestAnimationFrame(step);
-            }
-            requestAnimationFrame(step);
-        }
+            // 스크롤 시 페이드-업 애니메이션 옵저버
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
 
-        const io = new IntersectionObserver(entries => {
-            entries.forEach(e => {
-                if (!e.isIntersecting) return;
-                e.target.querySelectorAll('.skill-bar-fill[data-pct]').forEach((bar, i) => {
-                    setTimeout(() => { bar.style.width = bar.dataset.pct + '%'; }, 150 + i * 80);
+                        // 스킬 바 채우기
+                        entry.target.querySelectorAll('.skill-bar-fill[data-pct]').forEach((bar, i) => {
+                            setTimeout(() => { bar.style.width = bar.dataset.pct + '%'; }, 150 + i * 80);
+                        });
+
+                        // 숫자 카운팅
+                        entry.target.querySelectorAll('.stat-num[data-count]').forEach((el, i) => {
+                            // 중복 실행 방지
+                            if (!el.dataset.animated) {
+                                setTimeout(() => animateCount(el, parseInt(el.dataset.count), 1200), i * 100);
+                                el.dataset.animated = "true";
+                            }
+                        });
+                    }
                 });
-                e.target.querySelectorAll('.stat-num[data-count]').forEach((el, i) => {
-                    setTimeout(() => animateCount(el, parseInt(el.dataset.count), 1200), i * 100);
-                });
-                io.unobserve(e.target);
-            });
-        }, { threshold: 0.1 });
+            }, { threshold: 0.15 });
 
-        document.querySelectorAll('.page').forEach(p => io.observe(p));
-    </script>
+            // 애니메이션 대상 등록
+            document.querySelectorAll('.smooth-appear, .page').forEach(el => observer.observe(el));
+        </script>
 </body>
 
 </html>
