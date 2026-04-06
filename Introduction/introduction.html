@@ -47,10 +47,10 @@
             max-width: 860px;
             margin: 0 auto;
             background-color: var(--surface);
-            padding: 70px 60px;
+            padding: 70px 60px 80px;
             border-radius: 12px;
             border: 1px solid var(--rule);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
         }
 
         /* ── HEADER ── */
@@ -115,7 +115,7 @@
             border-top: 2px solid var(--rule);
             border-bottom: 1px solid var(--rule);
             padding: 12px 0;
-            margin-bottom: 50px;
+            margin-bottom: 55px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -127,47 +127,24 @@
             color: var(--ink-dim);
         }
 
-        /* ── SECTIONS ── */
+        /* ── SECTIONS & ANIMATIONS ── */
         section {
-            margin-bottom: 50px;
-            opacity: 0;
-            transform: translateY(15px);
-            animation: riseIn 0.6s ease forwards;
-        }
-
-        @keyframes riseIn {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        section:nth-child(2) {
-            animation-delay: 0.1s;
-        }
-
-        section:nth-child(3) {
-            animation-delay: 0.2s;
-        }
-
-        section:nth-child(4) {
-            animation-delay: 0.3s;
-        }
-
-        section:nth-child(5) {
-            animation-delay: 0.4s;
+            margin-bottom: 60px;
         }
 
         h2 {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             font-weight: 700;
-            letter-spacing: 0.2em;
+            letter-spacing: 0.15em;
             color: var(--gold);
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             display: flex;
             align-items: center;
             gap: 12px;
+            opacity: 0;
+            transform: translateY(15px);
+            animation: riseIn 0.6s ease forwards;
         }
 
         h2::before {
@@ -179,25 +156,94 @@
         .letter-body {
             display: flex;
             flex-direction: column;
-            gap: 18px;
+            gap: 22px;
+            /* 문단 간격 확대 */
         }
 
         .letter-body p {
-            font-size: 1rem;
+            font-size: 1.02rem;
             font-weight: 400;
             color: var(--ink-mid);
-            line-height: 1.8;
+            line-height: 1.85;
             word-break: keep-all;
+            opacity: 0;
+            transform: translateY(15px);
+            animation: riseIn 0.6s ease forwards;
         }
 
         /* 강조 텍스트 */
         .em {
             font-weight: 700;
             color: var(--ink);
-            background: rgba(94, 234, 212, 0.1);
-            padding: 0 4px;
-            border-radius: 3px;
+            background: rgba(94, 234, 212, 0.08);
+            padding: 2px 6px;
+            border-radius: 4px;
             border-bottom: 1px solid var(--teal);
+            transition: background 0.3s;
+        }
+
+        .em:hover {
+            background: rgba(94, 234, 212, 0.2);
+        }
+
+        /* Animation Delays for cascading effect */
+        section:nth-child(2) h2 {
+            animation-delay: 0.1s;
+        }
+
+        section:nth-child(2) p:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        section:nth-child(2) p:nth-child(2) {
+            animation-delay: 0.3s;
+        }
+
+        section:nth-child(2) p:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        section:nth-child(3) h2 {
+            animation-delay: 0.4s;
+        }
+
+        section:nth-child(3) p:nth-child(1) {
+            animation-delay: 0.5s;
+        }
+
+        section:nth-child(3) p:nth-child(2) {
+            animation-delay: 0.6s;
+        }
+
+        section:nth-child(4) h2 {
+            animation-delay: 0.6s;
+        }
+
+        section:nth-child(4) p:nth-child(1) {
+            animation-delay: 0.7s;
+        }
+
+        section:nth-child(4) p:nth-child(2) {
+            animation-delay: 0.8s;
+        }
+
+        section:nth-child(5) h2 {
+            animation-delay: 0.8s;
+        }
+
+        section:nth-child(5) p:nth-child(1) {
+            animation-delay: 0.9s;
+        }
+
+        section:nth-child(5) p:nth-child(2) {
+            animation-delay: 1.0s;
+        }
+
+        @keyframes riseIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* ── PRINT OPTIMIZATION ── */
@@ -241,26 +287,34 @@
             .doc-label {
                 border-top: 2px solid #000;
                 border-bottom: 1px solid #ccc;
-                margin-bottom: 30px;
+                margin-bottom: 25px;
             }
 
             section {
-                margin-bottom: 30px;
+                margin-bottom: 25px;
+                break-inside: avoid;
+            }
+
+            h2,
+            p {
                 animation: none !important;
                 opacity: 1 !important;
                 transform: none !important;
-                break-inside: avoid;
             }
 
             h2 {
                 font-size: 11pt;
                 color: var(--gold);
-                margin-bottom: 15px;
+                margin-bottom: 12px;
+            }
+
+            .letter-body {
+                gap: 12px;
             }
 
             .letter-body p {
-                font-size: 10.5pt;
-                line-height: 1.7;
+                font-size: 10pt;
+                line-height: 1.6;
                 color: #222;
             }
 
@@ -301,7 +355,7 @@
 
         <header>
             <h1>박재영</h1>
-            <div class="job-title">Game Play Developer</div>
+            <div class="job-title">Game Play & Client Developer</div>
             <div class="contact-info">
                 s2444@e-mirim.hs.kr<br>
                 010-3484-0767<br>
@@ -314,75 +368,72 @@
         <div class="doc-label">자기소개서 · Cover Letter</div>
 
         <section>
-            <h2>엔진의 심장을 설계하는 게임 플레이 개발자</h2>
+            <h2>엔진의 심장을 이해하며 재미를 구현하는 개발자</h2>
             <div class="letter-body">
                 <p>
-                    처음 게임에 빠진 건 플레이어로서였지만, 어느 순간부터 제 관심사는<br>
-                    <span class="em">"이 물리 판정과 렌더링은 엔진 내부에서 어떻게 처리될까?"</span>로 옮겨갔습니다.<br>
-                    단순히 제공되는 툴을 사용하는 것에 만족하지 못하고 <br>
-                    C와 Python을 활용해 리듬 게임을 바닥부터 만들어보면서, <br>
-                    제가 진정으로 원하는 것은 게임의 겉모습이 아닌 <br>
-                    <span class="em">동작 원리를 직접 설계하고 엔진을 통제하는 것</span>임을 깨달았습니다.
+                    저에게 게임 개발이란 <span class="em">"플레이어가 느끼는 찰나의 재미를 위해, 보이지 않는 수만 줄의 논리를 정교하게 맞물리게 하는 작업"</span>입니다. 처음엔
+                    C와 Python을 활용해 리듬 게임을 바닥부터 만들어보며 코드가 화면의 움직임으로 변하는 직관적인 즐거움에 빠졌습니다. 하지만 프로젝트의 규모가 커질수록 프레임 드랍과 동기화
+                    문제에 부딪혔고, 단순히 표면적인 로직(Gameplay)을 작성하는 것만으로는 한계가 있음을 깨달았습니다.
                 </p>
                 <p>
-                    이러한 기술적 갈증은 자연스럽게 게임 엔진의 기저를 파고드는 계기가 되었습니다. <br>
-                    C++와 DirectX 11로 렌더링 파이프라인을 직접 구현해보고, C#과 Unity, Unreal Engine 5를 다루며 <br>
-                    프레임워크가 내부적으로 메모리와 게임 루프를 어떻게 관리하는지 집요하게 탐구해 왔습니다. <br>
-                    미림마이스터고의 개발 동아리 'CodeUs'의 부장으로서, 저는 늘 팀원들에게 <br>
-                    '왜 이렇게 동작하는가'라는 근본적인 질문을 던지며 기술적 깊이를 더하는 데 집중했습니다.
+                    이를 극복하기 위해 저는 게임 엔진의 기저를 파고들기 시작했습니다. C++와 DirectX 11로 렌더링 파이프라인과 메모리 구조를 직접 제어해보고, Unity와 Unreal
+                    Engine 5의 가비지 컬렉션(GC) 및 객체 생명주기를 깊이 있게 학습했습니다.
+                </p>
+                <p>
+                    제가 엔진의 동작 원리를 집요하게 탐구한 이유는 순수 엔진 개발자가 되기 위함만이 아닙니다. <span class="em">엔진이 내부적으로 어떻게 작동하는지 아는 클라이언트
+                        개발자만이, 극한의 타격감과 끊김 없는 최상의 게임 플레이 경험을 최적화된 코드로 빚어낼 수 있다고 확신하기 때문입니다.</span>
                 </p>
             </div>
         </section>
 
         <section>
-            <h2>클라이언트와 서버, 보안을 아우르는 넒은 시야</h2>
+            <h2>게임 로직을 넘어 시스템 전체를 조망하는 넓은 시야</h2>
             <div class="letter-body">
                 <p>
-                    가장 애착이 가는 프로젝트인 Python 기반 리듬 게임 <span class="em">PyMax</span>에서는 노트가 쌓일수록 발생하는 프레임 드랍을 <br>
-                    <span class="em">smoothscale 최적화와 딕셔너리 캐싱을 통해 드로우콜을 최소화</span>하여 해결했습니다. <br>
-                    성능 최적화가 곧 플레이어의 쾌적한 경험(UX)으로 직결된다는 것을 체감한 순간이었습니다.
+                    기획서에 적힌 재미 요소를 코드로 번역하는 과정에서 가장 중요한 것은 '구조적 안정성'입니다. 파이썬 기반 리듬 게임 <span class="em">PyMax</span> 개발
+                    당시, 노트가 쏟아질 때 발생하는 렌더링 병목을 'smoothscale 캐싱'을 통한 드로우콜 최소화로 해결했습니다. 이때 알고리즘의 최적화가 유저 경험(UX)에 얼마나 직접적인
+                    영향을 미치는지 체감했습니다.
                 </p>
                 <p>
-                    저의 탐구심은 클라이언트에만 머물지 않았습니다. 다수의 플레이어가 상호작용하는 멀티플레이 환경과 <br>
-                    게임 서버 인프라를 깊이 이해하기 위해 Java, Spring, React, JS를 활용한 풀스택 환경을 구축해 보았습니다. <br>
-                    또한, <span class="em">PyRansomware</span> 프로젝트를 통해 Kali Linux 환경에서 원격 제어 및 네트워크 보안을 테스트하며, <br>
-                    <span class="em">안전한 서버 아키텍처와 데이터 무결성</span>에 대한 감각을 키웠습니다. <br>
-                    이러한 폭넓은 경험은 현재 Unreal Engine 5와 Unity에서 네트워크 동기화나 최적화된 로직을 설계할 때 <br>
-                    강력한 구조적 밑거름이 되고 있습니다.
+                    더 나아가 저는 게임 클라이언트 밖의 인프라로 시야를 넓혔습니다. 멀티플레이어 게임의 통신 구조를 이해하기 위해 Spring과 React, JavaScript를 활용해 웹 풀스택
+                    환경을 직접 구축해 보았습니다. 또한, <span class="em">PyRansomware</span> 프로젝트를 진행하며 Kali Linux 기반의 모의 해킹과 AES-256
+                    암호화를 테스트했습니다.
+                </p>
+                <p>
+                    이러한 경험들은 클라이언트 로직을 작성할 때 엄청난 강점으로 작용합니다. <span class="em">네트워크 동기화 과정에서 발생할 수 있는 레이턴시를 클라이언트에서 어떻게
+                        예측(Prediction)하고 보정할지, 그리고 메모리 변조나 패킷 스니핑 같은 보안 위협으로부터 게임 데이터를 어떻게 안전하게 보호할지</span>를 시스템 설계 단계부터
+                    입체적으로 고려할 수 있는 역량을 갖추게 되었습니다.
                 </p>
             </div>
         </section>
 
         <section>
-            <h2>책임감으로 아키텍처의 빈틈을 채우는 협업 스타일</h2>
+            <h2>기획과 아트를 기술로 완성시키는 책임감 있는 협업</h2>
             <div class="letter-body">
                 <p>
-                    저는 <span class="em">견고한 코드로 플레이어의 재미를 책임지는 사람</span>입니다. <br>
-                    게임 기획이 의도한 타격감과 조작감을 프레임 드랍 없는 최적의 로직으로 깎아내는 과정을 사랑합니다.
+                    게임 플레이 개발자는 기획자의 의도와 아티스트의 결과물을 조합하여 게임의 생명력을 불어넣는 최전선에 있습니다. 저는 <span class="em">팀의 목표 달성을 위해 시스템의
+                        빈틈을 먼저 찾아 메우는 태도</span>를 최우선으로 여깁니다. 미림마이스터고 전공 동아리 'CodeUs'의 부장으로서, 팀원 간의 원활한 소통을 이끌고 Visual
+                    Studio와 Git/GitHub를 활용해 체계적인 브랜치 전략과 코드 리뷰 문화를 정착시켰습니다.
                 </p>
                 <p>
-                    협업에 있어서는 <span class="em">팀의 목표 달성을 위해 시스템의 빈틈을 찾아 메우는 것</span>을 최우선으로 여깁니다. <br>
-                    Visual Studio와 VS Code 환경에서 Git, GitHub를 활용해 체계적인 버전 관리와 브랜치 전략을 수립하고, <br>
-                    동아리 리더로서 코드 리뷰 문화를 주도했습니다. <br>
-                    엔진 내부의 한계에 부딪히거나 서버 연동에 문제가 생기면, 언어나 툴을 가리지 않고 <br>
-                    공식 문서와 로우 레벨 코드를 분석하여 주도적으로 해결책을 찾아내는 든든한 실무자입니다.
+                    새로운 프레임워크나 툴을 도입해야 할 때면, 공식 문서와 로우 레벨 코드를 밤새워 분석하여 팀원들에게 가이드라인을 제시했습니다. 누군가 해야 할 까다로운 버그 픽스나 구조
+                    리팩토링이 있다면 기꺼이 총대를 메며, 화려하게 돋보이기보다는 프로젝트가 무사히 완성되도록 기반을 단단하게 다지는 든든한 실무형 팀 플레이어입니다.
                 </p>
             </div>
         </section>
 
         <section>
-            <h2>앞으로의 목표: 한계를 넘어서는 엔진 & 서버 개발자</h2>
+            <h2>탄탄한 코어 기술력을 갖춘 전천후 클라이언트 개발자</h2>
             <div class="letter-body">
                 <p>
-                    저의 최종 목표는 단순히 상용 엔진을 사용하는 것을 넘어, <br>
-                    <span class="em">엔진의 핵심 기능을 직접 확장하고 최적화하는 엔진 개발자</span>이자 <br>
-                    클라이언트와 서버의 통신 병목을 해결하는 <span class="em">멀티플레이 서버 개발자</span>로 성장하는 것입니다.
+                    게임 플레이는 결국 플레이어의 눈과 손끝에서 완성됩니다. 저의 목표는 <span class="em">기획의 참신함을 기술적 제약 없이 구현해 내고, 엔진의 한계를 극복하는 유연한
+                        게임 플레이/클라이언트 개발자</span>로 성장하는 것입니다.
                 </p>
                 <p>
-                    현재는 Unreal Engine 5의 C++ 프레임워크와 멀티스레딩 최적화, GAS(Gameplay Ability System)를 활용한 <br>
-                    확장성 있는 아키텍처 설계에 집중하고 있습니다. 앞으로 자체 물리 연산 최적화, 렌더링 엔진 고도화, <br>
-                    그리고 대규모 트래픽을 처리하는 분산 서버 설계까지 영역을 넓혀, <br>
-                    어떤 기술적 난관이든 뚫고 나가는 압도적인 퍼포먼스의 게임 플레이 개발자가 되겠습니다.
+                    현재는 Unreal Engine 5의 C++ 네이티브 최적화와 더불어, 객체 간의 결합도를 낮추는 디자인 패턴을 게임 시스템에 적용하는 연구에 몰두하고 있습니다. 언어와 엔진의
+                    표면적인 사용법에 얽매이지 않겠습니다. 게임 로직(Gameplay)의 디테일한 재미를 살리는 감각부터, 클라이언트(Client) 인프라 구축, 그리고 그 모든 것을 지탱하는
+                    엔진(Engine) 코어에 대한 이해도까지. <span class="em">문제의 근원을 파악하고 가장 효율적인 구조로 게임을 설계해내는 흔들림 없는 개발자</span>로서 팀의
+                    위대한 도전에 기여하겠습니다.
                 </p>
             </div>
         </section>

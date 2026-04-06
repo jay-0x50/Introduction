@@ -10,7 +10,7 @@
         href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap"
         rel="stylesheet">
     <style>
-        /* ── THEME: Warm Charcoal ── */
+        /* ── THEME: Warm Charcoal (Web Display) ── */
         :root {
             --bg: #1c1917;
             --surface: #292524;
@@ -655,34 +655,6 @@
             color: var(--text);
         }
 
-        .insight-strip {
-            display: flex;
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            overflow: hidden;
-        }
-
-        .insight-cell {
-            flex: 1;
-            padding: 0.8vw 1vw;
-            border-right: 1px solid var(--border);
-            background: var(--surface);
-        }
-
-        .insight-cell-label {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: var(--f-xs);
-            color: var(--teal);
-            margin-bottom: 0.3vw;
-            text-transform: uppercase;
-        }
-
-        .insight-cell-val {
-            font-size: var(--f-sm);
-            color: var(--text-mid);
-            font-family: 'JetBrains Mono', monospace;
-        }
-
         .code-review-block {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -847,15 +819,37 @@
             color: var(--text-dim);
         }
 
-        /* ── PRINT CSS (인쇄 및 PDF 최적화) ── */
+        /* ════════════════════════════════════════════
+           PRINT CSS (인쇄 및 PDF 최적화 - Light Theme)
+        ═════════════════════════════════════════════ */
         @media print {
+            :root {
+                /* 흰 바탕에 맞춘 색상 반전 및 대비 최적화 */
+                --bg: #ffffff;
+                --surface: #f8f9fa;
+                --surface2: #e9ecef;
+                --border: #dee2e6;
+                --border-hi: #adb5bd;
+                --text: #111111;
+                --text-dim: #6c757d;
+                --text-mid: #495057;
+
+                /* 포인트 컬러도 흰 바탕에서 잘 보이게 조정 */
+                --teal: #0d9488;
+                --teal-dim: rgba(13, 148, 136, 0.10);
+                --teal-border: rgba(13, 148, 136, 0.30);
+                --gold: #d97706;
+                --gold-dim: rgba(217, 119, 6, 0.10);
+            }
+
             @page {
                 size: 1920px 1080px;
                 margin: 0;
             }
 
             body {
-                background: var(--bg) !important;
+                background: #ffffff !important;
+                color: var(--text) !important;
                 -webkit-print-color-adjust: exact !important;
                 print-color-adjust: exact !important;
                 margin: 0;
@@ -870,6 +864,7 @@
             }
 
             .page {
+                background: #ffffff !important;
                 width: 1920px !important;
                 height: 1080px !important;
                 max-width: none !important;
@@ -885,10 +880,54 @@
                 border-radius: 0 !important;
             }
 
+            /* 잉크 절약을 위해 배경 모눈종이 패턴 숨김 */
+            .page::before {
+                display: none !important;
+            }
+
+            /* 애니메이션 비활성화 (인쇄 렌더링 오류 방지) */
             .smooth-appear {
                 opacity: 1 !important;
                 transform: none !important;
                 transition: none !important;
+            }
+
+            /* 코드 블록 (밝은 테마로 잉크 절약) */
+            pre.code-block {
+                background: #f8f9fa !important;
+                color: #383a42 !important;
+                border-color: var(--border) !important;
+            }
+
+            .kw {
+                color: #a626a4 !important;
+            }
+
+            .fn {
+                color: #4078f2 !important;
+            }
+
+            .st {
+                color: #50a14f !important;
+            }
+
+            .nm {
+                color: #986801 !important;
+            }
+
+            .cm {
+                color: #a0a1a7 !important;
+            }
+
+            /* 이미지 오버레이 라벨 색상 반전 */
+            .shot-label {
+                background: rgba(255, 255, 255, 0.9) !important;
+                color: var(--text) !important;
+                border-top: 1px solid var(--border);
+            }
+
+            .shot-bg-code {
+                color: rgba(13, 148, 136, 0.08) !important;
             }
         }
     </style>
@@ -1151,7 +1190,8 @@ note_cache = {}
                             <p>초기 개발 버전에서는 화면에 20개 이상의 롱 노트와 일반 노트가 쏟아지는 하이라이트 구간에서 FPS가 60에서 20 미만으로 급락하는 치명적인 프레임 스파이크
                                 현상이 발생했습니다. 프로파일러를 통한 분석 결과, 매 프레임마다 렌더링 루프 내부에서
                                 <code>pygame.transform.smoothscale</code> 함수가 호출되며 픽셀 보간을 위한 무거운 수학 연산에 엄청난 CPU 사이클이
-                                낭비되고 있음을 확인했습니다.</p>
+                                낭비되고 있음을 확인했습니다.
+                            </p>
                         </div>
                         <div class="learned-item">
                             <div class="learned-title">▸ 엔진 레벨의 통찰 및 문제 해결</div>
@@ -1201,7 +1241,8 @@ note_cache = {}
                                 <div class="feat-row"><strong>자체 물리 충돌 엔진:</strong> 게임 루프 내에서 자체적인 Axis-Aligned Bounding
                                     Box (AABB) 충돌 검사 로직을 수학적으로 작성하여 수백 개 유닛 간의 피격 판정을 고속 처리</div>
                                 <div class="feat-row"><strong>HLSL 셰이더 최적화:</strong> 알파 블렌딩 오버헤드를 줄이기 위해 Pixel 셰이더 단계에서
-                                    <code>clip()</code> 함수를 활용한 투명도 컷아웃 및 피격 시 색상 곱 연산(Color Multiply) 고속 처리</div>
+                                    <code>clip()</code> 함수를 활용한 투명도 컷아웃 및 피격 시 색상 곱 연산(Color Multiply) 고속 처리
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1265,7 +1306,8 @@ note_cache = {}
                                 요청하는 시스템 콜(System Call) 오버헤드가 발생합니다. 동적 할당과 해제가 반복되면 힙 메모리 공간이 조각나는 파편화 현상이 누적되어, 가비지
                                 컬렉터가 없는 순수 C++ 환경에서는 결국 치명적인 성능 저하와 렉을 유발합니다. 이를 원천 차단하기 위해 게임 시작 전 로딩 단계에서
                                 <code>std::vector</code>에 최대 총알 개수만큼 메모리를 일괄 할당(Pre-allocation)해두고, 상태 플래그만 토글하는 오브젝트
-                                풀(Object Pool) 시스템을 설계했습니다.</p>
+                                풀(Object Pool) 시스템을 설계했습니다.
+                            </p>
                         </div>
                         <div class="learned-item">
                             <div class="learned-title">▸ CPU 캐시 지역성(Cache Locality)의 절대적 우위 확인</div>
@@ -1316,7 +1358,8 @@ note_cache = {}
                                     Referencing)으로 인한 로딩 프리징을 막기 위해 <code>FStreamableManager</code>와 소프트 포인터(Soft Object
                                     Pointer)를 활용한 백그라운드 심리스 로딩 구현</div>
                                 <div class="feat-row"><strong>의존성 역전(DIP)을 통한 모듈화:</strong> 무기와 타격 대상 간의 클래스 결합도를 끊기 위해
-                                    <code>UInterface</code>를 도입하여, 코어 시스템 수정 없이도 새로운 적 객체를 무한히 확장할 수 있는 OCP 설계 달성</div>
+                                    <code>UInterface</code>를 도입하여, 코어 시스템 수정 없이도 새로운 적 객체를 무한히 확장할 수 있는 OCP 설계 달성
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1378,7 +1421,8 @@ note_cache = {}
                             <p>무기 객체가 타격 대상(일반 몹, 보스, 폭발물 등)의 구체적인 클래스 타입(Concrete Class)을 헤더 파일에 Include하지 않도록
                                 <code>UDamageableInterface</code>를 도입했습니다. 무기는 오직 '데미지를 가한다'는 다형성 메시지만 전송하며, 타격받는 액터가
                                 각자의 체력, 방어력, 무적 상태 로직에 따라 자율적으로 데미지를 연산합니다. 새로운 형태의 적이나 파괴 가능한 환경 오브젝트를 백 개 이상 추가하더라도 무기
-                                코드를 단 한 줄도 수정할 필요가 없는 완벽한 의존성 역전 구조를 구현했습니다.</p>
+                                코드를 단 한 줄도 수정할 필요가 없는 완벽한 의존성 역전 구조를 구현했습니다.
+                            </p>
                         </div>
                         <div class="learned-item">
                             <div class="learned-title">▸ 하드 레퍼런싱 방지와 메모리 연쇄 로드 차단</div>
@@ -1486,7 +1530,7 @@ note_cache = {}
     ciphertext = cipher.<span class="fn">encrypt</span>(padded_data)
     
     <span class="kw">with</span> open(file_path, <span class="st">'wb'</span>) <span class="kw">as</span> f:
-        <span class="cm"># 3. 복호화를 위해 암호문 맨 앞에 IV를 결합하여 저장</span>
+        <span class="cm"># 3. 복호화를 위해 암호문 맨 앞에 IV 결합 저장</span>
         f.<span class="fn">write</span>(iv + ciphertext)</code></pre>
                     </div>
                     <div class="learned-panel">
@@ -1535,9 +1579,12 @@ note_cache = {}
                         함께 위대한 세계의 기반(Core)을 다질 아키텍처 설계와 최적화 기회를 기다리고 있습니다.
                     </p>
                 </div>
-                <div class="contact-right smooth-appear delay-1">
-                    <div class="avail-badge" style="margin-bottom: 2vw;">
-                        <div class="avail-dot"></div>2026 GRADUATE · AVAILABLE FOR HIRE
+                <div class="contact-right smooth-appear delay-1"
+                    style="display:flex; flex-direction:column; justify-content:center; padding: var(--pad-v) var(--pad-page);">
+                    <div class="avail-badge"
+                        style="margin-bottom: 2vw; font-family: 'JetBrains Mono', monospace; font-size: var(--f-xs); color: var(--gold); display:flex; align-items:center; gap: 0.5vw;">
+                        <div style="width:0.6vw; height:0.6vw; background:var(--teal); border-radius:50%;"></div>
+                        2026 GRADUATE · AVAILABLE FOR HIRE
                     </div>
                     <div class="stack-block">
                         <div class="stack-title" style="font-size: var(--f-md); margin-bottom: 1vw;">Next Milestone:
@@ -1596,7 +1643,6 @@ note_cache = {}
 
                         // 숫자 카운팅
                         entry.target.querySelectorAll('.stat-num[data-count]').forEach((el, i) => {
-                            // 중복 실행 방지
                             if (!el.dataset.animated) {
                                 setTimeout(() => animateCount(el, parseInt(el.dataset.count), 1200), i * 100);
                                 el.dataset.animated = "true";
