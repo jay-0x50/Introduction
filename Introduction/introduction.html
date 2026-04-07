@@ -5,24 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>자기소개서 - 박재영</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap"
-        rel="stylesheet">
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
     <style>
-        /* ── THEME: warm charcoal (이력서와 동일) ── */
+        /* ── THEME: Night Sky (검정 하늘 / 미드나잇 네이비 테마) ── */
         :root {
-            --bg: #1c1917;
-            --surface: #292524;
-            --card: #302c2a;
-            --ink: #fafaf9;
-            --ink-mid: #d6d3d1;
-            --ink-dim: #a8a29e;
-            --rule: #3f3a38;
-            --gold: #e8a045;
-            --teal: #5eead4;
-            --gold-glow: rgba(232, 160, 69, 0.15);
-            --teal-glow: rgba(94, 234, 212, 0.15);
+            --bg: #020617;
+            /* 아주 깊은 밤하늘 (거의 검은 네이비) */
+            --surface: #0f172a;
+            /* 문서 배경 (조금 더 밝은 네이비로 입체감) */
+            --ink: #f8fafc;
+            /* 밝은 흰색 (이름, 큰 제목) */
+            --ink-mid: #cbd5e1;
+            /* 연한 회색/블루 톤 (본문 - 눈 편안함) */
+            --ink-dim: #64748b;
+            /* 중간 회색 (부가 설명) */
+            --rule: #1e293b;
+            /* 밤하늘에 묻히는 은은한 구분선 */
+            --primary: #fbbf24;
+            /* 별빛 같은 따뜻한 노란색 (소제목) */
+            --accent: #38bdf8;
+            /* 스카이 블루 (강조 및 직무명) */
+            --accent-glow: rgba(56, 189, 248, 0.15);
+            /* 스카이 블루 강조 배경 */
         }
 
         *,
@@ -35,8 +40,8 @@
 
         body {
             background-color: var(--bg);
-            color: var(--ink);
-            font-family: 'Noto Sans KR', sans-serif;
+            color: var(--ink-mid);
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
             font-weight: 400;
             line-height: 1.8;
             padding: 60px 20px;
@@ -50,7 +55,7 @@
             padding: 70px 60px 80px;
             border-radius: 12px;
             border: 1px solid var(--rule);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
         }
 
         /* ── HEADER ── */
@@ -63,22 +68,20 @@
         }
 
         h1 {
-            font-family: 'Syne', sans-serif;
-            font-size: 3rem;
+            font-size: 2.8rem;
             font-weight: 800;
-            letter-spacing: -1px;
+            letter-spacing: -0.02em;
             color: var(--ink);
             grid-column: 1;
             grid-row: 1;
-            line-height: 1;
+            line-height: 1.1;
         }
 
         .job-title {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.85rem;
-            letter-spacing: 0.25em;
-            text-transform: uppercase;
-            color: var(--gold);
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            color: var(--accent);
             grid-column: 1;
             grid-row: 2;
             margin-top: 10px;
@@ -88,29 +91,28 @@
             grid-column: 2;
             grid-row: 1 / 3;
             text-align: right;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             color: var(--ink-dim);
             line-height: 2;
             align-self: end;
         }
 
         .contact-info a {
-            color: var(--teal);
+            color: var(--accent);
             text-decoration: none;
             transition: color 0.2s;
         }
 
         .contact-info a:hover {
-            color: var(--gold);
+            color: var(--primary);
+            text-decoration: underline;
         }
 
         /* ── 문서 라벨 ── */
         .doc-label {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
             color: var(--ink-dim);
             border-top: 2px solid var(--rule);
             border-bottom: 1px solid var(--rule);
@@ -123,7 +125,7 @@
 
         .doc-label::after {
             content: '2026';
-            font-size: 0.7rem;
+            font-size: 0.8rem;
             color: var(--ink-dim);
         }
 
@@ -133,15 +135,14 @@
         }
 
         h2 {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.95rem;
+            font-size: 1.15rem;
             font-weight: 700;
-            letter-spacing: 0.15em;
-            color: var(--gold);
-            margin-bottom: 25px;
+            letter-spacing: -0.01em;
+            color: var(--primary);
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             opacity: 0;
             transform: translateY(15px);
             animation: riseIn 0.6s ease forwards;
@@ -149,7 +150,8 @@
 
         h2::before {
             content: '//';
-            color: var(--teal);
+            color: var(--accent);
+            font-weight: 500;
         }
 
         /* ── 본문 ── */
@@ -163,7 +165,7 @@
             font-size: 1.02rem;
             font-weight: 400;
             color: var(--ink-mid);
-            line-height: 1.85;
+            line-height: 1.75;
             word-break: keep-all;
             opacity: 0;
             transform: translateY(15px);
@@ -172,17 +174,17 @@
 
         /* 강조 텍스트 */
         .em {
-            font-weight: 700;
+            font-weight: 600;
             color: var(--ink);
-            background: rgba(94, 234, 212, 0.08);
+            background: var(--accent-glow);
             padding: 2px 6px;
             border-radius: 4px;
-            border-bottom: 1px solid var(--teal);
+            border-bottom: 1px solid rgba(56, 189, 248, 0.4);
             transition: background 0.3s;
         }
 
         .em:hover {
-            background: rgba(94, 234, 212, 0.2);
+            background: rgba(56, 189, 248, 0.25);
         }
 
         /* Animation Delays */
@@ -196,10 +198,6 @@
 
         section:nth-child(2) p:nth-child(2) {
             animation-delay: 0.3s;
-        }
-
-        section:nth-child(2) p:nth-child(3) {
-            animation-delay: 0.4s;
         }
 
         section:nth-child(3) h2 {
@@ -245,7 +243,7 @@
             }
         }
 
-        /* ── PRINT OPTIMIZATION ── */
+        /* ── PRINT OPTIMIZATION (인쇄 시 무조건 화이트 배경) ── */
         @media print {
             @page {
                 size: A4;
@@ -254,7 +252,6 @@
 
             body {
                 background: #fff !important;
-                color: #111 !important;
                 padding: 0;
             }
 
@@ -269,10 +266,10 @@
             :root {
                 --ink: #000;
                 --ink-mid: #222;
-                --ink-dim: #666;
+                --ink-dim: #555;
                 --rule: #ccc;
-                --gold: #855a00;
-                --teal: #006b5f;
+                --primary: #000;
+                --accent: #222;
             }
 
             header {
@@ -302,9 +299,13 @@
             }
 
             h2 {
-                font-size: 11pt;
-                color: var(--gold);
+                font-size: 13pt;
+                color: #000;
                 margin-bottom: 12px;
+            }
+
+            h2::before {
+                color: #555;
             }
 
             .letter-body {
@@ -312,9 +313,9 @@
             }
 
             .letter-body p {
-                font-size: 10pt;
+                font-size: 10.5pt;
                 line-height: 1.6;
-                color: #222;
+                color: #111;
             }
 
             .em {
@@ -336,7 +337,7 @@
             }
 
             h1 {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
             }
 
             .contact-info {
