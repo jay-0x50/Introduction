@@ -1323,67 +1323,52 @@ note_cache = {}
             <div class="page page-project">
                 <div class="smooth-appear">
                     <div class="proj-num">// PROJECT 03</div>
-                    <div class="proj-title">Unreal Engine 5 Core Architecture</div>
-                    <div class="proj-tagline">C++ 네이티브 레벨의 메모리 관리 및 서브시스템 아키텍처 재설계 프로토타입</div>
+                    <div class="proj-title">UE5 Framework: Solid Architecture</div>
+                    <div class="proj-tagline">강의 베이스의 FPS 로직을 엔진 서브시스템 및 인터페이스 구조로 재설계한 기술 검증 프로젝트</div>
                 </div>
                 <div class="proj-body smooth-appear delay-1">
                     <div class="proj-left">
                         <div class="meta-table">
                             <div class="meta-cell">
                                 <div class="meta-cell-label">기술</div>
-                                <div class="meta-cell-val">UE5, C++ Native</div>
+                                <div class="meta-cell-val">UE5, C++, Blueprint</div>
                             </div>
                             <div class="meta-cell">
-                                <div class="meta-cell-label">아키텍처</div>
-                                <div class="meta-cell-val">USubsystem, Component</div>
+                                <div class="meta-cell-label">핵심 역량</div>
+                                <div class="meta-cell-val">DIP, Subsystem, GC Optimization</div>
                             </div>
                             <div class="meta-cell">
-                                <div class="meta-cell-label">최적화</div>
-                                <div class="meta-cell-val">Actor Pooling, Async Load</div>
+                                <div class="meta-cell-label">참고 자료</div>
+                                <div class="meta-cell-val">상용 엔진 강의 및 기술 문서</div>
                             </div>
                             <div class="meta-cell">
-                                <div class="meta-cell-label">패턴</div>
-                                <div class="meta-cell-val">Dependency Inversion</div>
+                                <div class="meta-cell-label">강점</div>
+                                <div class="meta-cell-val">코드 디커플링 및 확장성 확보</div>
                             </div>
                         </div>
                         <div class="sec-block">
-                            <div class="sec-title">주요 구현 및 아키텍처</div>
+                            <div class="sec-title">강의 구현을 넘어선 기술적 도전</div>
                             <div class="feat-list">
-                                <div class="feat-row"><strong>Subsystem 기반 글로벌 매니저 설계:</strong> 기존 Singleton 패턴의 라이프사이클
-                                    문제를 해결하기 위해 언리얼의 <code>UGameInstanceSubsystem</code>을 상속받아, 엔진 생명주기와 완벽히 동기화되는 매니저
-                                    클래스 구축</div>
-                                <div class="feat-row"><strong>가비지 컬렉션(GC) 스파이크 억제:</strong> 런타임 중 빈번하게 생성/파괴되는 투사체와 파티클
-                                    액터들에 대하여 <code>TArray</code> 기반의 C++ 네이티브 Actor Pool을 설계하여 GC 부하를 원천 차단</div>
-                                <div class="feat-row"><strong>비동기 애셋 로딩(Async Loading):</strong> 맵 이동 시 하드 레퍼런싱(Hard
-                                    Referencing)으로 인한 로딩 프리징을 막기 위해 <code>FStreamableManager</code>와 소프트 포인터(Soft Object
-                                    Pointer)를 활용한 백그라운드 심리스 로딩 구현</div>
-                                <div class="feat-row"><strong>의존성 역전(DIP)을 통한 모듈화:</strong> 무기와 타격 대상 간의 클래스 결합도를 끊기 위해
-                                    <code>UInterface</code>를 도입하여, 코어 시스템 수정 없이도 새로운 적 객체를 무한히 확장할 수 있는 OCP 설계 달성
-                                </div>
+                                <div class="feat-row"><strong>Subsystem 기반의 전역 관리:</strong> 강의의 싱글톤 패턴 방식을 지양하고, 언리얼 엔진
+                                    생명주기에 종속적인 <code>UGameInstanceSubsystem</code>을 활용해 데이터 매니저를 구현하여 안정성 확보</div>
+                                <div class="feat-row"><strong>인터페이스 기반 타격 판정:</strong> 무기 액터가 적 클래스를 직접 참조(Include)하지
+                                    않도록 <code>IHitReceiver</code> 인터페이스를 설계하여 클래스 간 의존성을 완전히 분리</div>
+                                <div class="feat-row"><strong>델리게이트를 이용한 UI 연동:</strong> 캐릭터의 상태 변화를 UI가 직접 감시하지 않고,
+                                    멀티캐스트 델리게이트를 통한 이벤트 기반 구조로 설계하여 CPU 오버헤드 최소화</div>
+                                <div class="feat-row"><strong>메모리 관리 최적화:</strong> 잦은 투사체 생성으로 인한 GC(가비지 컬렉션) 부하를 방지하기
+                                    위해 TArray 기반의 C++ 네이티브 액터 풀링 로직 적용 시도</div>
                             </div>
                         </div>
                     </div>
                     <div class="proj-right">
                         <div class="shot-slot">
-                            <div class="shot-bg-code">UCLASS()
-                                class UMyGameInstanceSubsystem : public UGameInstanceSubsystem {
-                                GENERATED_BODY()
-                                public:
-                                virtual void Initialize(FSubsystemCollectionBase& Collection) override;
-                                };</div>
-                            <img src="img/FPS_01.png" alt="" onerror="this.style.display='none'">
-                            <div class="shot-label">Engine Subsystem Initialization</div>
+                            <img src="img/FPS_01.png" alt="UE5 FPS Project" onerror="this.style.display='none'">
+                            <div class="shot-label">C++ Base Combat System</div>
                         </div>
                         <div class="shot-slot">
-                            <div class="shot-bg-code">void AWeapon::Fire() {
-                                FHitResult Hit;
-                                if (GetWorld()->LineTraceSingleByChannel(Hit, Start, End, ECC_Visibility)) {
-                                if (Hit.GetActor()->Implements<UDamageable>())
-                                    IDamageable::Execute_TakeDamage(Hit.GetActor(), Damage);
-                                    }
-                                    }</div>
-                            <img src="img/FPS_02.png" alt="" onerror="this.style.display='none'">
-                            <div class="shot-label">Hitscan & Interface Polymorphism</div>
+                            <img src="img/FPS_02.png" alt="Logic Structure"
+                                onerror="this.style.display='none'">
+                            <div class="shot-label">Event-Driven Architecture</div>
                         </div>
                     </div>
                 </div>
