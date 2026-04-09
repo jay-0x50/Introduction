@@ -22,6 +22,6 @@
 
 ## 🔗 링크
 
-- **GitHub** : [github.com/jay-p08](https://github.com/jay-p08)
-- **Portfolio** : [Portfolio 바로가기](/Portfolio/portfolio.html)
+- **GitHub** : [github.com/jay-p08](https://github.com/jay-0x50)
+- **Portfolio** : [Portfolio 바로가기](https://jay-0x50.github.io/Introduction/Portfolio/portfolio.html)
 - **Contact** : s2444@e-mirim.hs.kr / 010-3484-0767
