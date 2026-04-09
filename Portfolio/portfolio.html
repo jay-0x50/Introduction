@@ -10,7 +10,7 @@
         href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap"
         rel="stylesheet">
     <style>
-        /* ── THEME: Warm Charcoal (Web Display) ── */
+        /* ── THEME: Clean Monochrome ── */
         :root {
             --bg: #1c1917;
             --surface: #292524;
@@ -21,12 +21,12 @@
             --text-dim: #78716c;
             --text-mid: #d6d3d1;
 
-            /* Point Colors */
+            /* Point Colors - Minimalist */
             --teal: #5eead4;
-            --teal-dim: rgba(94, 234, 212, 0.10);
-            --teal-border: rgba(94, 234, 212, 0.30);
-            --gold: #e8a045;
-            --gold-dim: rgba(232, 160, 69, 0.10);
+            --teal-dim: rgba(94, 234, 212, 0.08);
+            --teal-border: rgba(94, 234, 212, 0.25);
+            --gold: #d4a574;
+            --gold-dim: rgba(212, 165, 116, 0.08);
 
             /* Viewport-based Typography */
             --f-xs: 0.73vw;
@@ -59,7 +59,7 @@
             background: #000;
             font-family: 'Noto Sans KR', sans-serif;
             color: var(--text);
-            line-height: 1.6;
+            line-height: 1.85;
         }
 
         a {
@@ -188,16 +188,16 @@
         .title-desc {
             font-size: var(--f-md);
             color: var(--text-mid);
-            line-height: 1.85;
-            margin-bottom: 2.08vw;
+            line-height: 2.05;
+            margin-bottom: 2.2vw;
             word-break: keep-all;
         }
 
         .title-meta {
             display: flex;
-            gap: 2.5vw;
+            gap: 2vw;
             border-top: 1px solid var(--border);
-            padding-top: 1.56vw;
+            padding-top: 1.2vw;
         }
 
         .meta-item {
@@ -238,7 +238,7 @@
         .stat-card {
             background: var(--surface);
             border: 1px solid var(--border);
-            padding: 1.04vw 1.25vw;
+            padding: 0.9vw 1vw;
             border-radius: 6px;
             transition: all 0.3s;
         }
@@ -255,7 +255,7 @@
             font-size: var(--f-2xl);
             color: var(--teal);
             line-height: 1;
-            margin-bottom: 0.26vw;
+            margin-bottom: 0.2vw;
         }
 
         .stat-label {
@@ -266,33 +266,35 @@
         }
 
         .stat-desc {
-            font-size: var(--f-xs);
+            font-size: 0.65vw;
             color: var(--text-dim);
-            margin-top: 0.3vw;
-            line-height: 1.5;
+            margin-top: 0.25vw;
+            line-height: 1.4;
             word-break: keep-all;
         }
 
         .tech-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.42vw;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(10vw, max-content));
+            gap: 0.75vw 0.75vw;
+            align-items: center;
         }
 
         .tech-tag {
             font-family: 'JetBrains Mono', monospace;
-            font-size: var(--f-xs);
-            color: var(--text-mid);
-            border: 1px solid var(--border);
-            padding: 0.26vw 0.63vw;
-            border-radius: 4px;
-            background: var(--surface);
+            font-size: var(--f-sm);
+            color: var(--text);
+            border: 1px solid var(--border-hi);
+            padding: 0.55vw 0.9vw;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.04);
+            white-space: nowrap;
         }
 
         .tech-tag.highlight {
-            border-color: var(--gold-dim);
+            border-color: rgba(212, 165, 116, 0.3);
             color: var(--gold);
-            background: rgba(232, 160, 69, 0.1);
+            background: rgba(212, 165, 116, 0.1);
         }
 
         /* PAGE 02 */
@@ -428,7 +430,7 @@
         .stack-desc {
             font-size: var(--f-xs);
             color: var(--text-mid);
-            line-height: 1.7;
+            line-height: 1.9;
             word-break: keep-all;
             flex: 1;
         }
@@ -487,7 +489,7 @@
         .page-project {
             display: flex;
             flex-direction: column;
-            padding: 2.6vw var(--pad-page) 2.08vw;
+            padding: 2.4vw var(--pad-page) 2vw;
             height: 100%;
         }
 
@@ -504,7 +506,7 @@
             font-size: var(--f-3xl);
             color: var(--text);
             line-height: 1;
-            margin-bottom: 0.6vw;
+            margin-bottom: 0.4vw;
         }
 
         .proj-tagline {
@@ -513,7 +515,7 @@
             font-family: 'JetBrains Mono', monospace;
             border-left: 2px solid var(--teal);
             padding-left: 0.63vw;
-            margin-bottom: 1.5vw;
+            margin-bottom: 1.2vw;
         }
 
         .proj-body {
@@ -527,7 +529,7 @@
         .proj-left {
             display: flex;
             flex-direction: column;
-            gap: 1vw;
+            gap: 1.1vw;
             overflow: hidden;
         }
 
@@ -535,10 +537,11 @@
             font-family: 'JetBrains Mono', monospace;
             font-size: var(--f-xs);
             color: var(--teal);
-            padding: 0.35vw 0.7vw;
-            background: rgba(94, 234, 212, 0.07);
-            border-left: 2px solid var(--teal);
-            margin-bottom: 0.4vw;
+            padding: 0.5vw 0.9vw;
+            background: rgba(94, 234, 212, 0.1);
+            border-left: 3px solid var(--teal);
+            margin-bottom: 0.8vw;
+            margin-top: 0.6vw;
             text-transform: uppercase;
             letter-spacing: 0.12em;
         }
@@ -553,6 +556,7 @@
         .info-table tr {
             border-bottom: 1px solid var(--border);
             transition: background 0.15s;
+            height: auto;
         }
 
         .info-table tr:last-child {
@@ -564,9 +568,9 @@
         }
 
         .info-table td {
-            padding: 0.38vw 0.6vw;
+            padding: 0.45vw 0.7vw;
             vertical-align: top;
-            line-height: 1.55;
+            line-height: 1.85;
             word-break: keep-all;
         }
 
@@ -592,22 +596,22 @@
         }
 
         .info-table td.td-key .tag-feat {
-            background: rgba(94, 234, 212, 0.15);
+            background: rgba(94, 234, 212, 0.12);
             color: var(--teal);
         }
 
         .info-table td.td-key .tag-bug {
-            background: rgba(232, 100, 100, 0.15);
-            color: #f87171;
+            background: rgba(94, 234, 212, 0.08);
+            color: var(--text-mid);
         }
 
         .info-table td.td-key .tag-fix {
-            background: rgba(94, 234, 180, 0.15);
-            color: #6ee7b7;
+            background: rgba(212, 165, 116, 0.12);
+            color: var(--gold);
         }
 
         .info-table td.td-key .tag-learn {
-            background: rgba(232, 160, 69, 0.15);
+            background: rgba(212, 165, 116, 0.08);
             color: var(--gold);
         }
 
@@ -641,8 +645,9 @@
             gap: 0.6vw;
             font-size: var(--f-xs);
             color: var(--text-mid);
-            line-height: 1.55;
+            line-height: 1.85;
             word-break: keep-all;
+            margin-bottom: 0.5vw;
         }
 
         .feat-row::before {
@@ -664,7 +669,7 @@
         }
 
         .meta-cell {
-            padding: 0.8vw 1vw;
+            padding: 0.95vw 1.15vw;
             border-right: 1px solid var(--border);
             border-bottom: 1px solid var(--border);
             background: var(--surface);
@@ -743,8 +748,8 @@
         .page-code {
             display: flex;
             flex-direction: column;
-            padding: 2.6vw var(--pad-page) 2.08vw;
-            gap: 1.5vw;
+            padding: 2.4vw var(--pad-page) 2vw;
+            gap: 1.8vw;
         }
 
         .code-heading {
@@ -787,7 +792,7 @@
             border-radius: 0 0 6px 6px;
             font-family: 'JetBrains Mono', monospace;
             font-size: var(--f-xs);
-            line-height: 1.8;
+            line-height: 1.95;
             color: var(--text-mid);
             overflow: auto;
             height: 100%;
@@ -843,7 +848,7 @@
         .learned-item p {
             font-size: var(--f-sm);
             color: var(--text-mid);
-            line-height: 1.8;
+            line-height: 2.15;
             word-break: keep-all;
             flex: 1;
         }
@@ -1039,7 +1044,7 @@
             <div class="p01-left smooth-appear">
                 <div class="label">PROFILE</div>
                 <div class="big-name">
-                    JAY<br><span>PARK</span>
+                    <span>박재영</span>
                 </div>
                 <p class="title-desc">
                     단순히 기능이 동작하는 코드를 넘어 엔진과 하드웨어의 기저를 탐구합니다.<br>
@@ -1733,55 +1738,6 @@ note_cache = {}
                 <div class="page-num">— 09</div>
             </div>
 
-            <div class="page page-code">
-                <div class="smooth-appear">
-                    <div class="label" style="margin-bottom:0;">PROJECT 04 · CODE REVIEW</div>
-                    <div class="code-heading" style="margin-bottom: 1vw;">블록 암호화 패딩 및 IV 생명주기 관리</div>
-                </div>
-                <div class="code-review-block smooth-appear delay-1">
-                    <div class="code-wrap">
-                        <div class="code-label">AES-256 Encryption & Padding (Python)</div>
-                        <pre class="code-block"><code><span class="kw">from</span> Crypto.Cipher <span class="kw">import</span> AES
-<span class="kw">from</span> Crypto.Util.Padding <span class="kw">import</span> pad, unpad
-<span class="kw">from</span> Crypto.Random <span class="kw">import</span> get_random_bytes
-
-<span class="kw">def</span> <span class="fn">encrypt_file</span>(file_path, key):
-    <span class="cm"># 1. 파일마다 고유한 16바이트 초기화 벡터(IV) 난수 생성</span>
-    iv = <span class="fn">get_random_bytes</span>(AES.block_size)
-    cipher = AES.<span class="fn">new</span>(key, AES.MODE_CBC, iv)
-    
-    <span class="kw">with</span> open(file_path, <span class="st">'rb'</span>) <span class="kw">as</span> f:
-        plaintext = f.<span class="fn">read</span>()
-        
-    <span class="cm"># 2. PKCS7 패딩: 데이터 크기를 16바이트 배수로 정확히 맞춤</span>
-    padded_data = <span class="fn">pad</span>(plaintext, AES.block_size)
-    ciphertext = cipher.<span class="fn">encrypt</span>(padded_data)
-    
-    <span class="kw">with</span> open(file_path, <span class="st">'wb'</span>) <span class="kw">as</span> f:
-        <span class="cm"># 3. 복호화를 위해 암호문 맨 앞에 IV 결합 저장</span>
-        f.<span class="fn">write</span>(iv + ciphertext)</code></pre>
-                    </div>
-                    <div class="learned-panel">
-                        <div class="learned-item">
-                            <div class="learned-title">▸ 대칭키 암호화 알고리즘의 한계와 블록 패딩(Padding)의 필수성</div>
-                            <p>AES 알고리즘은 데이터를 16바이트(128비트) 블록 단위로 쪼개어 연산하는 블록 암호입니다. 만약 원본 파일의 크기가 16바이트로 나누어 떨어지지 않으면
-                                암호화 과정에서 즉시 알고리즘 오류가 발생합니다. 이를 방지하기 위해 데이터의 남은 공간을 특정한 바이트 값으로 채우는 PKCS7 패딩 기법을 적용했습니다.
-                                이 과정에서 메모리 버퍼 상의 데이터 구조를 정확하게 맞추지 않으면 파일이 영구적으로 파손된다는 점을 경험하며, 로우 레벨 데이터 바이트 스트림 조작의
-                                중요성을 체감했습니다.</p>
-                        </div>
-                        <div class="learned-item">
-                            <div class="learned-title">▸ CBC 모드의 보안 취약점 극복과 IV 은닉 기법</div>
-                            <p>단순한 ECB 모드로 암호화를 진행하면 동일한 평문 블록이 항상 동일한 암호문 블록으로 변환되어 패턴 공격에 극히 취약해집니다. 이를 막기 위해 앞 블록의
-                                암호문이 다음 블록 연산에 영향을 주는 CBC(Cipher Block Chaining) 모드를 적용했습니다. 이때 연산의 시작점이 되는 IV(초기화 벡터)를
-                                고정된 값으로 사용하면 보안이 무너지므로, 파일마다 <code>get_random_bytes</code>를 통해 고유한 난수 IV를 생성했습니다. 생성된
-                                IV는 암호문 맨 앞 16바이트에 헤더처럼 부착하여 저장함으로써, 복호화 시 키만 있다면 IV를 분리하여 원본 데이터를 안전하게 복구해내는 데이터
-                                직렬화/역직렬화 구조를 성공적으로 설계했습니다.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="page-num">— 10</div>
-            </div>
-
             <div class="page page-contact">
                 <div class="contact-left smooth-appear">
                     <span class="label">CONTACT</span>
@@ -1831,7 +1787,7 @@ note_cache = {}
                         </p>
                     </div>
                 </div>
-                <div class="page-num">— 11</div>
+                <div class="page-num">— 10</div>
             </div>
 
             <div class="page page-final">
@@ -1844,7 +1800,7 @@ note_cache = {}
                         <span>JAY PARK</span>
                     </div>
                 </div>
-                <div class="page-num">— 12</div>
+                <div class="page-num">— 11</div>
             </div>
 
         </div>
