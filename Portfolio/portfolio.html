@@ -488,6 +488,7 @@
             display: flex;
             flex-direction: column;
             padding: 2.6vw var(--pad-page) 2.08vw;
+            height: 100%;
         }
 
         .proj-num {
@@ -517,7 +518,7 @@
 
         .proj-body {
             display: grid;
-            grid-template-columns: 1fr 20.83vw;
+            grid-template-columns: 1fr 1fr;
             gap: 2.5vw;
             flex: 1;
             min-height: 0;
@@ -526,31 +527,121 @@
         .proj-left {
             display: flex;
             flex-direction: column;
-            gap: 1.5vw;
+            gap: 1vw;
+            overflow: hidden;
         }
 
         .sec-title {
             font-family: 'JetBrains Mono', monospace;
             font-size: var(--f-xs);
             color: var(--teal);
-            padding-bottom: 0.4vw;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 0.5vw;
+            padding: 0.35vw 0.7vw;
+            background: rgba(94, 234, 212, 0.07);
+            border-left: 2px solid var(--teal);
+            margin-bottom: 0.4vw;
             text-transform: uppercase;
+            letter-spacing: 0.12em;
         }
 
+        /* 표 형태 info-table */
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: var(--f-xs);
+        }
+
+        .info-table tr {
+            border-bottom: 1px solid var(--border);
+            transition: background 0.15s;
+        }
+
+        .info-table tr:last-child {
+            border-bottom: none;
+        }
+
+        .info-table tr:hover {
+            background: rgba(94, 234, 212, 0.04);
+        }
+
+        .info-table td {
+            padding: 0.38vw 0.6vw;
+            vertical-align: top;
+            line-height: 1.55;
+            word-break: keep-all;
+        }
+
+        .info-table td.td-key {
+            white-space: nowrap;
+            color: var(--text);
+            font-weight: 600;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: calc(var(--f-xs) * 0.95);
+            padding-right: 0.8vw;
+            min-width: 7vw;
+            border-right: 1px solid var(--border);
+        }
+
+        .info-table td.td-key .tag {
+            display: inline-block;
+            font-size: calc(var(--f-xs) * 0.85);
+            padding: 0.05vw 0.35vw;
+            border-radius: 3px;
+            margin-right: 0.3vw;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+
+        .info-table td.td-key .tag-feat {
+            background: rgba(94, 234, 212, 0.15);
+            color: var(--teal);
+        }
+
+        .info-table td.td-key .tag-bug {
+            background: rgba(232, 100, 100, 0.15);
+            color: #f87171;
+        }
+
+        .info-table td.td-key .tag-fix {
+            background: rgba(94, 234, 180, 0.15);
+            color: #6ee7b7;
+        }
+
+        .info-table td.td-key .tag-learn {
+            background: rgba(232, 160, 69, 0.15);
+            color: var(--gold);
+        }
+
+        .info-table td.td-val {
+            color: var(--text-mid);
+        }
+
+        .info-table td.td-val strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .info-table td.td-val code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9em;
+            color: var(--teal);
+            background: rgba(94, 234, 212, 0.08);
+            padding: 0.05em 0.3em;
+            border-radius: 3px;
+        }
+
+        /* 기존 feat-list/feat-row 하위 호환 유지 */
         .feat-list {
             display: flex;
             flex-direction: column;
-            gap: 0.6vw;
+            gap: 0.4vw;
         }
 
         .feat-row {
             display: flex;
             gap: 0.6vw;
-            font-size: var(--f-sm);
+            font-size: var(--f-xs);
             color: var(--text-mid);
-            line-height: 1.6;
+            line-height: 1.55;
             word-break: keep-all;
         }
 
@@ -600,6 +691,14 @@
             background: var(--surface);
             position: relative;
             overflow: hidden;
+            min-height: 0;
+        }
+
+        .proj-right {
+            display: flex;
+            flex-direction: column;
+            gap: 1vw;
+            min-height: 0;
         }
 
         .shot-slot img {
@@ -1028,7 +1127,7 @@
                         </div>
                     </div>
                     <div class="profile-links">
-                        <a href="mailto:s2444@e-mirim.hs.kr">Email</a>
+                        <a href="/cdn-cgi/l/email-protection#88fbbabcbcbcc8eda5e5e1fae1e5a6e0fba6e3fa">Email</a>
                         <a href="https://github.com/jay-p08" target="_blank">GitHub</a>
                     </div>
                 </div>
@@ -1130,16 +1229,53 @@
                     </div>
                     <div class="sec-block">
                         <div class="sec-title">주요 구현 및 아키텍처</div>
-                        <div class="feat-list">
-                            <div class="feat-row"><strong>프레임 독립적 로직 설계:</strong> 기기 성능(FPS)에 영향받지 않도록 DeltaTime(ms)을
-                                기반으로 노트 하강 속도를 동기화하여 공정한 리듬 판정 환경 구축</div>
-                            <div class="feat-row"><strong>객체 상태 머신(FSM) 도입:</strong> 노트를 '대기 → 하강 → 판정 대기 → 파괴/미스'의
-                                상태(State)로 엄격히 분리하여, 예기치 않은 타이밍 버그를 방지하는 OOP 구조 확립</div>
-                            <div class="feat-row"><strong>렌더링 병목 최적화:</strong> 매 프레임 수십 개의 이미지를 리사이징할 때 발생하는 CPU 과부하를 막기
-                                위해, 사이즈를 키(Key)로 하는 해시맵 기반 Dictionary 캐싱 시스템 구축</div>
-                            <div class="feat-row"><strong>사운드 동기화 시스템:</strong> BGM의 현재 재생 시간(Position)과 노트의 Hit Time을 매
-                                프레임 정밀하게 대조하는 오프셋(Offset) 보정 알고리즘 적용</div>
-                        </div>
+                        <table class="info-table">
+                            <tr>
+                                <td class="td-key"><span class="tag tag-feat">FEAT</span>프레임 독립</td>
+                                <td class="td-val">기기 성능(FPS)에 영향받지 않도록 <strong>DeltaTime(ms)</strong> 기반으로 노트 하강 속도를
+                                    동기화, 공정한 리듬 판정 환경 구축</td>
+                            </tr>
+                            <tr>
+                                <td class="td-key"><span class="tag tag-feat">FEAT</span>FSM 설계</td>
+                                <td class="td-val">노트를 <strong>대기 → 하강 → 판정 대기 → 파괴/미스</strong> 상태로 엄격히 분리, 예기치 않은 타이밍
+                                    버그를 방지하는 OOP 구조 확립</td>
+                            </tr>
+                            <tr>
+                                <td class="td-key"><span class="tag tag-feat">FEAT</span>렌더 최적화</td>
+                                <td class="td-val">매 프레임 이미지 리사이징 CPU 과부하를 막기 위해 사이즈를 Key로 하는 <strong>해시맵 Dict 캐싱
+                                        시스템</strong> 구축</td>
+                            </tr>
+                            <tr>
+                                <td class="td-key"><span class="tag tag-feat">FEAT</span>사운드 동기화</td>
+                                <td class="td-val">BGM 재생 Position과 노트 Hit Time을 매 프레임 대조하는 <strong>Offset 보정
+                                        알고리즘</strong> 적용</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="sec-block">
+                        <div class="sec-title">트러블슈팅</div>
+                        <table class="info-table">
+                            <tr>
+                                <td class="td-key"><span class="tag tag-bug">BUG</span>FPS 급락</td>
+                                <td class="td-val">롱노트 20개 이상 구간에서 FPS 60 → 18 폭락. 프로파일러로 추적 결과 렌더 루프 내
+                                    <code>smoothscale</code> 반복 호출이 CPU 연산의 <strong>78%</strong>를 점유</td>
+                            </tr>
+                            <tr>
+                                <td class="td-key"><span class="tag tag-fix">FIX</span>O(N)→O(1)</td>
+                                <td class="td-val">전역 해시맵 캐시 도입, 최초 1회 연산 후 메모리 즉시 참조로 변경 → 이후 구간 <strong>프레임 드랍 완전
+                                        제거</strong></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="sec-block">
+                        <div class="sec-title">회고</div>
+                        <table class="info-table">
+                            <tr>
+                                <td class="td-key"><span class="tag tag-learn">배움</span>측정 기반 최적화</td>
+                                <td class="td-val">성능 문제를 감각이 아닌 <strong>프로파일러 수치로 직접 증명</strong>하고 해결한 첫 경험. 최적화는 측정
+                                    이후에 시작된다는 원칙 확립</td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
                 <div class="proj-right">
@@ -1233,17 +1369,53 @@ note_cache = {}
                         </div>
                         <div class="sec-block">
                             <div class="sec-title">주요 구현 및 아키텍처</div>
-                            <div class="feat-list">
-                                <div class="feat-row"><strong>커스텀 렌더링 파이프라인:</strong> DirectX 11 API를 직접 제어하여
-                                    Vertex/Pixel 셰이더 설정 및 Constant 버퍼 바인딩을 통한 렌더 루프 전체 과정 구현</div>
-                                <div class="feat-row"><strong>메모리 파편화 방지 설계:</strong> 초당 수백 개의 총알이 생성/소멸되는 장르 특성을 고려하여,
-                                    동적 할당(new/delete)을 완전히 배제하고 고정 크기 배열을 사용하는 Object Pool 시스템 도입</div>
-                                <div class="feat-row"><strong>자체 물리 충돌 엔진:</strong> 게임 루프 내에서 자체적인 Axis-Aligned Bounding
-                                    Box (AABB) 충돌 검사 로직을 수학적으로 작성하여 수백 개 유닛 간의 피격 판정을 고속 처리</div>
-                                <div class="feat-row"><strong>HLSL 셰이더 최적화:</strong> 알파 블렌딩 오버헤드를 줄이기 위해 Pixel 셰이더 단계에서
-                                    <code>clip()</code> 함수를 활용한 투명도 컷아웃 및 피격 시 색상 곱 연산(Color Multiply) 고속 처리
-                                </div>
-                            </div>
+                            <table class="info-table">
+                                <tr>
+                                    <td class="td-key"><span class="tag tag-feat">FEAT</span>렌더 파이프라인</td>
+                                    <td class="td-val">DX11 API 직접 제어, <strong>Vertex/Pixel 셰이더</strong> 설정 및 Constant
+                                        버퍼 바인딩으로 렌더 루프 전체 과정 직접 구현</td>
+                                </tr>
+                                <tr>
+                                    <td class="td-key"><span class="tag tag-feat">FEAT</span>Object Pool</td>
+                                    <td class="td-val">초당 수백 개 총알 생성/소멸에서 동적 할당(<code>new/delete</code>) 완전 배제,
+                                        <strong>고정 크기 배열</strong> 기반 Object Pool로 메모리 파편화 방지</td>
+                                </tr>
+                                <tr>
+                                    <td class="td-key"><span class="tag tag-feat">FEAT</span>AABB 충돌</td>
+                                    <td class="td-val">게임 루프 내 자체 <strong>Axis-Aligned Bounding Box</strong> 충돌 검사 로직
+                                        수학적으로 작성, 수백 유닛 간 피격 판정 고속 처리</td>
+                                </tr>
+                                <tr>
+                                    <td class="td-key"><span class="tag tag-feat">FEAT</span>HLSL 최적화</td>
+                                    <td class="td-val">알파 블렌딩 오버헤드 절감 — Pixel 셰이더에서 <code>clip()</code> 컷아웃 및 피격 시
+                                        <strong>Color Multiply</strong> 고속 처리</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="sec-block">
+                            <div class="sec-title">트러블슈팅</div>
+                            <table class="info-table">
+                                <tr>
+                                    <td class="td-key"><span class="tag tag-bug">BUG</span>히치 현상</td>
+                                    <td class="td-val">보스 페이즈 초당 300개 총알 생성 구간에서 16ms 이상 프레임 히치 반복. 매 발사마다
+                                        <code>new Bullet()</code> 힙 할당 → OS 시스템 콜 오버헤드 누적이 원인</td>
+                                </tr>
+                                <tr>
+                                    <td class="td-key"><span class="tag tag-fix">FIX</span>Pool 선할당</td>
+                                    <td class="td-val">게임 시작 시 최대 탄환 수 일괄 pre-allocation, 런타임 동적 할당 완전 제거 →
+                                        <code>active</code> 플래그 토글로 대체, <strong>히치 현상 완전 해소</strong></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="sec-block">
+                            <div class="sec-title">회고</div>
+                            <table class="info-table">
+                                <tr>
+                                    <td class="td-key"><span class="tag tag-learn">배움</span>저수준 이해</td>
+                                    <td class="td-val">상용 엔진 추상화 없이 <strong>D3D11 API를 직접 제어</strong>하며 렌더링 파이프라인 전 단계
+                                        이해. C++ 메모리 모델과 캐시 지역성이 퍼포먼스에 미치는 영향을 숫자로 확인</td>
+                                </tr>
+                            </table>
                         </div>
                     </div>
                     <div class="proj-right">
@@ -1348,16 +1520,53 @@ note_cache = {}
                         </div>
                         <div class="sec-block">
                             <div class="sec-title">강의 구현을 넘어선 기술적 도전</div>
-                            <div class="feat-list">
-                                <div class="feat-row"><strong>Subsystem 기반의 전역 관리:</strong> 강의의 싱글톤 패턴 방식을 지양하고, 언리얼 엔진
-                                    생명주기에 종속적인 <code>UGameInstanceSubsystem</code>을 활용해 데이터 매니저를 구현하여 안정성 확보</div>
-                                <div class="feat-row"><strong>인터페이스 기반 타격 판정:</strong> 무기 액터가 적 클래스를 직접 참조(Include)하지
-                                    않도록 <code>IHitReceiver</code> 인터페이스를 설계하여 클래스 간 의존성을 완전히 분리</div>
-                                <div class="feat-row"><strong>델리게이트를 이용한 UI 연동:</strong> 캐릭터의 상태 변화를 UI가 직접 감시하지 않고,
-                                    멀티캐스트 델리게이트를 통한 이벤트 기반 구조로 설계하여 CPU 오버헤드 최소화</div>
-                                <div class="feat-row"><strong>메모리 관리 최적화:</strong> 잦은 투사체 생성으로 인한 GC(가비지 컬렉션) 부하를 방지하기
-                                    위해 TArray 기반의 C++ 네이티브 액터 풀링 로직 적용 시도</div>
-                            </div>
+                            <table class="info-table">
+                                <tr>
+                                    <td class="td-key"><span class="tag tag-feat">FEAT</span>Subsystem</td>
+                                    <td class="td-val">싱글톤 방식 지양, 언리얼 생명주기에 종속적인
+                                        <strong><code>UGameInstanceSubsystem</code></strong>으로 데이터 매니저 구현 → 안정성 확보</td>
+                                </tr>
+                                <tr>
+                                    <td class="td-key"><span class="tag tag-feat">FEAT</span>Interface DIP</td>
+                                    <td class="td-val">무기 액터가 적 클래스를 직접 참조하지 않도록 <strong><code>IHitReceiver</code>
+                                            인터페이스</strong> 설계, 클래스 간 의존성 완전 분리</td>
+                                </tr>
+                                <tr>
+                                    <td class="td-key"><span class="tag tag-feat">FEAT</span>Delegate UI</td>
+                                    <td class="td-val">캐릭터 상태 변화를 UI가 직접 감시하지 않고 <strong>Multicast Delegate</strong> 이벤트
+                                        기반 구조로 연동, CPU 오버헤드 최소화</td>
+                                </tr>
+                                <tr>
+                                    <td class="td-key"><span class="tag tag-feat">FEAT</span>Actor Pool</td>
+                                    <td class="td-val">잦은 투사체 생성으로 인한 GC 부하 방지 위해 <strong>TArray 기반 C++ 네이티브 액터
+                                            풀링</strong> 로직 적용</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="sec-block">
+                            <div class="sec-title">트러블슈팅</div>
+                            <table class="info-table">
+                                <tr>
+                                    <td class="td-key"><span class="tag tag-bug">BUG</span>연쇄 로드</td>
+                                    <td class="td-val">캐릭터가 UI 클래스를 직접 Cast 참조 → 레벨 로딩 시 불필요한 UI 텍스처·사운드 에셋이 통째로 메모리에 강제
+                                        적재</td>
+                                </tr>
+                                <tr>
+                                    <td class="td-key"><span class="tag tag-fix">FIX</span>Delegate 전환</td>
+                                    <td class="td-val">캐릭터↔UI 직접 참조 완전 제거, <strong>Multicast Delegate 브로드캐스트</strong>
+                                        방식으로 리팩토링 → 불필요한 에셋 로드 제거</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="sec-block">
+                            <div class="sec-title">회고</div>
+                            <table class="info-table">
+                                <tr>
+                                    <td class="td-key"><span class="tag tag-learn">배움</span>SOLID 실감</td>
+                                    <td class="td-val">강의를 따라가는 대신 <strong>'왜 이 구조가 나쁜가'를 먼저 정의하고 리팩토링</strong>. 의존성 방향
+                                        하나가 메모리 로드 구조 전체에 영향을 준다는 점이 가장 큰 수확</td>
+                                </tr>
+                            </table>
                         </div>
                     </div>
                     <div class="proj-right">
@@ -1366,8 +1575,7 @@ note_cache = {}
                             <div class="shot-label">C++ Base Combat System</div>
                         </div>
                         <div class="shot-slot">
-                            <img src="img/FPS_02.png" alt="Logic Structure"
-                                onerror="this.style.display='none'">
+                            <img src="img/FPS_02.png" alt="Logic Structure" onerror="this.style.display='none'">
                             <div class="shot-label">Event-Driven Architecture</div>
                         </div>
                     </div>
@@ -1450,18 +1658,53 @@ note_cache = {}
                         </div>
                         <div class="sec-block">
                             <div class="sec-title">주요 구현 및 아키텍처</div>
-                            <div class="feat-list">
-                                <div class="feat-row"><strong>보안 시스템 구조 이해:</strong> 악성 프로그램의 동작 원리를 역설계하여, 멀티플레이 서버나
-                                    클라이언트 환경에서 발생할 수 있는 데이터 위변조 공격의 위험성을 학습하기 위한 샌드박스(Sandbox) 모의 프로젝트</div>
-                                <div class="feat-row"><strong>고급 암호화 표준 적용:</strong> 현존하는 가장 강력한 대칭키 알고리즘인 AES-256을
-                                    적용하였으며, 패턴 분석 공격을 막기 위해 CBC(Cipher Block Chaining) 모드와 PKCS7 블록 패딩(Padding)을 직접 구현
-                                </div>
-                                <div class="feat-row"><strong>초기화 벡터(IV) 라이프사이클:</strong> 동일한 평문이더라도 암호화 시마다 완전히 다른 암호문이
-                                    생성되도록 파일별로 고유한 16바이트 난수 IV를 생성하고, 이를 암호문 헤더에 안전하게 은닉 및 복원하는 로직 작성</div>
-                                <div class="feat-row"><strong>재귀적 파일 시스템 제어:</strong> Python의 <code>os.walk</code> 시스템
-                                    라이브러리를 활용하여 타겟 디렉토리 하위의 특정 확장자(.txt, .png 등)를 지닌 파일들을 재귀적으로 추적하고 I/O 스트림으로 덮어쓰는 엔진
-                                    구현</div>
-                            </div>
+                            <table class="info-table">
+                                <tr>
+                                    <td class="td-key"><span class="tag tag-feat">FEAT</span>보안 구조 이해</td>
+                                    <td class="td-val">악성 프로그램 동작 원리를 역설계, <strong>멀티플레이 서버 데이터 위변조 공격</strong>의 위험성을
+                                        학습하기 위한 샌드박스 모의 프로젝트</td>
+                                </tr>
+                                <tr>
+                                    <td class="td-key"><span class="tag tag-feat">FEAT</span>AES-256 CBC</td>
+                                    <td class="td-val">패턴 분석 공격 방지를 위해 <strong>CBC 모드 + PKCS7 블록 패딩</strong> 직접 구현, 현존
+                                        가장 강력한 대칭키 알고리즘 적용</td>
+                                </tr>
+                                <tr>
+                                    <td class="td-key"><span class="tag tag-feat">FEAT</span>IV 라이프사이클</td>
+                                    <td class="td-val">파일마다 고유한 <strong>16바이트 난수 IV</strong> 생성, 암호문 헤더에 병합 저장 → 복호화 시
+                                        슬라이싱으로 분리하는 직렬화 구조 설계</td>
+                                </tr>
+                                <tr>
+                                    <td class="td-key"><span class="tag tag-feat">FEAT</span>재귀 파일 탐색</td>
+                                    <td class="td-val"><code>os.walk</code>로 타겟 디렉토리 하위 특정 확장자(<code>.txt</code>,
+                                        <code>.png</code> 등) 재귀 추적, I/O 스트림으로 덮어쓰는 엔진 구현</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="sec-block">
+                            <div class="sec-title">트러블슈팅</div>
+                            <table class="info-table">
+                                <tr>
+                                    <td class="td-key"><span class="tag tag-bug">BUG</span>복호화 손상</td>
+                                    <td class="td-val">암호화 성공 후 복호화 시 파일 깨짐 반복. CBC 모드 특성상 <strong>IV 없이 첫 블록 복호화
+                                            불가</strong> → IV를 저장하지 않고 버리고 있었던 것이 원인</td>
+                                </tr>
+                                <tr>
+                                    <td class="td-key"><span class="tag tag-fix">FIX</span>헤더 병합 저장</td>
+                                    <td class="td-val"><code>f.write(iv + ciphertext)</code> 구조로 변경, 암호문 앞 16바이트에 IV 내장
+                                        → 복호화 시 슬라이싱 분리로 <strong>완전 해소</strong></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="sec-block">
+                            <div class="sec-title">회고</div>
+                            <table class="info-table">
+                                <tr>
+                                    <td class="td-key"><span class="tag tag-learn">배움</span>보안 설계 연결</td>
+                                    <td class="td-val">공격자 시점 구현을 통해 <strong>게임 서버 데이터 위변조 방어 설계</strong>에 암호화 원리가 실질적으로
+                                        연결됨을 체감. 서버 보안 설계의 구체적 방향성 획득</td>
+                                </tr>
+                            </table>
                         </div>
                     </div>
                     <div class="proj-right">
@@ -1546,7 +1789,11 @@ note_cache = {}
                     <div class="contact-grid">
                         <div class="contact-item">
                             <div class="contact-label">Email</div>
-                            <div class="contact-val"><a href="mailto:s2444@e-mirim.hs.kr">s2444@e-mirim.hs.kr</a></div>
+                            <div class="contact-val"><a
+                                    href="/cdn-cgi/l/email-protection#1b68292f2f2f5b7e367672697276357368357069"><span
+                                        class="__cf_email__"
+                                        data-cfemail="16652422222256733b7b7f647f7b387e65387d64">[email&#160;protected]</span></a>
+                            </div>
                         </div>
                         <div class="contact-item">
                             <div class="contact-label">Phone</div>
@@ -1601,6 +1848,7 @@ note_cache = {}
             </div>
 
         </div>
+        <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
         <script>
             // 숫자 카운트 애니메이션
             function animateCount(el, target, duration) {
