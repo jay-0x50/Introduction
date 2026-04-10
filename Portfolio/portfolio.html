@@ -1195,7 +1195,8 @@
                         <div class="stack-title">Graphics & Systems</div>
                         <div class="stack-list">DirectX 11, HLSL, AABB Collision</div>
                         <div class="stack-desc">DirectX 11 기반 프로젝트에서 렌더링 파이프라인과 충돌 처리 로직을 직접 구현하며,
-                            플레이어가 보는 결과와 내부 시스템이 어떻게 연결되는지 이해했습니다. 그래픽스 지식은 게임플레이 구현을 더 정확하고 안정적으로 만드는 기반으로 활용하고 있습니다.</div>
+                            플레이어가 보는 결과와 내부 시스템이 어떻게 연결되는지 이해했습니다. 그래픽스 지식은 게임플레이 구현을 더 정확하고 안정적으로 만드는 기반으로 활용하고 있습니다.
+                        </div>
                     </div>
                 </div>
 
@@ -1227,7 +1228,8 @@
                 <div style="display:flex; gap:1.5vw; margin-top: 0.5vw;">
                     <div class="stack-block" style="flex:1;">
                         <div class="stack-title">Core Philosophy</div>
-                        <p style="font-size: var(--f-sm); color: var(--text-mid); line-height: 1.7;">단순히 기능이 동작하는 것에서 멈추지 않고,
+                        <p style="font-size: var(--f-sm); color: var(--text-mid); line-height: 1.7;">단순히 기능이 동작하는 것에서
+                            멈추지 않고,
                             플레이어가 실제로 어떻게 느낄지를 기준으로 시스템을 다듬습니다. 입력, 판정, 충돌, 피드백처럼 플레이 감각에 직접 닿는 요소를 우선순위에 두고,
                             확장성과 유지보수성을 함께 고려한 모듈형 구조를 지향합니다.
                         </p>
@@ -1242,59 +1244,6 @@
             </div>
             <div class="page-num">— 02</div>
         </div>
-
-        <!-- <div class="page page-code">
-            <div class="smooth-appear">
-                <div class="label" style="margin-bottom:0;">CERTIFICATIONS & ACTIVITIES</div>
-                <div class="code-heading" style="margin-bottom: 1vw;">자격증 및 활동 내역</div>
-            </div>
-            <div class="code-review-block smooth-appear delay-1">
-                <table class="cert-table">
-                    <thead>
-                        <tr>
-                            <th width="28%">구분</th>
-                            <th>내역</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>자격증</td>
-                            <td>
-                                <ul class="cert-list">
-                                    <li>정보처리기사 (필기 합격)</li>
-                                    <li>게임 프로그래밍 전문가 자격증</li>
-                                    <li>Python 프로그래밍 자격증</li>
-                                    <li>C/C++ 프로그래밍 자격증</li>
-                                </ul>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>활동</td>
-                            <td>
-                                <ul class="cert-list">
-                                    <li>2024 미림 해커톤</li>
-                                    <li>2025 미림 해커톤</li>
-                                    <li>2024 앱잼</li>
-                                    <li>CodeUs 프로젝트 개발 동아리 부장</li>
-                                    <li>중학교 SW 동아리 활동</li>
-                                </ul>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <div class="learned-panel">
-                    <div class="learned-item">
-                        <div class="learned-title">▸ 프로그래밍 기초 역량 강화</div>
-                        <p>초등학교 때부터 프로그래밍에 관심을 가지고 다양한 자격증을 취득하며 기초를 다졌습니다. 스크래치부터 시작해 Python, C/C++까지 학습하며 알고리즘과 데이터 구조에 대한 이해를 넓혔습니다.</p>
-                    </div>
-                    <div class="learned-item">
-                        <div class="learned-title">▸ 동아리 및 대회 기반 실무 경험</div>
-                        <p>CodeUs 부장으로서 팀 프로젝트를 리드했고, 미림 해커톤과 앱잼 같은 실전 대회를 통해 빠른 의사결정과 협업 역량을 길렀습니다. 이러한 활동은 빠르게 배우고 적용하는 개발 태도를 다지는 계기가 되었습니다.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="page-num">— 02.5</div>
-        </div> -->
 
         <div class="page page-project">
             <div class="smooth-appear">
@@ -1353,7 +1302,8 @@
                             <tr>
                                 <td class="td-key"><span class="tag tag-bug">BUG</span>FPS 급락</td>
                                 <td class="td-val">롱노트 20개 이상 구간에서 FPS 60 → 18 폭락. 프로파일러로 추적 결과 렌더 루프 내
-                                    <code>smoothscale</code> 반복 호출이 CPU 연산의 <strong>78%</strong>를 점유</td>
+                                    <code>smoothscale</code> 반복 호출이 CPU 연산의 <strong>78%</strong>를 점유
+                                </td>
                             </tr>
                             <tr>
                                 <td class="td-key"><span class="tag tag-fix">FIX</span>O(N)→O(1)</td>
@@ -1473,7 +1423,8 @@ note_cache = {}
                                 <tr>
                                     <td class="td-key"><span class="tag tag-feat">FEAT</span>Object Pool</td>
                                     <td class="td-val">초당 수백 개 총알 생성/소멸에서 동적 할당(<code>new/delete</code>) 완전 배제,
-                                        <strong>고정 크기 배열</strong> 기반 Object Pool로 메모리 파편화 방지</td>
+                                        <strong>고정 크기 배열</strong> 기반 Object Pool로 메모리 파편화 방지
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td class="td-key"><span class="tag tag-feat">FEAT</span>AABB 충돌</td>
@@ -1483,7 +1434,8 @@ note_cache = {}
                                 <tr>
                                     <td class="td-key"><span class="tag tag-feat">FEAT</span>HLSL 최적화</td>
                                     <td class="td-val">알파 블렌딩 오버헤드 절감 — Pixel 셰이더에서 <code>clip()</code> 컷아웃 및 피격 시
-                                        <strong>Color Multiply</strong> 고속 처리</td>
+                                        <strong>Color Multiply</strong> 고속 처리
+                                    </td>
                                 </tr>
                             </table>
                         </div>
@@ -1493,12 +1445,14 @@ note_cache = {}
                                 <tr>
                                     <td class="td-key"><span class="tag tag-bug">BUG</span>히치 현상</td>
                                     <td class="td-val">보스 페이즈 초당 300개 총알 생성 구간에서 16ms 이상 프레임 히치 반복. 매 발사마다
-                                        <code>new Bullet()</code> 힙 할당 → OS 시스템 콜 오버헤드 누적이 원인</td>
+                                        <code>new Bullet()</code> 힙 할당 → OS 시스템 콜 오버헤드 누적이 원인
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td class="td-key"><span class="tag tag-fix">FIX</span>Pool 선할당</td>
                                     <td class="td-val">게임 시작 시 최대 탄환 수 일괄 pre-allocation, 런타임 동적 할당 완전 제거 →
-                                        <code>active</code> 플래그 토글로 대체, <strong>히치 현상 완전 해소</strong></td>
+                                        <code>active</code> 플래그 토글로 대체, <strong>히치 현상 완전 해소</strong>
+                                    </td>
                                 </tr>
                             </table>
                         </div>
@@ -1619,7 +1573,8 @@ note_cache = {}
                                 <tr>
                                     <td class="td-key"><span class="tag tag-feat">FEAT</span>Subsystem</td>
                                     <td class="td-val">싱글톤 방식 지양, 언리얼 생명주기에 종속적인
-                                        <strong><code>UGameInstanceSubsystem</code></strong>으로 데이터 매니저 구현 → 안정성 확보</td>
+                                        <strong><code>UGameInstanceSubsystem</code></strong>으로 데이터 매니저 구현 → 안정성 확보
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td class="td-key"><span class="tag tag-feat">FEAT</span>Interface DIP</td>
@@ -1772,7 +1727,8 @@ note_cache = {}
                                 <tr>
                                     <td class="td-key"><span class="tag tag-feat">FEAT</span>재귀 파일 탐색</td>
                                     <td class="td-val"><code>os.walk</code>로 타겟 디렉토리 하위 특정 확장자(<code>.txt</code>,
-                                        <code>.png</code> 등) 재귀 추적, I/O 스트림으로 덮어쓰는 엔진 구현</td>
+                                        <code>.png</code> 등) 재귀 추적, I/O 스트림으로 덮어쓰는 엔진 구현
+                                    </td>
                                 </tr>
                             </table>
                         </div>
@@ -1828,6 +1784,56 @@ note_cache = {}
                 <div class="page-num">— 09</div>
             </div>
 
+            <div class="page page-code">
+                <div class="smooth-appear">
+                    <div class="label" style="margin-bottom:0;">PROJECT 04 · CODE REVIEW</div>
+                    <div class="code-heading" style="margin-bottom: 1vw;">AES-256 CBC 모드 암호화와 IV(초기화 벡터) 직렬화</div>
+                </div>
+                <div class="code-review-block smooth-appear delay-1">
+                    <div class="code-wrap">
+                        <div class="code-label">File Encryption Engine (Python)</div>
+                        <pre class="code-block"><code><span class="cm"># AES-256 CBC 모드 암호화 및 IV 병합 저장 로직</span>
+<span class="kw">def</span> <span class="fn">encrypt_file</span>(file_path, key):
+    <span class="cm"># 16바이트 난수 IV 생성 (패턴 분석 공격 방어)</span>
+    iv = <span class="fn">get_random_bytes</span>(AES.block_size)
+    cipher = AES.<span class="fn">new</span>(key, AES.MODE_CBC, iv)
+
+    <span class="kw">with</span> <span class="fn">open</span>(file_path, <span class="st">'rb'</span>) <span class="kw">as</span> f:
+        plaintext = f.<span class="fn">read</span>()
+
+    <span class="cm"># PKCS7 패딩 적용 후 암호화 수행</span>
+    ciphertext = cipher.<span class="fn">encrypt</span>(<span class="fn">pad</span>(plaintext, AES.block_size))
+
+    <span class="cm"># [핵심] 암호문 헤더에 IV를 직렬화하여 병합 저장</span>
+    <span class="cm"># 복호화 시 앞 16바이트를 슬라이싱하여 IV로 복원하기 위함</span>
+    <span class="kw">with</span> <span class="fn">open</span>(file_path, <span class="st">'wb'</span>) <span class="kw">as</span> f:
+        f.<span class="fn">write</span>(iv + ciphertext)</code></pre>
+                    </div>
+                    <div class="learned-panel">
+                        <div class="learned-item">
+                            <div class="learned-title">▸ IV(초기화 벡터)의 중요성과 직렬화 구조 설계</div>
+                            <p>
+                                CBC 모드는 이전 블록의 암호문과 현재 블록의 평문을 XOR 연산하여 암호화하므로, 첫 블록을 위한 IV가 필수적입니다. 초기 개발 시 파일에 IV를
+                                누락하여 복호화가 불가능해지는 데이터 손상 버그를 겪었습니다.<br><br>
+                                이를 해결하기 위해 파일마다 고유한 난수 IV를 생성하고, 파일의 최상단(Header)에 16바이트의 IV를 암호문과
+                                병합(<code>iv + ciphertext</code>)하여 덮어쓰는 직렬화 구조를 설계했습니다. 이는 네트워크 통신에서 패킷 헤더를 구성하는 원리와
+                                동일함을 깨달았습니다.
+                            </p>
+                        </div>
+                        <div class="learned-item">
+                            <div class="learned-title">▸ 보안 취약점 분석을 통한 서버 데이터 보호의 통찰</div>
+                            <p>
+                                클라이언트 파일 시스템을 직접 제어하고 암호화하는 프로그램의 동작을 모의 구현해 보면서, 역으로 '데이터 위변조를 어떻게 방어할 것인가'에 대한 해답을
+                                얻었습니다.<br><br>
+                                멀티플레이어 게임 서버 개발 시, 클라이언트가 보내는 데이터는 언제든 조작될 수 있다는 <strong>'Zero Trust'</strong>를 기본으로 삼아야
+                                하며, 중요 데이터의 무결성 검증과 암호화가 왜 필수적인지 실무적인 관점에서 깊이 이해하는 계기가 되었습니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="page-num">— 10</div>
+            </div>
+
             <div class="page page-contact">
                 <div class="contact-left smooth-appear">
                     <span class="label">CONTACT</span>
@@ -1877,7 +1883,7 @@ note_cache = {}
                         </p>
                     </div>
                 </div>
-                <div class="page-num">— 10</div>
+                <div class="page-num">— 11</div>
             </div>
 
             <div class="page page-final">
@@ -1890,7 +1896,7 @@ note_cache = {}
                         <span>JAY PARK</span>
                     </div>
                 </div>
-                <div class="page-num">— 11</div>
+                <div class="page-num">— 12</div>
             </div>
 
         </div>
