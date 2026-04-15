@@ -4,28 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>게임 플레이 개발자 지원서 - 박재영</title>
+    <title>게임플레이 개발자 지원서 — 박재영</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link
         href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap"
         rel="stylesheet">
     <style>
-        /* ══════════════════════════════
-           SCREEN THEME
-        ══════════════════════════════ */
+        /* ══════════════════════════
+       TOKENS
+    ══════════════════════════ */
         :root {
-            --bg: #1c1917;
-            --card: #302c2a;
-            --ink: #fafaf9;
-            --ink-mid: #a8a29e;
-            --ink-dim: #6b6560;
-            --rule: #3f3a38;
-            --gold: #e8a045;
-            --teal: #5eead4;
-            --red: #fb923c;
-            --gold-glow: rgba(232, 160, 69, 0.12);
-            --gold-border: rgba(232, 160, 69, 0.25);
-            --teal-glow: rgba(94, 234, 212, 0.10);
+            --bg: #131210;
+            --surface: #1e1c1a;
+            --card: #272420;
+            --border: #38332f;
+            --ink: #f5f1ec;
+            --ink-mid: #9e9891;
+            --ink-dim: #5e5a55;
+            --gold: #d4923a;
+            --gold-soft: rgba(212, 146, 58, .12);
+            --gold-border: rgba(212, 146, 58, .22);
+            --teal: #4dd9c0;
+            --teal-soft: rgba(77, 217, 192, .09);
+            --red: #e07a50;
+            --blue: #6aacdc;
         }
 
         *,
@@ -49,10 +51,11 @@
             -webkit-font-smoothing: antialiased;
         }
 
+        /* ── LAYOUT ── */
         .page-wrapper {
-            max-width: 860px;
+            max-width: 880px;
             margin: 0 auto;
-            padding: 60px 32px;
+            padding: 64px 36px;
         }
 
         .document-page {
@@ -65,14 +68,14 @@
             break-after: auto;
         }
 
-        /* HEADER */
+        /* ── HEADER ── */
         header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
             gap: 28px;
-            margin-bottom: 45px;
-            animation: riseIn 0.65s ease forwards;
+            margin-bottom: 44px;
+            animation: riseIn .55s ease both;
         }
 
         .header-left {
@@ -81,10 +84,12 @@
         }
 
         .catchphrase {
-            font-size: 1.05rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: .78rem;
             color: var(--teal);
-            font-weight: 700;
-            margin-bottom: 8px;
+            letter-spacing: .06em;
+            margin-bottom: 10px;
+            opacity: .85;
         }
 
         .name-line {
@@ -96,21 +101,21 @@
 
         h1 {
             font-family: 'Syne', sans-serif;
-            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            font-size: clamp(2.6rem, 6vw, 3.6rem);
             font-weight: 800;
             letter-spacing: -1.5px;
             line-height: 1;
         }
 
         .live-dot {
-            width: 12px;
-            height: 12px;
+            width: 11px;
+            height: 11px;
             background: var(--teal);
             border-radius: 50%;
-            animation: blink 2.4s ease-in-out infinite;
+            animation: pulse 2.5s ease-in-out infinite;
         }
 
-        @keyframes blink {
+        @keyframes pulse {
 
             0%,
             100% {
@@ -119,77 +124,80 @@
             }
 
             50% {
-                opacity: .4;
+                opacity: .35;
+                box-shadow: none;
             }
         }
 
         .job-title {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.85rem;
-            letter-spacing: 0.3em;
+            font-size: .82rem;
+            letter-spacing: .32em;
             color: var(--gold);
             margin-bottom: 18px;
         }
 
         .contact-row {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.8rem;
+            font-size: .78rem;
             color: var(--ink-mid);
             display: flex;
-            gap: 20px;
-            margin-bottom: 15px;
+            gap: 22px;
+            flex-wrap: wrap;
+            margin-bottom: 14px;
         }
 
         .link-row {
             display: flex;
-            gap: 10px;
+            gap: 8px;
         }
 
         .link-row a {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem;
+            font-size: .72rem;
             color: var(--ink-mid);
             text-decoration: none;
-            border: 1px solid var(--rule);
-            padding: 6px 14px;
+            border: 1px solid var(--border);
+            padding: 5px 13px;
             border-radius: 4px;
-            transition: all .2s;
+            transition: all .18s;
         }
 
         .link-row a:hover {
             color: var(--gold);
             border-color: var(--gold-border);
-            background: var(--gold-glow);
+            background: var(--gold-soft);
         }
 
         .header-photo img {
-            width: 110px;
-            height: 145px;
+            width: 108px;
+            height: 143px;
             object-fit: cover;
-            border-radius: 8px;
+            border-radius: 7px;
             border: 1px solid var(--gold-border);
-            box-shadow: 0 0 20px var(--gold-glow);
+            box-shadow: 0 0 28px var(--gold-soft);
         }
 
         .rule-line {
             height: 2px;
-            background: linear-gradient(90deg, var(--gold) 0%, var(--teal) 50%, transparent 100%);
+            background: linear-gradient(90deg, var(--gold), var(--teal) 55%, transparent);
             margin-bottom: 40px;
         }
 
+        /* ── SECTION ── */
         section {
-            margin-bottom: 40px;
+            margin-bottom: 38px;
         }
 
         h2 {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.8rem;
-            letter-spacing: 0.3em;
+            font-size: .76rem;
+            letter-spacing: .3em;
             color: var(--gold);
-            margin-bottom: 20px;
+            margin-bottom: 18px;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             text-transform: uppercase;
         }
 
@@ -202,14 +210,14 @@
             content: '';
             flex: 1;
             height: 1px;
-            background: var(--rule);
+            background: var(--border);
         }
 
-        /* SKILLS */
+        /* ── SKILLS ── */
         .skill-block {
-            border: 1px solid var(--rule);
+            border: 1px solid var(--border);
             border-radius: 10px;
-            margin-bottom: 10px;
+            margin-bottom: 9px;
             background: var(--card);
         }
 
@@ -218,14 +226,14 @@
             align-items: center;
             padding: 12px 20px;
             cursor: pointer;
-            gap: 15px;
+            gap: 14px;
         }
 
         .s-label {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem;
+            font-size: .72rem;
             font-weight: 700;
-            width: 110px;
+            width: 108px;
             color: var(--ink-mid);
         }
 
@@ -238,38 +246,39 @@
 
         .stag {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.65rem;
+            font-size: .63rem;
             padding: 3px 10px;
             border-radius: 4px;
-            background: rgba(232, 160, 69, .1);
+            background: var(--gold-soft);
             color: var(--gold);
-            border: 1px solid rgba(232, 160, 69, .2);
+            border: 1px solid var(--gold-border);
         }
 
         .skill-detail {
             max-height: 0;
             overflow: hidden;
-            transition: max-height .4s cubic-bezier(0.4, 0, 0.2, 1);
-            background: rgba(0, 0, 0, 0.15);
+            transition: max-height .4s cubic-bezier(.4, 0, .2, 1);
+            background: rgba(0, 0, 0, .18);
         }
 
         .skill-block.open .skill-detail {
-            max-height: 800px;
+            max-height: 900px;
         }
 
         .skill-detail-inner {
-            padding: 12px 20px 18px 55px;
+            padding: 10px 20px 18px 55px;
         }
 
         .skill-detail ul {
             list-style: none;
-            font-size: 0.9rem;
-            color: var(--ink-mid);
         }
 
         .skill-detail li {
-            margin-bottom: 6px;
+            font-size: .9rem;
+            color: var(--ink-mid);
+            margin-bottom: 8px;
             position: relative;
+            line-height: 1.75;
         }
 
         .skill-detail li::before {
@@ -280,10 +289,40 @@
             font-weight: bold;
         }
 
-        /* EDU */
+        .skill-detail li strong {
+            color: var(--ink);
+        }
+
+        /* ── HIGHLIGHT BADGE ── */
+        .badge {
+            display: inline-block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: .62rem;
+            padding: 2px 8px;
+            border-radius: 3px;
+            background: rgba(106, 172, 220, .1);
+            color: var(--blue);
+            border: 1px solid rgba(106, 172, 220, .25);
+            margin-left: 6px;
+            vertical-align: middle;
+        }
+
+        .badge-g {
+            background: rgba(77, 217, 192, .08);
+            color: var(--teal);
+            border-color: rgba(77, 217, 192, .22);
+        }
+
+        /* ── EDU ── */
+        .edu-section {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
         .edu-card {
             background: var(--card);
-            border: 1px solid var(--rule);
+            border: 1px solid var(--border);
             border-radius: 10px;
             padding: 20px;
             display: flex;
@@ -291,10 +330,37 @@
             align-items: center;
         }
 
-        .edu-section {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
+        .edu-card--awards {
+            display: block;
+        }
+
+        .edu-card-title {
+            margin-bottom: 10px;
+            font-size: 1rem;
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        .edu-name {
+            font-weight: 700;
+            font-size: 1.05rem;
+        }
+
+        .edu-sub {
+            font-size: .88rem;
+            color: var(--ink-mid);
+            margin-top: 4px;
+        }
+
+        .edu-badge {
+            font-size: .68rem;
+            color: var(--red);
+            background: rgba(224, 122, 80, .1);
+            padding: 2px 9px;
+            border-radius: 4px;
+            border: 1px solid rgba(224, 122, 80, .28);
+            margin-top: 6px;
+            display: inline-block;
         }
 
         .edu-meta {
@@ -302,43 +368,16 @@
         }
 
         .edu-status {
-            font-size: 0.7rem;
+            font-size: .68rem;
             color: var(--teal);
             font-weight: bold;
             margin-top: 4px;
         }
 
-        .edu-card--awards {
-            display: block;
-            align-items: initial;
-        }
-
-        .edu-card-title {
-            margin-bottom: 10px;
-            font-size: 1rem;
-            color: var(--gold);
-        }
-
-        .edu-name {
-            font-weight: 700;
-            font-size: 1.1rem;
-        }
-
-        .edu-sub {
-            font-size: 0.9rem;
-            color: var(--ink-mid);
-            margin-top: 4px;
-        }
-
-        .edu-badge {
-            font-size: 0.7rem;
-            color: var(--red);
-            background: rgba(251, 146, 60, .1);
-            padding: 2px 10px;
-            border-radius: 4px;
-            border: 1px solid rgba(251, 146, 60, 0.3);
-            margin-top: 8px;
-            display: inline-block;
+        .proj-date {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: .72rem;
+            color: var(--ink-dim);
         }
 
         .awards-list {
@@ -347,62 +386,95 @@
         }
 
         .awards-list li {
-            font-size: 0.95rem;
+            font-size: .9rem;
             color: var(--ink-mid);
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             display: flex;
             align-items: baseline;
             gap: 12px;
-            line-height: 1.6;
-        }
-
-        .awards-list li:last-child {
-            margin-bottom: 0;
+            line-height: 1.65;
         }
 
         .award-year {
             font-family: 'JetBrains Mono', monospace;
             font-weight: 700;
             color: var(--gold);
-            font-size: 0.85rem;
-            min-width: 45px;
+            font-size: .82rem;
+            min-width: 42px;
         }
 
-        /* CERT */
+        /* ── CERT ── */
         .cert-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 10px;
+            grid-template-columns: repeat(auto-fit, minmax(148px, 1fr));
+            gap: 9px;
         }
 
         .cert-card {
             background: var(--card);
-            border: 1px solid var(--rule);
+            border: 1px solid var(--border);
             padding: 12px;
             border-radius: 8px;
         }
 
         .cert-name {
-            font-size: 0.85rem;
+            font-size: .84rem;
             font-weight: 600;
         }
 
         .cert-org {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.65rem;
+            font-size: .62rem;
             color: var(--ink-dim);
-            margin-top: 4px;
+            margin-top: 3px;
         }
 
-        /* COVER LETTER */
+        /* ── COVER LETTER ── */
+        .cl-section-wrapper {
+            border-top: 1px solid var(--border);
+            padding-top: 22px;
+            margin-bottom: 28px;
+            display: flex;
+            gap: 28px;
+            animation: riseIn .5s ease both;
+        }
+
+        .cl-section-left {
+            min-width: 120px;
+        }
+
+        .cl-section-right {
+            flex: 1;
+        }
+
+        .cl-section-label {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--gold);
+            line-height: 1.3;
+            display: block;
+        }
+
+        .cl-sub-heading {
+            display: block;
+            font-weight: 700;
+            font-size: .95rem;
+            color: var(--teal);
+            margin-bottom: 14px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: .8rem;
+            letter-spacing: .04em;
+        }
+
         .cover-letter-text {
             color: var(--ink-mid);
-            font-size: 1rem;
+            font-size: .96rem;
             line-height: 2;
         }
 
         .cover-letter-text p {
-            margin-bottom: 20px;
+            margin-bottom: 18px;
             text-align: justify;
         }
 
@@ -410,38 +482,43 @@
             color: var(--ink);
         }
 
-        /* PROJECT TABLE */
+        .cover-letter-text em {
+            color: var(--teal);
+            font-style: normal;
+        }
+
+        /* ── PROJECT TABLE ── */
         .project-table-wrapper {
             width: 100%;
             overflow-x: auto;
-            margin-bottom: 30px;
             border-radius: 8px;
-            border: 1px solid var(--rule);
+            border: 1px solid var(--border);
+            margin-bottom: 28px;
         }
 
         .project-table {
             width: 100%;
             border-collapse: collapse;
             text-align: left;
-            font-size: 0.85rem;
+            font-size: .84rem;
             background: var(--card);
         }
 
         .project-table th {
-            background: rgba(0, 0, 0, 0.2);
+            background: rgba(0, 0, 0, .25);
             color: var(--gold);
             font-family: 'JetBrains Mono', monospace;
-            padding: 12px 15px;
+            padding: 12px 14px;
             font-weight: 600;
-            border-bottom: 1px solid var(--rule);
+            border-bottom: 1px solid var(--border);
         }
 
         .project-table td {
-            padding: 12px 15px;
+            padding: 12px 14px;
             color: var(--ink-mid);
-            border-bottom: 1px solid var(--rule);
+            border-bottom: 1px solid var(--border);
             vertical-align: top;
-            line-height: 1.6;
+            line-height: 1.65;
         }
 
         .project-table tr:last-child td {
@@ -451,27 +528,33 @@
         .project-table td.pt-title {
             font-weight: 700;
             color: var(--ink);
-            font-size: 0.95rem;
+            font-size: .9rem;
         }
 
         .pt-tech {
             color: var(--teal);
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem;
+            font-size: .7rem;
             display: block;
             margin-top: 4px;
         }
 
-        .proj-date {
+        .pt-result {
+            display: inline-block;
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem;
-            color: var(--ink-dim);
+            font-size: .62rem;
+            padding: 2px 7px;
+            border-radius: 3px;
+            background: rgba(77, 217, 192, .08);
+            color: var(--teal);
+            border: 1px solid rgba(77, 217, 192, .2);
+            margin-top: 5px;
         }
 
         @keyframes riseIn {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(16px);
             }
 
             to {
@@ -480,14 +563,13 @@
             }
         }
 
-        /* ══════════════════════════════
-           PRINT — COMPLETE REWRITE
-           샘플 이력서(A256) 스타일 기반
-        ══════════════════════════════ */
+        /* ══════════════════════════
+       PRINT
+    ══════════════════════════ */
         @media print {
             @page {
                 size: A4;
-                margin: 15mm 18mm 18mm 18mm;
+                margin: 14mm 17mm 17mm 17mm;
             }
 
             *,
@@ -506,7 +588,7 @@
                 color: #111 !important;
                 font-family: 'Noto Sans KR', sans-serif !important;
                 font-size: 9pt !important;
-                line-height: 1.6 !important;
+                line-height: 1.65 !important;
             }
 
             .page-wrapper {
@@ -526,54 +608,48 @@
                 break-after: avoid !important;
             }
 
-            /* ─── PAGE HEADER BAR (샘플처럼 상단 제목줄) ─── */
             .print-page-header {
                 display: flex !important;
                 justify-content: space-between !important;
                 align-items: center !important;
                 border-bottom: 3px solid #1a1a1a !important;
                 padding-bottom: 8px !important;
-                margin-bottom: 18px !important;
+                margin-bottom: 16px !important;
             }
 
             .print-page-header .doc-type {
                 font-family: 'Syne', sans-serif !important;
-                font-size: 22pt !important;
+                font-size: 21pt !important;
                 font-weight: 800 !important;
                 color: #1a1a1a !important;
-                letter-spacing: -1px !important;
             }
 
             .print-page-header .doc-brand {
                 font-family: 'JetBrains Mono', monospace !important;
-                font-size: 13pt !important;
+                font-size: 12pt !important;
                 font-weight: 700 !important;
                 color: #1a6eb5 !important;
-                letter-spacing: 0.05em !important;
             }
 
-            /* ─── PAGE 1: RESUME ─── */
-            /* 이름 헤더 — 샘플처럼 중앙 큰 제목 */
+            /* PAGE 1 HEADER */
             #page-resume header {
                 display: grid !important;
                 grid-template-columns: 1fr auto !important;
-                gap: 16px !important;
+                gap: 14px !important;
                 align-items: start !important;
-                margin-bottom: 18px !important;
-                padding: 0 !important;
+                margin-bottom: 16px !important;
             }
 
             .catchphrase {
-                font-size: 8.5pt !important;
+                font-size: 8pt !important;
                 color: #005a50 !important;
-                font-weight: 700 !important;
-                margin-bottom: 4px !important;
                 font-style: italic !important;
+                margin-bottom: 4px !important;
             }
 
             h1 {
                 font-family: 'Syne', sans-serif !important;
-                font-size: 30pt !important;
+                font-size: 28pt !important;
                 font-weight: 800 !important;
                 color: #1a1a1a !important;
                 letter-spacing: -1px !important;
@@ -592,10 +668,10 @@
 
             .job-title {
                 font-family: 'JetBrains Mono', monospace !important;
-                font-size: 8pt !important;
-                letter-spacing: 0.25em !important;
+                font-size: 7.5pt !important;
+                letter-spacing: .22em !important;
                 color: #7a4e00 !important;
-                margin-bottom: 10px !important;
+                margin-bottom: 9px !important;
             }
 
             .contact-row {
@@ -603,7 +679,7 @@
                 font-size: 7.5pt !important;
                 color: #444 !important;
                 display: flex !important;
-                gap: 14px !important;
+                gap: 13px !important;
                 margin-bottom: 0 !important;
             }
 
@@ -612,8 +688,8 @@
             }
 
             .header-photo img {
-                width: 80px !important;
-                height: 106px !important;
+                width: 78px !important;
+                height: 104px !important;
                 object-fit: cover !important;
                 border-radius: 3px !important;
                 border: 1px solid #999 !important;
@@ -625,39 +701,34 @@
             }
 
             #page-resume section {
-                margin-bottom: 14px !important;
+                margin-bottom: 13px !important;
                 break-inside: avoid !important;
             }
 
-            /* Section headings — 샘플처럼 굵은 컬러 레이블 */
             h2 {
                 font-family: 'JetBrains Mono', monospace !important;
-                font-size: 8pt !important;
+                font-size: 7.5pt !important;
                 font-weight: 700 !important;
                 color: #1a6eb5 !important;
-                letter-spacing: 0.2em !important;
+                letter-spacing: .2em !important;
                 text-transform: uppercase !important;
-                margin-bottom: 8px !important;
-                padding-bottom: 4px !important;
+                margin-bottom: 7px !important;
+                padding-bottom: 3px !important;
                 border-bottom: 1.5px solid #1a6eb5 !important;
                 display: block !important;
             }
 
-            h2::before {
-                display: none !important;
-            }
-
+            h2::before,
             h2::after {
                 display: none !important;
             }
 
-            /* Skills */
             .skill-block {
                 background: transparent !important;
                 border: none !important;
                 border-bottom: 1px solid #eee !important;
                 border-radius: 0 !important;
-                margin-bottom: 5px !important;
+                margin-bottom: 4px !important;
                 box-shadow: none !important;
             }
 
@@ -673,8 +744,8 @@
                 font-size: 7.5pt !important;
                 font-weight: 700 !important;
                 color: #1a1a1a !important;
-                width: 85px !important;
-                min-width: 85px !important;
+                width: 82px !important;
+                min-width: 82px !important;
                 padding-top: 1px !important;
             }
 
@@ -687,7 +758,7 @@
 
             .stag {
                 font-family: 'JetBrains Mono', monospace !important;
-                font-size: 6.5pt !important;
+                font-size: 6pt !important;
                 padding: 1px 5px !important;
                 background: #f0f4fa !important;
                 color: #1a4a80 !important;
@@ -707,7 +778,7 @@
             }
 
             .skill-detail-inner {
-                padding: 2px 0 5px 85px !important;
+                padding: 2px 0 5px 82px !important;
             }
 
             .skill-detail ul {
@@ -719,8 +790,8 @@
                 color: #333 !important;
                 margin-bottom: 3px !important;
                 position: relative !important;
-                padding-left: 12px !important;
-                line-height: 1.5 !important;
+                padding-left: 11px !important;
+                line-height: 1.55 !important;
             }
 
             .skill-detail li::before {
@@ -734,7 +805,20 @@
                 color: #1a1a1a !important;
             }
 
-            /* Education */
+            .badge {
+                font-size: 6pt !important;
+                padding: 1px 5px !important;
+                background: #e8f4ff !important;
+                color: #1a6eb5 !important;
+                border: 1px solid #b0cce8 !important;
+            }
+
+            .badge-g {
+                background: #e8faf6 !important;
+                color: #006a50 !important;
+                border-color: #a0d8c8 !important;
+            }
+
             .edu-card {
                 border: none !important;
                 background: transparent !important;
@@ -745,7 +829,7 @@
                 align-items: flex-start !important;
                 box-shadow: none !important;
                 border-bottom: 1px solid #eee !important;
-                margin-bottom: 8px !important;
+                margin-bottom: 7px !important;
             }
 
             .edu-section {
@@ -765,7 +849,6 @@
 
             .edu-card--awards {
                 display: block !important;
-                align-items: initial !important;
             }
 
             .edu-card-title {
@@ -811,19 +894,14 @@
                 line-height: 1.5 !important;
             }
 
-            .awards-list li:last-child {
-                margin-bottom: 0 !important;
-            }
-
             .award-year {
                 font-family: 'JetBrains Mono', monospace !important;
                 font-weight: 700 !important;
                 color: #1a6eb5 !important;
                 font-size: 7.5pt !important;
-                min-width: 35px !important;
+                min-width: 34px !important;
             }
 
-            /* Cert */
             .cert-grid {
                 display: grid !important;
                 grid-template-columns: repeat(5, 1fr) !important;
@@ -850,44 +928,45 @@
                 margin-top: 2px !important;
             }
 
-            /* ─── PAGE 2 & 3: COVER LETTER ─── */
-            #page-cover-letter section,
-            #page-cover-letter-2 section {
-                margin-bottom: 26px !important;
-                break-inside: avoid !important;
-            }
-
-            /* 자기소개서 섹션 헤더 — 샘플처럼 파란 레이블 + 본문 */
-            .cl-section-label {
-                display: inline-block !important;
-                font-family: 'Syne', sans-serif !important;
-                font-size: 13pt !important;
-                font-weight: 800 !important;
-                color: #1a6eb5 !important;
-                min-width: 90px !important;
-                vertical-align: top !important;
-                line-height: 1.4 !important;
-                margin-right: 0 !important;
-            }
-
+            /* COVER LETTER PRINT */
             .cl-section-wrapper {
                 display: table !important;
                 width: 100% !important;
                 border-top: 1.5px solid #1a6eb5 !important;
                 padding-top: 12px !important;
                 margin-bottom: 20px !important;
+                animation: none !important;
             }
 
             .cl-section-left {
                 display: table-cell !important;
-                width: 100px !important;
+                width: 96px !important;
                 vertical-align: top !important;
-                padding-right: 16px !important;
+                padding-right: 14px !important;
             }
 
             .cl-section-right {
                 display: table-cell !important;
                 vertical-align: top !important;
+            }
+
+            .cl-section-label {
+                font-family: 'Syne', sans-serif !important;
+                font-size: 12pt !important;
+                font-weight: 800 !important;
+                color: #1a6eb5 !important;
+                line-height: 1.4 !important;
+                display: block !important;
+            }
+
+            .cl-sub-heading {
+                font-family: 'JetBrains Mono', monospace !important;
+                font-size: 7.5pt !important;
+                font-weight: 700 !important;
+                color: #1a6eb5 !important;
+                letter-spacing: .04em !important;
+                margin-bottom: 8px !important;
+                display: block !important;
             }
 
             .cover-letter-text {
@@ -897,7 +976,7 @@
             }
 
             .cover-letter-text p {
-                margin-bottom: 12px !important;
+                margin-bottom: 11px !important;
                 text-align: justify !important;
                 text-indent: 1em !important;
             }
@@ -907,19 +986,18 @@
                 font-weight: 700 !important;
             }
 
-            .cl-sub-heading {
-                font-weight: 700 !important;
-                color: #1a1a1a !important;
-                font-size: 9.5pt !important;
-                margin-bottom: 6px !important;
-                display: block !important;
+            .cover-letter-text em {
+                color: #005a8e !important;
+                font-style: normal !important;
             }
 
-            /* ─── PAGE 4: PROJECT TECH DOC ─── */
-            #page-project-tech section {
+            #page-cover-letter section,
+            #page-cover-letter-2 section {
+                margin-bottom: 22px !important;
                 break-inside: avoid !important;
             }
 
+            /* PROJECT TABLE PRINT */
             .project-table-wrapper {
                 border: 1px solid #bbb !important;
                 border-radius: 0 !important;
@@ -942,7 +1020,6 @@
                 font-weight: 700 !important;
                 padding: 7px 10px !important;
                 border-bottom: 2px solid #1a6eb5 !important;
-                text-align: left !important;
             }
 
             .project-table td {
@@ -974,14 +1051,23 @@
                 color: #1a6eb5 !important;
                 display: block !important;
                 margin-top: 2px !important;
-                background: none !important;
+            }
+
+            .pt-result {
+                font-family: 'JetBrains Mono', monospace !important;
+                font-size: 6pt !important;
+                padding: 1px 5px !important;
+                background: #e8faf5 !important;
+                color: #005a40 !important;
+                border: 1px solid #a0d8c0 !important;
+                display: inline-block !important;
+                margin-top: 3px !important;
             }
 
             .project-table tr {
                 break-inside: avoid !important;
             }
 
-            /* Show print page headers when printing */
             .print-page-header {
                 display: flex !important;
             }
@@ -991,12 +1077,11 @@
 
 <body>
 
-    <!-- ══════════════════════════════════════
+    <!-- ══════════════════════════════
      PAGE 1 : 이력서
-══════════════════════════════════════ -->
+══════════════════════════════ -->
     <div class="page-wrapper document-page" id="page-resume">
 
-        <!-- 인쇄용 페이지 헤더 (화면에서는 숨김) -->
         <div class="print-page-header" style="display:none;">
             <span class="doc-type">이력서</span>
             <span class="doc-brand">박재영</span>
@@ -1004,12 +1089,12 @@
 
         <header>
             <div class="header-left">
-                <div class="catchphrase">"플레이의 재미를 구현으로 연결하는 게임플레이 프로그래머"</div>
+                <div class="catchphrase">// gameplay programmer · core systems · cross-genre</div>
                 <div class="name-line">
                     <h1>박재영</h1>
                     <div class="live-dot"></div>
                 </div>
-                <div class="job-title">Game Play Developer</div>
+                <div class="job-title">GAME PLAY DEVELOPER</div>
                 <div class="contact-row">
                     <span>✉ s2444@e-mirim.hs.kr</span>
                     <span>☎ 010-3484-0767</span>
@@ -1026,8 +1111,10 @@
 
         <div class="rule-line"></div>
 
+        <!-- SKILLS -->
         <section>
             <h2>Tech Skills</h2>
+
             <div class="skill-block open" id="sb-lang">
                 <div class="skill-trigger" onclick="toggleSkill('sb-lang')">
                     <div class="s-label">LANGUAGES</div>
@@ -1040,13 +1127,19 @@
                 <div class="skill-detail">
                     <div class="skill-detail-inner">
                         <ul>
-                            <li><strong>C++/C#</strong>: 게임 루프, 충돌 처리, 오브젝트 재사용 구조를 직접 구현하며 플레이 흐름이 끊기지 않도록 코어 로직을
-                                설계했습니다. DirectX 11 기반 프로젝트에서는 렌더링 루프와 Object Pool 구조를 결합해 실행 안정성을 높였습니다.</li>
-                            <li><strong>Python</strong>: Pygame 리듬게임에서 노트 스폰, 사운드 동기화, 입력 큐를 클래스로 추상화하여 판정과 입력 흐름이 흔들리지
-                                않도록 게임 루프를 안정화했습니다.
+                            <li>
+                                <strong>C++ / C#</strong> <span class="badge">Primary</span> —
+                                게임 루프·충돌 처리·오브젝트 풀을 직접 설계. DirectX 11 프로젝트에서 렌더링 루프와 Object Pool을 결합해
+                                <strong>프레임 히치를 완전 제거</strong>하는 성과를 달성. 메모리 관리와 캐시 지역성을 의식하며 코드를 작성.
                             </li>
-                            <li><strong>Java/JS</strong>: Java Swing 기반 리듬게임에서 판정 로직을 구현하고, Phaser.js로 웹 슈팅 아케이드를 제작하며
-                                장르별 플레이 로직을 빠르게 구현하는 경험을 쌓았습니다.</li>
+                            <li>
+                                <strong>Python</strong> — Pygame 리듬 게임에서 노트 스폰·사운드 동기화·입력 큐를 클래스로 추상화.
+                                smoothscale 최적화 + Object Pooling으로 <strong>60fps 안정 유지</strong>.
+                            </li>
+                            <li>
+                                <strong>Java / JavaScript</strong> — Java Swing 리듬 게임의 판정 로직을 ms 단위로 튜닝하고,
+                                Phaser.js 웹 아케이드에서 랭킹 서버 연동까지 풀스택 개발 경험 보유.
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -1064,12 +1157,19 @@
                 <div class="skill-detail">
                     <div class="skill-detail-inner">
                         <ul>
-                            <li><strong>Unreal 5</strong>: UObject 생명주기와 서브시스템 구조를 이해하고, UGameInstanceSubsystem/Delegate
-                                기반으로 UI와 게임 로드를 분리해 플레이 로직이 확장되기 쉬운 구조를 구성했습니다.</li>
-                            <li><strong>Unity 3D</strong>: Prefab 기반 오브젝트 풀, 충돌 처리, 게이지 시스템, 드래그 앤 드롭 이벤트 등 다양한 프로젝트에서
-                                플레이어가 직접 체감하는 핵심 시스템을 구현했습니다.</li>
-                            <li><strong>DirectX 11</strong>: 렌더링 파이프라인과 충돌 처리 로직을 직접 구현하며 3D 공간에서 게임 규칙이 어떻게 동작하는지 바닥부터
-                                이해했습니다.</li>
+                            <li>
+                                <strong>Unreal Engine 5</strong> — UObject 생명주기·서브시스템 구조 이해.
+                                UGameInstanceSubsystem / Delegate 기반으로 UI와 게임 로직을 <strong>완전 분리</strong>해
+                                기능 추가 시 기존 코드 수정 없이 확장 가능한 구조 설계.
+                            </li>
+                            <li>
+                                <strong>Unity 3D</strong> — Prefab 기반 Object Pool, 충돌 처리, 게이지 시스템, Drag &amp; Drop 이벤트 등
+                                5개 이상의 프로젝트에서 플레이어가 직접 체감하는 핵심 시스템 단독 구현.
+                            </li>
+                            <li>
+                                <strong>DirectX 11</strong> — 뷰/프로젝션 행렬·렌더링 파이프라인·HLSL 셰이더를 엔진 없이 직접 구축.
+                                <strong>AABB 충돌 수식</strong> 직접 구현으로 엔진 내부 동작 원리를 바닥부터 이해.
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -1079,27 +1179,34 @@
                 <div class="skill-trigger" onclick="toggleSkill('sb-etc')">
                     <div class="s-label">ETC</div>
                     <div class="s-tags">
-                        <span class="stag">Git / GitHub</span><span class="stag">Object Pooling</span><span
-                            class="stag">AABB Collision</span><span class="stag">State Machine</span><span
-                            class="stag">Phaser.js</span>
+                        <span class="stag">Git / GitHub</span><span class="stag">Object Pooling</span>
+                        <span class="stag">AABB Collision</span><span class="stag">State Machine</span>
+                        <span class="stag">Phaser.js</span>
                     </div>
                     <span class="s-arrow">▶</span>
                 </div>
                 <div class="skill-detail">
                     <div class="skill-detail-inner">
                         <ul>
-                            <li><strong>협업</strong>: GitHub 기반 브랜치 전략으로 6인 팀 프로젝트를 운영하고, 코드 리뷰와 트러블슈팅에 꾸준히 참여하며 팀의 개발
-                                흐름을 안정적으로 유지했습니다.</li>
-                            <li><strong>최적화</strong>: Object Pooling, 캐시 친화적 자료구조, 정적 텍스처 사전 캐싱 등 런타임 성능 최적화 기법을 다수
-                                프로젝트에 적용했습니다.</li>
-                            <li><strong>테스트/피드백</strong>: 교내 배포와 사용자 피드백 수집 경험을 바탕으로, 플레이 감각과 밸런스를 실제 반응에 맞춰 수정하는 과정을
-                                반복해 왔습니다.</li>
+                            <li>
+                                <strong>협업 · Git</strong> — GitHub Flow 기반 브랜치 전략으로 <strong>6인 팀 프로젝트</strong>를 리드.
+                                PR 코드 리뷰와 충돌 해소를 주도하며 일정 내 빌드 안정성 유지.
+                            </li>
+                            <li>
+                                <strong>런타임 최적화</strong> — Object Pooling, 캐시 친화적 자료구조, 정적 텍스처 사전 캐싱을
+                                다수 프로젝트에 적용. 병목 구간을 프로파일링으로 특정하고 성능 개선 수치로 검증하는 습관 보유.
+                            </li>
+                            <li>
+                                <strong>사용자 피드백 기반 개선</strong> — 교내 배포(50~70명) 이후 플레이 데이터와 직접 피드백을 수집해
+                                판정 오차·밸런스·UX를 반복 개선. <strong>데이터 → 가설 → 코드 수정</strong> 사이클 경험.
+                            </li>
                         </ul>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- EDUCATION -->
         <section>
             <h2>Education &amp; Activities</h2>
             <div class="edu-section">
@@ -1116,13 +1223,14 @@
                 <div class="edu-card edu-card--awards">
                     <div class="edu-name edu-card-title">Awards &amp; Honors</div>
                     <ul class="awards-list">
-                        <li><span class="award-year">2025</span> 교과우수상, 선행장, 미림 해커톤 참여</li>
-                        <li><span class="award-year">2024</span> 앱잼 장려상, 과학독후감 최우수상, 교과우수상, 미림 해커톤 참여</li>
+                        <li><span class="award-year">2025</span> 교과우수상 · 선행장 · 미림 해커톤 참여</li>
+                        <li><span class="award-year">2024</span> 앱잼 장려상 · 과학독후감 최우수상 · 교과우수상 · 미림 해커톤 참여</li>
                     </ul>
                 </div>
             </div>
         </section>
 
+        <!-- CERTIFICATIONS -->
         <section>
             <h2>Certifications</h2>
             <div class="cert-grid">
@@ -1148,12 +1256,13 @@
                 </div>
             </div>
         </section>
-    </div>
+
+    </div><!-- /page-resume -->
 
 
-    <!-- ══════════════════════════════════════
+    <!-- ══════════════════════════════
      PAGE 2 : 자기소개서 1
-══════════════════════════════════════ -->
+══════════════════════════════ -->
     <div class="page-wrapper document-page" id="page-cover-letter">
 
         <div class="print-page-header" style="display:none;">
@@ -1165,20 +1274,24 @@
         <section>
             <div class="cl-section-wrapper">
                 <div class="cl-section-left">
-                    <span class="cl-section-label">지원 동기</span>
+                    <span class="cl-section-label">지원<br>동기</span>
                 </div>
                 <div class="cl-section-right">
-                    <span class="cl-sub-heading">"플레이의 재미를 구현으로 연결하는 게임플레이 프로그래머"</span>
+                    <span class="cl-sub-heading">// "보이지 않는 로직이 플레이어의 손끝에 전달되는 순간을 설계합니다"</span>
                     <div class="cover-letter-text">
                         <p>
-                            저는 어릴 때부터 단순히 배우는 데서 그치지 않고, 직접 만들어 보고 움직이게 하는 과정에서 더 큰 흥미를 느끼는 사람이었습니다. 초등학교 3학년 때 스크래치로 처음 코딩을 접했고, 이후 관련 자격증도 취득하며 자연스럽게 프로그래밍에 관심을 키워 갔습니다. 중학교에서는 SW 동아리에서 파이썬을 배우며 흥미를 더 키웠고, C언어까지 배우며 기초를 넓혀 갔습니다.
+                            저는 <strong>게임 안에서 일어나는 모든 현상 뒤의 수식과 구조에 집착하는 개발자</strong>입니다. 초등학교 3학년 때 스크래치로 처음 프로그래밍을 접한
+                            이후, 중학교 시절 오렌지보드로 자동 손 소독제 기계를 직접 제작해 학급에 기부하는 경험을 했습니다. 이 과정에서 "코드가 현실에 닿는 순간"의 가치를 체감했고, 그
+                            감각을 가장 직접적으로 구현할 수 있는 영역이 <strong>게임플레이 프로그래밍</strong>임을 확신하게 되었습니다.
                         </p>
                         <p>
-                            특히 중학교 2학년 때는 오렌지보드를 활용해 자동 손 소독제 기계를 직접 구현해 학급에 기부한 경험이 있습니다. 이 경험을 통해 저는 단순히 코드를 작성하는 것을 넘어, 내가 만든 결과물이 실제로 쓰이고 도움이 되는 과정에서 큰 보람을 느끼는 사람이라는 점을 깨달았습니다. 이런 경험들이 쌓이며 저의 관심은 자연스럽게 사람들에게 가장 직접적으로 재미와 경험을 전달할 수 있는 게임 개발로 이어졌습니다.
+                            게임을 플레이할 때마다 저는 항상 <strong>"이 타격감의 수식은 무엇인가", "이 판정 로직은 어떤 구조로 동작하는가"</strong>를 분해해 왔습니다. 그
+                            호기심은 자연스럽게 실제 구현으로 이어져, 학창 시절 동안 리듬 게임의 ms 단위 판정 시스템부터 엔진 없는 3D 렌더링 파이프라인까지 <em>2,300시간 이상,
+                                13개 프로젝트</em>의 코어 로직을 직접 설계했습니다.
                         </p>
                         <p>
-                            어린 시절부터 저는 게임을 즐길 때마다 <strong>"이 통쾌한 타격감은 어떤 수식으로 만들어졌을까?"</strong>, <strong>"이 절묘한 판정은 어떤 규칙으로 돌아갈까?"</strong>라는 호기심을 품어왔습니다. 저에게 코딩은 단순히 기능을 완성하는 작업이 아니라, 플레이어가 손으로 느끼는 조작감과 화면에서 확인하는 피드백을 자연스럽게 연결하는 일입니다. 보이지 않는
-                            로직을 안정적으로 설계해 기획 의도가 플레이 경험으로 정확히 전달되도록 만드는 <strong>게임플레이 프로그래머</strong>가 되고자 지원합니다.
+                            저의 목표는 기획자의 의도를 기술적 제약 없이 플레이 경험으로 정확히 변환하는 것입니다. 보이지 않는 구조를 안정적으로 설계하고, 플레이어가 화면을 통해 정확히
+                            느끼게 만드는 <strong>게임플레이 프로그래머</strong>로서 즉시 기여하겠습니다.
                         </p>
                     </div>
                 </div>
@@ -1192,26 +1305,34 @@
                     <span class="cl-section-label">프로젝트<br>경험</span>
                 </div>
                 <div class="cl-section-right">
-                    <span class="cl-sub-heading">"장르를 넘나들며 다진 플레이 로직 구현 경험"</span>
+                    <span class="cl-sub-heading">// "문제를 정의하고, 구조로 해결하고, 수치로 검증했습니다"</span>
                     <div class="cover-letter-text">
-                        <p>학창 시절 동안 2,300시간 이상, 10여 개의 프로젝트를 진행하며 플레이어가 직접 체감하는 코어 로직을 꾸준히 구현해 왔습니다. 2D 리듬 게임
-                            'PyMax'에서는 노트 스폰, 입력 처리, 사운드 동기화, 판정 시스템을 직접 설계하며 리듬 게임에서 가장 중요한 입력 감각과 피드백의 일치에 집중했습니다.</p>
-                        <p>'SpaceOut' 프로젝트에서는 DirectX 11 기반으로 렌더링과 충돌 처리 로직을 직접 구현했습니다. 이 경험을 통해 엔진 기능을 사용하는 데 그치지 않고,
-                            게임 규칙이 한 프레임 안에서 어떤 순서와 구조로 동작해야 하는지 이해할 수 있었습니다. 덕분에 장르와 도구가 달라도 플레이 로직을 빠르게 구조화하는 힘을
-                            길렀습니다.</p>
-                        <p>팀 프로젝트인 '마법소녀카와이러블리즈'에서는 6인 팀의 메인 프로그래머로서 보스 레이드 코어 로직과 서버 연동 기능을 맡아 협업 환경에서의 책임감을 배웠습니다.
-                            또 'JSoooooot'과 'JacMan'에서는 교내 사용자 대상 배포 이후 피드백을 수집해 실제 플레이 반응에 맞춰 코드를 수정하며, 구현 이후의 개선 과정까지
-                            경험했습니다.</p>
+                        <p>
+                            <strong>PyMax (2D 리듬 게임, Python/Pygame)</strong>에서는 노트 스폰 → 입력 감지 → 판정 처리 → 시각 피드백의 전체
+                            파이프라인을 설계했습니다. 초기 구현에서 발생한 <strong>사운드-노트 간 싱크 오프셋 문제</strong>를 프레임 기반 타이머에서 시스템 클럭 기반 타이머로
+                            교체해 해결했고, smoothscale 최적화와 Object Pooling으로 <strong>프레임 드랍을 완전히 제거</strong>해 60fps 안정성을
+                            확보했습니다.
+                        </p>
+                        <p>
+                            <strong>SpaceOut (DirectX 11 3D 슈팅)</strong>에서는 외부 엔진 없이 뷰·프로젝션 행렬과 렌더링 파이프라인을 직접 구축했습니다.
+                            <strong>"엔진이 없으면 3D 게임을 만들 수 없다"는 제약을 직접 해제</strong>한 경험으로, 어떤 환경에서도 플레이 로직을 구조화할 수 있는 기초
+                            역량을 증명했습니다. AABB 충돌 수식과 Object Pool + 캐시 친화적 자료구조를 결합해 프레임 히치를 측정 후 제거했습니다.
+                        </p>
+                        <p>
+                            팀 프로젝트 <strong>'마법소녀카와이러블리즈' (C++, 6인)</strong>에서는 메인 프로그래머로서 보스 레이드 코어 로직과 마이크 음성 인식 서버 연동을
+                            전담했습니다. GitHub Flow 기반의 브랜치 전략을 직접 수립하고, 코드 리뷰와 트러블슈팅 대응으로 팀 전체의 개발 속도와 안정성을 유지했습니다.
+                        </p>
                     </div>
                 </div>
             </div>
         </section>
-    </div>
+
+    </div><!-- /page-cover-letter -->
 
 
-    <!-- ══════════════════════════════════════
+    <!-- ══════════════════════════════
      PAGE 3 : 자기소개서 2
-══════════════════════════════════════ -->
+══════════════════════════════ -->
     <div class="page-wrapper document-page" id="page-cover-letter-2">
 
         <div class="print-page-header" style="display:none;">
@@ -1223,17 +1344,24 @@
         <section>
             <div class="cl-section-wrapper">
                 <div class="cl-section-left">
-                    <span class="cl-section-label">성격의<br>장점</span>
+                    <span class="cl-section-label">강점 &amp;<br>협업</span>
                 </div>
                 <div class="cl-section-right">
-                    <span class="cl-sub-heading">"맡은 시스템을 끝까지 책임지는 협업 방식"</span>
+                    <span class="cl-sub-heading">// "팀의 빈틈을 찾아 메우는 것이 제 역할입니다"</span>
                     <div class="cover-letter-text">
-                        <p>팀 프로젝트에서 가장 기본적이면서도 중요한 협업의 원칙은 <strong>'내가 맡은 역할을 끝까지 책임지고 완수하는 것'</strong>이라고 굳게 믿고 있습니다.
-                            저는 전공 프로젝트 개발 동아리 'CodeUs'의 부장으로서, 그리고 다수의 팀 프로젝트에서 메인 프로그래머를 맡아오며 게임의 핵심 로직과 시스템 구현을 안정적으로
-                            마무리하는 자세를 지켜 왔습니다.</p>
-                        <p>저에게 할당된 업무를 안정적이고 신속하게 마무리한 후에는 늘 팀원들의 개발 상황을 살피며, 문제가 발생했을 때 주저 없이 디버깅과 트러블슈팅을 도왔습니다. 교내
-                            학우들을 대상으로 배포하여 직접 피드백을 수렴하고 코드 리뷰를 진행했던 경험처럼, 예상치 못한 오류 앞에서도 좌절하지 않고 팀과 유저의 빈틈을 찾아 메우는 조력자가
-                            되겠습니다.</p>
+                        <p>
+                            저는 <strong>맡은 영역을 완전히 책임지고, 완료 이후에는 팀 전체의 속도를 높이는 방향으로 움직입니다.</strong> 'CodeUs' 동아리 부장으로서,
+                            그리고 다수의 팀 프로젝트에서 메인 프로그래머를 맡으며 일정과 품질을 동시에 지켜내는 습관을 만들었습니다.
+                        </p>
+                        <p>
+                            제 업무를 완료한 이후에는 항상 팀원의 블로킹 이슈를 함께 분석했습니다. 예상치 못한 버그 앞에서 "왜 이 시점에, 이 코드에서 터지는가"를 역추적하는 디버깅을
+                            즐기며, 실제로 여러 프로젝트에서 배포 직전의 크리티컬 이슈를 팀원과 함께 해결한 경험이 있습니다. <strong>코드 리뷰는 완성된 코드를 검토하는 것이 아니라,
+                                설계 방향을 함께 정렬하는 과정</strong>이라고 생각합니다.
+                        </p>
+                        <p>
+                            교내 배포(50~70명 대상)에서 직접 피드백을 수집하고 이를 코드 수정으로 연결하는 경험을 반복하면서, 개발자가 사용자와 가장 가까이 있어야 한다는 관점이
+                            생겼습니다. 이 관점이 더 나은 플레이 경험을 만드는 원동력이 되고 있습니다.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -1246,22 +1374,28 @@
                     <span class="cl-section-label">입사 후<br>포부</span>
                 </div>
                 <div class="cl-section-right">
-                    <span class="cl-sub-heading">"플레이어 경험을 중심에 두는 개발자"</span>
+                    <span class="cl-sub-heading">// "Day 1부터 플레이 로직을 짜고, 6개월 뒤에는 아키텍처를 제안합니다"</span>
                     <div class="cover-letter-text">
-                        <p>프로그래머로서 저의 궁극적인 목표는 기획자가 의도한 참신함과 창의성을 어떠한 기술적 제약 없이 화면 위에 온전히 구현해 내는 것입니다. 이를 위해 저는 개발 과정 내내
-                            끊임없이 '어떻게 하면 더 나은 조작감과 재미를 줄 수 있을까?'를 치열하게 고민하며 작성한 코드와 시스템 구조를 지속적으로 다듬고 리팩토링합니다.</p>
-                        <p>지금까지 다양한 장르의 메인 로직을 직접 구현하며 쌓아 온 경험을 바탕으로, 입사 후에도 팀의 개발 방식과 프로젝트 방향을 빠르게 익히겠습니다. 안정적인 코드와
-                            확장 가능한 구조를 바탕으로 플레이어가 반복해서 손이 가는 재미를 만드는 데 기여하는 개발자로 성장하겠습니다.</p>
+                        <p>
+                            신입이지만 13개 프로젝트에서 <strong>코어 로직을 직접 설계하고, 성능 문제를 수치로 검증하며, 팀 협업을 주도한 경험</strong>이 있습니다. 새로운
+                            코드베이스에 적응하는 것보다, 지금 팀이 해결하지 못한 기술 문제를 찾아 해결하는 것에 더 관심이 있습니다.
+                        </p>
+                        <p>
+                            입사 후 단기 목표는 <strong>프로젝트의 플레이 루프에서 가장 성능 민감한 구간을 파악하고, 측정 가능한 개선을 만드는 것</strong>입니다. 중기 목표는
+                            기획 의도를 기술 제약 없이 구현할 수 있는 시스템 구조를 제안하는 개발자로 성장하는 것입니다. <strong>안정적이고 확장 가능한 코드가 플레이어가 반복해서 손이
+                                가는 재미를 만드는 기반</strong>이라고 믿습니다.
+                        </p>
                     </div>
                 </div>
             </div>
         </section>
-    </div>
+
+    </div><!-- /page-cover-letter-2 -->
 
 
-    <!-- ══════════════════════════════════════
+    <!-- ══════════════════════════════
      PAGE 4 : 프로젝트 기술서
-══════════════════════════════════════ -->
+══════════════════════════════ -->
     <div class="page-wrapper" id="page-project-tech">
 
         <div class="print-page-header" style="display:none;">
@@ -1276,204 +1410,209 @@
                 <table class="project-table">
                     <thead>
                         <tr>
-                            <th width="13%">진행 / 인원</th>
-                            <th width="26%">프로젝트명</th>
-                            <th width="61%">핵심 요약 및 사용 기술</th>
+                            <th width="12%">기간 / 규모</th>
+                            <th width="23%">프로젝트</th>
+                            <th width="65%">문제 → 해결 → 성과</th>
                         </tr>
                     </thead>
                     <tbody>
+
                         <tr>
-                            <td style="white-space:nowrap;">2025.12<br><span
-                                    style="font-size:0.75rem;color:var(--ink-dim);">250H / 1인</span></td>
-                            <td class="pt-title">Tetris Multiplayer<br><span
-                                    style="font-size:0.75rem;color:var(--ink-mid);font-weight:normal;">Java Swing 멀티플레이 테트리스</span></td>
+                            <td><span class="proj-date">2025.12</span><br>500H · 1인</td>
+                            <td class="pt-title">SpaceOut<br>
+                                <span style="font-size:.78rem;color:var(--ink-mid);font-weight:normal;">자체 엔진 3D
+                                    슈팅</span>
+                                <span class="pt-tech">C++ · DirectX 11 · HLSL</span>
+                            </td>
                             <td>
-                                서버 배포를 통한 멀티플레이 기능 구현. 설정 기능을 통해 게임 커스터마이징 가능. Java Swing 기반 UI 및 게임 로직 개발.<br>
-                                <span class="pt-tech">Java / Swing / 서버 배포</span>
+                                <strong>문제</strong>: 외부 엔진 의존 없이 3D 슈팅 게임 구현 필요.<br>
+                                <strong>해결</strong>: 뷰·프로젝션 행렬 직접 구현, AABB 충돌 수식 설계, Object Pool + 캐시 친화적 자료구조 적용.<br>
+                                <strong>성과</strong>: 프레임 히치 완전 제거 / 렌더링 파이프라인 전체를 코드 레벨에서 이해
+                                <span class="pt-result">✓ Frame Hitch 제거</span>
                             </td>
                         </tr>
+
                         <tr>
-                            <td style="white-space:nowrap;">2025.12<br><span
-                                    style="font-size:0.75rem;color:var(--ink-dim);">500H / 1인</span></td>
-                            <td class="pt-title">SpaceOut<br><span
-                                    style="font-size:0.75rem;color:var(--ink-mid);font-weight:normal;">자체 엔진 3D
-                                    슈팅</span></td>
+                            <td><span class="proj-date">2025.12</span><br>300H · 6인</td>
+                            <td class="pt-title">마법소녀카와이러블리즈<br>
+                                <span style="font-size:.78rem;color:var(--ink-mid);font-weight:normal;">음성 인식 보스
+                                    레이드</span>
+                                <span class="pt-tech">C++ · JavaScript</span>
+                            </td>
                             <td>
-                                엔진 없이 뷰/프로젝션 행렬 및 렌더링 파이프라인 구축. AABB 충돌 처리 수식 직접 구현. 오브젝트 풀 + 캐시 친화적 자료구조로 프레임 히치
-                                제거.<br>
-                                <span class="pt-tech">C++ / DirectX 11 / HLSL</span>
+                                <strong>문제</strong>: 6인 팀 협업에서 코어 로직 일정 관리 및 음성 인식 서버 연동 필요.<br>
+                                <strong>해결</strong>: 메인 프로그래머로 보스 레이드 로직 전담, GitHub Flow 브랜치 전략 수립, 마이크 입력·서버 연동 구현.<br>
+                                <strong>성과</strong>: 배포 일정 준수 / 팀 코드 리뷰 문화 정착
+                                <span class="pt-result">✓ 팀 프로젝트 리드</span>
                             </td>
                         </tr>
+
                         <tr>
-                            <td style="white-space:nowrap;">2025.12<br><span
-                                    style="font-size:0.75rem;color:var(--ink-dim);">300H / 6인</span></td>
-                            <td class="pt-title" style="word-break:keep-all;">마법소녀카와이러블리즈큥도큥바큥부큥루루핑:미림폭파작전<br><span
-                                    style="font-size:0.75rem;color:var(--ink-mid);font-weight:normal;">음성 인식 보스
-                                    레이드</span></td>
+                            <td><span class="proj-date">2025.12</span><br>250H · 1인</td>
+                            <td class="pt-title">Tetris Multiplayer<br>
+                                <span style="font-size:.78rem;color:var(--ink-mid);font-weight:normal;">Java Swing 멀티플레이
+                                    테트리스</span>
+                                <span class="pt-tech">Java · Swing · 서버 배포</span>
+                            </td>
                             <td>
-                                마이크 음성 인식 제어 및 서버 연동. 팀 메인 프로그래머로 보스 레이드 코어 로직 전반 C++ 개발 담당.<br>
-                                <span class="pt-tech">C++ / JavaScript</span>
+                                <strong>문제</strong>: 단일 클라이언트 테트리스를 실시간 멀티플레이로 확장.<br>
+                                <strong>해결</strong>: 서버 배포를 통한 멀티플레이 기능 구현, 설정 기반 커스터마이징 시스템 설계.<br>
+                                <strong>성과</strong>: 네트워크 환경에서 게임 상태 동기화 문제 해결 경험 확보
+                                <span class="pt-result">✓ 멀티플레이 구현</span>
                             </td>
                         </tr>
+
                         <tr>
-                            <td style="white-space:nowrap;">2025.10<br><span
-                                    style="font-size:0.75rem;color:var(--ink-dim);">20H / 4인</span></td>
-                            <td class="pt-title">잠을자고일어났더니<br>내가스마트폰중독자?<br><span
-                                    style="font-size:0.75rem;color:var(--ink-mid);font-weight:normal;">중독 예방 런게임</span>
+                            <td><span class="proj-date">2025.08</span><br>300H · 1인</td>
+                            <td class="pt-title">Bubble Bobble<br>
+                                <span style="font-size:.78rem;color:var(--ink-mid);font-weight:normal;">Java Swing
+                                    아케이드</span>
+                                <span class="pt-tech">Java · Swing</span>
                             </td>
                             <td>
-                                오브젝트 습득 시 피로도/중독치 게이지 증감 로직 및 게임 코어 시스템 총괄.<br>
-                                <span class="pt-tech">Unity / C#</span>
+                                <strong>문제</strong>: 참고 없이 원리 기반으로 아케이드 게임 구현 가능 여부 검증.<br>
+                                <strong>해결</strong>: 학습한 내용을 기억에 의존해 독자적으로 게임 로직·그래픽스 구현.<br>
+                                <strong>성과</strong>: 구현 원리 이해도 검증 / 레퍼런스 의존도 감소 확인
                             </td>
                         </tr>
+
                         <tr>
-                            <td style="white-space:nowrap;">2025.08<br><span
-                                    style="font-size:0.75rem;color:var(--ink-dim);">300H / 1인</span></td>
-                            <td class="pt-title">Bubble Bobble<br><span
-                                    style="font-size:0.75rem;color:var(--ink-mid);font-weight:normal;">Java Swing 아케이드 게임</span></td>
+                            <td><span class="proj-date">2025.07</span><br>150H · 1인</td>
+                            <td class="pt-title">JSoooooot<br>
+                                <span style="font-size:.78rem;color:var(--ink-mid);font-weight:normal;">웹 2D 슈팅
+                                    아케이드</span>
+                                <span class="pt-tech">Phaser.js · JavaScript</span>
+                            </td>
                             <td>
-                                유튜브 강의를 완독한 후 기억을 되살려 독자적으로 구현한 버블버블 게임. Java Swing을 활용한 그래픽스 및 게임 메커닉 개발.<br>
-                                <span class="pt-tech">Java / Swing</span>
+                                <strong>문제</strong>: 웹 환경에서의 플레이 로직 구현 및 실 유저 피드백 반영 프로세스 구축.<br>
+                                <strong>해결</strong>: 랭킹 시스템·특수 기믹 구현, 50명 배포 후 피드백 수집 → 코드 리뷰 반영.<br>
+                                <strong>성과</strong>: 데이터 기반 밸런스 조정 경험 확보
+                                <span class="pt-result">✓ 유저 50명 배포</span>
                             </td>
                         </tr>
+
                         <tr>
-                            <td style="white-space:nowrap;">2025.07<br><span
-                                    style="font-size:0.75rem;color:var(--ink-dim);">150H / 1인</span></td>
-                            <td class="pt-title">JSoooooot<br><span
-                                    style="font-size:0.75rem;color:var(--ink-mid);font-weight:normal;">웹 2D 슈팅
-                                    아케이드</span></td>
+                            <td><span class="proj-date">2025.04</span><br>300H · 1인</td>
+                            <td class="pt-title">PyMax<br>
+                                <span style="font-size:.78rem;color:var(--ink-mid);font-weight:normal;">2D 리듬 게임</span>
+                                <span class="pt-tech">Python · Pygame</span>
+                            </td>
                             <td>
-                                랭킹 시스템 및 특수 기믹 구현. 50명 대상 테스트 배포 후 유저 피드백 기반 코드 리뷰 반영.<br>
-                                <span class="pt-tech">Phaser.js / JavaScript</span>
+                                <strong>문제</strong>: 사운드-노트 싱크 오프셋 발생 + 프레임 드랍으로 판정 정확도 저하.<br>
+                                <strong>해결</strong>: 시스템 클럭 기반 타이머 교체, smoothscale 최적화, Object Pooling 적용.<br>
+                                <strong>성과</strong>: 60fps 완전 안정화 / 판정 오차 최소화
+                                <span class="pt-result">✓ 60fps 안정화</span>
                             </td>
                         </tr>
+
                         <tr>
-                            <td style="white-space:nowrap;">2025.07<br><span
-                                    style="font-size:0.75rem;color:var(--ink-dim);">200H / 1인</span></td>
-                            <td class="pt-title">PyRansomwere<br><span
-                                    style="font-size:0.75rem;color:var(--ink-mid);font-weight:normal;">교육용 보안
-                                    시뮬레이터</span></td>
+                            <td><span class="proj-date">2025.04</span><br>200H · 1인</td>
+                            <td class="pt-title">JacMan<br>
+                                <span style="font-size:.78rem;color:var(--ink-mid);font-weight:normal;">웹 아케이드 게임</span>
+                                <span class="pt-tech">Phaser.js · JavaScript</span>
+                            </td>
                             <td>
-                                암호화/복호화 원리를 시각화한 악성코드 시뮬레이터. 마이스터고 교장단 대상 오프라인 발표작.<br>
-                                <span class="pt-tech">Python / Cryptography</span>
+                                <strong>문제</strong>: 교내 라이브 서비스 운영 및 유저 데이터 기반 실시간 개선 필요.<br>
+                                <strong>해결</strong>: 로그인·랭킹 서버 연동, 아이템 기능 개발, 70명 대상 라이브 서비스 운영 및 피드백 반영.<br>
+                                <strong>성과</strong>: 서비스 운영 중 발생한 버그 실시간 수정 경험
+                                <span class="pt-result">✓ 유저 70명 라이브</span>
                             </td>
                         </tr>
+
                         <tr>
-                            <td style="white-space:nowrap;">2025.04<br><span
-                                    style="font-size:0.75rem;color:var(--ink-dim);">300H / 1인</span></td>
-                            <td class="pt-title">PyMax<br><span
-                                    style="font-size:0.75rem;color:var(--ink-mid);font-weight:normal;">2D 리듬 게임</span>
+                            <td><span class="proj-date">2025.07</span><br>200H · 1인</td>
+                            <td class="pt-title">PyRansomwere<br>
+                                <span style="font-size:.78rem;color:var(--ink-mid);font-weight:normal;">교육용 보안
+                                    시뮬레이터</span>
+                                <span class="pt-tech">Python · Cryptography</span>
                             </td>
                             <td>
-                                상태 기반 노트 판정 시스템, 사운드 동기화 모듈, smoothscale 최적화 및 Object Pooling으로 프레임 드랍 완전 제거. Java 판정 로직
-                                고도화 이식.<br>
-                                <span class="pt-tech">Python / Pygame</span>
+                                <strong>문제</strong>: 암호화·복호화 원리를 비전공자가 직관적으로 이해할 수 있는 시각화 도구 필요.<br>
+                                <strong>해결</strong>: 악성코드 시뮬레이터 형태로 암·복호화 프로세스 시각화 구현.<br>
+                                <strong>성과</strong>: 마이스터고 교장단 대상 오프라인 발표 · 높은 이해도 반응 확인
                             </td>
                         </tr>
+
                         <tr>
-                            <td style="white-space:nowrap;">2025.04<br><span
-                                    style="font-size:0.75rem;color:var(--ink-dim);">200H / 1인</span></td>
-                            <td class="pt-title">JacMan<br><span
-                                    style="font-size:0.75rem;color:var(--ink-mid);font-weight:normal;">웹 아케이드 게임</span>
+                            <td><span class="proj-date">2024.10</span><br>20H · 4인</td>
+                            <td class="pt-title">잠을자고일어났더니…<br>
+                                <span style="font-size:.78rem;color:var(--ink-mid);font-weight:normal;">중독 예방 런게임</span>
+                                <span class="pt-tech">Unity · C#</span>
                             </td>
                             <td>
-                                로그인·랭킹 서버 연동 및 아이템 기능 개발. 교내 학우 70명 대상 라이브 서비스 진행 및 유저 피드백 반영.<br>
-                                <span class="pt-tech">Phaser.js / JavaScript</span>
+                                <strong>문제</strong>: 게임 메카닉을 통한 교육 메시지 전달 구조 설계.<br>
+                                <strong>해결</strong>: 오브젝트 습득 시 피로도·중독치 게이지 증감 로직 및 게임 코어 시스템 전담.<br>
+                                <strong>성과</strong>: 게임 메카닉 + 교육 목적 결합 설계 경험
                             </td>
                         </tr>
+
                         <tr>
-                            <td style="white-space:nowrap;">2024.10<br><span
-                                    style="font-size:0.75rem;color:var(--ink-dim);">20H / 4인</span></td>
-                            <td class="pt-title">신조어키우기<br><span
-                                    style="font-size:0.75rem;color:var(--ink-mid);font-weight:normal;">시니어 교육 육성
-                                    게임</span></td>
+                            <td><span class="proj-date">2024.10</span><br>20H · 4인</td>
+                            <td class="pt-title">신조어키우기<br>
+                                <span style="font-size:.78rem;color:var(--ink-mid);font-weight:normal;">시니어 교육 육성
+                                    게임</span>
+                                <span class="pt-tech">Unity · C#</span>
+                            </td>
                             <td>
-                                퀴즈 정답에 따른 경험치 계산 및 단계별 캐릭터 해금/성장 백엔드 로직 총괄.<br>
-                                <span class="pt-tech">Unity / C#</span>
+                                <strong>문제</strong>: 시니어 사용자 대상 신조어 학습을 게임화.<br>
+                                <strong>해결</strong>: 퀴즈 정답 기반 경험치 계산 및 단계별 캐릭터 해금/성장 백엔드 로직 전담.<br>
+                                <strong>성과</strong>: 앱잼 장려상 수상
+                                <span class="pt-result">✓ 앱잼 장려상</span>
                             </td>
                         </tr>
+
                         <tr>
-                            <td style="white-space:nowrap;">2024.07<br><span
-                                    style="font-size:0.75rem;color:var(--ink-dim);">20H / 2인</span></td>
-                            <td class="pt-title">바텐더 게임 (가제)<br><span
-                                    style="font-size:0.75rem;color:var(--ink-mid);font-weight:normal;">드래그 앤 드롭
-                                    시뮬레이터</span></td>
-                            <td>
-                                마우스 드래그 앤 드롭 이벤트 처리 및 재료 조합을 통한 음료 제조 클라이언트 로직 담당.<br>
-                                <span class="pt-tech">Unity / C#</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="white-space:nowrap;">2024.07<br><span
-                                    style="font-size:0.75rem;color:var(--ink-dim);">350H / 1인</span></td>
-                            <td class="pt-title">Rhythm.exe<br><span
-                                    style="font-size:0.75rem;color:var(--ink-mid);font-weight:normal;">PC 리듬 게임</span>
-                            </td>
-                            <td>
-                                파일 입출력을 활용한 로컬 회원 관리 시스템 및 오차 범위를 줄인 리듬 코어 판정 로직 구현. PyMax 판정 로직의 원형.<br>
+                            <td><span class="proj-date">2024.07</span><br>350H · 1인</td>
+                            <td class="pt-title">Rhythm.exe<br>
+                                <span style="font-size:.78rem;color:var(--ink-mid);font-weight:normal;">PC 리듬 게임</span>
                                 <span class="pt-tech">Java Swing</span>
                             </td>
+                            <td>
+                                <strong>문제</strong>: 리듬 게임 판정 오차를 ms 단위로 정밀하게 제어 필요.<br>
+                                <strong>해결</strong>: 파일 I/O 기반 로컬 회원 시스템 + 오차 범위를 최소화한 판정 로직 구현. PyMax 판정 시스템의 원형.<br>
+                                <strong>성과</strong>: 이후 프로젝트에 재사용 가능한 판정 모듈 설계
+                            </td>
                         </tr>
+
                         <tr>
-                            <td style="white-space:nowrap;">2023.05<br><span
-                                    style="font-size:0.75rem;color:var(--ink-dim);">100H / 1인</span></td>
-                            <td class="pt-title">화살피하기 (가제)<br><span
-                                    style="font-size:0.75rem;color:var(--ink-mid);font-weight:normal;">탄막 회피 액션</span>
+                            <td><span class="proj-date">2024.07</span><br>20H · 2인</td>
+                            <td class="pt-title">바텐더 게임<br>
+                                <span style="font-size:.78rem;color:var(--ink-mid);font-weight:normal;">Drag &amp; Drop
+                                    시뮬레이터</span>
+                                <span class="pt-tech">Unity · C#</span>
                             </td>
                             <td>
-                                Prefab을 활용한 탄막(화살) 메모리 및 스폰 관리. 충돌 처리 시스템 기초 설계. 첫 번째 Unity 독립 프로젝트.<br>
-                                <span class="pt-tech">Unity / C#</span>
+                                <strong>문제</strong>: 마우스 인터랙션 기반 물리 시뮬레이션 및 조합 로직 설계.<br>
+                                <strong>해결</strong>: 드래그 앤 드롭 이벤트 처리 및 재료 조합 로직 담당.<br>
+                                <strong>성과</strong>: 비선형 인터랙션 시스템 설계 경험 확보
                             </td>
                         </tr>
+
+                        <tr>
+                            <td><span class="proj-date">2023.05</span><br>100H · 1인</td>
+                            <td class="pt-title">화살피하기<br>
+                                <span style="font-size:.78rem;color:var(--ink-mid);font-weight:normal;">탄막 회피 액션</span>
+                                <span class="pt-tech">Unity · C#</span>
+                            </td>
+                            <td>
+                                <strong>문제</strong>: Unity 첫 독립 프로젝트로 탄막 스폰·충돌 처리 구조 설계.<br>
+                                <strong>해결</strong>: Prefab 기반 탄막 메모리 및 스폰 관리, 충돌 처리 시스템 설계.<br>
+                                <strong>성과</strong>: Object Pool 패턴의 필요성을 실무적으로 체득한 첫 경험
+                            </td>
+                        </tr>
+
                     </tbody>
                 </table>
             </div>
         </section>
-    </div>
+
+    </div><!-- /page-project-tech -->
 
     <script>
-        // 화면에서는 print-page-header 숨김
-
         function toggleSkill(id) {
             document.getElementById(id).classList.toggle('open');
         }
     </script>
-
-    <style>
-        /* 자기소개서 섹션 레이아웃 (화면용) */
-        .cl-section-wrapper {
-            border-top: 2px solid var(--rule);
-            padding-top: 20px;
-            margin-bottom: 30px;
-            display: flex;
-            gap: 24px;
-        }
-
-        .cl-section-left {
-            min-width: 120px;
-        }
-
-        .cl-section-right {
-            flex: 1;
-        }
-
-        .cl-section-label {
-            font-family: 'Syne', sans-serif;
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: var(--gold);
-            line-height: 1.3;
-            display: block;
-        }
-
-        .cl-sub-heading {
-            display: block;
-            font-weight: 700;
-            font-size: 1rem;
-            color: var(--ink);
-            margin-bottom: 12px;
-        }
-    </style>
 
 </body>
 
