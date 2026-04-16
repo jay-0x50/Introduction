@@ -1234,7 +1234,8 @@
                             <tr>
                                 <td class="td-key"><span class="tag tag-bug">BUG</span>FPS 급락</td>
                                 <td class="td-val">롱노트 20개 이상 구간에서 FPS <strong>60 → 18</strong> 폭락. 프로파일러 추적 결과 렌더 루프 내
-                                    <code>smoothscale</code> 반복 호출이 CPU 연산의 <strong>78%</strong>를 점유</td>
+                                    <code>smoothscale</code> 반복 호출이 CPU 연산의 <strong>78%</strong>를 점유
+                                </td>
                             </tr>
                             <tr>
                                 <td class="td-key"><span class="tag tag-fix">FIX</span>O(N)→O(1)</td>
@@ -1302,7 +1303,8 @@ note_cache = {}
                     <div class="learned-item">
                         <div class="learned-title">▸ 문제 — 프로파일러로 특정한 78% CPU 점유</div>
                         <p>롱노트 20개 이상 구간에서 FPS가 60에서 18 미만으로 급락하는 프레임 스파이크가 발생했습니다. 프로파일러를 돌린 결과, 렌더 루프 내
-                            <code>pygame.transform.smoothscale</code>이 매 프레임 반복 호출되며 전체 CPU 연산의 78%를 점유하고 있었습니다.</p>
+                            <code>pygame.transform.smoothscale</code>이 매 프레임 반복 호출되며 전체 CPU 연산의 78%를 점유하고 있었습니다.
+                        </p>
                     </div>
                     <div class="learned-item">
                         <div class="learned-title">▸ 해결 — O(N) 연산을 O(1) 메모리 참조로 전환</div>
@@ -1373,12 +1375,14 @@ note_cache = {}
                             <tr>
                                 <td class="td-key"><span class="tag tag-bug">BUG</span>히치 현상</td>
                                 <td class="td-val">보스 페이즈 초당 300개 총알 생성 구간에서 16ms 이상 프레임 히치 반복. 매 발사마다
-                                    <code>new Bullet()</code> 힙 할당 → OS 시스템 콜 오버헤드 누적이 원인</td>
+                                    <code>new Bullet()</code> 힙 할당 → OS 시스템 콜 오버헤드 누적이 원인
+                                </td>
                             </tr>
                             <tr>
                                 <td class="td-key"><span class="tag tag-fix">FIX</span>Pool 선할당</td>
                                 <td class="td-val">게임 시작 시 최대 탄환 수를 일괄 pre-allocation해 런타임 동적 할당을 완전 제거 →
-                                    <code>active</code> 플래그 토글로 대체, <strong>히치 현상 완전 해소</strong></td>
+                                    <code>active</code> 플래그 토글로 대체, <strong>히치 현상 완전 해소</strong>
+                                </td>
                             </tr>
                         </table>
                     </div>
@@ -1654,7 +1658,8 @@ note_cache = {}
                             <tr>
                                 <td class="td-key"><span class="tag tag-feat">FEAT</span>재귀 파일 탐색</td>
                                 <td class="td-val"><code>os.walk</code>로 타겟 디렉토리 하위 특정 확장자(<code>.txt</code>,
-                                    <code>.png</code> 등)를 재귀 추적하고 I/O 스트림으로 덮어쓰는 엔진을 구현</td>
+                                    <code>.png</code> 등)를 재귀 추적하고 I/O 스트림으로 덮어쓰는 엔진을 구현
+                                </td>
                             </tr>
                         </table>
                     </div>
