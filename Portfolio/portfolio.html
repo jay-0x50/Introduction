@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>입시 포트폴리오</title>
+    <title>포트폴리오</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link
         href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap"
@@ -799,6 +799,517 @@
             z-index: 1;
         }
 
+        /* CONTENTS & EXCEPTION FEATURE */
+        .page-contents {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 3vw;
+            padding: 3.2vw var(--pad-page);
+        }
+
+        .contents-title {
+            font-family: 'Syne', sans-serif;
+            font-size: var(--f-4xl);
+            font-weight: 800;
+            line-height: 0.92;
+            color: var(--text);
+        }
+
+        .contents-title span {
+            color: var(--teal);
+        }
+
+        .contents-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.55vw;
+            justify-content: center;
+        }
+
+        .contents-row {
+            display: grid;
+            grid-template-columns: 5.5vw 1fr 7vw;
+            align-items: center;
+            gap: 1vw;
+            padding: 0.78vw 1vw;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            border-radius: 6px;
+        }
+
+        .contents-row.featured {
+            border-color: var(--teal-border);
+            background: linear-gradient(90deg, rgba(94, 234, 212, 0.12), rgba(212, 165, 116, 0.06));
+        }
+
+        .contents-no,
+        .contents-page {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: var(--f-xs);
+            color: var(--gold);
+            letter-spacing: 0.12em;
+        }
+
+        .contents-name {
+            font-size: var(--f-sm);
+            color: var(--text-mid);
+            line-height: 1.45;
+            word-break: keep-all;
+        }
+
+        .contents-name strong {
+            color: var(--text);
+            font-size: var(--f-md);
+        }
+
+        .exception-hero {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 2.8vw;
+            padding: 3vw var(--pad-page) 2.4vw;
+        }
+
+        .exception-mark {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--gold);
+            font-size: var(--f-xs);
+            letter-spacing: 0.24em;
+            margin-bottom: 1vw;
+        }
+
+        .exception-title {
+            font-family: 'Syne', sans-serif;
+            font-size: var(--f-4xl);
+            font-weight: 800;
+            line-height: 1.04;
+            color: var(--text);
+            margin-bottom: 1.1vw;
+        }
+
+        .exception-title span {
+            color: var(--teal);
+        }
+
+        .exception-copy {
+            font-size: var(--f-md);
+            color: var(--text-mid);
+            line-height: 1.9;
+            word-break: keep-all;
+        }
+
+        .exception-visual {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--surface);
+            overflow: hidden;
+            min-height: 28vw;
+            position: relative;
+        }
+
+        .exception-visual img,
+        .exception-video video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .exception-info-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.7vw;
+            margin-top: 1.4vw;
+        }
+
+        .exception-info {
+            border: 1px solid var(--border);
+            background: var(--surface);
+            border-radius: 6px;
+            padding: 0.75vw 0.85vw;
+        }
+
+        .exception-info strong {
+            display: block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8vw;
+            color: var(--teal);
+            margin-bottom: 0.25vw;
+            text-transform: uppercase;
+        }
+
+        .exception-info span {
+            font-size: 0.9vw;
+            color: var(--text-mid);
+            line-height: 1.45;
+        }
+
+        .exception-page {
+            display: grid;
+            grid-template-rows: auto minmax(0, 1fr);
+            gap: 0.9vw;
+            padding: 1.8vw var(--pad-page) 1.55vw;
+        }
+
+        .exception-head h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: var(--f-3xl);
+            line-height: 1.2;
+            color: var(--text);
+        }
+
+        .exception-head p {
+            margin-top: 0.45vw;
+            font-size: var(--f-sm);
+            color: var(--text-mid);
+            line-height: 1.62;
+            word-break: keep-all;
+            max-width: 68vw;
+        }
+
+        .exception-two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.8vw;
+            min-height: 0;
+        }
+
+        .exception-panel {
+            border: 1px solid var(--border);
+            background: var(--surface);
+            border-radius: 6px;
+            padding: 1.05vw 1.15vw;
+            min-height: 0;
+        }
+
+        .exception-panel-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.92vw;
+            color: var(--teal);
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            margin-bottom: 0.65vw;
+        }
+
+        .exception-panel p,
+        .exception-panel li {
+            font-size: 1vw;
+            color: var(--text-mid);
+            line-height: 1.62;
+            word-break: keep-all;
+        }
+
+        .exception-panel ul {
+            padding-left: 1.1vw;
+        }
+
+        .combat-layout {
+            display: grid;
+            grid-template-columns: 0.92fr 1.08fr;
+            gap: 1.2vw;
+            min-height: 0;
+        }
+
+        .combat-left {
+            display: grid;
+            grid-template-rows: auto auto;
+            gap: 0.8vw;
+            align-content: start;
+            min-height: 0;
+        }
+
+        .combat-panel {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .combat-panel ul {
+            display: grid;
+            gap: 0.18vw;
+        }
+
+        .combat-right {
+            display: grid;
+            grid-template-rows: 1.18fr 0.82fr;
+            gap: 0.8vw;
+            min-height: 0;
+        }
+
+        .combat-shot {
+            border: 1px solid var(--border);
+            background: var(--surface);
+            border-radius: 6px;
+            overflow: hidden;
+            position: relative;
+            min-height: 0;
+        }
+
+        .combat-shot img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            opacity: 0.9;
+        }
+
+        .combat-shot-stack {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 0.8vw;
+            min-height: 0;
+        }
+
+        .combat-flow-panel {
+            border: 1px solid var(--border);
+            background: var(--surface);
+            border-radius: 6px;
+            padding: 0.9vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .combat-flow-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.5vw;
+        }
+
+        .combat-flow-grid div {
+            border: 1px solid var(--border-hi);
+            background: rgba(255, 255, 255, 0.035);
+            border-radius: 4px;
+            padding: 0.58vw 0.35vw;
+            text-align: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.78vw;
+            color: var(--text);
+            line-height: 1.3;
+        }
+
+        .exception-flow {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 0.55vw;
+            margin-top: 1vw;
+        }
+
+        .exception-flow div {
+            border: 1px solid var(--border-hi);
+            background: rgba(255, 255, 255, 0.035);
+            border-radius: 4px;
+            padding: 0.65vw 0.35vw;
+            text-align: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72vw;
+            color: var(--text);
+            line-height: 1.35;
+        }
+
+        .exception-story-layout {
+            display: grid;
+            grid-template-columns: 1.25fr 0.75fr;
+            gap: 1.25vw;
+            align-items: start;
+            min-height: 0;
+        }
+
+        .exception-story-prose {
+            border: 1px solid var(--border);
+            background: var(--surface);
+            border-radius: 6px;
+            padding: 1.2vw 1.35vw;
+        }
+
+        .exception-story-prose p {
+            font-size: 1vw;
+            color: var(--text-mid);
+            line-height: 1.72;
+            word-break: keep-all;
+            margin-bottom: 0.72vw;
+        }
+
+        .exception-story-prose p:last-child {
+            margin-bottom: 0;
+        }
+
+        .exception-story-beats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.6vw;
+            margin-top: 1vw;
+        }
+
+        .exception-beat {
+            border: 1px solid var(--border-hi);
+            background: rgba(94, 234, 212, 0.055);
+            border-radius: 4px;
+            padding: 0.58vw 0.62vw;
+        }
+
+        .exception-beat strong {
+            display: block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.78vw;
+            color: var(--gold);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 0.35vw;
+        }
+
+        .exception-beat span {
+            display: block;
+            font-size: 0.82vw;
+            color: var(--text-mid);
+            line-height: 1.48;
+            word-break: keep-all;
+        }
+
+        .exception-story-side {
+            display: grid;
+            grid-template-rows: auto auto;
+            gap: 1vw;
+            align-content: start;
+            min-height: 0;
+        }
+
+        .exception-kv-list {
+            display: grid;
+            gap: 0.55vw;
+        }
+
+        .exception-kv {
+            display: grid;
+            grid-template-columns: 7.4vw 1fr;
+            gap: 0.7vw;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.55vw;
+        }
+
+        .exception-kv strong {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.82vw;
+            color: var(--gold);
+            text-transform: uppercase;
+        }
+
+        .exception-kv span {
+            font-size: 0.92vw;
+            color: var(--text-mid);
+            line-height: 1.45;
+            word-break: keep-all;
+        }
+
+        .exception-feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.9vw;
+            min-height: 0;
+        }
+
+        .exception-feature-card {
+            border: 1px solid var(--border);
+            background: var(--surface);
+            border-radius: 6px;
+            padding: 0.9vw 0.95vw;
+            display: flex;
+            flex-direction: column;
+            min-height: 0;
+        }
+
+        .exception-feature-card .num {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.78vw;
+            color: var(--gold);
+            letter-spacing: 0.18em;
+            margin-bottom: 0.35vw;
+        }
+
+        .exception-feature-card h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: var(--f-lg);
+            color: var(--text);
+            line-height: 1.1;
+            margin-bottom: 0.55vw;
+        }
+
+        .exception-feature-card p {
+            font-size: 0.9vw;
+            color: var(--text-mid);
+            line-height: 1.55;
+            word-break: keep-all;
+            flex: 1;
+        }
+
+        .exception-feature-card code {
+            display: block;
+            margin-top: 0.65vw;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.74vw;
+            color: var(--teal);
+            background: rgba(94, 234, 212, 0.08);
+            border: 1px solid rgba(94, 234, 212, 0.16);
+            border-radius: 4px;
+            padding: 0.45vw 0.55vw;
+            line-height: 1.45;
+        }
+
+        .exception-gallery {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 1.2vw;
+            min-height: 0;
+        }
+
+        .exception-shot {
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background: var(--surface);
+            overflow: hidden;
+            position: relative;
+            min-height: 0;
+        }
+
+        .exception-shot img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .exception-shot.tall {
+            min-height: 28vw;
+        }
+
+        .exception-shot-stack {
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            gap: 1.2vw;
+            min-height: 0;
+        }
+
+        .exception-caption {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 0.5vw 0.7vw;
+            background: rgba(0, 0, 0, 0.78);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.88vw;
+            color: var(--text);
+            text-transform: uppercase;
+        }
+
+        .exception-video {
+            border: 1px solid var(--border);
+            background: var(--surface);
+            border-radius: 8px;
+            overflow: hidden;
+            min-height: 32vw;
+            position: relative;
+        }
+
         /* CODE REVIEW */
         .page-code {
             display: flex;
@@ -1256,10 +1767,480 @@
             <div class="page-num">— 02</div>
         </div>
 
-        <!-- PAGE 03: PROJECT 01 -->
+        <!-- PAGE 03: CONTENTS -->
+        <div class="page page-contents">
+            <div class="smooth-appear" style="display:flex;flex-direction:column;justify-content:center;">
+                <span class="label">CONTENTS</span>
+                <div class="contents-title">PROJECT<br><span>INDEX</span></div>
+                <p class="exception-copy" style="margin-top:1.5vw;">
+                    포트폴리오의 첫 번째 프로젝트는 Unreal Engine 5 기반 보스 레이드 액션 RPG <strong>Exception</strong>입니다.
+                    기획 의도, 스토리, 전투 시스템, 핵심 C++ 코드, UI/저장 구조, 영상과 이미지 자료를 여러 페이지로 분리해 제작 과정을 자세히 정리했습니다.
+                </p>
+            </div>
+            <div class="contents-list smooth-appear delay-1">
+                <div class="contents-row featured">
+                    <div class="contents-no">01</div>
+                    <div class="contents-name"><strong>Exception</strong><br>기획 의도, 스토리, 기능 소개, 핵심 C++ 코드, 영상/이미지</div>
+                    <div class="contents-page">04-13</div>
+                </div>
+                <div class="contents-row">
+                    <div class="contents-no">02</div>
+                    <div class="contents-name"><strong>PyMax</strong><br>4Key 리듬 게임, 판정감, 렌더링 최적화</div>
+                    <div class="contents-page">14-15</div>
+                </div>
+                <div class="contents-row">
+                    <div class="contents-no">03</div>
+                    <div class="contents-name"><strong>DirectX 11 Engine</strong><br>엔진 구조, 충돌, 오브젝트 풀링, 렌더링 파이프라인</div>
+                    <div class="contents-page">16-17</div>
+                </div>
+                <div class="contents-row">
+                    <div class="contents-no">04</div>
+                    <div class="contents-name"><strong>Unreal Combat Prototype</strong><br>인터페이스, 델리게이트, 전투 시스템 구조화</div>
+                    <div class="contents-page">18-19</div>
+                </div>
+                <div class="contents-row">
+                    <div class="contents-no">05</div>
+                    <div class="contents-name"><strong>Magic Girl Kawaii Lovelies</strong><br>팀 프로젝트, 보스 FSM, 음성 입력 기믹</div>
+                    <div class="contents-page">20-21</div>
+                </div>
+                <div class="contents-row">
+                    <div class="contents-no">END</div>
+                    <div class="contents-name"><strong>Contact & Closing</strong><br>지원 동기와 다음 제작 목표</div>
+                    <div class="contents-page">22-23</div>
+                </div>
+            </div>
+            <div class="page-num">— 03</div>
+        </div>
+
+        <!-- PAGE 04: PROJECT 01 EXCEPTION COVER -->
+        <div class="page exception-hero">
+            <div class="smooth-appear" style="display:flex;flex-direction:column;justify-content:center;">
+                <div class="exception-mark">// PROJECT 01 · MAIN PROJECT</div>
+                <div class="exception-title"><span>Exception</span><br>Boss Raid<br>Action RPG</div>
+                <p class="exception-copy">
+                    Unreal Engine 5와 C++로 제작 중인 보스 레이드 액션 RPG 데모입니다. 플레이어는 Runtime에 투입된 handler, Hendel이 되어
+                    보스들을 깨워 root authority를 탈취하려는 CMD를 막습니다. 이 프로젝트에서는 전투, 보스 상태, 저장, UI 갱신 같은 코어 시스템을 C++로 구현하고,
+                    Blueprint는 연출과 배치 레이어로 사용했습니다.
+                </p>
+                <div class="exception-info-grid">
+                    <div class="exception-info"><strong>Engine</strong><span>Unreal Engine 5</span></div>
+                    <div class="exception-info"><strong>Language</strong><span>C++ / Blueprint</span></div>
+                    <div class="exception-info"><strong>Genre</strong><span>Boss Raid Action RPG</span></div>
+                    <div class="exception-info"><strong>Role</strong><span>기획 / 프로그래밍</span></div>
+                </div>
+            </div>
+            <div class="exception-visual smooth-appear delay-1">
+                <img src="img/TitleBackground.png" alt="Exception title background"
+                    onerror="this.src='img/TitleBackground.png'">
+                <div class="shot-label">Exception · Title & World Mood</div>
+            </div>
+            <div class="page-num">— 04</div>
+        </div>
+
+        <!-- PAGE 05: PROJECT 01 INTENT & STORY -->
+        <div class="page exception-page">
+            <div class="exception-head smooth-appear">
+                <span class="label">PROJECT 01 · PLANNING</span>
+                <h2>기획 의도와 스토리</h2>
+                <p>Exception은 프로그래밍 용어를 세계관과 전투 구조로 번역한 프로젝트입니다. 오류, 예외, 런타임, 데이터베이스 같은 추상적인 개념을 보스와 구역으로 바꾸고,
+                    플레이어가 시스템을 복구한다는 목표를 액션 RPG의 전투 흐름으로 풀었습니다.</p>
+            </div>
+            <div class="exception-story-layout">
+                <div class="exception-story-prose smooth-appear delay-1">
+                    <p>
+                        무대는 실행 흐름이 무너진 세계, <strong>The Runtime</strong>입니다. CMD, The First Command는 아직 완전한 root authority를 얻지 못했지만,
+                        Python과 Perl 구역의 보스들을 깨워 Runtime을 불안정하게 만들고 그 틈에서 root 권한을 빼앗으려 합니다.
+                    </p>
+                    <p>
+                        플레이어 캐릭터 <strong>Hendel</strong>은 무너진 Runtime에 투입된 handler입니다. 조력자 <strong>Nel</strong>은 null의 의미를 가진 안내자로,
+                        플레이어에게 직접적인 퀘스트 UI를 주지 않고 대화 속에서 작은 부탁들을 흘립니다. 이 부탁을 몰라도 게임은 정상 진행되지만,
+                        모두 알아차리면 숨겨진 결말로 이어집니다.
+                    </p>
+                    <p>
+                        메인 진행은 <strong>필드 → Python 보스 → 필드 → Perl 보스 → 필드 → CMD 최종전</strong>으로 구성했습니다.
+                        Python 보스 Vethara는 처리되지 않은 예외의 압박을, Perl 보스 Vritra는 낙타와 정규식 이미지를 섞은 변칙 패턴을 담당합니다.
+                        보스전은 단순한 전투가 아니라 Runtime의 오류 구역을 하나씩 복구하는 과정입니다.
+                    </p>
+                    <p>
+                        기본 엔딩은 CMD를 처치하고 Runtime을 안정화하는 구조입니다. 히든 엔딩에서는 Nel의 부탁을 모두 알아차린 플레이어가
+                        <strong>Mimikatz, Authority Seized</strong>를 얻고, CMD가 거의 손에 넣은 root authority를 Hendel이 선점합니다.
+                        이 선택으로 Hendel은 사라지지 않고 새로운 root가 되지만, CMD는 죽기 직전 handler로 위장한 바이러스를 남깁니다.
+                    </p>
+                    <div class="exception-story-beats">
+                        <div class="exception-beat"><strong>Normal</strong><span>CMD 종료, Runtime 안정화, Hendel의 임무 종료</span></div>
+                        <div class="exception-beat"><strong>Hidden</strong><span>root authority 선점, Hendel 생존, 새로운 통치자화</span></div>
+                        <div class="exception-beat"><strong>Hook</strong><span>Fallback_Handler.exe 생성, handler로 위장한 바이러스 등장</span></div>
+                    </div>
+                </div>
+                <div class="exception-story-side smooth-appear delay-2">
+                    <div class="exception-panel">
+                        <div class="exception-panel-title">Story Core</div>
+                        <div class="exception-kv-list">
+                            <div class="exception-kv"><strong>Hendel</strong><span>Runtime에 투입된 handler이자 플레이어 캐릭터</span></div>
+                            <div class="exception-kv"><strong>Nel</strong><span>null에서 출발한 조력자, 숨겨진 루트의 단서 제공</span></div>
+                            <div class="exception-kv"><strong>CMD</strong><span>root authority를 노리는 최종 보스, 보스들을 깨워 세계를 교란</span></div>
+                            <div class="exception-kv"><strong>Weapon</strong><span>Mimikatz, Authority Seized로 권한 탈취 서사 표현</span></div>
+                        </div>
+                    </div>
+                    <div class="exception-panel">
+                        <div class="exception-panel-title">Playable Flow</div>
+                        <div class="exception-flow">
+                            <div>Field</div>
+                            <div>Python<br>Boss</div>
+                            <div>Field</div>
+                            <div>Perl<br>Boss</div>
+                            <div>Field</div>
+                            <div>CMD<br>Final</div>
+                        </div>
+                        <p style="margin-top:1vw;">스토리 진행과 보스 발판, 체력바, 패턴 전투가 같은 흐름으로 이어지도록 구성했습니다.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="page-num">— 05</div>
+        </div>
+
+        <!-- PAGE 06: PROJECT 01 GAMEPLAY SYSTEM -->
+        <div class="page exception-page">
+            <div class="exception-head smooth-appear">
+                <span class="label">PROJECT 01 · GAMEPLAY</span>
+                <h2>플레이어 액션과 보스전 흐름</h2>
+                <p>전투는 약공격, 강공격, 회피, 패링, 락온, 처형을 중심으로 구성했습니다. 보스는 HP와 Groggy 수치를 가지며, 패링과 공격 누적으로 그로기 상태에 진입하면 처형으로 큰 보상을 얻는 구조입니다.</p>
+            </div>
+            <div class="combat-layout">
+                <div class="combat-left">
+                    <div class="exception-panel combat-panel smooth-appear delay-1">
+                        <div class="exception-panel-title">Player Combat</div>
+                        <ul>
+                            <li>HP / Stamina 기반 전투 자원 관리</li>
+                            <li>약공격, 강공격, 회피, 패링 입력 처리</li>
+                            <li>공격 판정용 Sphere Sweep 구현</li>
+                            <li>락온 카메라와 보스 대상 추적</li>
+                            <li>피격, 사망, 체크포인트 리스폰 흐름 구현</li>
+                        </ul>
+                    </div>
+                    <div class="exception-panel combat-panel smooth-appear delay-2">
+                        <div class="exception-panel-title">Boss Battle</div>
+                        <ul>
+                            <li>공통 보스 베이스 클래스로 HP, Groggy, Dead 상태 관리</li>
+                            <li>Phase 1 / Phase 2 전환과 그로기 지속 시간 처리</li>
+                            <li>팀 코디네이터로 공격권 조율</li>
+                            <li>패턴 공격 전 사거리와 범위 텔레그래프 표시</li>
+                            <li>보스 사망 시 게이트와 보상 액터 처리</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="combat-right smooth-appear delay-3">
+                    <div class="combat-shot">
+                        <img src="img/TitleBackground.png" alt="Exception boss raid world image"
+                            onerror="this.src='img/TitleBackground.png'">
+                        <div class="shot-label">Boss Raid World Mood</div>
+                    </div>
+                    <div class="combat-shot-stack">
+                        <div class="combat-shot">
+                            <img src="img/PlayerHUD.png" alt="Player HUD"
+                                onerror="this.style.display='none'">
+                            <div class="shot-label">Player HUD</div>
+                        </div>
+                        <div class="combat-flow-panel">
+                            <div class="exception-panel-title">Battle Loop</div>
+                            <div class="combat-flow-grid">
+                                <div>Approach</div>
+                                <div>Lock-On</div>
+                                <div>Dodge</div>
+                                <div>Parry</div>
+                                <div>Groggy</div>
+                                <div>Execute</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-num">— 06</div>
+        </div>
+
+        <!-- PAGE 07: PROJECT 01 FEATURE OVERVIEW -->
+        <div class="page exception-page">
+            <div class="exception-head smooth-appear">
+                <span class="label">PROJECT 01 · FEATURE OVERVIEW</span>
+                <h2>구현 기능 소개</h2>
+                <p>Exception에서 직접 구현한 핵심 기능을 기능 단위로 정리했습니다. 단순히 화면에 보이는 UI보다, 플레이가 실제로 성립되도록 만드는 상태 처리와 시스템 연결에 집중했습니다.</p>
+            </div>
+            <div class="exception-feature-grid smooth-appear delay-1">
+                <div class="exception-feature-card">
+                    <div class="num">01 / PLAYER COMBAT</div>
+                    <h3>전투 상태와 입력 제어</h3>
+                    <p>Idle 상태에서만 공격, 회피, 패링을 시작하게 하고 각 행동마다 스태미나를 소모합니다. 행동이 시작되면 상태를 바꾸고 타이머로 종료 시점을 관리해 입력이 겹치지 않도록 했습니다.</p>
+                    <code>CanStartCombatAction()<br>SpendStamina()<br>SetCombatState()</code>
+                </div>
+                <div class="exception-feature-card">
+                    <div class="num">02 / HIT DETECTION</div>
+                    <h3>Sphere Sweep 공격 판정</h3>
+                    <p>플레이어 전방에 구 형태의 Sweep을 쏴서 적중 대상을 찾습니다. 같은 공격에서 같은 Actor가 여러 번 맞지 않도록 TSet으로 중복 타격을 막았습니다.</p>
+                    <code>SweepMultiByObjectType()<br>TSet&lt;AActor*&gt; DamagedActors</code>
+                </div>
+                <div class="exception-feature-card">
+                    <div class="num">03 / PARRY & GROGGY</div>
+                    <h3>패링과 그로기 누적</h3>
+                    <p>패링 가능 시간 동안 공격을 받으면 데미지를 0으로 만들고 보스에게 Groggy Damage를 적용합니다. 보스는 Groggy 수치가 가득 차면 처형 가능한 상태로 전환됩니다.</p>
+                    <code>bIsParryActive<br>ApplyGroggyDamage()<br>CanBeExecuted()</code>
+                </div>
+                <div class="exception-feature-card">
+                    <div class="num">04 / BOSS COORDINATION</div>
+                    <h3>듀얼 보스 공격 조율</h3>
+                    <p>두 보스가 동시에 공격하면 난이도가 불합리해질 수 있어 Team Coordinator가 현재 공격 중인 보스를 기억하고, 공격 사이 간격을 강제합니다.</p>
+                    <code>ActiveAttacker<br>TeamAttackGap<br>CanStartAttack()</code>
+                </div>
+                <div class="exception-feature-card">
+                    <div class="num">05 / SAVE & CHECKPOINT</div>
+                    <h3>체크포인트 저장</h3>
+                    <p>체크포인트에 닿으면 리스폰 위치를 갱신하고 HP/Stamina를 회복한 뒤 자동 저장합니다. Continue 시에는 저장된 레벨, 위치, 능력치, 인벤토리를 복원합니다.</p>
+                    <code>BRCheckpoint<br>BRSaveGameSubsystem<br>ApplyPendingLoadedGame()</code>
+                </div>
+                <div class="exception-feature-card">
+                    <div class="num">06 / UI EVENT FLOW</div>
+                    <h3>이벤트 기반 UI 갱신</h3>
+                    <p>HP, Stamina, Groggy, Inventory 값이 바뀔 때 델리게이트를 Broadcast하고 HUD가 그 결과를 받아 표시합니다. UI가 전투 로직을 직접 계산하지 않게 분리했습니다.</p>
+                    <code>OnHPChanged.Broadcast()<br>OnInventoryChanged.Broadcast()</code>
+                </div>
+            </div>
+            <div class="page-num">— 07</div>
+        </div>
+
+        <!-- PAGE 08: PROJECT 01 CORE CODE COMBAT -->
+        <div class="page page-code">
+            <div class="smooth-appear">
+                <div class="label" style="margin-bottom:0;">PROJECT 01 · CORE CODE 01</div>
+                <div class="code-heading" style="margin-bottom: 1vw;">플레이어 공격 판정: Sweep과 인터페이스 기반 데미지 처리</div>
+            </div>
+            <div class="code-review-block smooth-appear delay-1">
+                <div class="code-wrap">
+                    <div class="code-label">PerformAttackTrace()</div>
+                    <pre class="code-block"><code><span class="kw">void</span> AExceptionCharacter::<span class="fn">PerformAttackTrace</span>(<span class="kw">float</span> Damage, <span class="kw">float</span> GroggyDamage) {
+    <span class="kw">const</span> FVector TraceStart = GetActorLocation() + FVector(0, 0, 45);
+    <span class="kw">const</span> FVector TraceEnd = TraceStart + GetActorForwardVector() * AttackTraceDistance;
+
+    TArray&lt;FHitResult&gt; Hits;
+    FCollisionShape Shape = FCollisionShape::<span class="fn">MakeSphere</span>(AttackTraceRadius);
+    <span class="kw">bool</span> bHit = World-&gt;<span class="fn">SweepMultiByObjectType</span>(
+        Hits, TraceStart, TraceEnd, FQuat::Identity, ObjectParams, Shape, QueryParams);
+
+    TSet&lt;AActor*&gt; DamagedActors;
+    <span class="kw">for</span> (<span class="kw">const</span> FHitResult&amp; Hit : Hits) {
+        AActor* HitActor = Hit.<span class="fn">GetActor</span>();
+        <span class="kw">if</span> (!HitActor || DamagedActors.<span class="fn">Contains</span>(HitActor)) <span class="kw">continue</span>;
+
+        DamagedActors.<span class="fn">Add</span>(HitActor);
+        <span class="kw">if</span> (HitActor-&gt;GetClass()-&gt;<span class="fn">ImplementsInterface</span>(UBRCombatInterface::StaticClass()))
+            IBRCombatInterface::<span class="fn">Execute_ReceiveCombatHit</span>(HitActor, Damage, GroggyDamage, <span class="kw">this</span>);
+    }
+}</code></pre>
+                </div>
+                <div class="learned-panel">
+                    <div class="learned-item">
+                        <div class="learned-title">▸ 이 코드의 기능</div>
+                        <p>플레이어가 공격할 때 전방으로 구형 판정을 보내 맞은 대상을 찾는 코드입니다. 단순 LineTrace보다 넓은 판정을 사용해 근접 액션 게임에서 공격이 너무 빡빡하게 느껴지지 않도록 했습니다.</p>
+                    </div>
+                    <div class="learned-item">
+                        <div class="learned-title">▸ 핵심 설계 이유</div>
+                        <p>같은 공격에서 한 Actor가 여러 충돌체로 여러 번 맞는 문제를 막기 위해 <code>TSet</code>으로 중복 대상을 제거했습니다. 또한 <code>UBRCombatInterface</code>를 통해 보스, 파괴 오브젝트 등 대상별 처리를 분리했습니다.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="page-num">— 08</div>
+        </div>
+
+        <!-- PAGE 09: PROJECT 01 CORE CODE STAT -->
+        <div class="page page-code">
+            <div class="smooth-appear">
+                <div class="label" style="margin-bottom:0;">PROJECT 01 · CORE CODE 02</div>
+                <div class="code-heading" style="margin-bottom: 1vw;">HP, Stamina, Groggy를 한 컴포넌트에서 관리</div>
+            </div>
+            <div class="code-review-block smooth-appear delay-1">
+                <div class="code-wrap">
+                    <div class="code-label">BRStatComponent</div>
+                    <pre class="code-block"><code><span class="kw">bool</span> UBRStatComponent::<span class="fn">ApplyDamageToStats</span>(<span class="kw">float</span> Damage, <span class="kw">float</span> GroggyDamage) {
+    <span class="kw">if</span> (bIsDead || (Damage &lt;= 0.0f &amp;&amp; GroggyDamage &lt;= 0.0f))
+        <span class="kw">return false</span>;
+
+    <span class="kw">if</span> (Damage &gt; 0.0f) {
+        CurrentHP = FMath::<span class="fn">Max</span>(0.0f, CurrentHP - Damage);
+        <span class="fn">BroadcastHP</span>();
+    }
+
+    <span class="kw">if</span> (MaxGroggy &gt; 0.0f &amp;&amp; GroggyDamage &gt; 0.0f &amp;&amp; !bIsGroggy) {
+        CurrentGroggy = FMath::<span class="fn">Min</span>(MaxGroggy, CurrentGroggy + GroggyDamage);
+        <span class="fn">BroadcastGroggy</span>();
+
+        <span class="kw">if</span> (CurrentGroggy &gt;= MaxGroggy) {
+            bIsGroggy = <span class="kw">true</span>;
+            OnGroggy.<span class="fn">Broadcast</span>();
+        }
+    }
+
+    <span class="kw">if</span> (Damage &gt; 0.0f &amp;&amp; CurrentHP &lt;= 0.0f) {
+        bIsDead = <span class="kw">true</span>;
+        OnDead.<span class="fn">Broadcast</span>();
+    }
+    <span class="kw">return true</span>;
+}</code></pre>
+                </div>
+                <div class="learned-panel">
+                    <div class="learned-item">
+                        <div class="learned-title">▸ 이 코드의 기능</div>
+                        <p>보스와 전투 대상의 HP, Groggy, 사망 상태를 처리하는 공통 스탯 컴포넌트입니다. 데미지를 받으면 HP를 줄이고, Groggy Damage가 있으면 그로기 게이지를 올린 뒤 꽉 찼을 때 이벤트를 발생시킵니다.</p>
+                    </div>
+                    <div class="learned-item">
+                        <div class="learned-title">▸ UI와 로직 분리</div>
+                        <p>수치가 바뀔 때마다 <code>BroadcastHP</code>, <code>BroadcastGroggy</code>, <code>OnDead</code> 같은 이벤트를 내보냅니다. HUD는 이 이벤트를 받아 표시만 하므로, 전투 로직이 UI 위젯에 직접 의존하지 않습니다.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="page-num">— 09</div>
+        </div>
+
+        <!-- PAGE 10: PROJECT 01 CORE CODE BOSS TEAM -->
+        <div class="page page-code">
+            <div class="smooth-appear">
+                <div class="label" style="margin-bottom:0;">PROJECT 01 · CORE CODE 03</div>
+                <div class="code-heading" style="margin-bottom: 1vw;">듀얼 보스가 동시에 공격하지 않도록 조율</div>
+            </div>
+            <div class="code-review-block smooth-appear delay-1">
+                <div class="code-wrap">
+                    <div class="code-label">BRBossTeamCoordinator</div>
+                    <pre class="code-block"><code><span class="kw">bool</span> ABRBossTeamCoordinator::<span class="fn">CanStartAttack</span>(ABRBossBase* RequestingBoss) <span class="kw">const</span> {
+    <span class="kw">if</span> (!RequestingBoss) <span class="kw">return false</span>;
+    <span class="kw">if</span> (bAllowSimultaneousAttacks) <span class="kw">return true</span>;
+
+    <span class="kw">if</span> (ActiveAttacker &amp;&amp; ActiveAttacker != RequestingBoss)
+        <span class="kw">return false</span>;
+
+    <span class="kw">const</span> UWorld* World = GetWorld();
+    <span class="kw">return</span> !World || World-&gt;<span class="fn">GetTimeSeconds</span>() - LastAttackFinishedTime &gt;= TeamAttackGap;
+}
+
+<span class="kw">bool</span> ABRBossTeamCoordinator::<span class="fn">NotifyAttackStarted</span>(ABRBossBase* AttackingBoss) {
+    <span class="kw">if</span> (!<span class="fn">CanStartAttack</span>(AttackingBoss)) <span class="kw">return false</span>;
+    ActiveAttacker = AttackingBoss;
+    <span class="fn">RegisterBoss</span>(AttackingBoss);
+    <span class="kw">return true</span>;
+}</code></pre>
+                </div>
+                <div class="learned-panel">
+                    <div class="learned-item">
+                        <div class="learned-title">▸ 이 코드의 기능</div>
+                        <p>듀얼 보스전에서 두 보스가 같은 순간 공격을 시작하지 못하게 조율하는 코드입니다. 현재 공격 중인 보스가 있으면 다른 보스의 공격 요청을 거절하고, 공격이 끝난 뒤에도 짧은 간격을 둡니다.</p>
+                    </div>
+                    <div class="learned-item">
+                        <div class="learned-title">▸ 플레이 감각을 위한 코드</div>
+                        <p>보스 두 마리가 동시에 공격하면 어렵다기보다 불공정하게 느껴질 수 있습니다. 그래서 난이도를 단순 수치가 아니라 공격권 관리로 조절했습니다. 이 구조 덕분에 보스 수가 늘어나도 같은 조율 방식을 재사용할 수 있습니다.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="page-num">— 10</div>
+        </div>
+
+        <!-- PAGE 11: PROJECT 01 CODE STRUCTURE -->
+        <div class="page page-code">
+            <div class="smooth-appear">
+                <div class="label" style="margin-bottom:0;">PROJECT 01 · C++ ARCHITECTURE</div>
+                <div class="code-heading" style="margin-bottom: 1vw;">전투, 보스, 저장, UI를 분리한 Unreal C++ 구조</div>
+            </div>
+            <div class="code-review-block smooth-appear delay-1">
+                <div class="code-wrap">
+                    <div class="code-label">Core Class Responsibility</div>
+                    <pre class="code-block"><code><span class="cm">// Player</span>
+ExceptionCharacter
+ ├─ Move / Camera / LockOn
+ ├─ LightAttack / HeavyAttack / Dodge / Parry
+ ├─ SphereSweep Hit Detection
+ └─ Damage / Death / Respawn
+
+<span class="cm">// Boss</span>
+BRBossBase
+ ├─ HP / Groggy / Phase
+ ├─ Execute Start / Complete
+ └─ Dead / Reward Event
+
+BRBossTeamCoordinator
+ └─ 듀얼 보스 공격 타이밍 조율
+
+<span class="cm">// Progress</span>
+BRCheckpoint + BRSaveGameSubsystem
+ └─ 위치, 체력, 스태미나, 인벤토리 저장</code></pre>
+                </div>
+                <div class="learned-panel">
+                    <div class="learned-item">
+                        <div class="learned-title">▸ C++는 게임 규칙, Blueprint는 표현 레이어</div>
+                        <p>전투 판정, 보스 상태, 저장/로드처럼 게임 규칙을 결정하는 부분은 C++로 구현했습니다. 블루프린트는 UI 배치, 애니메이션, VFX, 사운드 연결에 집중시켜 규칙과 연출이 섞이지 않게 구성했습니다.</p>
+                    </div>
+                    <div class="learned-item">
+                        <div class="learned-title">▸ 확장 가능한 보스 구조</div>
+                        <p>공통 보스 베이스를 먼저 만들고 Python 듀얼 보스와 Selvara 보스가 이를 확장하도록 구성했습니다. 새 보스를 추가할 때 HP/Groggy/Phase/처형 흐름을 다시 만들지 않고 패턴과 연출만 교체할 수 있게 하는 것이 목표였습니다.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="page-num">— 11</div>
+        </div>
+
+        <!-- PAGE 12: PROJECT 01 UI SAVE INVENTORY -->
+        <div class="page exception-page">
+            <div class="exception-head smooth-appear">
+                <span class="label">PROJECT 01 · UI / SAVE / INVENTORY</span>
+                <h2>플레이가 끊기지 않도록 만든 진행 시스템</h2>
+                <p>보스전 데모가 단순 전투 테스트로 끝나지 않도록 타이틀, HUD, Pause Menu, 체크포인트, Continue, 인벤토리 저장까지 연결했습니다.</p>
+            </div>
+            <div class="exception-gallery smooth-appear delay-1">
+                <div class="exception-shot tall">
+                    <img src="img/PlayerHUD.png" alt="Player HUD" onerror="this.style.display='none'">
+                    <div class="exception-caption">Player HUD · HP / Stamina / Shortcut</div>
+                </div>
+                <div class="exception-shot-stack">
+                    <div class="exception-shot">
+                        <img src="img/BossHPBar.png" alt="Boss HP Bar" onerror="this.style.display='none'">
+                        <div class="exception-caption">Boss HP & Groggy HUD</div>
+                    </div>
+                    <div class="exception-shot">
+                        <img src="img/Inventory.png" alt="Inventory UI" onerror="this.style.display='none'">
+                        <div class="exception-caption">C++ Inventory UI</div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-num">— 12</div>
+        </div>
+
+        <!-- PAGE 13: PROJECT 01 VIDEO & IMAGES -->
+        <div class="page exception-page">
+            <div class="exception-head smooth-appear">
+                <span class="label">PROJECT 01 · MEDIA</span>
+                <h2>영상과 이미지 자료 배치 페이지</h2>
+                <p>플레이 영상은 <code>video/exception_demo.mp4</code> 경로에 넣으면 바로 재생됩니다. 현재는 타이틀/스크린샷 이미지를 포스터와 보조 자료로 연결해 두었습니다.</p>
+            </div>
+            <div class="exception-gallery smooth-appear delay-1">
+                <div class="exception-video">
+                    <video controls preload="metadata" poster="img/TitleBackground.png">
+                        <source src="video/exception_demo.mp4" type="video/mp4">
+                    </video>
+                    <div class="exception-caption">Gameplay Video Slot</div>
+                </div>
+                <div class="exception-shot-stack">
+                    <div class="exception-shot">
+                        <img src="img/BossImage.png" alt="Exception boss raid world image"
+                            onerror="this.src='img/BossImage.png'">
+                        <div class="exception-caption">Boss Raid World Mood</div>
+                    </div>
+                    <div class="exception-shot">
+                        <img src="img/Logo.png" alt="Exception logo" onerror="this.src='img/Logo.png'">
+                        <div class="exception-caption">Logo / Identity</div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-num">— 13</div>
+        </div>
+
+        <!-- PAGE 14: PROJECT 02 -->
         <div class="page page-project">
             <div class="smooth-appear">
-                <div class="proj-num">// PROJECT 01</div>
+                <div class="proj-num">// PROJECT 02</div>
                 <div class="proj-title">PyMax — 4Key Rhythm Game</div>
                 <div class="proj-tagline">음악을 듣고, 노트를 읽고, 정확한 타이밍으로 입력하는 리듬 게임의 전체 플레이 흐름을 직접 설계</div>
             </div>
@@ -1374,13 +2355,13 @@
                     </div>
                 </div>
             </div>
-            <div class="page-num">— 03</div>
+            <div class="page-num">— 14</div>
         </div>
 
-        <!-- PAGE 04: PROJECT 01 IMPLEMENTATION -->
+        <!-- PAGE 15: PROJECT 02 IMPLEMENTATION -->
         <div class="page page-code">
             <div class="smooth-appear">
-                <div class="label" style="margin-bottom:0;">PROJECT 01 · IMPLEMENTATION</div>
+                <div class="label" style="margin-bottom:0;">PROJECT 02 · IMPLEMENTATION</div>
                 <div class="code-heading" style="margin-bottom: 1vw;">판정감과 프레임 안정성을 만든 렌더링 최적화</div>
             </div>
             <div class="code-review-block smooth-appear delay-1">
@@ -1415,13 +2396,13 @@ note_cache = {}
                     </div>
                 </div>
             </div>
-            <div class="page-num">— 04</div>
+            <div class="page-num">— 15</div>
         </div>
 
-        <!-- PAGE 05: PROJECT 02 -->
+        <!-- PAGE 16: PROJECT 03 -->
         <div class="page page-project">
             <div class="smooth-appear">
-                <div class="proj-num">// PROJECT 02</div>
+                <div class="proj-num">// PROJECT 03</div>
                 <div class="proj-title">SpaceOut — DirectX Shooter</div>
                 <div class="proj-tagline">플레이어 이동, 탄막 회피, 적 처치, 보스 페이즈까지 직접 만든 슈팅 게임 제작 기록</div>
             </div>
@@ -1539,13 +2520,13 @@ note_cache = {}
                     </div>
                 </div>
             </div>
-            <div class="page-num">— 05</div>
+            <div class="page-num">— 16</div>
         </div>
 
-        <!-- PAGE 06: PROJECT 02 IMPLEMENTATION -->
+        <!-- PAGE 17: PROJECT 03 IMPLEMENTATION -->
         <div class="page page-code">
             <div class="smooth-appear">
-                <div class="label" style="margin-bottom:0;">PROJECT 02 · IMPLEMENTATION</div>
+                <div class="label" style="margin-bottom:0;">PROJECT 03 · IMPLEMENTATION</div>
                 <div class="code-heading" style="margin-bottom: 1vw;">탄막 슈팅의 프레임 히치를 줄인 오브젝트 풀링</div>
             </div>
             <div class="code-review-block smooth-appear delay-1">
@@ -1587,13 +2568,13 @@ note_cache = {}
                     </div>
                 </div>
             </div>
-            <div class="page-num">— 06</div>
+            <div class="page-num">— 17</div>
         </div>
 
-        <!-- PAGE 07: PROJECT 03 -->
+        <!-- PAGE 18: PROJECT 04 -->
         <div class="page page-project">
             <div class="smooth-appear">
-                <div class="proj-num">// PROJECT 03</div>
+                <div class="proj-num">// PROJECT 04</div>
                 <div class="proj-title">UE5 Combat Prototype</div>
                 <div class="proj-tagline">입력, 공격, 피격, 체력 UI, 투사체 생성을 하나의 전투 플레이 흐름으로 연결한 언리얼 프로토타입</div>
             </div>
@@ -1708,13 +2689,13 @@ note_cache = {}
                     </div>
                 </div>
             </div>
-            <div class="page-num">— 07</div>
+            <div class="page-num">— 18</div>
         </div>
 
-        <!-- PAGE 08: PROJECT 03 IMPLEMENTATION -->
+        <!-- PAGE 19: PROJECT 04 IMPLEMENTATION -->
         <div class="page page-code">
             <div class="smooth-appear">
-                <div class="label" style="margin-bottom:0;">PROJECT 03 · IMPLEMENTATION</div>
+                <div class="label" style="margin-bottom:0;">PROJECT 04 · IMPLEMENTATION</div>
                 <div class="code-heading" style="margin-bottom: 1vw;">전투 시스템을 확장 가능하게 만든 인터페이스와 이벤트 구조</div>
             </div>
             <div class="code-review-block smooth-appear delay-1">
@@ -1749,13 +2730,13 @@ note_cache = {}
                     </div>
                 </div>
             </div>
-            <div class="page-num">— 08</div>
+            <div class="page-num">— 19</div>
         </div>
 
-        <!-- PAGE 09: PROJECT 04 -->
+        <!-- PAGE 20: PROJECT 05 -->
         <div class="page page-project">
             <div class="smooth-appear">
-                <div class="proj-num">// PROJECT 04</div>
+                <div class="proj-num">// PROJECT 05</div>
                 <div class="proj-title">Magic Girl Kawaii Lovelies</div>
                 <div class="proj-tagline">6인 팀에서 메인 프로그래머로 보스 레이드 전투, 음성 입력 기믹, 협업 흐름을 연결한 팀 게임 프로젝트</div>
             </div>
@@ -1866,13 +2847,13 @@ case Pattern:
                     </div>
                 </div>
             </div>
-            <div class="page-num">— 09</div>
+            <div class="page-num">— 20</div>
         </div>
 
-        <!-- PAGE 10: PROJECT 04 IMPLEMENTATION -->
+        <!-- PAGE 21: PROJECT 05 IMPLEMENTATION -->
         <div class="page page-code">
             <div class="smooth-appear">
-                <div class="label" style="margin-bottom:0;">PROJECT 04 · IMPLEMENTATION</div>
+                <div class="label" style="margin-bottom:0;">PROJECT 05 · IMPLEMENTATION</div>
                 <div class="code-heading" style="margin-bottom: 1vw;">팀 게임의 보스 패턴과 음성 기믹을 연결한 상태 흐름</div>
             </div>
             <div class="code-review-block smooth-appear delay-1">
@@ -1909,10 +2890,10 @@ case Pattern:
                     </div>
                 </div>
             </div>
-            <div class="page-num">— 10</div>
+            <div class="page-num">— 21</div>
         </div>
 
-        <!-- PAGE 11: CONTACT -->
+        <!-- PAGE 22: CONTACT -->
         <div class="page page-contact">
             <div class="contact-left smooth-appear">
                 <span class="label">CONTACT</span>
@@ -1955,10 +2936,10 @@ case Pattern:
                     </p>
                 </div>
             </div>
-            <div class="page-num">— 11</div>
+            <div class="page-num">— 22</div>
         </div>
 
-        <!-- PAGE 12: FINAL -->
+        <!-- PAGE 23: FINAL -->
         <div class="page page-final">
             <div class="smooth-appear">
                 <div class="final-sub">// END OF DOCUMENT</div>
@@ -1969,7 +2950,7 @@ case Pattern:
                     <span>JAY PARK</span>
                 </div>
             </div>
-            <div class="page-num">— 12</div>
+            <div class="page-num">— 23</div>
         </div>
 
     </div>

@@ -525,6 +525,16 @@
             border-bottom: none;
         }
 
+        .project-table tr.project-featured td {
+            background: linear-gradient(90deg, rgba(212, 146, 58, .16), rgba(77, 217, 192, .08));
+            border-top: 1px solid var(--gold-border);
+            border-bottom: 1px solid var(--gold-border);
+        }
+
+        .project-table tr.project-featured td:first-child {
+            border-left: 3px solid var(--gold);
+        }
+
         .project-table td.pt-title {
             font-weight: 700;
             color: var(--ink);
@@ -549,6 +559,19 @@
             color: var(--teal);
             border: 1px solid rgba(77, 217, 192, .2);
             margin-top: 5px;
+        }
+
+        .pt-main-badge {
+            display: inline-block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: .58rem;
+            letter-spacing: .08em;
+            color: var(--gold);
+            border: 1px solid var(--gold-border);
+            background: var(--gold-soft);
+            padding: 1px 6px;
+            border-radius: 3px;
+            margin-bottom: 5px;
         }
 
         @keyframes riseIn {
@@ -1039,6 +1062,16 @@
                 background: #f7faff !important;
             }
 
+            .project-table tr.project-featured td {
+                background: #fff7e8 !important;
+                border-top: 1.5px solid #b56a00 !important;
+                border-bottom: 1.5px solid #b56a00 !important;
+            }
+
+            .project-table tr.project-featured td:first-child {
+                border-left: 3px solid #b56a00 !important;
+            }
+
             .project-table td.pt-title {
                 font-weight: 700 !important;
                 color: #1a1a1a !important;
@@ -1062,6 +1095,18 @@
                 border: 1px solid #a0d8c0 !important;
                 display: inline-block !important;
                 margin-top: 3px !important;
+            }
+
+            .pt-main-badge {
+                font-family: 'JetBrains Mono', monospace !important;
+                font-size: 5.5pt !important;
+                letter-spacing: .04em !important;
+                color: #7a4e00 !important;
+                border: 1px solid #d0a45c !important;
+                background: #fff0d0 !important;
+                padding: 1px 5px !important;
+                display: inline-block !important;
+                margin-bottom: 2px !important;
             }
 
             .project-table tr {
@@ -1286,8 +1331,8 @@
                         </p>
                         <p>
                             게임을 플레이할 때마다 저는 항상 <strong>"이 타격감의 수식은 무엇인가", "이 판정 로직은 어떤 구조로 동작하는가"</strong>를 분해해 왔습니다. 그
-                            호기심은 자연스럽게 실제 구현으로 이어져, 학창 시절 동안 리듬 게임의 ms 단위 판정 시스템부터 엔진 없는 3D 렌더링 파이프라인까지 <em>2,300시간 이상,
-                                13개 프로젝트</em>의 코어 로직을 직접 설계했습니다.
+                            호기심은 자연스럽게 실제 구현으로 이어져, 학창 시절 동안 리듬 게임의 ms 단위 판정 시스템부터 Unreal Engine 5 기반 보스 레이드 액션 RPG까지 <em>2,300시간 이상,
+                                14개 프로젝트</em>의 코어 로직을 직접 설계했습니다.
                         </p>
                         <p>
                             저의 목표는 기획자의 의도를 기술적 제약 없이 플레이 경험으로 정확히 변환하는 것입니다. 보이지 않는 구조를 안정적으로 설계하고, 플레이어가 화면을 통해 정확히
@@ -1307,6 +1352,11 @@
                 <div class="cl-section-right">
                     <span class="cl-sub-heading">// "문제를 정의하고, 구조로 해결하고, 수치로 검증했습니다"</span>
                     <div class="cover-letter-text">
+                        <p>
+                            <strong>Exception (UE5 보스 레이드 액션 RPG, C++)</strong>에서는 전투 상태, 보스 HP/Groggy, 체크포인트 저장, HUD 갱신을
+                            C++ 중심으로 구현했습니다. 공격 판정은 Sphere Sweep과 인터페이스 기반 데미지 처리로 분리하고, 보스전은 그로기·처형·락온 흐름이 하나의 플레이 루프로
+                            이어지도록 설계했습니다.
+                        </p>
                         <p>
                             <strong>PyMax (2D 리듬 게임, Python/Pygame)</strong>에서는 노트 스폰 → 입력 감지 → 판정 처리 → 시각 피드백의 전체
                             파이프라인을 설계했습니다. 초기 구현에서 발생한 <strong>사운드-노트 간 싱크 오프셋 문제</strong>를 프레임 기반 타이머에서 시스템 클럭 기반 타이머로
@@ -1377,7 +1427,7 @@
                     <span class="cl-sub-heading">// "Day 1부터 플레이 로직을 짜고, 6개월 뒤에는 아키텍처를 제안합니다"</span>
                     <div class="cover-letter-text">
                         <p>
-                            신입이지만 13개 프로젝트에서 <strong>코어 로직을 직접 설계하고, 성능 문제를 수치로 검증하며, 팀 협업을 주도한 경험</strong>이 있습니다. 새로운
+                            신입이지만 14개 프로젝트에서 <strong>코어 로직을 직접 설계하고, 성능 문제를 수치로 검증하며, 팀 협업을 주도한 경험</strong>이 있습니다. 새로운
                             코드베이스에 적응하는 것보다, 지금 팀이 해결하지 못한 기술 문제를 찾아 해결하는 것에 더 관심이 있습니다.
                         </p>
                         <p>
@@ -1416,6 +1466,20 @@
                         </tr>
                     </thead>
                     <tbody>
+
+                        <tr class="project-featured">
+                            <td><span class="proj-date">2026.06</span><br>진행 중 · 1인</td>
+                            <td class="pt-title"><span class="pt-main-badge">MAIN PROJECT</span><br>Exception<br>
+                                <span style="font-size:.78rem;color:var(--ink-mid);font-weight:normal;">UE5 보스 레이드 액션 RPG</span>
+                                <span class="pt-tech">Unreal Engine 5 · C++ · Blueprint</span>
+                            </td>
+                            <td>
+                                <strong>문제</strong>: 전투, 보스 상태, 저장, UI가 얽히면 액션 RPG의 기능 확장과 디버깅이 어려워지는 구조적 문제 발생.<br>
+                                <strong>해결</strong>: C++로 전투 상태·Sphere Sweep 공격 판정·보스 HP/Groggy·체크포인트 저장·Delegate 기반 HUD 갱신을 분리 구현하고, Blueprint는 연출과 배치 레이어로 제한.<br>
+                                <strong>성과</strong>: 보스전 플레이 루프(락온 → 공격/회피/패링 → 그로기 → 처형)와 저장/로드 흐름을 하나의 데모로 연결
+                                <span class="pt-result">✓ 대표 프로젝트</span>
+                            </td>
+                        </tr>
 
                         <tr>
                             <td><span class="proj-date">2025.12</span><br>500H · 1인</td>
