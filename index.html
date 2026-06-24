@@ -574,6 +574,77 @@
             margin-bottom: 5px;
         }
 
+        .resume-project {
+            border: 1px solid var(--gold-border);
+            background: linear-gradient(135deg, rgba(212, 146, 58, .12), rgba(77, 217, 192, .07));
+            border-radius: 10px;
+            padding: 18px 20px;
+        }
+
+        .resume-project-head {
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+
+        .resume-project-title {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--ink);
+        }
+
+        .resume-project-sub {
+            font-size: .82rem;
+            color: var(--ink-mid);
+            margin-top: 3px;
+        }
+
+        .resume-project-meta {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: .68rem;
+            color: var(--gold);
+            text-align: right;
+            white-space: nowrap;
+        }
+
+        .resume-project-list {
+            list-style: none;
+            display: grid;
+            gap: 6px;
+        }
+
+        .resume-project-overview {
+            color: var(--ink-mid);
+            font-size: .9rem;
+            line-height: 1.65;
+            margin: 4px 0 10px;
+        }
+
+        .resume-project-overview strong {
+            color: var(--ink);
+        }
+
+        .resume-project-list li {
+            color: var(--ink-mid);
+            font-size: .9rem;
+            line-height: 1.65;
+            position: relative;
+            padding-left: 16px;
+        }
+
+        .resume-project-list li::before {
+            content: '-';
+            position: absolute;
+            left: 0;
+            color: var(--teal);
+        }
+
+        .skill-print-summary {
+            display: none;
+        }
+
         @keyframes riseIn {
             from {
                 opacity: 0;
@@ -658,9 +729,9 @@
             #page-resume header {
                 display: grid !important;
                 grid-template-columns: 1fr auto !important;
-                gap: 14px !important;
+                gap: 12px !important;
                 align-items: start !important;
-                margin-bottom: 16px !important;
+                margin-bottom: 11px !important;
             }
 
             .catchphrase {
@@ -672,12 +743,12 @@
 
             h1 {
                 font-family: 'Syne', sans-serif !important;
-                font-size: 28pt !important;
+                font-size: 25pt !important;
                 font-weight: 800 !important;
                 color: #1a1a1a !important;
                 letter-spacing: -1px !important;
                 line-height: 1 !important;
-                margin-bottom: 5px !important;
+                margin-bottom: 4px !important;
             }
 
             .live-dot {
@@ -694,7 +765,7 @@
                 font-size: 7.5pt !important;
                 letter-spacing: .22em !important;
                 color: #7a4e00 !important;
-                margin-bottom: 9px !important;
+                margin-bottom: 6px !important;
             }
 
             .contact-row {
@@ -711,8 +782,8 @@
             }
 
             .header-photo img {
-                width: 78px !important;
-                height: 104px !important;
+                width: 70px !important;
+                height: 93px !important;
                 object-fit: cover !important;
                 border-radius: 3px !important;
                 border: 1px solid #999 !important;
@@ -724,19 +795,19 @@
             }
 
             #page-resume section {
-                margin-bottom: 13px !important;
+                margin-bottom: 10px !important;
                 break-inside: avoid !important;
             }
 
             h2 {
                 font-family: 'JetBrains Mono', monospace !important;
-                font-size: 7.5pt !important;
+                font-size: 7pt !important;
                 font-weight: 700 !important;
                 color: #1a6eb5 !important;
                 letter-spacing: .2em !important;
                 text-transform: uppercase !important;
-                margin-bottom: 7px !important;
-                padding-bottom: 3px !important;
+                margin-bottom: 5px !important;
+                padding-bottom: 2px !important;
                 border-bottom: 1.5px solid #1a6eb5 !important;
                 display: block !important;
             }
@@ -751,12 +822,12 @@
                 border: none !important;
                 border-bottom: 1px solid #eee !important;
                 border-radius: 0 !important;
-                margin-bottom: 4px !important;
+                margin-bottom: 2px !important;
                 box-shadow: none !important;
             }
 
             .skill-trigger {
-                padding: 3px 0 !important;
+                padding: 2px 0 !important;
                 gap: 0 !important;
                 display: flex !important;
                 align-items: flex-start !important;
@@ -764,11 +835,11 @@
 
             .s-label {
                 font-family: 'JetBrains Mono', monospace !important;
-                font-size: 7.5pt !important;
+                font-size: 7pt !important;
                 font-weight: 700 !important;
                 color: #1a1a1a !important;
-                width: 82px !important;
-                min-width: 82px !important;
+                width: 74px !important;
+                min-width: 74px !important;
                 padding-top: 1px !important;
             }
 
@@ -781,7 +852,7 @@
 
             .stag {
                 font-family: 'JetBrains Mono', monospace !important;
-                font-size: 6pt !important;
+                font-size: 5.8pt !important;
                 padding: 1px 5px !important;
                 background: #f0f4fa !important;
                 color: #1a4a80 !important;
@@ -794,10 +865,44 @@
             }
 
             .skill-detail {
-                max-height: none !important;
-                overflow: visible !important;
-                background: transparent !important;
-                display: block !important;
+                display: none !important;
+            }
+
+            .skill-print-summary {
+                display: grid !important;
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 2px 12px !important;
+                padding: 2px 0 5px 74px !important;
+                border-top: 1px dotted #d8e2ef !important;
+            }
+
+            .skill-print-summary span {
+                font-size: 7.2pt !important;
+                line-height: 1.35 !important;
+                color: #333 !important;
+                position: relative !important;
+                padding-left: 8px !important;
+            }
+
+            .skill-print-summary span::before {
+                content: '-' !important;
+                position: absolute !important;
+                left: 0 !important;
+                color: #1a6eb5 !important;
+            }
+
+            .skill-print-summary strong {
+                color: #1a1a1a !important;
+                font-weight: 700 !important;
+            }
+
+            .skill-print-summary--engines {
+                grid-template-columns: 1fr !important;
+                gap: 2px !important;
+            }
+
+            .skill-print-summary--engines span {
+                line-height: 1.45 !important;
             }
 
             .skill-detail-inner {
@@ -842,17 +947,91 @@
                 border-color: #a0d8c8 !important;
             }
 
+            .resume-project {
+                background: #fbfcff !important;
+                border: 1.2px solid #b8cbe2 !important;
+                border-left: 3px solid #1a6eb5 !important;
+                border-radius: 3px !important;
+                padding: 7px 9px !important;
+                break-inside: avoid !important;
+            }
+
+            .resume-project-head {
+                display: flex !important;
+                justify-content: space-between !important;
+                gap: 10px !important;
+                align-items: flex-start !important;
+                margin-bottom: 4px !important;
+            }
+
+            .resume-project-title {
+                font-size: 9pt !important;
+                font-weight: 800 !important;
+                color: #1a1a1a !important;
+                line-height: 1.25 !important;
+            }
+
+            .resume-project-sub {
+                font-size: 7.2pt !important;
+                color: #555 !important;
+                margin-top: 1px !important;
+                line-height: 1.35 !important;
+            }
+
+            .resume-project-meta {
+                font-family: 'JetBrains Mono', monospace !important;
+                font-size: 6.5pt !important;
+                color: #7a4e00 !important;
+                text-align: right !important;
+                white-space: nowrap !important;
+                line-height: 1.35 !important;
+            }
+
+            .resume-project-list {
+                list-style: none !important;
+                display: grid !important;
+                grid-template-columns: 1fr 1fr !important;
+                gap: 3px 12px !important;
+            }
+
+            .resume-project-overview {
+                font-size: 7.5pt !important;
+                color: #333 !important;
+                line-height: 1.42 !important;
+                margin: 2px 0 5px !important;
+            }
+
+            .resume-project-overview strong {
+                color: #1a1a1a !important;
+                font-weight: 700 !important;
+            }
+
+            .resume-project-list li {
+                font-size: 7.5pt !important;
+                color: #333 !important;
+                line-height: 1.42 !important;
+                position: relative !important;
+                padding-left: 9px !important;
+            }
+
+            .resume-project-list li::before {
+                content: '-' !important;
+                position: absolute !important;
+                left: 0 !important;
+                color: #1a6eb5 !important;
+            }
+
             .edu-card {
                 border: none !important;
                 background: transparent !important;
                 border-radius: 0 !important;
-                padding: 5px 0 !important;
+                padding: 4px 0 !important;
                 display: flex !important;
                 justify-content: space-between !important;
                 align-items: flex-start !important;
                 box-shadow: none !important;
                 border-bottom: 1px solid #eee !important;
-                margin-bottom: 7px !important;
+                margin-bottom: 4px !important;
             }
 
             .edu-section {
@@ -875,20 +1054,20 @@
             }
 
             .edu-card-title {
-                margin-bottom: 5px !important;
-                font-size: 8.5pt !important;
+                margin-bottom: 3px !important;
+                font-size: 8pt !important;
                 color: #b04000 !important;
             }
 
             .edu-name {
-                font-size: 9.5pt !important;
+                font-size: 8.6pt !important;
                 font-weight: 700 !important;
                 color: #1a1a1a !important;
                 margin-bottom: 2px !important;
             }
 
             .edu-sub {
-                font-size: 8.5pt !important;
+                font-size: 7.8pt !important;
                 color: #555 !important;
                 margin-top: 2px !important;
             }
@@ -911,10 +1090,10 @@
             }
 
             .awards-list li {
-                font-size: 8.5pt !important;
+                font-size: 7.6pt !important;
                 color: #333 !important;
-                margin-bottom: 3px !important;
-                line-height: 1.5 !important;
+                margin-bottom: 2px !important;
+                line-height: 1.38 !important;
             }
 
             .award-year {
@@ -928,18 +1107,18 @@
             .cert-grid {
                 display: grid !important;
                 grid-template-columns: repeat(5, 1fr) !important;
-                gap: 5px !important;
+                gap: 4px !important;
             }
 
             .cert-card {
                 background: #f5f8fc !important;
                 border: 1px solid #d0dcea !important;
-                padding: 7px !important;
+                padding: 5px !important;
                 border-radius: 3px !important;
             }
 
             .cert-name {
-                font-size: 7.5pt !important;
+                font-size: 6.8pt !important;
                 font-weight: 700 !important;
                 color: #1a1a1a !important;
             }
@@ -1169,6 +1348,14 @@
                     </div>
                     <span class="s-arrow">▶</span>
                 </div>
+                <div class="skill-print-summary">
+                    <span><strong>C++</strong>: Exception 전투/보스/HUD, SpaceOut 렌더링 루프·AABB·Object Pool 구현</span>
+                    <span><strong>C#</strong>: Unity 5개 이상 프로젝트에서 충돌, 게이지, Drag &amp; Drop, 성장 로직 구현</span>
+                    <span><strong>Python</strong>: PyMax 리듬 게임에서 노트 스폰, 입력 판정, 사운드 동기화, 60fps 최적화</span>
+                    <span><strong>Java</strong>: Swing 기반 Rhythm.exe·Tetris에서 판정 로직과 멀티플레이 구조 구현</span>
+                    <span><strong>JavaScript</strong>: Phaser.js 아케이드 2종에서 게임 루프, 랭킹/서버 연동, 피드백 개선</span>
+                    <span><strong>C</strong>: 저수준 자료구조와 메모리 흐름 학습 기반으로 C++ 시스템 코드 이해도 강화</span>
+                </div>
                 <div class="skill-detail">
                     <div class="skill-detail-inner">
                         <ul>
@@ -1198,6 +1385,14 @@
                             class="stag">DirectX 11</span>
                     </div>
                     <span class="s-arrow">▶</span>
+                </div>
+                <div class="skill-print-summary skill-print-summary--engines">
+                    <span><strong>Unreal Engine 5</strong>: Exception에서 C++ 전투 상태, Sphere Sweep 공격 판정, 보스 HP/Groggy, 체크포인트 저장,
+                        Delegate 기반 HUD 갱신을 구현. Blueprint는 연출·배치 레이어로 제한해 코어 로직과 콘텐츠 제작 흐름을 분리</span>
+                    <span><strong>Unity 3D</strong>: 교육/시뮬레이션 프로젝트에서 Prefab 기반 오브젝트 관리, 충돌 처리, 게이지 증가,
+                        Drag &amp; Drop 이벤트, 조합/성장 로직을 구현. 짧은 개발 기간 안에서 플레이어 입력과 피드백이 맞물리는 핵심 상호작용을 담당</span>
+                    <span><strong>DirectX 11</strong>: SpaceOut에서 엔진 없이 뷰/프로젝션 행렬, 렌더링 루프, HLSL 셰이더, AABB 충돌,
+                        Object Pool과 캐시 친화 자료구조를 직접 구현. 프레임 히치 원인을 추적해 렌더링/갱신 흐름을 안정화</span>
                 </div>
                 <div class="skill-detail">
                     <div class="skill-detail-inner">
@@ -1248,6 +1443,32 @@
                         </ul>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- FEATURED PROJECT -->
+        <section>
+            <h2>Featured Project</h2>
+            <div class="resume-project">
+                <div class="resume-project-head">
+                    <div>
+                        <div class="resume-project-title">Exception</div>
+                        <div class="resume-project-sub">UE5 보스 레이드 액션 RPG · 전투/보스/저장/HUD 시스템 구현</div>
+                    </div>
+                    <div class="resume-project-meta">2026.06 · Solo<br>Unreal Engine 5 · C++ · Blueprint</div>
+                </div>
+                <p class="resume-project-overview">
+                    <strong>Exception</strong>은 보스의 패턴을 읽고 회피·공격·그로기·처형으로 이어지는 전투 흐름을 목표로 만든 UE5 액션 RPG입니다.
+                    핵심 게임플레이 로직은 C++로 작성하고, Blueprint는 연출과 배치에 집중하도록 역할을 나눴습니다.
+                </p>
+                <ul class="resume-project-list">
+                    <li>C++ 기반 전투 상태, Sphere Sweep 공격 판정, 피격/회피 타이밍 처리 구현</li>
+                    <li>보스 HP/Groggy 상태를 분리해 패턴, 약점 노출, 처형 흐름으로 확장 가능한 구조 설계</li>
+                    <li>체크포인트 저장과 로드 흐름을 전투 루프와 연결해 재도전 경험이 끊기지 않도록 구성</li>
+                    <li>Delegate 기반 HUD 갱신으로 체력, 그로기, 상태 UI가 게임 로직에 직접 의존하지 않도록 분리</li>
+                    <li>Blueprint는 카메라, 이펙트, 배치, 연출 조정에 사용해 콘텐츠 수정 속도 확보</li>
+                    <li>보스 조우, 공격/회피, 그로기, 처형, 저장 로드를 하나의 플레이 루프로 연결</li>
+                </ul>
             </div>
         </section>
 
