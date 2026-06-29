@@ -348,7 +348,7 @@
 
         .profile-links {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr;
             gap: 0.4vw;
             width: 100%;
         }
@@ -369,6 +369,16 @@
             background: var(--teal-dim);
             color: var(--teal);
             border-color: var(--teal-border);
+        }
+
+        .profile-link-url {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: var(--f-xs);
+            color: var(--text-mid);
+            word-break: break-all;
+            text-align: center;
+            line-height: 1.5;
+            margin-top: -0.35vw;
         }
 
         .p02-right {
@@ -1277,6 +1287,12 @@
             display: block;
         }
 
+        .exception-shot--icon img {
+            object-fit: contain;
+            padding: 1vw;
+            background: #050605;
+        }
+
         .exception-shot.tall {
             min-height: 28vw;
         }
@@ -1699,9 +1715,9 @@
                         </div>
                     </div>
                     <div class="profile-links">
-                        <a href="../index.html">Resume</a>
-                        <a href="https://github.com/jay-p08" target="_blank">GitHub</a>
+                        <a href="https://github.com/jay-0x50" target="_blank">GitHub</a>
                     </div>
+                    <div class="profile-link-url">github.com/jay-0x50</div>
                 </div>
             </div>
             <div class="p02-right smooth-appear delay-2">
@@ -1830,9 +1846,9 @@
                 </div>
             </div>
             <div class="exception-visual smooth-appear delay-1">
-                <img src="img/TitleBackground.png" alt="Exception title background"
+                <img src="img/TitleScreen.png" alt="Exception title screen"
                     onerror="this.src='img/TitleBackground.png'">
-                <div class="shot-label">Exception · Title & World Mood</div>
+                <div class="shot-label">Exception · Title Screen</div>
             </div>
             <div class="page-num">— 04</div>
         </div>
@@ -1931,15 +1947,15 @@
                 </div>
                 <div class="combat-right smooth-appear delay-3">
                     <div class="combat-shot">
-                        <img src="img/TitleBackground.png" alt="Exception boss raid world image"
+                        <img src="img/BossDemo.png" alt="Exception boss raid field layout"
                             onerror="this.src='img/TitleBackground.png'">
-                        <div class="shot-label">Boss Raid World Mood</div>
+                        <div class="shot-label">Boss Raid World Mood / Field Layout</div>
                     </div>
                     <div class="combat-shot-stack">
                         <div class="combat-shot">
-                            <img src="img/PlayerHUD.png" alt="Player HUD"
+                            <img src="img/BossHUD.png" alt="Boss HUD"
                                 onerror="this.style.display='none'">
-                            <div class="shot-label">Player HUD</div>
+                            <div class="shot-label">Boss HP & Groggy HUD</div>
                         </div>
                         <div class="combat-flow-panel">
                             <div class="exception-panel-title">Battle Loop</div>
@@ -2196,8 +2212,8 @@ BRCheckpoint + BRSaveGameSubsystem
                 </div>
                 <div class="exception-shot-stack">
                     <div class="exception-shot">
-                        <img src="img/BossHPBar.png" alt="Boss HP Bar" onerror="this.style.display='none'">
-                        <div class="exception-caption">Boss HP & Groggy HUD</div>
+                        <img src="img/Menu.png" alt="Pause menu and save flow" onerror="this.style.display='none'">
+                        <div class="exception-caption">Pause Menu / Save Flow</div>
                     </div>
                     <div class="exception-shot">
                         <img src="img/Inventory.png" alt="Inventory UI" onerror="this.style.display='none'">
@@ -2213,7 +2229,6 @@ BRCheckpoint + BRSaveGameSubsystem
             <div class="exception-head smooth-appear">
                 <span class="label">PROJECT 01 · MEDIA</span>
                 <h2>영상과 이미지 자료 배치 페이지</h2>
-                <p>플레이 영상은 <code>video/exception_demo.mp4</code> 경로에 넣으면 바로 재생됩니다. 현재는 타이틀/스크린샷 이미지를 포스터와 보조 자료로 연결해 두었습니다.</p>
             </div>
             <div class="exception-gallery smooth-appear delay-1">
                 <div class="exception-video">
@@ -2226,11 +2241,11 @@ BRCheckpoint + BRSaveGameSubsystem
                     <div class="exception-shot">
                         <img src="img/BossImage.png" alt="Exception boss raid world image"
                             onerror="this.src='img/BossImage.png'">
-                        <div class="exception-caption">Boss Raid World Mood</div>
+                        <div class="exception-caption">Boss Character / Raid Target</div>
                     </div>
-                    <div class="exception-shot">
-                        <img src="img/Logo.png" alt="Exception logo" onerror="this.src='img/Logo.png'">
-                        <div class="exception-caption">Logo / Identity</div>
+                    <div class="exception-shot exception-shot--icon">
+                        <img src="img/AppIcon.png" alt="Exception app icon" onerror="this.src='img/Logo.png'">
+                        <div class="exception-caption">App Icon / Identity</div>
                     </div>
                 </div>
             </div>

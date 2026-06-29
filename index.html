@@ -645,6 +645,266 @@
             display: none;
         }
 
+        /* ── RESUME PAGE: HAN-STYLE STRUCTURE WITH ORIGINAL COLORS ── */
+        .resume-sheet {
+            border-top: 3px solid var(--gold);
+            border-bottom: 3px solid var(--gold);
+            padding: 18px 0 16px;
+        }
+
+        .resume-grid {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 28px;
+            align-items: start;
+        }
+
+        .resume-aside {
+            border-right: 1px solid var(--gold-border);
+            padding-right: 22px;
+        }
+
+        .resume-profile-photo {
+            width: 100%;
+            aspect-ratio: 4 / 5;
+            margin-bottom: 28px;
+            overflow: hidden;
+            border: 1px solid var(--gold-border);
+            border-radius: 7px;
+            background: var(--card);
+            box-shadow: 0 0 30px var(--gold-soft);
+        }
+
+        .resume-profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .side-section {
+            margin-bottom: 26px;
+        }
+
+        .side-title,
+        .main-section-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.18rem;
+            font-weight: 800;
+            color: var(--gold);
+            line-height: 1;
+            padding-bottom: 9px;
+            margin-bottom: 13px;
+            border-bottom: 2px solid var(--gold);
+            text-transform: uppercase;
+        }
+
+        .side-info-row,
+        .side-history-row {
+            display: grid;
+            grid-template-columns: 86px 1fr;
+            gap: 10px;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border);
+            color: var(--ink-mid);
+            line-height: 1.45;
+            font-size: .88rem;
+        }
+
+        .side-info-row strong,
+        .side-history-row strong {
+            color: var(--ink);
+            font-weight: 700;
+        }
+
+        .side-info-row a {
+            color: var(--ink-mid);
+            text-decoration-color: var(--gold-border);
+            text-underline-offset: 3px;
+            overflow-wrap: anywhere;
+        }
+
+        .side-history-row {
+            grid-template-columns: 1fr auto;
+        }
+
+        .side-history-row span:last-child {
+            color: var(--ink-mid);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: .76rem;
+            text-align: right;
+        }
+
+        .repo-list {
+            margin-top: 8px;
+            padding-left: 0;
+            list-style: none;
+            font-size: .82rem;
+            color: var(--ink-mid);
+        }
+
+        .repo-list li {
+            margin-top: 6px;
+            line-height: 1.45;
+        }
+
+        .resume-main {
+            min-width: 0;
+        }
+
+        .resume-identity {
+            margin-bottom: 38px;
+            padding-top: 4px;
+        }
+
+        .resume-identity h1 {
+            font-size: clamp(3.1rem, 7vw, 4.6rem);
+            color: var(--ink);
+            margin-bottom: 8px;
+        }
+
+        .resume-role {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--ink-mid);
+            font-size: 1rem;
+            letter-spacing: .08em;
+        }
+
+        .resume-section {
+            margin-bottom: 28px;
+        }
+
+        .skill-table,
+        .project-resume-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .skill-table tr,
+        .project-resume-table tr {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .skill-table th,
+        .skill-table td,
+        .project-resume-table th,
+        .project-resume-table td {
+            vertical-align: top;
+            text-align: left;
+            padding: 11px 0;
+        }
+
+        .skill-table th {
+            width: 132px;
+            color: var(--ink);
+            font-size: .92rem;
+            font-weight: 800;
+            padding-right: 22px;
+        }
+
+        .skill-stack {
+            display: block;
+            color: var(--ink);
+            font-weight: 800;
+            margin-bottom: 5px;
+            line-height: 1.4;
+            overflow-wrap: anywhere;
+        }
+
+        .compact-list {
+            list-style: none;
+            color: var(--ink-mid);
+            font-size: .86rem;
+            line-height: 1.55;
+        }
+
+        .compact-list li {
+            position: relative;
+            padding-left: 12px;
+            margin-bottom: 2px;
+        }
+
+        .compact-list li::before {
+            content: '-';
+            position: absolute;
+            left: 0;
+            color: var(--teal);
+        }
+
+        .project-resume-table th {
+            width: 190px;
+            padding-right: 16px;
+        }
+
+        .project-name {
+            color: var(--ink);
+            font-weight: 800;
+            font-size: .96rem;
+            line-height: 1.35;
+        }
+
+        .project-meta {
+            color: var(--ink-mid);
+            font-size: .78rem;
+            line-height: 1.45;
+            margin-top: 5px;
+        }
+
+        .project-tech {
+            color: var(--ink);
+            font-weight: 800;
+            margin-bottom: 5px;
+            line-height: 1.4;
+            overflow-wrap: anywhere;
+        }
+
+        @media (max-width: 760px) {
+            .resume-grid {
+                grid-template-columns: 1fr;
+                gap: 22px;
+            }
+
+            .resume-aside {
+                border-right: none;
+                border-bottom: 1px solid var(--gold-border);
+                padding-right: 0;
+                padding-bottom: 20px;
+            }
+
+            .resume-profile-photo {
+                max-width: 240px;
+            }
+
+            .project-resume-table th,
+            .skill-table th {
+                width: auto;
+            }
+
+            .skill-table,
+            .skill-table tbody,
+            .skill-table tr,
+            .skill-table th,
+            .skill-table td,
+            .project-resume-table,
+            .project-resume-table tbody,
+            .project-resume-table tr,
+            .project-resume-table th,
+            .project-resume-table td {
+                display: block;
+                width: 100%;
+            }
+
+            .skill-table th,
+            .project-resume-table th {
+                padding: 12px 0 4px;
+            }
+
+            .skill-table td,
+            .project-resume-table td {
+                padding: 0 0 12px;
+            }
+        }
+
         @keyframes riseIn {
             from {
                 opacity: 0;
@@ -1130,6 +1390,185 @@
                 margin-top: 2px !important;
             }
 
+            /* HAN-STYLE RESUME PAGE PRINT */
+            #page-resume .print-page-header {
+                display: none !important;
+            }
+
+            #page-resume .resume-sheet {
+                border-top: 2px solid #d4923a !important;
+                border-bottom: 2px solid #d4923a !important;
+                min-height: 258mm !important;
+                padding: 5.5mm 0 5mm !important;
+                color: #1a1a1a !important;
+                background: #fff !important;
+            }
+
+            #page-resume .resume-grid {
+                display: grid !important;
+                grid-template-columns: 48mm 1fr !important;
+                gap: 8mm !important;
+                align-items: start !important;
+            }
+
+            #page-resume .resume-aside {
+                border-right: 1px solid #d9b37a !important;
+                padding-right: 5mm !important;
+            }
+
+            #page-resume .resume-profile-photo {
+                width: 42mm !important;
+                height: 52.5mm !important;
+                margin: 0 auto 7mm !important;
+                border: 1px solid #d9b37a !important;
+                border-radius: 2px !important;
+                box-shadow: none !important;
+                background: #fff !important;
+            }
+
+            #page-resume .side-section {
+                margin-bottom: 5.3mm !important;
+                break-inside: avoid !important;
+            }
+
+            #page-resume .side-title,
+            #page-resume .main-section-title {
+                font-family: 'Syne', sans-serif !important;
+                font-size: 11.5pt !important;
+                font-weight: 800 !important;
+                color: #b66f12 !important;
+                border-bottom: 1.5px solid #d4923a !important;
+                padding-bottom: 2mm !important;
+                margin-bottom: 2.2mm !important;
+                line-height: 1 !important;
+                letter-spacing: 0 !important;
+            }
+
+            #page-resume .side-info-row,
+            #page-resume .side-history-row {
+                display: grid !important;
+                grid-template-columns: 14mm 1fr !important;
+                gap: 2mm !important;
+                padding: 1.25mm 0 !important;
+                border-bottom: 1px solid #e5e1dc !important;
+                color: #555 !important;
+                font-size: 7.35pt !important;
+                line-height: 1.42 !important;
+            }
+
+            #page-resume .side-history-row {
+                grid-template-columns: 1fr auto !important;
+            }
+
+            #page-resume .side-info-row strong,
+            #page-resume .side-history-row strong,
+            #page-resume .project-name,
+            #page-resume .skill-stack,
+            #page-resume .project-tech {
+                color: #1a1a1a !important;
+                font-weight: 800 !important;
+            }
+
+            #page-resume .side-history-row span:last-child,
+            #page-resume .project-meta,
+            #page-resume .side-info-row a {
+                color: #666 !important;
+            }
+
+            #page-resume .resume-identity {
+                margin-bottom: 6.4mm !important;
+                padding-top: 0 !important;
+            }
+
+            #page-resume .resume-identity h1 {
+                font-family: 'Syne', sans-serif !important;
+                font-size: 29pt !important;
+                color: #1a1a1a !important;
+                margin-bottom: 2.4mm !important;
+                letter-spacing: -1px !important;
+            }
+
+            #page-resume .resume-role {
+                color: #555 !important;
+                font-family: 'JetBrains Mono', monospace !important;
+                font-size: 8.4pt !important;
+                letter-spacing: .08em !important;
+                line-height: 1.4 !important;
+            }
+
+            #page-resume .resume-section {
+                margin-bottom: 6.2mm !important;
+                break-inside: avoid !important;
+            }
+
+            #page-resume .skill-table,
+            #page-resume .project-resume-table {
+                width: 100% !important;
+                border-collapse: collapse !important;
+            }
+
+            #page-resume .skill-table tr,
+            #page-resume .project-resume-table tr {
+                border-bottom: 1px solid #e5e1dc !important;
+                break-inside: avoid !important;
+            }
+
+            #page-resume .skill-table th,
+            #page-resume .skill-table td,
+            #page-resume .project-resume-table th,
+            #page-resume .project-resume-table td {
+                padding: 1.9mm 0 !important;
+                vertical-align: top !important;
+                text-align: left !important;
+            }
+
+            #page-resume .skill-table th {
+                width: 24mm !important;
+                padding-right: 4mm !important;
+                color: #1a1a1a !important;
+                font-size: 8.7pt !important;
+            }
+
+            #page-resume .project-resume-table th {
+                width: 35mm !important;
+                padding-right: 4mm !important;
+            }
+
+            #page-resume .skill-stack,
+            #page-resume .project-tech {
+                display: block !important;
+                font-size: 8.8pt !important;
+                line-height: 1.48 !important;
+                margin-bottom: 1.3mm !important;
+            }
+
+            #page-resume .compact-list {
+                color: #333 !important;
+                font-size: 8pt !important;
+                line-height: 1.5 !important;
+            }
+
+            #page-resume .compact-list li {
+                margin-bottom: .7mm !important;
+                padding-left: 3mm !important;
+                color: #333 !important;
+            }
+
+            #page-resume .compact-list li::before {
+                color: #00766c !important;
+            }
+
+            #page-resume .project-name {
+                font-size: 9pt !important;
+                line-height: 1.4 !important;
+            }
+
+            #page-resume .project-meta {
+                font-size: 7.4pt !important;
+                line-height: 1.45 !important;
+                margin-top: 1mm !important;
+            }
+
             /* COVER LETTER PRINT */
             .cl-section-wrapper {
                 display: table !important;
@@ -1311,215 +1750,133 @@
             <span class="doc-brand">박재영</span>
         </div>
 
-        <header>
-            <div class="header-left">
-                <div class="name-line">
-                    <h1>박재영</h1>
-                    <div class="live-dot"></div>
-                </div>
-                <div class="contact-row">
-                    <span>✉ s2444@e-mirim.hs.kr</span>
-                    <span>☎ 010-3484-0767</span>
-                </div>
-                <div class="link-row">
-                    <a href="https://github.com/jay-0x50" target="_blank">⌥ GitHub</a>
-                    <a href="Portfolio/portfolio" target="_blank">◈ 포트폴리오</a>
-                </div>
-            </div>
-            <div class="header-photo">
-                <img src="photo.jpg" alt="박재영">
-            </div>
-        </header>
+        <div class="resume-sheet">
+            <div class="resume-grid">
+                <aside class="resume-aside">
+                    <div class="resume-profile-photo">
+                        <img src="photo.jpg" alt="박재영">
+                    </div>
 
-        <div class="rule-line"></div>
+                    <section class="side-section">
+                        <div class="side-title">Contact</div>
+                        <div class="side-info-row"><strong>Mobile</strong><span>010-3484-0767</span></div>
+                        <div class="side-info-row"><strong>Email</strong><span>s2444@e-mirim.hs.kr</span></div>
+                        <div class="side-info-row"><strong>GitHub</strong><span><a href="https://github.com/jay-0x50" target="_blank">github.com/jay-0x50</a></span></div>
+                        <div class="side-info-row"><strong>Portfolio</strong><span><a href="Portfolio/portfolio.html" target="_blank">Portfolio/portfolio.html</a></span></div>
+                    </section>
 
-        <!-- SKILLS -->
-        <section>
-            <h2>Tech Skills</h2>
+                    <section class="side-section">
+                        <div class="side-title">Education</div>
+                        <div class="side-history-row">
+                            <strong>미림마이스터고<br>뉴미디어소프트웨어과</strong>
+                            <span>2024.03<br>~ 현재</span>
+                        </div>
+                        <div class="side-history-row">
+                            <strong>프로젝트 개발 동아리 CodeUs 부장</strong>
+                            <span>교내 활동</span>
+                        </div>
+                    </section>
 
-            <div class="skill-block open" id="sb-lang">
-                <div class="skill-trigger" onclick="toggleSkill('sb-lang')">
-                    <div class="s-label">LANGUAGES</div>
-                    <div class="s-tags">
-                        <span class="stag">C++</span><span class="stag">C#</span><span class="stag">Python</span>
-                        <span class="stag">C</span><span class="stag">Java</span><span class="stag">JavaScript</span>
+                    <section class="side-section">
+                        <div class="side-title">License</div>
+                        <div class="side-history-row"><strong>CosPro Python 2급</strong><span>YBM</span></div>
+                        <div class="side-history-row"><strong>MOS Excel Expert</strong><span>YBM</span></div>
+                        <div class="side-history-row"><strong>GTQ 포토샵 2급</strong><span>KPC</span></div>
+                        <div class="side-history-row"><strong>ITQ 한글엑셀 A급</strong><span>KPC</span></div>
+                        <div class="side-history-row"><strong>ITQ 인터넷 A급</strong><span>KPC</span></div>
+                    </section>
+
+                    <section class="side-section">
+                        <div class="side-title">Awards</div>
+                        <div class="side-history-row"><strong>앱잼 장려상</strong><span>2024</span></div>
+                        <div class="side-history-row"><strong>과학독후감 최우수상</strong><span>2024</span></div>
+                        <div class="side-history-row"><strong>교과우수상</strong><span>2024</span></div>
+                        <div class="side-history-row"><strong>교과우수상 · 선행장</strong><span>2025</span></div>
+                        <div class="side-history-row"><strong>미림 해커톤 참여</strong><span>2024<br>2025</span></div>
+                    </section>
+                </aside>
+
+                <main class="resume-main">
+                    <div class="resume-identity">
+                        <h1>박재영</h1>
+                        <div class="resume-role">Unreal Engine C++ Gameplay Programmer</div>
                     </div>
-                    <span class="s-arrow">▶</span>
-                </div>
-                <div class="skill-print-summary">
-                    <span><strong>C++</strong>: Exception 전투/보스/HUD, SpaceOut 렌더링 루프·AABB·Object Pool 구현</span>
-                    <span><strong>C#</strong>: Unity 5개 이상 프로젝트에서 충돌, 게이지, Drag &amp; Drop, 성장 로직 구현</span>
-                    <span><strong>Python</strong>: PyMax 리듬 게임에서 노트 스폰, 입력 판정, 사운드 동기화, 60fps 최적화</span>
-                    <span><strong>Java</strong>: Swing 기반 Rhythm.exe·Tetris에서 판정 로직과 멀티플레이 구조 구현</span>
-                    <span><strong>JavaScript</strong>: Phaser.js 아케이드 2종에서 게임 루프, 랭킹/서버 연동, 피드백 개선</span>
-                    <span><strong>C</strong>: 저수준 자료구조와 메모리 흐름 학습 기반으로 C++ 시스템 코드 이해도 강화</span>
-                </div>
-                <div class="skill-detail">
-                    <div class="skill-detail-inner">
-                        <ul>
-                            <li>
-                                <strong>C++ / C#</strong> <span class="badge">Primary</span> —
-                                게임 루프·충돌 처리·오브젝트 풀을 직접 설계. DirectX 11 프로젝트에서 렌더링 루프와 Object Pool을 결합해
-                                <strong>프레임 히치를 완전 제거</strong>하는 성과를 달성. 메모리 관리와 캐시 지역성을 의식하며 코드를 작성.
-                            </li>
-                            <li>
-                                <strong>Python</strong> — Pygame 리듬 게임에서 노트 스폰·사운드 동기화·입력 큐를 클래스로 추상화.
-                                smoothscale 최적화 + Object Pooling으로 <strong>60fps 안정 유지</strong>.
-                            </li>
-                            <li>
-                                <strong>Java / JavaScript</strong> — Java Swing 리듬 게임의 판정 로직을 ms 단위로 튜닝하고,
-                                Phaser.js 웹 아케이드에서 랭킹 서버 연동까지 풀스택 개발 경험 보유.
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+
+                    <section class="resume-section">
+                        <div class="main-section-title">Skill</div>
+                        <table class="skill-table">
+                            <tr>
+                                <th>Language</th>
+                                <td>
+                                    <span class="skill-stack">C++ Gameplay Logic 중심, C#, Python, Java, JavaScript, C</span>
+                                    <ul class="compact-list">
+                                        <li>C++로 플레이어 입력, 전투 상태, 공격 판정, 보스 체력·그로기, 체크포인트 저장 흐름 구현</li>
+                                        <li>클래스 책임 분리, 포인터/참조 흐름, Unreal UObject 생명주기를 의식해 코드 작성</li>
+                                        <li>현재 주력은 C++ 기반 게임플레이 시스템과 플레이어가 체감하는 상호작용 구현</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Gameplay</th>
+                                <td>
+                                    <span class="skill-stack">Unreal Engine 5, Combat System, Boss Pattern, HUD</span>
+                                    <ul class="compact-list">
+                                        <li>UE5 Character, Actor, Component 구조를 기반으로 플레이어 전투 흐름 직접 구현</li>
+                                        <li>회피, 공격, 피격, 그로기, 처형처럼 플레이어가 바로 체감하는 루프를 C++로 구성</li>
+                                        <li>Blueprint는 카메라·이펙트·배치 조정에 사용하고 핵심 게임플레이 로직은 C++로 분리</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Architecture</th>
+                                <td>
+                                    <span class="skill-stack">Delegate, State Machine, Component, Object Pooling</span>
+                                    <ul class="compact-list">
+                                        <li>Delegate 기반 HUD 갱신으로 UI가 캐릭터·보스 로직을 직접 참조하지 않도록 구성</li>
+                                        <li>상태 머신으로 보스 패턴, 그로기, 처형, 재도전 흐름을 플레이 단계별로 분리</li>
+                                        <li>전투·저장·UI 책임을 나누어 플레이 기능 추가 시 수정 범위가 커지지 않게 설계</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Tools</th>
+                                <td>
+                                    <span class="skill-stack">Visual Studio, VS Code, GitHub, Figma, Blender</span>
+                                    <ul class="compact-list">
+                                        <li>Visual Studio에서 UE5 C++ 빌드, 디버깅, 클래스 구조 정리를 반복하며 개발</li>
+                                        <li>GitHub로 변경 이력을 관리하고, 기능 단위로 구현·테스트·수정 흐름을 정리</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </table>
+                    </section>
+
+                    <section class="resume-section">
+                        <div class="main-section-title">Projects</div>
+                        <table class="project-resume-table">
+                            <tr>
+                                <th>
+                                    <div class="project-name">Exception</div>
+                                    <div class="project-meta">2026.06 ~ 진행 중<br>개인 프로젝트<br>UE5 액션 RPG</div>
+                                </th>
+                                <td>
+                                    <div class="project-tech">Unreal Engine 5, C++ Gameplay, Blueprint</div>
+                                    <ul class="compact-list">
+                                        <li>플레이어가 보스 패턴을 관찰하고 회피·공격·그로기·처형으로 이어지는 전투 루프를 목표로 제작</li>
+                                        <li>C++에서 캐릭터 전투 상태, 공격 입력 처리, Sphere Sweep 기반 근접 판정, 피격 타이밍을 구현</li>
+                                        <li>보스 HP와 Groggy 수치를 분리해 일반 전투, 약점 노출, 처형 가능 상태가 단계적으로 전환되도록 설계</li>
+                                        <li>체크포인트 저장·로드를 전투 흐름과 연결해 사망 후 재도전 시 위치와 진행 상태가 자연스럽게 복구되도록 구성</li>
+                                        <li>HUD는 Delegate 이벤트를 받아 체력과 그로기 UI를 갱신하게 만들어 게임 로직과 UI 의존성을 낮춤</li>
+                                        <li>Blueprint는 카메라, 이펙트, 배치, 연출 조정에 집중시키고 핵심 게임플레이 로직은 C++에 배치</li>
+                                        <li>기능을 만들 때 단순 구현에서 끝내지 않고 클래스 책임과 확장 가능성을 함께 점검하며 구조를 개선</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </table>
+                    </section>
+                </main>
             </div>
-
-            <div class="skill-block open" id="sb-eng">
-                <div class="skill-trigger" onclick="toggleSkill('sb-eng')">
-                    <div class="s-label">ENGINES</div>
-                    <div class="s-tags">
-                        <span class="stag">Unreal Engine 5</span><span class="stag">Unity 3D</span><span
-                            class="stag">DirectX 11</span>
-                    </div>
-                    <span class="s-arrow">▶</span>
-                </div>
-                <div class="skill-print-summary skill-print-summary--engines">
-                    <span><strong>Unreal Engine 5</strong>: Exception에서 C++ 전투 상태, Sphere Sweep 공격 판정, 보스 HP/Groggy, 체크포인트 저장,
-                        Delegate 기반 HUD 갱신을 구현. Blueprint는 연출·배치 레이어로 제한해 코어 로직과 콘텐츠 제작 흐름을 분리</span>
-                    <span><strong>Unity 3D</strong>: 교육/시뮬레이션 프로젝트에서 Prefab 기반 오브젝트 관리, 충돌 처리, 게이지 증가,
-                        Drag &amp; Drop 이벤트, 조합/성장 로직을 구현. 짧은 개발 기간 안에서 플레이어 입력과 피드백이 맞물리는 핵심 상호작용을 담당</span>
-                    <span><strong>DirectX 11</strong>: SpaceOut에서 엔진 없이 뷰/프로젝션 행렬, 렌더링 루프, HLSL 셰이더, AABB 충돌,
-                        Object Pool과 캐시 친화 자료구조를 직접 구현. 프레임 히치 원인을 추적해 렌더링/갱신 흐름을 안정화</span>
-                </div>
-                <div class="skill-detail">
-                    <div class="skill-detail-inner">
-                        <ul>
-                            <li>
-                                <strong>Unreal Engine 5</strong> — UObject 생명주기·서브시스템 구조 이해.
-                                UGameInstanceSubsystem / Delegate 기반으로 UI와 게임 로직을 <strong>완전 분리</strong>해
-                                기능 추가 시 기존 코드 수정 없이 확장 가능한 구조 설계.
-                            </li>
-                            <li>
-                                <strong>Unity 3D</strong> — Prefab 기반 Object Pool, 충돌 처리, 게이지 시스템, Drag &amp; Drop 이벤트 등
-                                5개 이상의 프로젝트에서 플레이어가 직접 체감하는 핵심 시스템 단독 구현.
-                            </li>
-                            <li>
-                                <strong>DirectX 11</strong> — 뷰/프로젝션 행렬·렌더링 파이프라인·HLSL 셰이더를 엔진 없이 직접 구축.
-                                <strong>AABB 충돌 수식</strong> 직접 구현으로 엔진 내부 동작 원리를 바닥부터 이해.
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="skill-block open" id="sb-etc">
-                <div class="skill-trigger" onclick="toggleSkill('sb-etc')">
-                    <div class="s-label">ETC</div>
-                    <div class="s-tags">
-                        <span class="stag">Git / GitHub</span><span class="stag">Object Pooling</span>
-                        <span class="stag">AABB Collision</span><span class="stag">State Machine</span>
-                        <span class="stag">Phaser.js</span>
-                    </div>
-                    <span class="s-arrow">▶</span>
-                </div>
-                <div class="skill-detail">
-                    <div class="skill-detail-inner">
-                        <ul>
-                            <li>
-                                <strong>협업 · Git</strong> — GitHub Flow 기반 브랜치 전략으로 <strong>6인 팀 프로젝트</strong>를 리드.
-                                PR 코드 리뷰와 충돌 해소를 주도하며 일정 내 빌드 안정성 유지.
-                            </li>
-                            <li>
-                                <strong>런타임 최적화</strong> — Object Pooling, 캐시 친화적 자료구조, 정적 텍스처 사전 캐싱을
-                                다수 프로젝트에 적용. 병목 구간을 프로파일링으로 특정하고 성능 개선 수치로 검증하는 습관 보유.
-                            </li>
-                            <li>
-                                <strong>사용자 피드백 기반 개선</strong> — 교내 배포(50~70명) 이후 플레이 데이터와 직접 피드백을 수집해
-                                판정 오차·밸런스·UX를 반복 개선. <strong>데이터 → 가설 → 코드 수정</strong> 사이클 경험.
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FEATURED PROJECT -->
-        <section>
-            <h2>Featured Project</h2>
-            <div class="resume-project">
-                <div class="resume-project-head">
-                    <div>
-                        <div class="resume-project-title">Exception</div>
-                        <div class="resume-project-sub">UE5 보스 레이드 액션 RPG · 전투/보스/저장/HUD 시스템 구현</div>
-                    </div>
-                    <div class="resume-project-meta">2026.06 · Solo<br>Unreal Engine 5 · C++ · Blueprint</div>
-                </div>
-                <p class="resume-project-overview">
-                    <strong>Exception</strong>은 보스의 패턴을 읽고 회피·공격·그로기·처형으로 이어지는 전투 흐름을 목표로 만든 UE5 액션 RPG입니다.
-                    핵심 게임플레이 로직은 C++로 작성하고, Blueprint는 연출과 배치에 집중하도록 역할을 나눴습니다.
-                </p>
-                <ul class="resume-project-list">
-                    <li>C++ 기반 전투 상태, Sphere Sweep 공격 판정, 피격/회피 타이밍 처리 구현</li>
-                    <li>보스 HP/Groggy 상태를 분리해 패턴, 약점 노출, 처형 흐름으로 확장 가능한 구조 설계</li>
-                    <li>체크포인트 저장과 로드 흐름을 전투 루프와 연결해 재도전 경험이 끊기지 않도록 구성</li>
-                    <li>Delegate 기반 HUD 갱신으로 체력, 그로기, 상태 UI가 게임 로직에 직접 의존하지 않도록 분리</li>
-                    <li>Blueprint는 카메라, 이펙트, 배치, 연출 조정에 사용해 콘텐츠 수정 속도 확보</li>
-                    <li>보스 조우, 공격/회피, 그로기, 처형, 저장 로드를 하나의 플레이 루프로 연결</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- EDUCATION -->
-        <section>
-            <h2>Education &amp; Activities</h2>
-            <div class="edu-section">
-                <div class="edu-card">
-                    <div>
-                        <div class="edu-name">미림마이스터고등학교 뉴미디어소프트웨어과</div>
-                        <div class="edu-sub">프로젝트 개발 동아리 'CodeUs' <span class="edu-badge">부장</span></div>
-                    </div>
-                    <div class="edu-meta">
-                        <div class="proj-date">2024.03 — 현재</div>
-                        <div class="edu-status">● 재학 중</div>
-                    </div>
-                </div>
-                <div class="edu-card edu-card--awards">
-                    <div class="edu-name edu-card-title">Awards &amp; Honors</div>
-                    <ul class="awards-list">
-                        <li><span class="award-year">2025</span> 교과우수상 · 선행장 · 미림 해커톤 참여</li>
-                        <li><span class="award-year">2024</span> 앱잼 장려상 · 과학독후감 최우수상 · 교과우수상 · 미림 해커톤 참여</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- CERTIFICATIONS -->
-        <section>
-            <h2>Certifications</h2>
-            <div class="cert-grid">
-                <div class="cert-card">
-                    <div class="cert-name">CosPro Python 2급</div>
-                    <div class="cert-org">YBM</div>
-                </div>
-                <div class="cert-card">
-                    <div class="cert-name">MOS Excel Expert</div>
-                    <div class="cert-org">YBM</div>
-                </div>
-                <div class="cert-card">
-                    <div class="cert-name">GTQ 포토샵 2급</div>
-                    <div class="cert-org">한국생산성본부</div>
-                </div>
-                <div class="cert-card">
-                    <div class="cert-name">ITQ 한글엑셀 A급</div>
-                    <div class="cert-org">한국생산성본부</div>
-                </div>
-                <div class="cert-card">
-                    <div class="cert-name">CODE Creator</div>
-                    <div class="cert-org">한국창의교육개발원</div>
-                </div>
-            </div>
-        </section>
+        </div>
 
     </div><!-- /page-resume -->
 
@@ -1643,7 +2000,7 @@
                     <span class="cl-section-label">입사 후<br>포부</span>
                 </div>
                 <div class="cl-section-right">
-                    <span class="cl-sub-heading">// "Day 1부터 플레이 로직을 짜고, 6개월 뒤에는 아키텍처를 제안합니다"</span>
+                    <span class="cl-sub-heading">// "Day 1부터 플레이 로직을 짜고, 6개월 뒤에는 전투 구조를 제안합니다"</span>
                     <div class="cover-letter-text">
                         <p>
                             신입이지만 14개 프로젝트에서 <strong>코어 로직을 직접 설계하고, 성능 문제를 수치로 검증하며, 팀 협업을 주도한 경험</strong>이 있습니다. 새로운
@@ -1651,7 +2008,7 @@
                         </p>
                         <p>
                             입사 후 단기 목표는 <strong>프로젝트의 플레이 루프에서 가장 성능 민감한 구간을 파악하고, 측정 가능한 개선을 만드는 것</strong>입니다. 중기 목표는
-                            기획 의도를 기술 제약 없이 구현할 수 있는 시스템 구조를 제안하는 개발자로 성장하는 것입니다. <strong>안정적이고 확장 가능한 코드가 플레이어가 반복해서 손이
+                            기획 의도를 기술 제약 없이 구현할 수 있는 전투·보스·상호작용 구조를 제안하는 개발자로 성장하는 것입니다. <strong>안정적이고 확장 가능한 코드가 플레이어가 반복해서 손이
                                 가는 재미를 만드는 기반</strong>이라고 믿습니다.
                         </p>
                     </div>
