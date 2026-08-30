@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+  <rect width="1600" height="900" rx="24" fill="#0b0f14"/>
+  <rect x="48" y="44" width="1504" height="812" rx="16" fill="#121922" stroke="#334155" stroke-width="2"/>
+  <circle cx="82" cy="80" r="9" fill="#ef6b73"/><circle cx="112" cy="80" r="9" fill="#eabf67"/><circle cx="142" cy="80" r="9" fill="#70c79a"/>
+  <text x="190" y="88" font-family="monospace" font-size="24" fill="#94a3b8">MopCode · Token Inspector</text>
+  <text x="88" y="158" font-family="monospace" font-size="26" fill="#78e0bf">PS&gt; .\mopc.exe tokens examples/main</text>
+  <g font-family="monospace" font-size="25" fill="#d8dee9">
+    <text x="88" y="224">FUNCTION       function</text><text x="88" y="266">IDENTIFIER     main</text>
+    <text x="88" y="308">LEFT_PAREN     (</text><text x="88" y="350">RIGHT_PAREN    )</text>
+    <text x="88" y="392">COLON          :</text><text x="88" y="434">VOID           void</text>
+    <text x="88" y="476">LEFT_BRACE     {</text><text x="88" y="518">IDENTIFIER     Print</text>
+    <text x="88" y="560">LEFT_PAREN     (</text><text x="88" y="602">STRING         Hello MopCode</text>
+    <text x="88" y="644">RIGHT_PAREN    )</text><text x="88" y="686">RIGHT_BRACE    }</text>
+    <text x="88" y="728" fill="#d4a574">EOF</text>
+  </g>
+  <text x="88" y="810" font-family="monospace" font-size="20" fill="#64748b">Lexer output with token type, lexeme, line and column metadata</text>
+</svg>

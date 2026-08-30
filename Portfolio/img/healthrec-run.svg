@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+  <rect width="1600" height="900" rx="24" fill="#f5fbff"/>
+  <rect x="54" y="42" width="1492" height="816" rx="18" fill="#ffffff" stroke="#c7e4f5" stroke-width="3"/>
+  <rect x="54" y="42" width="1492" height="76" rx="18" fill="#eaf7ff"/>
+  <circle cx="90" cy="80" r="9" fill="#ef8d91"/><circle cx="120" cy="80" r="9" fill="#efc56d"/><circle cx="150" cy="80" r="9" fill="#79c99c"/>
+  <text x="205" y="88" font-family="sans-serif" font-size="24" fill="#59758c">HealthRec · localhost:5062</text>
+  <text x="120" y="188" font-family="sans-serif" font-size="42" font-weight="700" fill="#163b59">내 건강 신호를 읽고,</text>
+  <text x="120" y="242" font-family="sans-serif" font-size="42" font-weight="700" fill="#249de3">필요한 영양을 찾다</text>
+  <text x="120" y="298" font-family="sans-serif" font-size="22" fill="#58758b">건강검진 데이터 기반 맞춤 가이드</text>
+  <g font-family="sans-serif">
+    <rect x="120" y="366" width="390" height="230" rx="18" fill="#f7fbff" stroke="#d5e9f5"/><text x="150" y="414" font-size="20" fill="#59758c">오늘의 건강 요약</text><text x="150" y="470" font-size="48" font-weight="700" fill="#163b59">차근차근 관리 중이에요</text><text x="150" y="530" font-size="22" fill="#35a77c">●  주요 지표 정상 범위</text>
+    <rect x="570" y="366" width="390" height="230" rx="18" fill="#f7fbff" stroke="#d5e9f5"/><text x="600" y="414" font-size="20" fill="#59758c">최근 검진 기록</text><text x="600" y="480" font-size="46" font-weight="700" fill="#163b59">98</text><text x="720" y="480" font-size="22" fill="#59758c">mg/dL · 공복 혈당</text><text x="600" y="540" font-size="22" fill="#35a77c">정상 범위</text>
+    <rect x="1020" y="366" width="390" height="230" rx="18" fill="#effaf5" stroke="#cdebdc"/><text x="1050" y="414" font-size="20" fill="#4e7667">추천 결과</text><text x="1050" y="480" font-size="34" font-weight="700" fill="#1d6d51">맞춤 영양 안내</text><text x="1050" y="532" font-size="22" fill="#4e7667">검진 수치별 추천 성분</text>
+  </g>
+  <text x="120" y="756" font-family="monospace" font-size="20" fill="#65849a">ASP.NET Core · JWT Bearer · EF Core · SQLite · Swagger/OpenAPI</text>
+  <text x="120" y="810" font-family="monospace" font-size="18" fill="#91aabd">실행: dotnet run --project src/HealthRecApi</text>
+</svg>

@@ -1820,9 +1820,19 @@
                     <div class="contents-page">20-21</div>
                 </div>
                 <div class="contents-row">
+                    <div class="contents-no">06</div>
+                    <div class="contents-name"><strong>Come</strong><br>WPF PC 조립 키오스크, 호환성 규칙, 실시간 3D</div>
+                    <div class="contents-page">22-23</div>
+                </div>
+                <div class="contents-row">
+                    <div class="contents-no">07</div>
+                    <div class="contents-name"><strong>MopCode</strong><br>C++ 게임 스크립팅 언어, Lexer, Interpreter</div>
+                    <div class="contents-page">24-25</div>
+                </div>
+                <div class="contents-row">
                     <div class="contents-no">END</div>
                     <div class="contents-name"><strong>Contact & Closing</strong><br>지원 동기와 다음 제작 목표</div>
-                    <div class="contents-page">22-23</div>
+                    <div class="contents-page">26-27</div>
                 </div>
             </div>
             <div class="page-num">— 03</div>
@@ -2908,7 +2918,180 @@ case Pattern:
             <div class="page-num">— 21</div>
         </div>
 
-        <!-- PAGE 22: CONTACT -->
+        <!-- PAGE 22: PROJECT 06 COME -->
+        <div class="page page-project">
+            <div class="smooth-appear">
+                <div class="proj-num">// PROJECT 06</div>
+                <div class="proj-title">Come — Custom PC Studio</div>
+                <div class="proj-tagline">부품 선택부터 호환성 검증, 3D 미리보기, 견적·배송·결제까지 연결한 PC 조립 판매 키오스크</div>
+            </div>
+            <div class="proj-body smooth-appear delay-1">
+                <div class="proj-left">
+                    <div class="meta-table">
+                        <div class="meta-cell"><div class="meta-cell-label">기술</div><div class="meta-cell-val">C# · .NET 8 · WPF · MVVM</div></div>
+                        <div class="meta-cell"><div class="meta-cell-label">개발 형태</div><div class="meta-cell-val">1인 개인 프로젝트</div></div>
+                        <div class="meta-cell"><div class="meta-cell-label">그래픽</div><div class="meta-cell-val">HelixToolkit · SharpDX · glTF</div></div>
+                        <div class="meta-cell"><div class="meta-cell-label">핵심 경험</div><div class="meta-cell-val">규칙 엔진 · 전체 구매 플로우</div></div>
+                    </div>
+                    <div class="sec-block">
+                        <div class="sec-title">제품 목표와 전체 흐름</div>
+                        <table class="info-table">
+                            <tr><td class="td-key"><span class="tag tag-feat">FLOW</span>구매 여정</td><td class="td-val"><strong>Attract → Home → Builder → Summary → Shipping → Payment → Complete</strong>를 하나의 화면 상태로 관리해 키오스크의 시작부터 주문 완료까지 구현했습니다.</td></tr>
+                            <tr><td class="td-key"><span class="tag tag-feat">3D</span>실시간 구성</td><td class="td-val">선택한 8개 부품을 glTF 모델과 연결하고 회전·확대·분해 보기로 조립 결과를 즉시 확인하도록 구성했습니다.</td></tr>
+                            <tr><td class="td-key"><span class="tag tag-feat">DATA</span>카탈로그</td><td class="td-val">로컬 카탈로그와 원격 공급자 인터페이스를 분리하고 검색·태그·정렬·추천 구성을 같은 데이터 흐름으로 통합했습니다.</td></tr>
+                        </table>
+                    </div>
+                    <div class="sec-block">
+                        <div class="sec-title">문제 해결과 결과</div>
+                        <table class="info-table">
+                            <tr><td class="td-key"><span class="tag tag-bug">문제</span>호환 오류</td><td class="td-val">소켓, RAM 규격, 폼팩터, GPU/쿨러 크기, PSU 용량을 사람이 일일이 확인하면 주문 오류가 발생할 수 있었습니다.</td></tr>
+                            <tr><td class="td-key"><span class="tag tag-fix">해결</span>규칙 평가</td><td class="td-val">선택이 바뀔 때마다 <strong>CompatibilityService</strong>가 전체 구성을 재평가하고 오류·경고·권장 전력을 ViewModel에 반영하도록 설계했습니다.</td></tr>
+                            <tr><td class="td-key"><span class="tag tag-learn">성과</span>안전한 결제</td><td class="td-val">8개 부품 선택, 호환성 통과, 가격·재고 확인을 모두 만족할 때만 결제를 허용해 잘못된 견적이 다음 단계로 넘어가지 않게 했습니다.</td></tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="proj-right">
+                    <div class="shot-slot"><img src="img/come_02.png" alt="Come 추천 구성 시작 화면"><div class="shot-label">실행 화면 01 · 조립 방식 및 추천 구성</div></div>
+                    <div class="shot-slot"><img src="img/come_01.png" alt="Come 부품 선택과 3D 미리보기 화면"><div class="shot-label">실행 화면 02 · 부품 선택 / 실시간 3D</div></div>
+                </div>
+            </div>
+            <div class="page-num">— 22</div>
+        </div>
+
+        <!-- PAGE 23: PROJECT 06 COME CODE -->
+        <div class="page page-code">
+            <div class="smooth-appear">
+                <div class="label" style="margin-bottom:0;">PROJECT 06 · CORE CODE</div>
+                <div class="code-heading" style="margin-bottom: 1vw;">부품 규격을 한 번에 검증하는 호환성 규칙 엔진</div>
+            </div>
+            <div class="code-review-block smooth-appear delay-1">
+                <div class="code-wrap">
+                    <div class="code-label">CompatibilityService.Evaluate()</div>
+                    <pre class="code-block"><code><span class="kw">public</span> CompatibilityResult <span class="fn">Evaluate</span>(IEnumerable&lt;PartItem&gt; source)
+{
+    <span class="kw">var</span> parts = source.ToDictionary(p =&gt; p.Category);
+    <span class="kw">var</span> messages = <span class="kw">new</span> List&lt;CompatibilityMessage&gt;();
+
+    parts.TryGetValue(PartCategory.Cpu, <span class="kw">out var</span> cpu);
+    parts.TryGetValue(PartCategory.Mainboard, <span class="kw">out var</span> board);
+    parts.TryGetValue(PartCategory.Power, <span class="kw">out var</span> power);
+
+    <span class="kw">if</span> (cpu <span class="kw">is not null</span> &amp;&amp; board <span class="kw">is not null</span>
+        &amp;&amp; !EqualsIgnoreCase(cpu.Socket, board.Socket))
+        messages.Add(Error(PartCategory.Cpu,
+            <span class="st">"SOCKET_MISMATCH"</span>, <span class="st">"CPU와 메인보드 소켓이 맞지 않습니다."</span>));
+
+    <span class="kw">var</span> totalPower = parts.Values
+        .Where(p =&gt; p.Category != PartCategory.Power)
+        .Sum(p =&gt; p.PowerConsumptionW);
+    <span class="kw">var</span> required = (<span class="kw">int</span>)Math.Ceiling(totalPower * <span class="nm">1.2</span> / <span class="nm">10d</span>) * <span class="nm">10</span>;
+
+    <span class="kw">if</span> (power?.Wattage &lt; required)
+        messages.Add(Error(PartCategory.Power,
+            <span class="st">"PSU_CAPACITY_LOW"</span>, $<span class="st">"{required}W 이상이 필요합니다."</span>));
+
+    <span class="kw">return new</span>(messages,
+        messages.All(m =&gt; m.Severity != CompatibilitySeverity.Error));
+}</code></pre>
+                </div>
+                <div class="learned-panel">
+                    <div class="learned-item"><div class="learned-title">01 · UI와 도메인 규칙 분리</div><p>호환성 판단을 ViewModel의 조건문으로 흩뜨리지 않고 독립 서비스로 모았습니다. UI는 결과를 표시하고 이동 가능 여부만 결정하므로 새로운 부품 규칙을 추가해도 화면 코드를 수정하지 않습니다.</p></div>
+                    <div class="learned-item"><div class="learned-title">02 · 오류와 경고를 서로 다른 정책으로</div><p>장착 불가능한 조합은 Error, 아직 파워를 선택하지 않은 상태는 Warning으로 구분했습니다. 사용자의 탐색은 막지 않되 실제 결제 직전에는 안전성을 보장하는 흐름을 만들었습니다.</p></div>
+                    <div class="learned-item"><div class="learned-title">03 · 화면 상태를 하나의 구매 여정으로</div><p>7개 화면을 enum 기반 상태와 Command로 전환하고 선택 부품·견적·배송 정보를 하나의 ViewModel에서 일관되게 갱신했습니다. 기능 묶음이 실제 사용자 흐름으로 완성되는 과정을 경험했습니다.</p></div>
+                </div>
+            </div>
+            <div class="page-num">— 23</div>
+        </div>
+
+        <!-- PAGE 24: PROJECT 07 MOPCODE -->
+        <div class="page page-project">
+            <div class="smooth-appear">
+                <div class="proj-num">// PROJECT 07</div>
+                <div class="proj-title">MopCode — Game Scripting Language</div>
+                <div class="proj-tagline">게임플레이 로직을 엔진 코드 밖에서 표현하기 위해 C++17로 직접 만든 소형 스크립팅 언어와 인터프리터</div>
+            </div>
+            <div class="proj-body smooth-appear delay-1">
+                <div class="proj-left">
+                    <div class="meta-table">
+                        <div class="meta-cell"><div class="meta-cell-label">기술</div><div class="meta-cell-val">C++17 · CMake · MSVC</div></div>
+                        <div class="meta-cell"><div class="meta-cell-label">개발 형태</div><div class="meta-cell-val">1인 언어 구현 프로젝트</div></div>
+                        <div class="meta-cell"><div class="meta-cell-label">버전</div><div class="meta-cell-val">MopCode v0.5 · .mopc</div></div>
+                        <div class="meta-cell"><div class="meta-cell-label">핵심 경험</div><div class="meta-cell-val">Lexer · Interpreter · CLI</div></div>
+                    </div>
+                    <div class="sec-block">
+                        <div class="sec-title">언어 처리 파이프라인</div>
+                        <table class="info-table">
+                            <tr><td class="td-key"><span class="tag tag-feat">CLI</span>입력 해석</td><td class="td-val"><code>mopc run</code>과 <code>mopc tokens</code> 명령을 제공하고 확장자가 없으면 <code>.mopc</code>를 자동으로 해석합니다.</td></tr>
+                            <tr><td class="td-key"><span class="tag tag-feat">LEXER</span>토큰화</td><td class="td-val">키워드, 식별자, 숫자·문자열, 연산자와 위치 정보를 스캔해 문법 오류를 line/column과 함께 진단합니다.</td></tr>
+                            <tr><td class="td-key"><span class="tag tag-feat">RUNTIME</span>실행</td><td class="td-val">함수·매개변수, <strong>if / else if / else</strong>, inclusive for loop, 산술·비교식과 중첩 블록을 재귀적으로 평가합니다.</td></tr>
+                        </table>
+                    </div>
+                    <div class="sec-block">
+                        <div class="sec-title">게임 스크립팅 확장 지점</div>
+                        <table class="info-table">
+                            <tr><td class="td-key"><span class="tag tag-fix">BUILT-IN</span>엔진 명령</td><td class="td-val"><code>Spawn</code>, <code>SetState</code>, <code>DeltaTime</code>, Random 계열을 내장 함수로 제공해 게임 엔진 API 연결 방식을 실험했습니다.</td></tr>
+                            <tr><td class="td-key"><span class="tag tag-learn">성과</span>직접 구현</td><td class="td-val">소스 로딩부터 토큰, 표현식 우선순위, 함수 환경과 실행 결과까지 <strong>언어가 실행되는 전체 흐름</strong>을 C++ 코드로 완성했습니다.</td></tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="proj-right">
+                    <div class="shot-slot"><img src="img/mopcode_01.svg" alt="MopCode 게임플레이 스크립트 실행 결과"><div class="shot-label">실행 화면 01 · GAMEPLAY SCRIPT</div></div>
+                    <div class="shot-slot"><img src="img/mopcode_02.svg" alt="MopCode 토큰 출력 결과"><div class="shot-label">실행 화면 02 · TOKEN INSPECTOR</div></div>
+                </div>
+            </div>
+            <div class="page-num">— 24</div>
+        </div>
+
+        <!-- PAGE 25: PROJECT 07 MOPCODE CODE -->
+        <div class="page page-code">
+            <div class="smooth-appear">
+                <div class="label" style="margin-bottom:0;">PROJECT 07 · CORE CODE</div>
+                <div class="code-heading" style="margin-bottom: 1vw;">내장 함수와 사용자 함수를 연결하는 인터프리터 실행 경로</div>
+            </div>
+            <div class="code-review-block smooth-appear delay-1">
+                <div class="code-wrap">
+                    <div class="code-label">Interpreter::executeCall()</div>
+                    <pre class="code-block"><code><span class="kw">bool</span> Interpreter::<span class="fn">executeCall</span>(
+    <span class="kw">const</span> std::string&amp; name,
+    <span class="kw">const</span> std::vector&lt;Value&gt;&amp; arguments,
+    <span class="kw">const</span> std::unordered_map&lt;std::string, Function&gt;&amp; functions,
+    Environment&amp; environment, Value&amp; result) <span class="kw">const</span>
+{
+    <span class="kw">if</span> (name == <span class="st">"DeltaTime"</span>) {
+        <span class="kw">if</span> (!arguments.empty()) {
+            printError(<span class="st">"DeltaTime expects 0 arguments"</span>);
+            <span class="kw">return false</span>;
+        }
+        result = Value(<span class="nm">0.016</span>);
+        <span class="kw">return true</span>;
+    }
+
+    <span class="kw">if</span> (name == <span class="st">"Spawn"</span>) {
+        <span class="kw">if</span> (arguments.size() != <span class="nm">1</span>
+            || arguments[<span class="nm">0</span>].type() != Value::Type::String) {
+            printError(<span class="st">"Spawn expects 1 string argument"</span>);
+            <span class="kw">return false</span>;
+        }
+        std::cout &lt;&lt; <span class="st">"[Game] Spawn "</span>
+                  &lt;&lt; arguments[<span class="nm">0</span>].asString() &lt;&lt; <span class="st">'\n'</span>;
+        result = Value();
+        <span class="kw">return true</span>;
+    }
+
+    <span class="cm">// built-in이 아니면 .mopc 사용자 함수 실행</span>
+    <span class="kw">return</span> executeFunction(name, arguments, functions, result);
+}</code></pre>
+                </div>
+                <div class="learned-panel">
+                    <div class="learned-item"><div class="learned-title">01 · 문법보다 먼저 실행 모델을 정의</div><p>함수 호출, 환경, 반환값, 블록 실행의 책임을 분리한 뒤 문법을 추가했습니다. 기능을 늘릴 때 파서와 런타임 중 어디를 수정해야 하는지가 명확해졌습니다.</p></div>
+                    <div class="learned-item"><div class="learned-title">02 · 우선순위 파싱과 타입 검사</div><p>Comparison → Term → Factor → Primary 단계로 표현식을 나누고 각 연산에서 Value 타입을 검증했습니다. 잘못된 연산은 즉시 오류로 반환해 실행 실패의 원인을 좁혔습니다.</p></div>
+                    <div class="learned-item"><div class="learned-title">03 · 엔진 연동을 위한 경계 설계</div><p>내장 함수 테이블이 스크립트와 호스트 엔진 사이의 경계가 됩니다. 현재 콘솔 출력 구현을 실제 Spawn·상태 전환 API로 교체할 수 있는 확장 지점을 확보했습니다.</p></div>
+                </div>
+            </div>
+            <div class="page-num">— 25</div>
+        </div>
+
+        <!-- PAGE 26: CONTACT -->
         <div class="page page-contact">
             <div class="contact-left smooth-appear">
                 <span class="label">CONTACT</span>
@@ -2951,10 +3134,10 @@ case Pattern:
                     </p>
                 </div>
             </div>
-            <div class="page-num">— 22</div>
+            <div class="page-num">— 26</div>
         </div>
 
-        <!-- PAGE 23: FINAL -->
+        <!-- PAGE 27: FINAL -->
         <div class="page page-final">
             <div class="smooth-appear">
                 <div class="final-sub">// END OF DOCUMENT</div>
@@ -2965,7 +3148,7 @@ case Pattern:
                     <span>JAY PARK</span>
                 </div>
             </div>
-            <div class="page-num">— 23</div>
+            <div class="page-num">— 27</div>
         </div>
 
     </div>

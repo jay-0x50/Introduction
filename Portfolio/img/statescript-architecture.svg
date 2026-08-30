@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560">
+<rect width="900" height="560" rx="18" fill="#292524"/><text x="48" y="66" fill="#d4a574" font-family="monospace" font-size="22">STATESCRIPT PIPELINE</text>
+<g font-family="monospace" text-anchor="middle"><rect x="45" y="150" width="170" height="110" rx="10" fill="#302c2a" stroke="#57534e"/><text x="130" y="198" fill="#5eead4" font-size="20">.ss SOURCE</text><text x="130" y="230" fill="#d6d3d1" font-size="15">EnemyAI script</text>
+<rect x="260" y="150" width="170" height="110" rx="10" fill="#302c2a" stroke="#57534e"/><text x="345" y="198" fill="#5eead4" font-size="20">LEXER</text><text x="345" y="230" fill="#d6d3d1" font-size="15">Tokens</text>
+<rect x="475" y="150" width="170" height="110" rx="10" fill="#302c2a" stroke="#57534e"/><text x="560" y="198" fill="#5eead4" font-size="20">PARSER</text><text x="560" y="230" fill="#d6d3d1" font-size="15">AST</text>
+<rect x="690" y="150" width="170" height="110" rx="10" fill="#302c2a" stroke="#57534e"/><text x="775" y="198" fill="#5eead4" font-size="20">RUNTIME</text><text x="775" y="230" fill="#d6d3d1" font-size="15">AI instance</text>
+<path d="M215 205h40m-8-10 10 10-10 10M430 205h40m-8-10 10 10-10 10M645 205h40m-8-10 10 10-10 10" fill="none" stroke="#d4a574" stroke-width="3"/>
+<rect x="180" y="355" width="540" height="90" rx="10" fill="#12100f" stroke="#3f3a38"/><text x="450" y="395" fill="#d4a574" font-size="18">HostEnvironment</text><text x="450" y="423" fill="#d6d3d1" font-size="15">MOVE_TOWARD · DAMAGE · LOG</text><path d="M775 260v48H450v47" fill="none" stroke="#5eead4" stroke-width="2" stroke-dasharray="7 7"/></g>
+</svg>
