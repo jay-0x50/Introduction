@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <meta name="description" content="게임 개발자 박재영의 이력서와 자기소개서">
     <title>박재영 | Game Developer</title>
     <link rel="stylesheet" href="styles.css">
@@ -16,6 +17,7 @@
             <div class="nav-links">
                 <a href="#resume">이력서</a>
                 <a href="#introduction">자기소개서</a>
+                <a href="projects.html">프로젝트 기술서</a>
                 <a href="Portfolio/portfolio.html">포트폴리오</a>
             </div>
         </div>
@@ -24,11 +26,14 @@
     <main class="resume-shell">
         <article class="document-sheet" id="resume" aria-labelledby="resume-name">
             <header class="resume-header">
-                <img class="profile-photo" src="photo.jpg" alt="박재영 프로필 사진">
-                <div>
+                <div class="profile-photo-frame">
+                    <img class="profile-photo" src="photo.jpg" alt="박재영 프로필 사진">
+                </div>
+                <div class="resume-header-copy">
                     <h1 id="resume-name">박재영</h1>
                     <div class="resume-role">Game Developer</div>
-                    <p class="resume-summary">C++을 중심으로 Unity와 Unreal Engine을 사용해 게임을 개발하고 있습니다. 입력과 전투 판정, 보스 상태, UI 반응처럼 플레이어가 직접 느끼는 기능을 구현해 왔습니다.</p>
+                    <p class="resume-summary">C++을 중심으로 Unity와 Unreal Engine을 사용해 게임을 개발하고 있습니다.</p>
+                    <p class="resume-summary">입력과 전투 판정, 보스 상태, UI 반응처럼 플레이어가 직접 느끼는 기능을 구현해 왔습니다.</p>
                 </div>
             </header>
 
@@ -36,13 +41,12 @@
                 <div><dt>전화</dt><dd>010-3484-0767</dd></div>
                 <div><dt>이메일</dt><dd><a href="mailto:jaerin.park.08@gmail.com">jaerin.park.08@gmail.com</a></dd></div>
                 <div><dt>GitHub</dt><dd><a href="https://github.com/jay-0x50" target="_blank" rel="noreferrer">github.com/jay-0x50</a></dd></div>
-                <div><dt>Portfolio</dt><dd><a href="Portfolio/portfolio.html">프로젝트 상세 보기</a></dd></div>
+                <div><dt>Portfolio</dt><dd><a href="https://jay-0x50.github.io/Introduction/Portfolio/portfolio.html">프로젝트 상세 보기</a></dd></div>
             </dl>
 
-            <div class="resume-columns">
-                <section class="resume-section" aria-labelledby="projects-title">
-                    <h2 class="resume-section-title" id="projects-title">Selected Projects</h2>
-
+            <div class="resume-columns resume-single-project">
+                <section class="resume-section" aria-labelledby="featured-project-title">
+                    <h2 class="resume-section-title" id="featured-project-title">Representative Project</h2>
                     <article class="project-brief">
                         <div class="project-brief-head">
                             <h3 class="project-brief-title">Exception</h3>
@@ -50,45 +54,9 @@
                         </div>
                         <div class="project-brief-tech">Unreal Engine 5 · C++ · Blueprint</div>
                         <ul class="compact-list">
-                            <li>공격, 회피, 패링, 그로기, 처형으로 이어지는 보스전 흐름을 구현했습니다.</li>
-                            <li>Sphere Sweep으로 근접 공격을 판정하고 한 번의 공격에서 같은 대상이 중복 피격되지 않도록 처리했습니다.</li>
-                            <li>HP와 Groggy 변화는 Delegate로 HUD에 전달해 전투 로직과 UI를 분리했습니다.</li>
-                        </ul>
-                    </article>
-
-                    <article class="project-brief">
-                        <div class="project-brief-head">
-                            <h3 class="project-brief-title">PyMax</h3>
-                            <span class="project-brief-meta">2025.06 · 개인 · 프로그래밍</span>
-                        </div>
-                        <div class="project-brief-tech">Python · Pygame</div>
-                        <ul class="compact-list">
-                            <li>곡 선택, 노트 데이터 로드, 4키 입력 판정, 콤보와 점수 계산까지 리듬 게임의 전체 흐름을 구현했습니다.</li>
-                            <li>음악과 입력 판정의 싱크가 어긋나는 문제를 시스템 시간 기준으로 계산하도록 수정했습니다.</li>
-                        </ul>
-                    </article>
-
-                    <article class="project-brief">
-                        <div class="project-brief-head">
-                            <h3 class="project-brief-title">SpaceOut</h3>
-                            <span class="project-brief-meta">2025.12 · 개인 · 프로그래밍</span>
-                        </div>
-                        <div class="project-brief-tech">C++ · DirectX 11 · HLSL</div>
-                        <ul class="compact-list">
-                            <li>외부 게임 엔진 없이 렌더링과 충돌 처리를 직접 구현한 슈팅 게임입니다.</li>
-                            <li>게임 루프 안에서 이동, 투사체, 적 충돌과 점수 흐름을 연결했습니다.</li>
-                        </ul>
-                    </article>
-
-                    <article class="project-brief">
-                        <div class="project-brief-head">
-                            <h3 class="project-brief-title">Magic Girl Kawaii Lovelies</h3>
-                            <span class="project-brief-meta">2025.12 · 6인 팀 · 메인 프로그래머</span>
-                        </div>
-                        <div class="project-brief-tech">C++ · JavaScript · Voice API</div>
-                        <ul class="compact-list">
-                            <li>보스 상태와 패턴, 피격 판정을 구현하고 음성 입력 결과를 전투 기믹에 연결했습니다.</li>
-                            <li>공용 로직을 나누고 브랜치 작업 범위를 정리해 팀원의 기능을 한 플레이 흐름으로 합쳤습니다.</li>
+                            <li>공격, 회피, 패링, 그로기와 처형으로 이어지는 보스 레이드 전투를 구현했습니다.</li>
+                            <li>Sphere Sweep과 공격별 피격 대상 관리로 근접 공격 판정과 중복 피격을 처리했습니다.</li>
+                            <li>HP와 Groggy 변화를 Delegate로 HUD에 전달해 전투 로직과 UI를 분리했습니다.</li>
                         </ul>
                     </article>
                 </section>
@@ -124,10 +92,18 @@
                             <span class="side-label">교내 활동</span>
                             <p class="side-value">프로젝트 개발 동아리 CodeUs 부장</p>
                         </div>
+                        <div class="side-group">
+                            <span class="side-label">2024</span>
+                            <p class="side-value">앱잼 우수상</p>
+                        </div>
+                        <div class="side-group">
+                            <span class="side-label">2024 · 2025</span>
+                            <p class="side-value">미림 해커톤 참가</p>
+                        </div>
                     </section>
 
                     <section class="resume-section" aria-labelledby="record-title">
-                        <h2 class="resume-section-title" id="record-title">License &amp; Awards</h2>
+                        <h2 class="resume-section-title" id="record-title">Certifications</h2>
                         <div class="side-group">
                             <p class="side-value">CosPro Python 2급</p>
                             <span class="side-note">YBM</span>
@@ -137,12 +113,16 @@
                             <span class="side-note">YBM</span>
                         </div>
                         <div class="side-group">
-                            <p class="side-value">앱잼 장려상</p>
-                            <span class="side-note">2024</span>
+                            <p class="side-value">ITQ 인터넷</p>
                         </div>
                         <div class="side-group">
-                            <p class="side-value">미림 해커톤 참여</p>
-                            <span class="side-note">2024 · 2025</span>
+                            <p class="side-value">ITQ 한글엑셀</p>
+                        </div>
+                        <div class="side-group">
+                            <p class="side-value">ITQ 한글파워포인트</p>
+                        </div>
+                        <div class="side-group">
+                            <p class="side-value">GTQ</p>
                         </div>
                     </section>
                 </aside>
@@ -152,34 +132,43 @@
         <article class="document-sheet" id="introduction" aria-labelledby="introduction-title">
             <header class="letter-header">
                 <span class="section-kicker">자기소개서</span>
-                <h1 id="introduction-title">기능을 만들고, 직접 플레이하며 고칩니다.</h1>
-                <p>구현한 기능이 화면과 조작에서 어떻게 느껴지는지 확인하며 게임을 개발해 왔습니다.</p>
+                <h1 id="introduction-title">플레이하면서 문제를 찾고, 코드로 고칩니다.</h1>
+                <p>입력과 판정, 전투 상태와 UI가 실제 플레이에서 어떻게 느껴지는지 확인하며 개발해 왔습니다.</p>
             </header>
 
             <section class="letter-section" aria-labelledby="motivation-title">
                 <h2 id="motivation-title">지원 동기</h2>
                 <div class="letter-copy">
-                    <p>스크래치로 처음 프로그래밍을 접한 뒤, 오렌지보드로 자동 손 소독제를 만들어 학급에 기부했습니다. 코드를 작성한 결과가 사람의 행동으로 이어지는 과정이 재미있었습니다. 이후에는 입력에 따라 캐릭터가 움직이고, 판정과 피드백이 바로 돌아오는 게임 개발에 관심을 두게 됐습니다.</p>
-                    <p>저는 게임을 플레이할 때 타격 판정이 어디에서 시작되고 UI가 어떤 값에 반응하는지 궁금해합니다. 궁금한 부분은 작은 프로토타입으로 만들어 보고, 플레이하면서 불편한 흐름을 다시 수정합니다.</p>
+                    <p>초등학교 3학년 때 스크래치로 처음 프로그래밍을 접했고, 중학교에서는 오렌지보드로 자동 손 소독제를 만들어 학급에 기부했습니다. 코드가 실제 장치의 동작으로 이어지고 누군가에게 쓰이는 경험을 하면서, 직접 만든 기능이 사용자에게 전달되는 과정에 흥미를 느꼈습니다.</p>
+                    <p>게임을 플레이할 때도 타격 판정은 어디에서 시작되는지, UI는 어떤 값에 반응하는지 궁금해합니다. 궁금한 기능은 작은 형태로 구현해 보고, 직접 플레이하며 어색한 입력과 피드백을 고치는 과정에서 게임플레이 프로그래밍을 진로로 정했습니다.</p>
                 </div>
             </section>
 
             <section class="letter-section" aria-labelledby="experience-title">
                 <h2 id="experience-title">프로젝트 경험</h2>
                 <div class="letter-copy">
-                    <p><strong>Exception</strong>에서는 플레이어 전투, 보스 HP와 Groggy, 체크포인트 저장, HUD 갱신을 C++로 구현했습니다. 근접 공격은 Sphere Sweep으로 판정하고, 같은 대상이 한 번의 공격에 여러 번 맞지 않도록 대상 목록을 따로 관리했습니다. HP가 바뀌면 Delegate를 통해 HUD가 갱신되도록 구성했습니다.</p>
-                    <p><strong>PyMax</strong>에서는 노트 데이터를 읽고 4키 입력을 판정해 콤보와 점수를 계산하는 흐름을 만들었습니다. 음악과 노트가 어긋나는 문제는 프레임 수 대신 시스템 시간을 기준으로 계산하도록 바꿨습니다. <strong>SpaceOut</strong>에서는 DirectX 11로 렌더링과 충돌 처리를 직접 구현했습니다.</p>
+                    <p><strong>Exception</strong>에서는 플레이어 전투, 보스 HP와 Groggy, 체크포인트 저장, HUD 갱신을 C++로 구현했습니다. 근접 공격은 Sphere Sweep으로 판정하고 공격별 피격 대상을 관리했으며, 수치 변화는 Delegate를 통해 HUD에 전달해 전투 로직과 화면 표시를 분리했습니다.</p>
+                    <p><strong>PyMax</strong>에서는 노트 생성부터 4키 입력 판정, 콤보와 점수 계산까지 구현하고 음악과 노트의 싱크를 시스템 시간 기준으로 맞췄습니다. <strong>SpaceOut</strong>에서는 DirectX 11로 렌더링과 충돌 처리를 직접 구성했습니다. 6인 팀 프로젝트에서는 보스 로직과 음성 입력 연동을 맡아 여러 기능을 하나의 전투 흐름으로 연결했습니다.</p>
                 </div>
             </section>
 
             <section class="letter-section" aria-labelledby="team-title">
-                <h2 id="team-title">협업과 목표</h2>
+                <h2 id="team-title">강점 &amp; 협업</h2>
                 <div class="letter-copy">
-                    <p>CodeUs 동아리 부장과 6인 팀 프로젝트의 메인 프로그래머를 맡았습니다. 제 기능을 끝낸 뒤에도 팀원의 오류를 함께 재현하고, 공용 로직이 충돌하지 않도록 작업 범위를 정리했습니다. 음성 인식 결과를 보스 전투 기믹에 연결할 때는 서버 응답과 보스 상태, UI 반응이 같은 흐름에서 작동하도록 맞췄습니다.</p>
-                    <p>새로운 코드베이스에서는 먼저 실행 흐름과 수정 범위를 확인하겠습니다. 맡은 기능을 작은 단위로 구현하고 직접 플레이해 문제를 찾으며, 팀이 이어서 고치기 쉬운 코드로 남기는 게임 개발자가 되고 싶습니다.</p>
+                    <p>CodeUs 동아리 부장과 6인 팀 프로젝트의 메인 프로그래머를 맡으며, 제 기능을 끝내는 데서 멈추지 않고 팀원의 오류를 함께 재현했습니다. 공용 로직이 겹칠 때는 작업 범위를 다시 나누고, 음성 인식 서버 응답과 보스 상태, UI 반응이 같은 흐름에서 동작하도록 연결했습니다.</p>
+                    <p>교내에 게임을 배포한 뒤에는 플레이 피드백을 직접 모아 조작과 진행 흐름을 수정했습니다. 코드 리뷰와 디버깅도 완성된 결과를 평가하는 일이 아니라, 문제의 원인과 설계 방향을 팀이 함께 맞추는 과정이라고 생각합니다.</p>
+                </div>
+            </section>
+
+            <section class="letter-section" aria-labelledby="goal-title">
+                <h2 id="goal-title">입사 후 포부</h2>
+                <div class="letter-copy">
+                    <p>새로운 코드베이스에서는 먼저 실행 흐름과 수정 범위를 이해하고, 맡은 기능을 작은 단위로 구현해 직접 플레이하며 검증하겠습니다. 수정 이유와 영향을 팀원이 이어서 파악할 수 있도록 구조와 의도를 분명하게 남기겠습니다.</p>
+                    <p>초기에는 팀의 코드 작성 방식과 게임의 플레이 루프를 빠르게 익히고, 이후에는 실제 플레이에서 발견한 문제를 바탕으로 전투·보스·상호작용 구조를 제안할 수 있는 게임플레이 프로그래머로 성장하겠습니다.</p>
                 </div>
             </section>
         </article>
+
     </main>
 </body>
 </html>

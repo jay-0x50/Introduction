@@ -6,6 +6,7 @@ C++을 중심으로 Unity와 Unreal Engine을 사용해 게임을 개발하고 �
 
 - [이력서 및 자기소개서](./index.html)
 - [게임 개발 포트폴리오](./Portfolio/portfolio.html)
+- [프로젝트 기술서](./projects.html)
 - [GitHub](https://github.com/jay-0x50)
 
 ## 대표 프로젝트

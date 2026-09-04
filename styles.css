@@ -71,6 +71,16 @@ figure {
     margin-top: 0;
 }
 
+figure {
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+}
+
+main [id] {
+    scroll-margin-top: 82px;
+}
+
 h1,
 h2 {
     margin-bottom: var(--space-2);
@@ -125,7 +135,7 @@ strong {
     top: 0;
     z-index: 20;
     border-bottom: 1px solid var(--color-border);
-    background: rgba(255, 255, 255, 0.96);
+    background: var(--color-surface);
 }
 
 .nav-inner {
@@ -156,7 +166,8 @@ strong {
     font-weight: 600;
 }
 
-.button {
+.button,
+.button:visited {
     display: inline-flex;
     min-height: 42px;
     padding: var(--space-1) var(--space-2);
@@ -173,18 +184,22 @@ strong {
     cursor: pointer;
 }
 
-.button:hover {
+.button:hover,
+.button:focus-visible {
     background: var(--color-surface);
     color: var(--color-accent);
 }
 
-.button-secondary {
+.button-secondary,
+.button-secondary:visited {
     background: var(--color-surface);
     color: var(--color-accent);
 }
 
-.button-secondary:hover {
+.button-secondary:hover,
+.button-secondary:focus-visible {
     background: var(--color-accent-soft);
+    color: var(--color-text);
 }
 
 .section-kicker {
@@ -226,19 +241,30 @@ strong {
 
 .resume-header {
     display: grid;
-    grid-template-columns: 86px 1fr;
+    grid-template-columns: 110px 1fr;
     gap: var(--space-3);
-    align-items: center;
+    align-items: stretch;
     padding-bottom: var(--space-3);
     border-bottom: 2px solid var(--color-text);
 }
 
+.profile-photo-frame {
+    position: relative;
+    min-height: 1px;
+}
+
 .profile-photo {
-    width: 86px;
-    aspect-ratio: 4 / 5;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
     border: 1px solid var(--color-border);
     object-fit: cover;
     object-position: center top;
+}
+
+.resume-header-copy {
+    min-width: 0;
 }
 
 .resume-role {
@@ -289,6 +315,20 @@ strong {
     grid-template-columns: minmax(0, 1.75fr) minmax(220px, 0.85fr);
     gap: var(--space-4);
     padding-top: var(--space-3);
+}
+
+.resume-columns.resume-single-project {
+    grid-template-columns: 1fr;
+}
+
+.resume-columns.resume-single-project > aside {
+    display: grid;
+    grid-template-columns: 1.35fr 1fr 1fr;
+    gap: var(--space-4);
+}
+
+.resume-columns.resume-single-project > aside .resume-section + .resume-section {
+    margin-top: 0;
 }
 
 .resume-section + .resume-section {
@@ -483,6 +523,16 @@ strong {
     padding: 56px;
 }
 
+.project-page-detail {
+    margin-top: var(--space-5);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--color-border);
+}
+
+.print-page-label {
+    display: none;
+}
+
 .project-lead {
     display: grid;
     grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
@@ -564,10 +614,20 @@ strong {
     margin-top: var(--space-5);
 }
 
-.detail-grid {
+.detail-grid,
+.overview-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: var(--space-4);
+}
+
+.overview-grid {
+    margin-top: var(--space-4);
+}
+
+.project-detail-heading {
+    max-width: 760px;
+    margin-bottom: var(--space-4);
 }
 
 .detail-block {
@@ -581,11 +641,16 @@ strong {
 
 .problem-solution {
     display: grid;
-    gap: var(--space-2);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-3);
+}
+
+.problem-solution.single {
+    grid-template-columns: 1fr;
 }
 
 .problem-solution article {
-    padding-left: var(--space-2);
+    padding: var(--space-2) 0 var(--space-2) var(--space-2);
     border-left: 3px solid var(--color-accent);
 }
 
@@ -593,7 +658,7 @@ strong {
     margin-bottom: var(--space-1);
 }
 
-.problem-solution p {
+.problem-solution p:last-child {
     margin-bottom: 0;
 }
 
@@ -635,8 +700,22 @@ strong {
     color: var(--color-muted);
 }
 
+.project-link {
+    color: var(--color-accent);
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+.project-footer-note {
+    justify-content: flex-start;
+}
+
 .other-projects {
     padding: var(--space-5) 0 var(--space-6);
+}
+
+.portfolio-end {
+    margin-bottom: var(--space-6);
 }
 
 .other-list {
@@ -664,20 +743,16 @@ strong {
 }
 
 .portfolio-contact {
-    margin-bottom: var(--space-6);
     padding: var(--space-5);
+    border: 1px solid var(--color-border);
     border-top: 4px solid var(--color-accent);
-    background: var(--color-text);
-    color: var(--color-surface);
+    background: var(--color-surface);
+    color: var(--color-text);
 }
 
 .portfolio-contact p {
     max-width: 58ch;
-    color: #c8ccd4;
-}
-
-.portfolio-contact a {
-    color: var(--color-surface);
+    color: var(--color-muted);
 }
 
 .site-footer {
@@ -728,8 +803,15 @@ strong {
     .portfolio-hero,
     .project-lead,
     .project-section:nth-of-type(even) .project-lead,
-    .detail-grid {
+    .detail-grid,
+    .overview-grid,
+    .problem-solution {
         grid-template-columns: 1fr;
+    }
+
+    .resume-columns.resume-single-project > aside {
+        grid-template-columns: 1fr;
+        gap: var(--space-3);
     }
 
     .project-section:nth-of-type(even) .project-lead-copy {
@@ -739,6 +821,11 @@ strong {
     .project-section,
     .project-section.featured {
         padding: var(--space-3);
+    }
+
+    .project-page-detail {
+        margin-top: var(--space-4);
+        padding-top: var(--space-3);
     }
 
     .portfolio-hero {
@@ -773,12 +860,12 @@ strong {
     }
 
     .resume-header {
-        grid-template-columns: 72px 1fr;
+        grid-template-columns: 88px 1fr;
         gap: var(--space-2);
     }
 
     .profile-photo {
-        width: 72px;
+        width: 100%;
     }
 
     .contact-list,
@@ -818,6 +905,7 @@ strong {
         grid-template-columns: 1fr;
         gap: var(--space-1);
     }
+
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -834,45 +922,367 @@ strong {
 
 @media print {
     @page {
-        size: A4;
-        margin: 0;
+        size: A4 landscape;
+        margin: 12mm 14mm;
     }
 
     :root {
-        --font-title: 32px;
-        --font-subtitle: 18px;
-        --font-body: 14px;
+        --font-title: 27px;
+        --font-subtitle: 16px;
+        --font-body: 11.5px;
+        --space-1: 5px;
+        --space-2: 10px;
+        --space-3: 16px;
+        --space-4: 22px;
+        --space-5: 30px;
+        --space-6: 42px;
     }
 
-    body.resume-site {
+    html,
+    body {
+        width: auto;
+        margin: 0;
         background: var(--color-surface);
+        color: var(--color-text);
+        font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+        line-height: 1.48;
         print-color-adjust: exact;
         -webkit-print-color-adjust: exact;
     }
 
     .site-nav,
-    .skip-link {
+    .skip-link,
+    .screen-only,
+    .site-footer {
         display: none;
     }
 
-    .resume-shell {
-        width: 210mm;
+    .js .reveal,
+    .js .reveal.is-visible,
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    a,
+    a:visited,
+    a:hover,
+    a:focus {
+        color: var(--color-text);
+    }
+
+    .button,
+    .button:visited,
+    .button:hover,
+    .button:focus-visible,
+    .button-secondary,
+    .button-secondary:visited,
+    .button-secondary:hover,
+    .button-secondary:focus-visible {
+        min-height: 0;
+        padding: 5px 9px;
+        border: 1px solid var(--color-text);
+        background: var(--color-surface);
+        color: var(--color-text);
+        outline: 0;
+    }
+
+    figure,
+    .project-meta,
+    .project-footer,
+    .detail-block,
+    .problem-solution article,
+    .other-row,
+    .portfolio-contact {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    .resume-shell,
+    .portfolio-main {
+        width: auto;
         margin: 0;
     }
 
     .document-sheet {
-        width: 210mm;
-        height: 297mm;
-        min-height: 297mm;
+        width: auto;
+        min-height: 0;
         margin: 0;
+        padding: 0;
         border: 0;
+        background: var(--color-surface);
         break-after: page;
         page-break-after: always;
-        overflow: hidden;
     }
 
     .document-sheet:last-child {
         break-after: auto;
         page-break-after: auto;
+    }
+
+    .resume-header {
+        grid-template-columns: 30mm 1fr;
+        gap: 5mm;
+        padding-bottom: 4mm;
+    }
+
+    .profile-photo {
+        width: 100%;
+    }
+
+    .contact-list {
+        padding: 3mm 0;
+        gap: 1.5mm 5mm;
+    }
+
+    .contact-list div,
+    .fact-list div {
+        grid-template-columns: 17mm 1fr;
+    }
+
+    .resume-columns {
+        grid-template-columns: minmax(0, 1.6fr) minmax(96mm, 0.95fr);
+        gap: 7mm;
+        padding-top: 4mm;
+    }
+
+    .resume-columns > aside {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 4mm 6mm;
+        align-content: start;
+    }
+
+    .resume-columns > aside .resume-section:first-child {
+        grid-column: 1 / -1;
+    }
+
+    .resume-columns > aside .resume-section + .resume-section {
+        margin-top: 0;
+    }
+
+    .resume-columns.resume-single-project {
+        grid-template-columns: 1fr;
+        gap: 4mm;
+    }
+
+    .resume-columns.resume-single-project > aside {
+        grid-template-columns: 1.35fr 1fr 1fr;
+        gap: 6mm;
+    }
+
+    .resume-columns.resume-single-project > aside .resume-section:first-child {
+        grid-column: auto;
+    }
+
+    .resume-section + .resume-section {
+        margin-top: 4mm;
+    }
+
+    .resume-section-title {
+        margin-bottom: 2.5mm;
+        padding-bottom: 1.5mm;
+    }
+
+    .project-brief {
+        padding: 2.5mm 0;
+    }
+
+    .project-brief-head,
+    .project-brief-tech {
+        margin-bottom: 1mm;
+    }
+
+    .skill-group,
+    .side-group {
+        padding: 2mm 0;
+    }
+
+    .compact-list li + li {
+        margin-top: 1mm;
+    }
+
+    .letter-header {
+        padding-bottom: 4mm;
+    }
+
+    .letter-section {
+        grid-template-columns: 27mm minmax(0, 1fr);
+        gap: 6mm;
+        padding: 4.5mm 0;
+    }
+
+    .portfolio-cover {
+        display: grid;
+        min-height: 180mm;
+        grid-template-columns: minmax(0, 1.25fr) minmax(74mm, 0.75fr);
+        align-items: center;
+        gap: 16mm;
+        padding: 0;
+        border: 0;
+    }
+
+    .portfolio-cover .hero-note {
+        max-width: none;
+    }
+
+    .print-page {
+        break-after: page;
+        page-break-after: always;
+    }
+
+    .portfolio-end.print-page {
+        break-after: auto;
+        page-break-after: auto;
+    }
+
+    .project-section,
+    .project-section.featured {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        background: var(--color-surface);
+    }
+
+    .project-page {
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+
+    .project-page-detail {
+        margin-top: 0;
+    }
+
+    .print-page-label {
+        display: block;
+        margin-bottom: 6mm;
+        padding-bottom: 2mm;
+        border-bottom: 2px solid var(--color-accent);
+        color: var(--color-muted);
+        font-weight: 700;
+    }
+
+    .project-lead,
+    .project-section:nth-of-type(even) .project-lead {
+        grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+        gap: 9mm;
+        align-items: center;
+    }
+
+    .project-section:nth-of-type(even) .project-lead-copy {
+        order: initial;
+    }
+
+    .project-title,
+    .project-tagline {
+        margin-bottom: 2mm;
+    }
+
+    .project-meta {
+        margin: 4mm 0 0;
+    }
+
+    .project-meta div {
+        padding: 2mm 3mm;
+    }
+
+    .project-hero-image img {
+        width: 100%;
+        height: 84mm;
+        aspect-ratio: auto;
+        object-fit: contain;
+    }
+
+    .project-hero-image figcaption,
+    .gallery-item figcaption {
+        padding: 1.5mm 2.5mm;
+    }
+
+    .overview-grid,
+    .detail-grid {
+        margin-top: 6mm;
+        gap: 7mm;
+    }
+
+    .detail-block {
+        padding-top: 3mm;
+    }
+
+    .project-detail-heading {
+        margin-bottom: 7mm;
+    }
+
+    .problem-solution {
+        gap: 6mm;
+    }
+
+    .problem-solution article {
+        padding: 3mm 0 3mm 4mm;
+    }
+
+    .gallery,
+    .gallery.two-up {
+        grid-template-columns: repeat(2, minmax(0, 80mm));
+        gap: 5mm;
+        margin-top: 5mm;
+        justify-content: center;
+    }
+
+    .gallery-item img {
+        width: 100%;
+        height: 45mm;
+        aspect-ratio: auto;
+        object-fit: contain;
+        background: #e7e9ed;
+    }
+
+    .project-footer {
+        margin-top: 4mm;
+        padding-top: 2mm;
+    }
+
+    .project-link,
+    .project-link:visited {
+        color: var(--color-text);
+        text-decoration: underline;
+    }
+
+    .portfolio-end {
+        display: grid;
+        grid-template-columns: minmax(0, 1.55fr) minmax(76mm, 0.75fr);
+        gap: 12mm;
+        align-items: start;
+        margin: 0;
+    }
+
+    .portfolio-end > .print-page-label {
+        grid-column: 1 / -1;
+    }
+
+    .other-projects {
+        padding: 0;
+    }
+
+    .other-row {
+        grid-template-columns: 30mm 31mm minmax(0, 1fr);
+        gap: 4mm;
+        padding: 4mm 0;
+    }
+
+    .other-row .project-link {
+        grid-column: 3;
+    }
+
+    .portfolio-contact {
+        margin-top: 0;
+        padding: 7mm;
+        background: var(--color-surface);
+        color: var(--color-text);
+    }
+
+    .portfolio-contact p {
+        color: var(--color-muted);
     }
 }
