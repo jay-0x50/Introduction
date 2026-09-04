@@ -1,27 +1,20 @@
-# 📄 박재영 - 자기소개서
+# 박재영 | Game Developer Portfolio
 
-> Game Play Developer를 꿈꾸는 박재영의 자기소개서 페이지입니다.
+C++을 중심으로 Unity와 Unreal Engine을 사용해 게임을 개발하고 있습니다.
 
-<br>
+이 저장소에는 이력서·자기소개서와 게임 개발 포트폴리오가 포함되어 있습니다. 포트폴리오에서는 프로젝트별 역할, 구현 기능, 개발 중 만난 문제와 해결 방법을 실제 게임 이미지와 함께 정리했습니다.
 
-## 🗂️ 프로젝트 소개
+- [이력서 및 자기소개서](./index.html)
+- [게임 개발 포트폴리오](./Portfolio/portfolio.html)
+- [GitHub](https://github.com/jay-0x50)
 
-게임의 동작 원리를 설계하는 것에 매력을 느껴 개발을 시작한 박재영의 이력서를 웹 페이지로 구현한 레포지토리입니다.  
-미림마이스터고 재학 중 쌓아온 프로젝트 경험과 개발 철학을 담았습니다.
+## 대표 프로젝트
 
-<br>
+- **Exception** — Unreal Engine 5와 C++로 제작 중인 보스 레이드 액션 RPG
+- **PyMax** — Python과 Pygame으로 구현한 4키 리듬 게임
+- **SpaceOut** — C++과 DirectX 11로 렌더링과 충돌을 구현한 슈팅 게임
+- **Magic Girl Kawaii Lovelies** — 보스 전투와 음성 입력을 연결한 6인 팀 프로젝트
 
-## 🛠️ 기술 스택
+## 기술
 
-| 분류 | 기술 |
-|------|------|
-| 마크업 | ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white) |
-| 스타일 | ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white) |
-
-<br>
-
-## 🔗 링크
-
-- **GitHub** : [github.com/jay-p08](https://github.com/jay-0x50)
-- **Portfolio** : [Portfolio 바로가기](https://jay-0x50.github.io/Introduction/Portfolio/portfolio.html)
-- **Contact** : s2444@e-mirim.hs.kr / 010-3484-0767
+HTML, CSS, JavaScript로 작성한 정적 사이트이며 별도 프레임워크나 빌드 과정이 필요하지 않습니다.
