@@ -8,6 +8,7 @@
     <title>박재영 | Game Developer Portfolio</title>
     <script>document.documentElement.classList.add('js');</script>
     <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="portfolio.css">
 </head>
 <body class="portfolio-site">
     <a class="skip-link" href="#main">본문으로 이동</a>
@@ -25,102 +26,120 @@
     </nav>
 
     <main class="portfolio-main" id="main">
-        <header class="portfolio-hero portfolio-cover print-page" id="top">
-            <div>
-                <span class="section-kicker">게임 개발 포트폴리오</span>
-                <h1>박재영</h1>
-                <div class="role">Game Developer</div>
-                <p>C++ / Unity / Unreal Engine을 사용해 게임을 만들고 있습니다. 입력과 판정, 전투 상태, UI 피드백이 한 흐름으로 작동하도록 구현합니다.</p>
-                <div class="hero-actions">
-                    <a class="button" href="#projects">프로젝트 보기</a>
-                    <a class="button button-secondary" href="https://jay-0x50.github.io/Introduction/">이력서 보기</a>
-                    <a class="button button-secondary" href="https://github.com/jay-0x50" target="_blank" rel="noreferrer">GitHub</a>
+        <header class="portfolio-cover print-page" id="top">
+            <div class="cover-topline"><span>GAME DEVELOPMENT PORTFOLIO</span><span>2026 · 박재영</span></div>
+            <div class="cover-layout">
+                <div class="cover-copy">
+                    <span class="section-kicker">GAME DEVELOPER</span>
+                    <h1>박재영<span class="title-dot">.</span></h1>
+                    <p class="cover-introduction">직접 플레이하며 문제를 찾고,<br>코드로 해결하는 게임 개발자입니다.</p>
+                    <p>C++을 중심으로 Unreal Engine과 Unity를 사용해 게임을 개발합니다. 입력과 전투 판정, 보스 상태, UI 반응처럼 플레이어가 직접 느끼는 기능을 구현해 왔습니다.</p>
+                    <div class="hero-actions screen-only">
+                        <a class="button" href="#projects">프로젝트 보기 ↗</a>
+                        <a class="button button-secondary" href="../index.html">이력서 · 자기소개서</a>
+                    </div>
+                </div>
+                <div class="cover-profile" aria-label="개발 경험과 활동">
+                    <span class="section-kicker">ABOUT ME</span>
+                    <section><h2>플레이어 가까이에서</h2><p>공격과 회피, 충돌 판정, HUD처럼 조작과 피드백이 만나는 게임플레이 시스템에 관심이 있습니다.</p></section>
+                    <section><h2>함께 문제를 해결하며</h2><p>CodeUs 동아리 부장과 6인 팀의 메인 프로그래머를 맡아, 팀원의 오류를 함께 재현하고 기능을 연결했습니다.</p></section>
+                    <div class="cover-education"><span>2024.03 ~ 현재</span><strong>미림마이스터고<br>뉴미디어소프트웨어과</strong></div>
                 </div>
             </div>
-            <div class="hero-note">
-                <strong>구현을 설명할 수 있는 게임을 만듭니다.</strong>
-                <span class="muted">맡은 기능, 개발 중 만난 문제, 해결 방법을 실제 화면과 함께 정리했습니다.</span>
-            </div>
+            <dl class="cover-skills" aria-label="주요 기술">
+                <div><dt>ENGINE</dt><dd>Unreal Engine · Unity</dd><dd class="skill-description">전투 상태 · 보스 패턴 · 이벤트 기반 HUD</dd></div>
+                <div><dt>LANGUAGE</dt><dd>C++ · C# · Python</dd><dd class="skill-description">게임플레이 구현 · 렌더링 · 입력 판정</dd></div>
+                <div><dt>TOOLS</dt><dd>Git · GitHub · Visual Studio</dd><dd class="skill-description">VS Code · Blender</dd></div>
+            </dl>
+            <div class="cover-contact"><a href="mailto:jaerin.park.08@gmail.com">jaerin.park.08@gmail.com</a><a href="https://github.com/jay-0x50" target="_blank" rel="noreferrer">github.com/jay-0x50 ↗</a></div>
         </header>
 
         <div class="section-heading screen-only" id="projects">
             <span class="section-kicker">프로젝트</span>
             <h2>대표 프로젝트</h2>
             <p>보스전 액션 RPG부터 리듬 게임, DirectX 슈팅, 팀 프로젝트까지 서로 다른 환경에서 게임의 핵심 기능을 구현했습니다.</p>
+            <nav class="cover-index" aria-label="포트폴리오 프로젝트 목차">
+                <a href="#exception"><span>01 / MAIN PROJECT</span><strong>Exception</strong><small>전투 · 보스 · HUD · 저장 / 4 pages</small></a>
+                <a href="#pymax"><span>02 / RHYTHM</span><strong>PyMax</strong><small>음악과 입력의 시간 기준</small></a>
+                <a href="#spaceout"><span>03 / GRAPHICS</span><strong>SpaceOut</strong><small>DirectX 렌더링과 충돌</small></a>
+                <a href="#magic-girl"><span>04 / TEAMWORK</span><strong>Magic Girl</strong><small>보스 로직과 음성 입력 연동</small></a>
+            </nav>
         </div>
 
-        <section class="project-section featured reveal" id="exception" aria-labelledby="exception-title">
-            <div class="project-page project-page-overview print-page">
-                <div class="print-page-label">프로젝트 개요 · Exception</div>
-                <div class="project-lead">
-                    <div class="project-lead-copy">
-                        <span class="section-kicker">대표 프로젝트</span>
-                        <h2 class="project-title" id="exception-title">Exception</h2>
-                        <p class="project-tagline">Unreal Engine 5 기반 액션 RPG</p>
-                        <dl class="project-meta">
-                            <div><dt>기간</dt><dd>2026.06 ~ 진행 중</dd></div>
-                            <div><dt>인원</dt><dd>개인 프로젝트</dd></div>
-                            <div><dt>역할</dt><dd>기획 · 프로그래밍</dd></div>
-                            <div><dt>기술</dt><dd>Unreal Engine 5 · C++ · Blueprint</dd></div>
-                        </dl>
-                    </div>
-                    <figure class="project-hero-image">
-                        <img src="img/TitleScreen.png" alt="Exception 타이틀 화면">
-                        <figcaption>타이틀 메뉴와 Continue를 구현한 데모 화면</figcaption>
-                    </figure>
+        <section class="project-section featured exception-case" id="exception" aria-labelledby="exception-title">
+            <article class="project-page exception-page exception-overview print-page">
+                <div class="case-running-head"><span>01 / FEATURED PROJECT</span><span>EXCEPTION · 01 / 04</span></div>
+                <div class="exception-intro">
+                    <div><span class="section-kicker">개인 프로젝트 · 기획 / 프로그래밍</span><h2 id="exception-title">Exception<span class="title-dot">.</span></h2></div>
+                    <p>손상된 Runtime을 탐험하고,<br>오류에서 태어난 보스에 맞서는<br><strong>다크 SF 판타지 액션 RPG</strong></p>
                 </div>
-                <div class="overview-grid">
-                    <section class="detail-block" aria-labelledby="exception-overview">
-                        <h3 id="exception-overview">프로젝트 설명</h3>
-                        <p>플레이어 Hendel이 무너진 Runtime의 보스들을 상대하는 액션 RPG입니다. 회피와 패링으로 공격 기회를 만들고, Groggy를 쌓아 처형하는 보스전을 제작하고 있습니다.</p>
-                    </section>
-                    <section class="detail-block" aria-labelledby="exception-work">
-                        <h3 id="exception-work">구현한 기능</h3>
-                        <ul class="compact-list">
-                            <li>공격, 회피, 패링과 처형 상태</li>
-                            <li>Sphere Sweep 근접 공격 판정</li>
-                            <li>보스 HP, Groggy와 페이즈 전환</li>
-                            <li>체크포인트 저장과 Delegate 기반 HUD</li>
-                        </ul>
-                    </section>
+                <figure class="case-image overview-image">
+                    <img src="img/exception/field-2026-09.webp" alt="Exception 최신 필드의 전경. 시안과 붉은 조명으로 구역을 구분한 구조물과 탐험 경로" width="1526" height="559">
+                    <figcaption><span>WORLD / L_Runtime_Field</span>필드 구조물과 탐험 동선 · 에디터 뷰포트</figcaption>
+                </figure>
+                <div class="exception-summary">
+                    <dl class="case-facts">
+                        <div><dt>개발 기간</dt><dd>2026.06 ~ 진행 중</dd></div>
+                        <div><dt>개발 환경</dt><dd>Unreal Engine 5.8 · C++ · Blueprint</dd></div>
+                        <div><dt>담당 범위</dt><dd>플레이어 전투, 보스, HUD, 저장·로드</dd></div>
+                    </dl>
+                    <div><h3>한 번의 도전을 완성하는 시스템</h3><p>Hendel은 회피와 패링으로 공격 기회를 만들고, Groggy를 쌓아 보스를 처형합니다. 전투부터 체크포인트 복귀까지 연결되는 플레이 흐름을 구현했습니다.</p><p class="responsibility-note">C++로 게임 규칙과 데이터를 관리하고, Blueprint로 UI 배치와 애니메이션·연출을 연결합니다.</p></div>
                 </div>
-            </div>
+                <div class="case-bottom"><span>탐험 → 체크포인트 → 보스전 → 보상 / 다음 구역</span><a href="https://github.com/jay-0x50/Exception" target="_blank" rel="noreferrer">GitHub · Exception ↗</a></div>
+            </article>
 
-            <div class="project-page project-page-detail print-page">
-                <div class="print-page-label">기술 상세 · Exception</div>
-                <div class="project-detail-heading">
-                    <span class="section-kicker">문제와 해결</span>
-                    <h2>전투 판정과 UI의 책임을 나눴습니다.</h2>
+            <article class="project-page exception-page print-page" id="exception-combat" aria-labelledby="exception-combat-title">
+                <div class="case-running-head"><span>01 / EXCEPTION</span><span>COMBAT SYSTEM · 02 / 04</span></div>
+                <header class="case-heading"><span class="section-kicker">플레이어 전투</span><h2 id="exception-combat-title">공격 한 번에는, 한 번의 유효한 판정이 남도록.</h2><p>공격 범위와 적중 이력, 입력 가능한 상태를 함께 관리합니다.</p></header>
+                <div class="combat-layout">
+                    <div class="case-copy">
+                        <section><span class="detail-index">01 / HIT DETECTION</span><h3>범위 판정 + 중복 피격 방지</h3><p>캐릭터 전방을 Sphere Sweep으로 검사합니다. 적중 대상은 공격별 TSet에 기록하고, 같은 공격에서 이미 처리한 대상은 건너뜁니다.</p></section>
+                        <section><span class="detail-index">02 / ACTION STATE</span><h3>공격·회피·패링의 상태 관리</h3><p>약공격과 강공격, 회피, 패링, 피격을 전투 상태로 구분합니다. 공격 시작 시 적중 이력을 초기화하고, 히트 윈도우에 맞춰 판정을 처리합니다.</p></section>
+                        <p class="case-result"><strong>설계 의도</strong> 판정 범위와 공격 타이밍을 조정하면서도, 한 공격에서 중복 데미지가 발생하지 않도록 했습니다.</p>
+                    </div>
+                    <div class="combat-evidence">
+                        <figure class="case-image"><img src="img/exception/runtime-2026-09.webp" alt="Exception 최신 필드 플레이 화면의 Hendel과 플레이어 HUD" width="1525" height="590"><figcaption><span>IN GAME / PLAYER</span>현재 캐릭터와 플레이어 HUD · PIE 캡처</figcaption></figure>
+                        <div class="trace-flow" aria-label="공격 판정 처리 순서"><span>공격 시작<small>적중 이력 초기화</small></span><b aria-hidden="true">→</b><span>Sphere Sweep<small>범위 내 대상 검사</small></span><b aria-hidden="true">→</b><span>TSet 확인<small>미적중 대상만 처리</small></span></div>
+                        <div class="code-evidence"><div>PlayerFight.cpp <span>중복 판정 방지 · 발췌</span></div><pre><code>if (!HitActor ||
+    DamagedActorsThisAttack.Contains(HitActorPtr))
+{
+    continue;
+}</code></pre></div>
+                    </div>
                 </div>
-                <div class="problem-solution">
-                    <article>
-                        <h3>근접 공격 판정</h3>
-                        <p><strong>문제</strong> 선 하나로 검사하면 무기가 닿아 보이는데 공격이 빗나가는 경우가 생겼습니다.</p>
-                        <p><strong>해결</strong> 캐릭터 전방을 Sphere Sweep으로 조회하고, 적중 대상은 TSet에 기록해 한 번의 공격에서 중복 데미지가 들어가지 않게 했습니다.</p>
-                        <p><strong>결과</strong> 화면에서 보이는 공격 범위와 판정 범위를 가깝게 맞췄습니다.</p>
-                    </article>
-                    <article>
-                        <h3>HUD와 전투 로직 분리</h3>
-                        <p><strong>문제</strong> HUD가 캐릭터와 보스 값을 직접 읽으면 전투 코드와 UI 코드가 서로를 알아야 했습니다.</p>
-                        <p><strong>해결</strong> HP, Stamina, Groggy가 바뀔 때 Delegate를 Broadcast하고 HUD가 이벤트를 받도록 바꿨습니다.</p>
-                        <p><strong>결과</strong> UI는 표시만 담당하고 전투 규칙은 C++ 시스템에 남겼습니다.</p>
-                    </article>
+                <div class="case-bottom"><span>C++ · Collision Query · Combat State</span><a href="https://github.com/jay-0x50/Exception/blob/main/Source/Exception/Player/Character/PlayerFight.cpp" target="_blank" rel="noreferrer">전투 코드 ↗</a></div>
+            </article>
+
+            <article class="project-page exception-page print-page" id="exception-boss" aria-labelledby="exception-boss-title">
+                <div class="case-running-head"><span>01 / EXCEPTION</span><span>BOSS ENCOUNTER · 03 / 04</span></div>
+                <header class="case-heading"><span class="section-kicker">보스 시스템</span><h2 id="exception-boss-title">보스의 상태와, 둘이 공격하는 순서를 나눠 관리합니다.</h2></header>
+                <figure class="case-image boss-image"><img src="img/exception/bosses-2026-09.webp" alt="Python 듀얼 보스 Vethara와 Aurathos의 최신 외형 및 아레나 배치" width="1526" height="559"><figcaption><span>PYTHON / DUAL BOSS</span>Vethara · Aurathos의 외형과 아레나 배치 · 에디터 뷰포트</figcaption></figure>
+                <div class="boss-details">
+                    <section><span class="detail-index">01 / SHARED STATE</span><h3>공통 보스 베이스</h3><p>HP, Groggy, 페이즈, 사망과 처형 상태를 공통 베이스에서 처리합니다. 보스별 패턴을 추가해도 상태 처리 규칙을 공유할 수 있게 했습니다.</p></section>
+                    <section><span class="detail-index">02 / TEAM COORDINATION</span><h3>다중 보스 공격 조율</h3><p>TeamCoordinator가 현재 공격자와 공격 간격을 관리합니다. 동시 공격을 제한할 때는 다른 보스의 공격이 끝난 뒤 다음 공격을 허용합니다.</p></section>
+                    <section><span class="detail-index">03 / EXECUTION</span><h3>Groggy에서 처형까지</h3><p>Groggy 누적으로 처형 기회를 열고, 제한 시간 후 회복하도록 구성했습니다. 보스 상태의 변화가 HUD와 처형 가능 표시에 연결됩니다.</p></section>
                 </div>
-                <div class="gallery two-up" aria-label="Exception 프로젝트 이미지">
-                    <figure class="gallery-item">
-                        <img src="img/BossHUD.png" alt="Exception 보스 HP와 Groggy HUD">
-                        <figcaption>보스 HP · Groggy HUD</figcaption>
-                    </figure>
-                    <figure class="gallery-item">
-                        <img src="img/BossDemo.png" alt="Exception 보스전 필드 구성">
-                        <figcaption>보스전 필드 구성</figcaption>
-                    </figure>
+                <div class="boss-state-strip"><span>전투 / 페이즈</span><b aria-hidden="true">→</b><span>Groggy 누적</span><b aria-hidden="true">→</b><strong>처형 기회</strong><b aria-hidden="true">→</b><span>처형 또는 시간 후 회복</span></div>
+                <div class="case-bottom"><span>공통 상태: BRBossBase · 팀 조율: BRBossTeamCoordinator</span><a href="https://github.com/jay-0x50/Exception/blob/main/Source/Exception/Boss/Team/BRBossTeamCoordinator.cpp" target="_blank" rel="noreferrer">보스 조율 코드 ↗</a></div>
+            </article>
+
+            <article class="project-page exception-page print-page" id="exception-ui" aria-labelledby="exception-ui-title">
+                <div class="case-running-head"><span>01 / EXCEPTION</span><span>UI &amp; PERSISTENCE · 04 / 04</span></div>
+                <header class="case-heading"><span class="section-kicker">HUD · 인벤토리 · 저장</span><h2 id="exception-ui-title">상태 변화는 화면으로, 플레이 기록은 다음 도전으로.</h2></header>
+                <div class="ui-layout">
+                    <div class="ui-screens">
+                        <figure class="case-image"><img src="img/exception/inventory-2026-09.webp" alt="Exception 최신 인벤토리의 아이템 분류 탭, 슬롯 목록과 상세 설명" width="1525" height="590"><figcaption><span>INVENTORY</span>카테고리 · 슬롯 목록 · 아이템 상세</figcaption></figure>
+                        <figure class="case-image"><img src="img/exception/pause-2026-09.webp" alt="Exception 최신 일시정지 메뉴와 경험치, 레벨업 패널" width="1525" height="590"><figcaption><span>PAUSE / PROGRESSION</span>저장 메뉴와 경험치·레벨업 패널</figcaption></figure>
+                    </div>
+                    <div class="case-copy ui-copy">
+                        <section><span class="detail-index">01 / EVENT-DRIVEN HUD</span><h3>수치 변경을 이벤트로 전달</h3><p>HP, Stamina, Groggy 변경을 Delegate로 전달합니다. 전투 시스템이 수치를 관리하고, HUD는 전달받은 값을 표시합니다.</p></section>
+                        <section><span class="detail-index">02 / INVENTORY</span><h3>데이터와 표시의 분리</h3><p>슬롯 데이터는 인벤토리 컴포넌트가 관리합니다. 아이템 추가·사용·이동에 따른 변경 이벤트를 UI에 전달하고, 슬롯 데이터를 저장 파일에 포함합니다.</p></section>
+                        <section><span class="detail-index">03 / SAVE &amp; RESTORE</span><h3>체크포인트에서 다시 시작</h3><p>SaveGameSubsystem으로 위치, 능력치, 인벤토리를 저장·복원합니다. 체크포인트 자동 저장, 메뉴 수동 저장, Continue 로드를 연결했습니다.</p></section>
+                        <div class="event-strip"><span>게임 데이터</span><b aria-hidden="true">→</b><strong>Delegate</strong><b aria-hidden="true">→</b><span>HUD</span></div>
+                    </div>
                 </div>
-                <div class="project-footer">
-                    <p>GitHub</p>
-                    <a class="project-link" href="https://github.com/jay-0x50/Exception" target="_blank" rel="noreferrer">github.com/jay-0x50/Exception →</a>
-                </div>
-            </div>
+                <div class="case-bottom"><span>2026.09 캡처 · 개발 중인 데모</span><a href="https://github.com/jay-0x50/Exception" target="_blank" rel="noreferrer">github.com/jay-0x50/Exception ↗</a></div>
+            </article>
         </section>
 
         <section class="project-section reveal" id="pymax" aria-labelledby="pymax-title">

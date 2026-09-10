@@ -773,7 +773,7 @@ strong {
     transform: translateY(0);
 }
 
-@media (max-width: 860px) {
+@media screen and (max-width: 860px) {
     :root {
         --font-title: 30px;
         --font-subtitle: 18px;
@@ -843,7 +843,7 @@ strong {
     }
 }
 
-@media (max-width: 560px) {
+@media screen and (max-width: 560px) {
     :root {
         --font-title: 28px;
         --font-subtitle: 18px;
@@ -922,7 +922,7 @@ strong {
 
 @media print {
     @page {
-        size: A4 landscape;
+        size: A4 portrait;
         margin: 12mm 14mm;
     }
 
@@ -1021,10 +1021,22 @@ strong {
         page-break-after: auto;
     }
 
+    .resume-site {
+        --font-title: 32px;
+        --font-subtitle: 17px;
+        --font-body: 14px;
+        background: var(--color-surface);
+        line-height: 1.7;
+    }
+
     .resume-header {
         grid-template-columns: 30mm 1fr;
-        gap: 5mm;
-        padding-bottom: 4mm;
+        gap: 6mm;
+        padding-bottom: 5mm;
+    }
+
+    .resume-site .profile-photo-frame {
+        min-height: 40mm;
     }
 
     .profile-photo {
@@ -1032,8 +1044,8 @@ strong {
     }
 
     .contact-list {
-        padding: 3mm 0;
-        gap: 1.5mm 5mm;
+        padding: 4mm 0;
+        gap: 2mm 5mm;
     }
 
     .contact-list div,
@@ -1064,16 +1076,49 @@ strong {
 
     .resume-columns.resume-single-project {
         grid-template-columns: 1fr;
-        gap: 4mm;
+        gap: 5mm;
     }
 
     .resume-columns.resume-single-project > aside {
-        grid-template-columns: 1.35fr 1fr 1fr;
-        gap: 6mm;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 5mm 8mm;
     }
 
     .resume-columns.resume-single-project > aside .resume-section:first-child {
-        grid-column: auto;
+        display: grid;
+        grid-column: 1 / -1;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 3mm 8mm;
+    }
+
+    .resume-columns.resume-single-project > aside .resume-section:first-child > h2 {
+        grid-column: 1 / -1;
+        margin-bottom: 0;
+    }
+
+    .resume-site .skill-group {
+        padding: 0;
+        border: 0;
+    }
+
+    .resume-site .side-group {
+        padding: 2.5mm 0;
+    }
+
+    .resume-site .side-group:first-of-type {
+        padding-top: 0;
+    }
+
+    .resume-site .side-group:last-child {
+        padding-bottom: 0;
+    }
+
+    .resume-site .project-brief {
+        padding-bottom: 0;
+    }
+
+    .resume-site .compact-list li + li {
+        margin-top: 1.5mm;
     }
 
     .resume-section + .resume-section {
@@ -1104,13 +1149,25 @@ strong {
     }
 
     .letter-header {
-        padding-bottom: 4mm;
+        padding-bottom: 5mm;
+    }
+
+    .resume-site #introduction {
+        --font-title: 28px;
+        --font-body: 14.5px;
+        line-height: 1.8;
     }
 
     .letter-section {
-        grid-template-columns: 27mm minmax(0, 1fr);
+        grid-template-columns: 25mm minmax(0, 1fr);
         gap: 6mm;
-        padding: 4.5mm 0;
+        padding: 5.5mm 0;
+        break-inside: avoid;
+    }
+
+    .letter-copy {
+        orphans: 3;
+        widows: 3;
     }
 
     .portfolio-cover {
