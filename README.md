@@ -15,16 +15,16 @@ C++·Unreal Engine과 C#·Unity로 전투, 보스, UI와 저장 흐름을 구현
 | PyMax | Python·Pygame 4키 리듬 게임 | 리소스 로딩 완료를 기준으로 재생 시작 조건 변경 |
 | SpaceOut | C++·Win32/GDI 학원 예제 기반 슈팅 실습 | 입력·충돌·출력, 스프라이트 수명 이해 |
 
-각 프로젝트는 게임 화면 → 맡은 기능 → 해결할 문제 → 구현과 결과 순서로 소개합니다. 전체 코드를 나열하는 대신 필요한 구현 위치로 연결합니다. Error Dungeon은 로컬 Linux VM 배포 경험이며 공개 서비스 운영 실적으로 소개하지 않습니다.
+각 프로젝트는 게임 화면 → 맡은 기능 → 해결할 문제 → 구현과 결과 순서로 소개합니다. 취업용은 필요한 구현 위치로 연결하고, 진학용은 핵심 코드와 단계별 해설을 함께 보여줍니다. Error Dungeon은 로컬 Linux VM 배포 경험이며 공개 서비스 운영 실적으로 소개하지 않습니다.
 
 ## 제출용 PDF
 
 - [취업 포트폴리오 · 8쪽](./output/pdf/ParkJaeyoung_Portfolio_Career.pdf)
 - [이력서·자기소개서 · 2쪽](./output/pdf/ParkJaeyoung_Resume.pdf)
 - [프로젝트 기술서](./output/pdf/ParkJaeyoung_Project_Experience.pdf)
-- [진학 포트폴리오 · 9쪽](./output/pdf/ParkJaeyoung_Portfolio_Admission.pdf)
+- [진학 포트폴리오 · 14쪽](./output/pdf/ParkJaeyoung_Portfolio_Admission.pdf)
 
-진학용은 제작 경험·배운 점·청강대 학업 계획을 담은 PDF로 제출합니다. 이력서는 취업용에서만 연결합니다.
+진학용은 청강대 게임 프로그래밍 지원에 맞춰 제작 경험·핵심 코드·설계 이유·배운 점·학업 계획을 담은 PDF로 제출합니다. 전투 판정, 상태 전환, HUD 이벤트, 콤보 입력 버퍼, 시간 계산의 코드 해설 5쪽을 포함합니다. 이력서는 취업용에서만 연결합니다.
 
 ## 공부와 면접 준비
 

@@ -1,0 +1,60 @@
+/* Code and design notes are exclusive to the admission print source. */
+.program-layout { display:grid; grid-template-columns:minmax(0,1.65fr) minmax(0,1fr); gap:28px; flex:1; min-height:0; align-items:start; }
+.program-code,.program-notes { min-width:0; }
+.program-source { margin:0 0 18px; border:1px solid #d0dce0; background:#f7f9fb; }
+.program-source>header { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 14px; border-bottom:1px solid #d0dce0; background:#eaf0f3; }
+.program-source>header strong { font:700 13px/1.4 Consolas,monospace; overflow-wrap:anywhere; }
+.program-source>header span { color:#52636b; font-size:11px; }
+.program-source pre { margin:0; padding:14px 12px 14px 0; overflow-x:auto; tab-size:4; font:13px/1.55 Consolas,'Courier New',monospace; word-break:normal; }
+.program-source code { font:inherit; color:#20323c; }
+.program-line { display:block; position:relative; padding-left:4.2em; min-height:1.55em; white-space:pre-wrap; overflow-wrap:anywhere; font:inherit; }
+.program-line:before { content:attr(data-line); position:absolute; left:0; width:3.2em; color:#7d9099; text-align:right; font:inherit; user-select:none; }
+.program-source .syntax-keyword { font:inherit; color:#654299; font-weight:600; }
+.program-source .syntax-number { font:inherit; color:#0a7387; }
+.program-source .syntax-string { font:inherit; color:#956b1a; }
+.program-source .syntax-comment { font:inherit; color:#587f64; }
+.program-gap { padding:4px 14px; border-block:1px dashed #cddbe0; color:#60777f; font-size:11px; }
+.program-source figcaption { padding:9px 14px; border-top:1px solid #d0dce0; font-size:11px; color:#53656c; line-height:1.55; }
+.program-notes .shot { margin-bottom:18px; }
+.program-notes .shot img { max-height:190px; }
+.program-notes>section { margin-top:18px; }
+.program-notes h3 { margin:5px 0 8px; font-size:18px; }
+.program-notes p { margin:0; font-size:14px; color:#52656e; line-height:1.75; }
+.program-lesson { margin-top:20px; padding:14px; border-left:3px solid var(--color-accent); background:#edf5f5; }
+.program-lesson>b { display:block; font-size:13px; margin-bottom:6px; color:var(--color-accent); }
+@media screen and (max-width:900px) {
+ .program-layout { grid-template-columns:minmax(0,1fr); }
+ .program-notes .shot img { max-height:none; }
+}
+@media screen and (max-width:640px) {
+ .program-source pre { font-size:12px; }
+ .program-source>header { padding:10px; }
+ .program-source>header strong { font-size:11px; }
+}
+@media print {
+ .program-sheet .sheet-heading h2 { font-size:27px; }
+ .program-layout { gap:7mm; }
+ .program-source { margin-bottom:3mm; }
+ .program-source>header { padding:2.5mm 3mm; }
+ .program-source>header strong { font-size:12px; }
+ .program-source>header span { font-size:10px; }
+ .program-source pre { padding:3mm 2mm 3mm 0; font-size:13px; line-height:1.48; overflow:visible; }
+ .program-line { min-height:1.48em; padding-left:3.9em; }
+ .program-line:before { width:2.9em; }
+ .program-gap { padding:1mm 3mm; font-size:10px; }
+ .program-source figcaption { padding:2mm 3mm; font-size:10px; }
+ .program-notes .shot { margin-bottom:4mm; }
+ .program-notes .shot img { max-height:33mm; }
+ .program-notes .shot figcaption { font-size:9px; }
+ .program-notes>section { margin-top:3mm; }
+ .program-notes .eyebrow { font-size:10px; }
+ .program-notes h3 { font-size:16px; margin:1mm 0 1.5mm; }
+ .program-notes p { font-size:12px; line-height:1.65; }
+ .program-lesson { margin-top:4mm; padding:3mm; }
+ .program-lesson>b { font-size:11px; margin-bottom:1.5mm; }
+}
+
+@media print {
+ #code-state .program-source pre { padding-top:2mm; padding-bottom:2mm; }
+ #code-state .program-notes .shot img { max-height:27mm; }
+}
