@@ -1,0 +1,86 @@
+/* Source excerpts and reading notes share a sheet with the game they implement. */
+.portfolio-site .logic-page { display: flex; flex-direction: column; padding: 34px 38px 28px; margin: 24px 0; background: #fff; border-top: 4px solid var(--color-accent); }
+.logic-page .case-heading { margin-bottom: 20px; }
+.logic-page .case-heading h2 { font-size: 32px; }
+.logic-page .case-heading p { font-size: 15px; }
+.logic-layout { display: grid; grid-template-columns: minmax(0, 1.62fr) minmax(0, 1fr); gap: 28px; align-items: start; }
+.logic-code, .logic-notes { min-width: 0; }
+.source-card { margin: 0 0 14px; border: 1px solid #cddbe0; background: #f6f8fa; break-inside: avoid; }
+.source-heading { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 11px 14px; border-bottom: 1px solid #cddbe0; background: #eaf0f3; }
+.source-heading strong { font: 700 13px/1.4 Consolas, monospace; overflow-wrap: anywhere; }
+.source-heading span { color: #51636b; font-size: 11px; flex-shrink: 0; }
+.source-card pre { margin: 0; padding: 14px 12px 14px 0; overflow-x: auto; tab-size: 4; font: 13px/1.5 Consolas, 'Courier New', monospace; word-break: normal; }
+.source-card code { font: inherit; color: #20323c; }
+.source-card .code-line { display: block; position: relative; padding-left: 4.8em; min-height: 1.5em; white-space: pre-wrap; overflow-wrap: anywhere; font: inherit; }
+.code-line::before { content: attr(data-line); position: absolute; left: 0; width: 3.8em; text-align: right; color: #829099; font: inherit; user-select: none; }
+.source-card .tok-key { color: #63419b; font: inherit; font-weight: 600; }
+.source-card .tok-str { color: #976016; font: inherit; }
+.source-card .tok-comment { color: #557963; font: inherit; }
+.source-card .tok-num { color: #0b6d86; font: inherit; }
+.source-caption { padding: 8px 14px; border-top: 1px solid #dbe3e7; color: #52636c; font-size: 11px; line-height: 1.5; overflow-wrap: anywhere; }
+.source-caption a { font: inherit; }
+.source-omission { padding: 4px 14px; border-top: 1px dashed #cddbe0; border-bottom: 1px dashed #cddbe0; color: #697d86; font-size: 10px; background: #eaf0f3; }
+.source-card pre + .source-omission + pre { padding-top: 8px; }
+.logic-notes .case-image { margin-bottom: 18px; }
+.logic-notes .case-image img { width: 100%; max-height: 210px; object-fit: contain; }
+.logic-notes .case-image figcaption { display: block; font-size: 11px; }
+.logic-notes section { margin-top: 18px; }
+.logic-notes h3 { margin: 5px 0 7px; font-size: 18px; }
+.logic-notes p { margin: 0; color: #51636b; font-size: 14px; line-height: 1.7; }
+.logic-notes code, .logic-summary code { font-size: .94em; color: #0c6875; overflow-wrap: anywhere; }
+.logic-notes .detail-index { font-size: 11px; }
+.logic-summary { margin-top: 14px; padding: 12px 15px; border-left: 3px solid var(--color-accent); background: #edf5f5; font-size: 13px; line-height: 1.65; }
+.logic-summary strong { margin-right: 8px; }
+.logic-flow { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 12px 0 0; }
+.logic-flow span { padding: 5px 9px; font-size: 12px; background: #eaf3f4; color: #165c66; font-weight: 600; }
+.logic-flow b { font-size: 12px; color: #788c94; }
+.logic-page .case-bottom { margin-top: 22px; }
+.logic-page .case-bottom span, .logic-page .case-bottom a { font-size: 11px; }
+.source-status { color: var(--color-muted); font-size: 12px; }
+.overview-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 18px; }
+.portfolio-site .project-section:not(.featured) { border: 0; background: transparent; padding: 0; }
+.portfolio-site .project-page-overview { padding: 36px 40px; background: white; border-top: 4px solid var(--color-accent); }
+@media screen and (max-width: 980px) {
+    .logic-layout { grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 20px; }
+    .source-card pre { font-size: 12px; }
+}
+@media screen and (max-width: 720px) {
+    .portfolio-site .logic-page, .portfolio-site .project-page-overview { padding: 24px 18px; }
+    .logic-layout { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+    .logic-page .case-heading h2 { font-size: 26px; }
+    .source-card pre { font-size: 11px; }
+    .source-heading { padding: 10px; gap: 8px; }
+    .source-heading strong { font-size: 11px; }
+    .source-heading span { font-size: 10px; }
+    .logic-notes .case-image img { max-height: none; }
+    .logic-notes p { font-size: 15px; }
+    .logic-notes { padding-top: 12px; }
+}
+@media print {
+    .portfolio-site .logic-page { height: 209.8mm; min-height: 209.8mm; padding: 12mm 14mm; margin: 0; border: 0; }
+    .logic-page .case-heading { margin-bottom: 5mm; }
+    .logic-page .case-heading h2 { font-size: 29px; line-height: 1.3; margin: 2mm 0 0; }
+    .logic-page .case-heading p { margin-top: 2mm; font-size: 14px; }
+    .logic-layout { flex: 1; min-height: 0; grid-template-columns: minmax(0, 1.62fr) minmax(0, 1fr); gap: 7mm; align-items: start; }
+    .source-card { margin-bottom: 3mm; }
+    .source-heading { padding: 2.5mm 3mm; }
+    .source-heading strong { font-size: 12px; }
+    .source-heading span { font-size: 10px; }
+    .source-card pre { padding: 3mm 2mm 3mm 0; font-size: 12px; line-height: 1.46; overflow: visible; }
+    .source-card .code-line { min-height: 1.46em; padding-left: 4.5em; }
+    .code-line::before { width: 3.5em; }
+    .source-caption { padding: 2mm 3mm; font-size: 10px; }
+    .logic-notes .case-image { margin-bottom: 4mm; }
+    .logic-notes .case-image img { max-height: 36mm; }
+    .logic-notes .case-image figcaption { padding: 2mm 3mm; font-size: 10px; }
+    .logic-notes section { margin-top: 3mm; }
+    .logic-notes h3 { font-size: 17px; margin: 1mm 0 2mm; }
+    .logic-notes p { font-size: 13px; line-height: 1.6; }
+    .logic-notes .detail-index { font-size: 10px; }
+    .logic-flow { gap: 2mm; margin-top: 3mm; }
+    .logic-flow span { padding: 1mm 2mm; font-size: 11px; }
+    .logic-summary { margin-top: 3mm; padding: 3mm 4mm; font-size: 12px; }
+    .logic-page .case-bottom { margin-top: 4mm; padding-top: 2.5mm; }
+    .logic-page .case-bottom span, .logic-page .case-bottom a { font-size: 10px; }
+    .portfolio-site .project-page-overview { padding: 12mm 14mm; border: 0; }
+}

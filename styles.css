@@ -1343,3 +1343,10 @@ strong {
         color: var(--color-muted);
     }
 }
+
+/* Keep the expanded personal introduction readable on one A4 sheet. */
+@media print {
+    .resume-site #introduction .letter-section { grid-template-columns: 22mm minmax(0, 1fr); gap: 4mm; padding: 3mm 0; }
+    .resume-site #introduction .letter-copy p { margin-bottom: 3mm; line-height: 1.6; }
+    .resume-site #introduction .letter-copy p:last-child { margin-bottom: 0; }
+}

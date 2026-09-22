@@ -296,3 +296,35 @@
     .portfolio-contact .hero-actions { grid-column: 2; grid-row: 1 / span 3; flex-direction: column; justify-content: center; gap: 3mm; }
     .portfolio-contact .button { padding: 3mm 4mm; font-size: 14px; text-align: center; }
 }
+
+/* Admissions: reflection and study plans share one printable sheet. */
+.learning-page { margin: 0 0 40px; padding: 36px 40px; background: #fff; border-top: 4px solid var(--color-accent); scroll-margin-top: 90px; }
+.learning-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 32px; }
+.learning-grid > section { padding-top: 18px; border-top: 1px solid var(--color-border); }
+.learning-grid h3 { margin: 6px 0 10px; font-size: 20px; }
+.learning-grid p, .study-grid p { margin: 0; color: var(--color-muted); line-height: 1.8; }
+.study-plan { margin-top: 28px; padding: 24px; background: var(--color-accent-soft); }
+.study-plan > h3 { margin: 0 0 18px; font-size: 22px; }
+.study-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.study-grid h4 { margin: 0 0 10px; font-size: 16px; }
+@media screen and (max-width: 720px) {
+    .learning-page { padding: 24px 18px; }
+    .learning-grid, .study-grid { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+    .learning-page .case-heading h2 { font-size: 26px; }
+    .study-plan { padding: 20px; }
+}
+@media print {
+    .portfolio-site .learning-page { height: 209.8mm; margin: 0; border: 0; display: flex; flex-direction: column; }
+    .learning-page .case-heading { margin-bottom: 6mm; }
+    .learning-page .case-heading h2 { font-size: 30px; }
+    .learning-page .case-heading p { font-size: 14px; }
+    .learning-grid { gap: 6mm 10mm; flex: 1; }
+    .learning-grid > section { padding-top: 4mm; }
+    .learning-grid h3 { font-size: 19px; margin: 2mm 0; }
+    .learning-grid p { font-size: 14px; line-height: 1.7; }
+    .study-plan { margin-top: 6mm; padding: 6mm; }
+    .study-plan > h3 { font-size: 21px; margin-bottom: 4mm; }
+    .study-grid { gap: 6mm; }
+    .study-grid h4 { font-size: 15px; margin-bottom: 2mm; }
+    .study-grid p { font-size: 13px; line-height: 1.7; }
+}

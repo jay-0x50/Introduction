@@ -1,0 +1,6 @@
+# Publish the career site and PDFs; admission HTML is a local print source.
+exclude:
+  - tmp
+  - .vscode
+  - Portfolio/portfolio_sc.html
+  - index_sc.html

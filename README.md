@@ -1,36 +1,47 @@
-# 박재영 | Game Developer Portfolio
+# 박재영 | 게임 클라이언트 · 게임플레이 프로그래머
 
-C++을 중심으로 Unity와 Unreal Engine을 사용해 게임을 개발하고 있습니다.
+C++·Unreal Engine과 C#·Unity로 전투, 보스, UI와 저장 흐름을 구현합니다.
 
-이 저장소에는 이력서·자기소개서와 게임 개발 포트폴리오가 포함되어 있습니다. 포트폴리오에서는 프로젝트별 역할, 구현 기능, 개발 중 만난 문제와 해결 방법을 실제 게임 이미지와 함께 정리했습니다.
+**[취업 포트폴리오 보기](https://jay-0x50.github.io/Introduction/)** · [이력서·자기소개서](https://jay-0x50.github.io/Introduction/index_com.html) · [프로젝트 기술서](./projects.html)
 
-- [이력서 및 자기소개서](https://jay-0x50.github.io/Introduction/)
-- [게임 개발 포트폴리오](https://jay-0x50.github.io/Introduction/Portfolio/portfolio.html)
-- [프로젝트 기술서](https://jay-0x50.github.io/Introduction/projects.html)
-- [포트폴리오 PDF](https://jay-0x50.github.io/Introduction/output/pdf/ParkJaeyoung_Portfolio.pdf)
-- [GitHub](https://github.com/jay-0x50)
+[![Exception 플레이 화면](./Portfolio/img/exception/runtime-2026-09.webp)](https://jay-0x50.github.io/Introduction/)
 
-## 대표 프로젝트
+## 대표 작업
 
-- **Exception** — Unreal Engine 5와 C++로 제작 중인 보스 레이드 액션 RPG
-- **PyMax** — Python과 Pygame으로 구현한 4키 리듬 게임
-- **SpaceOut** — C++과 DirectX 11로 렌더링과 충돌을 구현한 슈팅 게임
-- **Magic Girl Kawaii Lovelies** — 보스 전투와 음성 입력을 연결한 6인 팀 프로젝트
+| 프로젝트 | 만든 것 | 설명할 경험 |
+| --- | --- | --- |
+| Exception | Unreal Engine 액션 RPG의 전투·보스·HUD·저장 | 공격별 중복 피해 방지, 보스 공격 조율, 상태 연결 |
+| Error Dungeon | Unity 전투·재도전 흐름, WebGL 로컬 VM 배포 | 콤보 입력 버퍼, 체크포인트 복구, 캐시·502 점검 |
+| PyMax | Python·Pygame 4키 리듬 게임 | 리소스 로딩 완료를 기준으로 재생 시작 조건 변경 |
+| SpaceOut | C++·Win32/GDI 학원 예제 기반 슈팅 실습 | 입력·충돌·출력, 스프라이트 수명 이해 |
 
-## 기술
+각 프로젝트는 게임 화면 → 맡은 기능 → 해결할 문제 → 구현과 결과 순서로 소개합니다. 전체 코드를 나열하는 대신 필요한 구현 위치로 연결합니다. Error Dungeon은 로컬 Linux VM 배포 경험이며 공개 서비스 운영 실적으로 소개하지 않습니다.
 
-HTML, CSS, JavaScript로 작성한 정적 사이트이며 별도 프레임워크나 빌드 과정이 필요하지 않습니다.
+## 제출용 PDF
 
-## 인쇄 / PDF
+- [취업 포트폴리오 · 8쪽](./output/pdf/ParkJaeyoung_Portfolio_Career.pdf)
+- [이력서·자기소개서 · 2쪽](./output/pdf/ParkJaeyoung_Resume.pdf)
+- [프로젝트 기술서](./output/pdf/ParkJaeyoung_Project_Experience.pdf)
+- [진학 포트폴리오 · 9쪽](./output/pdf/ParkJaeyoung_Portfolio_Admission.pdf)
 
-- `index.html`: 이력서와 자기소개서, A4 세로 각 1장
-- `projects.html`: 프로젝트 기술서, A4 세로
-- `Portfolio/portfolio.html`: A4 가로 12장. Exception 상세는 2~5페이지의 4장 구성입니다.
+진학용은 제작 경험·배운 점·청강대 학업 계획을 담은 PDF로 제출합니다. 이력서는 취업용에서만 연결합니다.
 
-각 문서를 브라우저에서 열고 `Ctrl + P`로 인쇄합니다. 가로 설정은 `Portfolio/portfolio.css`에만 두고, 공통 `styles.css`의 기본 인쇄 방향은 세로로 유지합니다. 모바일 화면용 미디어 쿼리는 화면에만 적용합니다.
+## 공부와 면접 준비
 
-포트폴리오 인쇄에서는 머리글과 쪽번호 바닥글을 숨깁니다. 용지 여백 대신 페이지 내부에 여백을 두어 브라우저의 날짜·주소 머리글과 바닥글도 표시되지 않도록 했습니다. 12장 모두 같은 용지 영역에 맞춰 배치합니다. 프로젝트 개요는 큰 이미지와 기능 카드로, 기술 상세는 문제·해결·결과와 확대된 이미지로 구성하고 마지막 장에는 프로젝트 카드와 연락처를 배치합니다.
+[게임 개발 기초·학습 자료·면접 질문 정리](./docs/game-developer-study-notes.md)
 
-갱신한 PDF는 `output/pdf/`에 있습니다. 최신 Exception 스크린샷의 출처는 [이미지 설명](./Portfolio/img/exception/README.md)에 기록했습니다.
+사용자가 공유한 [위키독스 포트폴리오 전략](https://wikidocs.net/355785)과 관련 장을 참고해 정리했습니다. 원문 요약과 프로젝트에 적용할 연습을 구분했습니다.
 
-포트폴리오 구성 참고: [Donny Akers](https://www.donakers.dev/), [Lucas Kinoo](https://lucaskinoo.dev/), [Maya Hill](https://mayahill.github.io/). 대표 프로젝트를 우선 배치하고, 담당 범위와 시스템별 구현을 실제 화면 옆에서 설명하는 구성을 참고했습니다. 다른 개발자의 이미지나 문구는 사용하지 않았습니다.
+## 실행·배포
+
+HTML·CSS 정적 사이트이며 별도 빌드가 필요하지 않습니다. `index.html`을 열면 취업용 포트폴리오로 이동합니다. `python -m http.server 8000`으로 로컬 미리보기도 가능합니다.
+
+GitHub Pages는 `main` 브랜치의 루트를 사용합니다. 첫 화면과 이전 `Portfolio/portfolio.html` 주소는 취업용으로 연결합니다. `_config.yml`에서 진학용 HTML 원본과 검수용 폴더는 배포 대상에서 제외합니다. 진학용 HTML은 PDF 제작을 위한 저장소 원본으로 유지합니다.
+
+브라우저 인쇄에서 포트폴리오는 A4 가로, 이력서·기술서는 A4 세로로 출력됩니다. 이전 공용 이름의 `ParkJaeyoung_Portfolio.pdf`도 취업용 최신본으로 맞춥니다.
+
+## 구현·이미지 기록
+
+- [설명 근거와 작성 범위](./docs/portfolio-evidence.md)
+- [구현 위치](./Portfolio/CODE_SOURCES.md) · [구현 데이터](./Portfolio/code-excerpts.json)
+- [Exception 이미지](./Portfolio/img/exception/README.md) · [Error Dungeon 이미지](./Portfolio/img/error-dungeon/README.md)
