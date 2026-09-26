@@ -1,0 +1,128 @@
+/* Cover, student profile and contents share the same three-page opening. */
+.front-sheet { min-height:780px; }
+.showcase-site .title-sheet { position:relative; display:flex; gap:32px; overflow:hidden; padding:42px 48px 30px; background:#f6faf9; border-top:0; }
+.title-topline { display:flex; justify-content:space-between; gap:20px; align-items:center; }
+.title-edition { color:var(--color-muted); font-size:12px; letter-spacing:.14em; }
+.title-body { position:relative; display:grid; grid-template-columns:1.25fr 1fr; align-items:center; gap:32px; flex:1; }
+.title-copy { position:relative; z-index:1; }
+.title-sheet h1 { margin:0 0 28px; font-size:clamp(66px,7.2vw,98px); font-weight:800; line-height:1.18; letter-spacing:-.065em; }
+.title-sheet h1 span { display:block; color:var(--color-accent); font:inherit; }
+.title-subtitle { margin:0; color:var(--color-muted); font-size:19px; line-height:1.8; }
+.title-author { margin-top:48px; }
+.title-author strong { display:block; font-size:26px; letter-spacing:.08em; }
+.title-author p { margin:8px 0 0; color:var(--color-muted); font-size:14px; }
+.title-sheet .hero-actions { margin-top:30px; }
+.title-sheet .cover-bottom { margin-top:auto; align-items:center; }
+.level-art { position:relative; width:100%; aspect-ratio:1; max-width:430px; justify-self:end; background-image:linear-gradient(#dceae7 1px,transparent 1px),linear-gradient(90deg,#dceae7 1px,transparent 1px); background-size:12.5% 12.5%; }
+.level-art::before { content:""; position:absolute; inset:0; border:1px solid #dceae7; }
+.level-block { position:absolute; width:25%; height:25%; border:1px solid #78b8b3; background:#e0efeb; }
+.level-block:nth-child(1) { left:12.5%; bottom:12.5%; }
+.level-block:nth-child(2) { left:37.5%; bottom:37.5%; background:#a7d2c9; }
+.level-block:nth-child(3) { left:62.5%; bottom:62.5%; background:#087e89; border-color:#087e89; }
+.level-block:nth-child(3)::after { content:"+"; position:absolute; inset:0; display:grid; place-items:center; color:white; font:300 58px/1 monospace; }
+.level-caption { position:absolute; right:0; bottom:-32px; color:var(--color-muted); font:12px/1.5 Consolas,monospace; letter-spacing:.12em; }
+.profile-layout { display:grid; grid-template-columns:.9fr 1.8fr; gap:36px; flex:1; }
+.profile-identity { padding:30px; background:var(--color-accent-soft); display:flex; flex-direction:column; }
+.profile-identity h3 { margin:10px 0 8px; font-size:40px; }
+.profile-identity>p { margin:0 0 28px; color:var(--color-muted); font-size:15px; }
+.profile-basics { margin:0; }
+.profile-basics>div+div { margin-top:22px; }
+.profile-basics dt { margin-bottom:6px; color:var(--color-accent); font-size:12px; font-weight:700; }
+.profile-basics dd { margin:0; font-size:15px; }
+.profile-basics small { display:block; margin-top:5px; color:var(--color-muted); font-size:12px; }
+.profile-details { display:grid; grid-template-columns:1fr 1fr; gap:28px 32px; }
+.profile-group { border-top:1px solid var(--color-border); padding-top:16px; }
+.profile-group h3 { margin:6px 0 16px; font-size:20px; }
+.profile-list { padding:0; margin:0; list-style:none; }
+.profile-list li+li { margin-top:16px; }
+.profile-list strong { display:block; font-size:15px; font-weight:650; }
+.profile-list span { display:block; margin-top:3px; color:var(--color-muted); font-size:13px; line-height:1.7; }
+.profile-contact { display:flex; flex-wrap:wrap; gap:12px 30px; border-top:1px solid var(--color-border); padding-top:18px; font-size:13px; }
+.profile-contact b { margin-right:10px; color:var(--color-muted); font-size:11px; font-weight:600; }
+.contents-heading { display:flex; justify-content:space-between; gap:24px; align-items:end; }
+.contents-count { color:var(--color-accent); white-space:nowrap; font:14px/1.5 Consolas,monospace; }
+.contents-columns { display:grid; grid-template-columns:1fr 1fr; gap:48px; flex:1; }
+.contents-column { display:flex; flex-direction:column; gap:26px; }
+.contents-group { border-top:2px solid var(--color-border); padding-top:14px; }
+.contents-group h3 { margin:0 0 8px; font-size:20px; }
+.contents-group h3 small { margin-right:10px; color:var(--color-accent); font:12px/1.5 Consolas,monospace; }
+.contents-list { padding:0; margin:0; list-style:none; }
+.contents-list a { display:flex; justify-content:space-between; align-items:baseline; gap:18px; padding:8px 0; text-decoration:none; border-bottom:1px solid #edf1f2; font-size:14px; }
+.contents-list a:hover { color:var(--color-accent); background:var(--color-accent-soft); }
+.contents-list a>span:first-child { font-size:inherit; }
+.contents-list .toc-page { color:var(--color-accent); font:14px/1.5 Consolas,monospace; }
+.sheet-footer .page-number { margin-left:auto; color:var(--color-accent); white-space:nowrap; font:11px/1.5 Consolas,monospace; }
+.cover-bottom .page-number { font:11px/1.5 Consolas,monospace; }
+@media screen and (max-width:960px) {
+    .title-sheet h1 { font-size:66px; }
+    .title-sheet .title-subtitle { font-size:16px; }
+    .title-sheet .title-author p { font-size:13px; }
+    .profile-layout { gap:24px; grid-template-columns:1fr 1.8fr; }
+    .profile-identity { padding:22px; }
+    .profile-details { gap:22px; }
+    .contents-columns { gap:28px; }
+}
+@media screen and (max-width:720px) {
+    .front-sheet { min-height:0; }
+    .showcase-site .title-sheet { min-height:750px; padding:28px 24px; }
+    .title-body { grid-template-columns:1fr; gap:46px; }
+    .title-sheet h1 { font-size:clamp(54px,10vw,72px); }
+    .title-topline { align-items:start; }
+    .title-topline .eyebrow { max-width:180px; }
+    .title-edition { font-size:10px; }
+    .title-author { margin-top:26px; }
+    .level-art { width:180px; margin-bottom:36px; }
+    .level-block:nth-child(3)::after { font-size:32px; }
+    .level-caption { font-size:10px; }
+    .profile-layout,.contents-columns { grid-template-columns:1fr; }
+    .profile-identity h3 { font-size:32px; }
+    .profile-basics { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+    .profile-basics>div+div { margin-top:0; }
+    .profile-contact { flex-direction:column; font-size:12px; overflow-wrap:anywhere; }
+    .contents-heading { align-items:center; }
+    .contents-count { font-size:11px; }
+    .contents-columns,.contents-column { gap:24px; }
+}
+@media screen and (max-width:420px) {
+    .profile-details,.profile-basics { grid-template-columns:1fr; }
+    .title-sheet .cover-bottom { gap:10px; }
+    .title-sheet .cover-bottom a { font-size:11px; }
+}
+@media print {
+    .showcase-site .title-sheet { display:flex; padding:12mm 14mm 10mm; background:#f6faf9!important; gap:8mm; }
+    .title-topline { gap:6mm; }
+    .title-edition { font-size:11px; }
+    .title-body { grid-template-columns:1.2fr 1fr; gap:10mm; }
+    .title-sheet h1 { margin-bottom:7mm; font-size:86px; }
+    .title-subtitle { font-size:17px; }
+    .title-author { margin-top:12mm; }
+    .title-author strong { font-size:25px; }
+    .title-author p { margin-top:2mm; font-size:13px; }
+    .level-art { width:98mm; }
+    .level-caption { bottom:-8mm; font-size:11px; }
+    .title-sheet .cover-bottom { padding-top:4mm; font-size:10px; }
+    .profile-layout { grid-template-columns:.85fr 1.85fr; gap:9mm; }
+    .profile-identity { padding:7mm; }
+    .profile-identity h3 { font-size:35px; margin:3mm 0 2mm; }
+    .profile-identity>p { font-size:13px; margin-bottom:8mm; }
+    .profile-basics>div+div { margin-top:7mm; }
+    .profile-basics dt { font-size:11px; margin-bottom:2mm; }
+    .profile-basics dd { font-size:14px; }
+    .profile-basics small { font-size:11px; }
+    .profile-details { gap:6mm 8mm; }
+    .profile-group { padding-top:4mm; }
+    .profile-group h3 { font-size:18px; margin:1mm 0 4mm; }
+    .profile-list li+li { margin-top:4mm; }
+    .profile-list strong { font-size:13px; }
+    .profile-list span { font-size:12px; line-height:1.6; }
+    .profile-contact { padding-top:4mm; gap:8mm; font-size:11px; }
+    .profile-contact b { font-size:10px; }
+    .contents-count { font-size:12px; }
+    .contents-columns { gap:14mm; }
+    .contents-column { gap:7mm; }
+    .contents-group { padding-top:4mm; }
+    .contents-group h3 { font-size:20px; margin-bottom:2mm; }
+    .contents-list a { padding:2.2mm 0; font-size:14px; }
+    .contents-list .toc-page { font-size:13px; }
+    .sheet-footer .page-number,.cover-bottom .page-number { font-size:10px; }
+}
